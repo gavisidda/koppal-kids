@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Koppal - Kids - Learn English with Kannada 🌟</title>
+<title>Koppal - Kids | Learn English with Kannada 🌟</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -72,6 +72,7 @@
   .cat-btn[data-cat="Flowers"].active    { background: #E040FB; }
   .cat-btn[data-cat="Festivals"].active  { background: #FF9800; }
   .cat-btn[data-cat="Numbers"].active    { background: #F72585; }
+  .cat-btn[data-cat="Transport"].active  { background: #3D5A80; }
 
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
@@ -114,6 +115,7 @@
   .sent-cat-btn[data-scat="Birds & Flowers"].active   { background: #E040FB; }
   .sent-cat-btn[data-scat="Festivals 🎉"].active      { background: #FF9800; }
   .sent-cat-btn[data-scat="Numbers 🔢"].active        { background: #F72585; }
+  .sent-cat-btn[data-scat="Transport 🚗"].active      { background: #3D5A80; }
 
   .sent-list { display: flex; flex-direction: column; gap: 14px; }
   .sent-card {
@@ -153,7 +155,7 @@
 <body>
 
 <header>
-  <h1>🌟 Koppal Kids! 🌟</h1>
+  <h1>🌟 Koppal - Kids 🌟</h1>
   <p>Learn English with Kannada &nbsp;· &nbsp;ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! &nbsp;Click on any card!</p>
 </header>
 
@@ -410,6 +412,24 @@ const words = {
     { en:"Fifty",      kn:"ಐವತ್ತು",       pronun:"ಫಿಫ್ಟಿ",           emoji:"5️⃣0️⃣" },
     { en:"Hundred",    kn:"ನೂರು",         pronun:"ಹಂಡ್ರೆಡ್",          emoji:"💯" },
   ],
+  Transport: [
+    { en:"Car",         kn:"ಕಾರು",          pronun:"ಕಾರ್",           emoji:"🚗" },
+    { en:"Bus",         kn:"ಬಸ್ಸು",          pronun:"ಬಸ್",            emoji:"🚌" },
+    { en:"Train",       kn:"ರೈಲು",           pronun:"ಟ್ರೇನ್",          emoji:"🚂" },
+    { en:"Truck",       kn:"ಟ್ರಕ್",           pronun:"ಟ್ರಕ್",           emoji:"🚚" },
+    { en:"Auto",        kn:"ಆಟೋ ರಿಕ್ಷಾ",     pronun:"ಆಟೋ",            emoji:"🛺" },
+    { en:"Bicycle",     kn:"ಸೈಕಲ್",          pronun:"ಸೈಕಲ್",          emoji:"🚲" },
+    { en:"Bike",        kn:"ಮೋಟರ್ ಬೈಕ್",     pronun:"ಬೈಕ್",           emoji:"🏍️" },
+    { en:"Aeroplane",   kn:"ವಿಮಾನ",          pronun:"ಏರ್‌ಪ್ಲೇನ್",      emoji:"✈️" },
+    { en:"Ship",        kn:"ಹಡಗು",           pronun:"ಶಿಪ್",           emoji:"🚢" },
+    { en:"Boat",        kn:"ದೋಣಿ",           pronun:"ಬೋಟ್",           emoji:"⛵" },
+    { en:"Helicopter",  kn:"ಹೆಲಿಕಾಪ್ಟರ್",    pronun:"ಹೆಲಿಕಾಪ್ಟರ್",    emoji:"🚁" },
+    { en:"Ambulance",   kn:"ಆಂಬುಲೆನ್ಸ್",     pronun:"ಆಂಬುಲೆನ್ಸ್",     emoji:"🚑" },
+    { en:"Fire Engine",  kn:"ಅಗ್ನಿಶಾಮಕ ವಾಹನ", pronun:"ಫೈರ್ ಇಂಜಿನ್",   emoji:"🚒" },
+    { en:"Police Car",  kn:"ಪೊಲೀಸ್ ಕಾರು",    pronun:"ಪೊಲೀಸ್ ಕಾರ್",   emoji:"🚓" },
+    { en:"Tractor",     kn:"ಟ್ರ್ಯಾಕ್ಟರ್",     pronun:"ಟ್ರ್ಯಾಕ್ಟರ್",     emoji:"🚜" },
+    { en:"Rocket",      kn:"ರಾಕೆಟ್",          pronun:"ರಾಕೆಟ್",          emoji:"🚀" },
+  ],
   Festivals: [
     { en:"Sankranthi",         kn:"ಸಂಕ್ರಾಂತಿ",        pronun:"ಸಂಕ್ರಾಂತಿ",          emoji:"🪁" },
     { en:"Ganesha Festival",   kn:"ಗಣೇಶ ಚತುರ್ಥಿ",    pronun:"ಗಣೇಶ ಫೆಸ್ಟಿವಲ್",    emoji:"🐘" },
@@ -429,7 +449,7 @@ const words = {
 const catColors = {
   Animals:"#6BCB77", Fruits:"#FF6B35", Vegetables:"#2EC4B6",
   Colors:"#C77DFF", Body:"#FF85A1", Home:"#4D96FF", Food:"#FF4D6D",
-  Birds:"#00B4D8", Flowers:"#E040FB", Festivals:"#FF9800", Numbers:"#F72585"
+  Birds:"#00B4D8", Flowers:"#E040FB", Festivals:"#FF9800", Numbers:"#F72585", Transport:"#3D5A80"
 };
 
 const sentences = {
@@ -503,6 +523,16 @@ const sentences = {
     { en:"We wear new clothes on festivals.", kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಹೊಸ ಬಟ್ಟೆ ತೊಡುತ್ತೇವೆ.", pronun:"hab-ba-da di-na naa-vu ho-sa bat-te to-dut-te-ve",emoji:"👗" },
     { en:"Festivals bring joy and happiness.",kn:"ಹಬ್ಬಗಳು ಸಂತೋಷ ತರುತ್ತವೆ.",       pronun:"hab-ba-ga-lu san-to-sha ta-rut-ta-ve",       emoji:"🎉" },
   ],
+  "Transport 🚗": [
+    { en:"I go to school by bus.",     kn:"ನಾನು ಬಸ್ಸಿನಲ್ಲಿ ಶಾಲೆಗೆ ಹೋಗುತ್ತೇನೆ.",    pronun:"ಐ ಗೋ ಟು ಸ್ಕೂಲ್ ಬೈ ಬಸ್",       emoji:"🚌" },
+    { en:"This is a red car.",         kn:"ಇದು ಒಂದು ಕೆಂಪು ಕಾರು.",               pronun:"ದಿಸ್ ಇಸ್ ಎ ರೆಡ್ ಕಾರ್",         emoji:"🚗" },
+    { en:"The train is very fast.",    kn:"ರೈಲು ತುಂಬಾ ವೇಗವಾಗಿ ಹೋಗುತ್ತದೆ.",       pronun:"ದ ಟ್ರೇನ್ ಇಸ್ ವೆರಿ ಫಾಸ್ಟ್",      emoji:"🚂" },
+    { en:"I ride a bicycle.",          kn:"ನಾನು ಸೈಕಲ್ ತುಳಿಯುತ್ತೇನೆ.",           pronun:"ಐ ರೈಡ್ ಎ ಸೈಕಲ್",             emoji:"🚲" },
+    { en:"The aeroplane flies high.",  kn:"ವಿಮಾನ ಆಕಾಶದಲ್ಲಿ ಹಾರುತ್ತದೆ.",         pronun:"ದ ಏರ್‌ಪ್ಲೇನ್ ಫ್ಲೈಸ್ ಹೈ",       emoji:"✈️" },
+    { en:"The truck carries goods.",   kn:"ಟ್ರಕ್ ಸಾಮಾನು ಸಾಗಿಸುತ್ತದೆ.",           pronun:"ದ ಟ್ರಕ್ ಕ್ಯಾರೀಸ್ ಗುಡ್ಸ್",       emoji:"🚚" },
+    { en:"We travel by boat.",         kn:"ನಾವು ದೋಣಿಯಲ್ಲಿ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",     pronun:"ವಿ ಟ್ರ್ಯಾವಲ್ ಬೈ ಬೋಟ್",         emoji:"⛵" },
+    { en:"The ambulance helps sick people.", kn:"ಆಂಬುಲೆನ್ಸ್ ರೋಗಿಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.", pronun:"ದ ಆಂಬುಲೆನ್ಸ್ ಹೆಲ್ಪ್ಸ್ ಸಿಕ್ ಪೀಪಲ್", emoji:"🚑" },
+  ],
   "Numbers 🔢": [
     { en:"I have one nose.",      kn:"ನನಗೆ ಒಂದು ಮೂಗಿದೆ.",              pronun:"na-na-ge on-du moo-gi-de",               emoji:"1️⃣" },
     { en:"I have two eyes.",      kn:"ನನಗೆ ಎರಡು ಕಣ್ಣುಗಳಿವೆ.",           pronun:"na-na-ge e-ra-du kan-nu-ga-li-ve",       emoji:"2️⃣" },
@@ -542,7 +572,7 @@ function renderCats() {
   });
 }
 function catEmoji(cat) {
-  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢"}[cat] || "📌";
+  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢",Transport:"🚗"}[cat] || "📌";
 }
 function renderGrid() {
   const grid = document.getElementById("grid");
@@ -596,7 +626,7 @@ function renderSentCats() {
   });
 }
 function sentCatEmoji(cat) {
-  return {"Animals & Nature":"🐾","Family & People":"👨‍👩‍👧","Food & Eating":"🍽️","School & Playing":"🏫","Vegetables & Fruits":"🥦","Birds & Flowers":"🌸","Festivals 🎉":"🎊","Numbers 🔢":"🔢"}[cat] || "💬";
+  return {"Animals & Nature":"🐾","Family & People":"👨‍👩‍👧","Food & Eating":"🍽️","School & Playing":"🏫","Vegetables & Fruits":"🥦","Birds & Flowers":"🌸","Festivals 🎉":"🎊","Numbers 🔢":"🔢","Transport 🚗":"🚗"}[cat] || "💬";
 }
 function renderSentences() {
   const list = document.getElementById("sentList");
