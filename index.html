@@ -49,6 +49,23 @@
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
   }
+  @media (max-width: 600px) {
+
+  .hero-images {
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+    pointer-events: auto; /* ✅ FIX */
+  }
+
+  .hero-img {
+    position: static;
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+  }
+
+}
   :root {
     --sky: #FFF8E7;
     --yellow: #FFD93D;
