@@ -6,6 +6,49 @@
 <title>Koppal - Kids | Learn English with Kannada 🌟</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  #mainHeader {
+    position: relative;
+  }
+
+  .hero-images {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .hero-img {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+	image-rendering: auto; /* ✅ add here */
+	/*image-rendering: -webkit-optimize-contrast; */
+  }
+
+  .hero-img.left {
+    top: 70px;
+    left: 40px;
+  }
+
+  .hero-img.right {
+    top: 80px;
+    right: 50px;
+  }
+
+  .hero-img {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
   :root {
     --sky: #FFF8E7;
     --yellow: #FFD93D;
@@ -177,6 +220,7 @@
   .cat-btn[data-cat="Festivals"].active  { background: #FF9800; }
   .cat-btn[data-cat="Numbers"].active    { background: #F72585; }
   .cat-btn[data-cat="Transport"].active  { background: #3D5A80; }
+  .cat-btn[data-cat="Games"].active { background: #3D5A80; }
 
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
@@ -266,6 +310,11 @@
     <span class="title-star"></span>
   </div>
   <p>Learn English with Kannada &nbsp;· &nbsp;ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! &nbsp;Click on any card!</p>
+  <!-- ✅ ADD HERE -->
+  <div class="hero-images">
+    <img src="images/kid1.png" class="hero-img left" />
+    <img src="images/kid2.png" class="hero-img right" />
+  </div>
 </header>
 
 <div class="mode-tabs">
@@ -310,18 +359,6 @@
     </a>
   </p>
 </footer>
-
-<script>
-  // Stealthy WhatsApp number
-  const phoneNumber = '919902022509'; // Number hidden in JS
-  const waLink = `https://wa.me/${phoneNumber}`;
-  
-  // Assign the link when page loads
-  const link = document.getElementById('whatsapp-link');
-  link.href = waLink;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-</script>
 
 <script>
 const words = {
@@ -716,12 +753,59 @@ const words = {
     { en:"Birthday",           kn:"ಹುಟ್ಟುಹಬ್ಬ",         pronun:"ಬರ್ತ್‌ಡೇ",           emoji:"🎂" },
     { en:"Wedding",            kn:"ಮದುವೆ",              pronun:"ವೆಡಿಂಗ್",             emoji:"💒" },
   ],
+  Games: [
+    { en:"Cricket",        kn:"ಕ್ರಿಕೆಟ್",        pronun:"ಕ್ರಿಕೆಟ್",        emoji:"🏏" },
+    { en:"Football",       kn:"ಫುಟ್ಬಾಲ್",        pronun:"ಫುಟ್ಬಾಲ್",        emoji:"⚽" },
+    { en:"Kabaddi",        kn:"ಕಬಡ್ಡಿ",          pronun:"ಕಬಡ್ಡಿ",          emoji:"🤼" },
+    { en:"Chess",          kn:"ಚದುರಂಗ",          pronun:"ಚೆಸ್",            emoji:"♟️" },
+    { en:"Carrom",         kn:"ಕ್ಯಾರಂ",          pronun:"ಕ್ಯಾರಂ",          emoji:"🎯" },
+    { en:"Hockey",         kn:"ಹಾಕಿ",            pronun:"ಹಾಕಿ",            emoji:"🏑" },
+    { en:"Tennis",         kn:"ಟೆನ್ನಿಸ್",         pronun:"ಟೆನ್ನಿಸ್",         emoji:"🎾" },
+    { en:"Badminton",      kn:"ಬ್ಯಾಡ್ಮಿಂಟನ್",     pronun:"ಬ್ಯಾಡ್ಮಿಂಟನ್",     emoji:"🏸" },
+    { en:"Volleyball",     kn:"ವಾಲಿಬಾಲ್",        pronun:"ವಾಲಿಬಾಲ್",        emoji:"🏐" },
+    { en:"Basketball",     kn:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",    pronun:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",    emoji:"🏀" },
+    { en:"Table Tennis",   kn:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",   pronun:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",   emoji:"🏓" },
+    { en:"Baseball",       kn:"ಬೇಸ್‌ಬಾಲ್",       pronun:"ಬೇಸ್‌ಬಾಲ್",       emoji:"⚾" },
+    { en:"Rugby",          kn:"ರಗ್ಬಿ",            pronun:"ರಗ್ಬಿ",            emoji:"🏉" },
+    { en:"Golf",           kn:"ಗಾಲ್ಫ್",          pronun:"ಗಾಲ್ಫ್",          emoji:"⛳" },
+    { en:"Boxing",         kn:"ಬಾಕ್ಸಿಂಗ್",        pronun:"ಬಾಕ್ಸಿಂಗ್",        emoji:"🥊" },
+    { en:"Wrestling",      kn:"ಕುಸ್ತಿ",           pronun:"ರೆಸ್ಲಿಂಗ್",       emoji:"🤼" },
+    { en:"Swimming",       kn:"ಈಜು",             pronun:"ಸ್ವಿಮ್ಮಿಂಗ್",      emoji:"🏊" },
+    { en:"Cycling",        kn:"ಸೈಕ್ಲಿಂಗ್",       pronun:"ಸೈಕ್ಲಿಂಗ್",       emoji:"🚴" },
+    { en:"Running",        kn:"ಓಟ",              pronun:"ರನ್ನಿಂಗ್",         emoji:"🏃" },
+    { en:"Archery",        kn:"ಬಿಲ್ಲುಗಾರಿಕೆ",     pronun:"ಆರ್ಚರಿ",          emoji:"🏹" },
+    { en:"Bowling",        kn:"ಬೌಲಿಂಗ್",         pronun:"ಬೌಲಿಂಗ್",         emoji:"🎳" },
+    { en:"Snooker",        kn:"ಸ್ನೂಕರ್",         pronun:"ಸ್ನೂಕರ್",         emoji:"🎱" },
+    { en:"Billiards",      kn:"ಬಿಲ್ಲಿಯರ್ಡ್ಸ್",    pronun:"ಬಿಲ್ಲಿಯರ್ಡ್ಸ್",    emoji:"🎱" },
+    { en:"Darts",          kn:"ಡಾರ್ಟ್ಸ್",         pronun:"ಡಾರ್ಟ್ಸ್",         emoji:"🎯" },
+    { en:"Handball",       kn:"ಹ್ಯಾಂಡ್‌ಬಾಲ್",     pronun:"ಹ್ಯಾಂಡ್‌ಬಾಲ್",     emoji:"🤾" },
+    { en:"Softball",       kn:"ಸಾಫ್ಟ್‌ಬಾಲ್",     pronun:"ಸಾಫ್ಟ್‌ಬಾಲ್",     emoji:"🥎" },
+    { en:"Ice Hockey",     kn:"ಐಸ್ ಹಾಕಿ",        pronun:"ಐಸ್ ಹಾಕಿ",        emoji:"🏒" },
+    { en:"Fencing",        kn:"ಕತ್ತಿ ಕಲೆ",        pronun:"ಫೆನ್ಸಿಂಗ್",       emoji:"🤺" },
+    { en:"Judo",           kn:"ಜೂಡೋ",            pronun:"ಜೂಡೋ",            emoji:"🥋" },
+    { en:"Karate",         kn:"ಕರಾಟೆ",           pronun:"ಕರಾಟೆ",           emoji:"🥋" },
+    { en:"Taekwondo",      kn:"ಟೈಕ್ವಾಂಡೋ",       pronun:"ಟೈಕ್ವಾಂಡೋ",       emoji:"🥋" },
+    { en:"Horse Riding",   kn:"ಕುದುರೆ ಸವಾರಿ",    pronun:"ಹಾರ್ಸ್ ರೈಡಿಂಗ್",  emoji:"🏇" },
+    { en:"Rowing",         kn:"ದೋಣಿ ಓಟ",         pronun:"ರೋವಿಂಗ್",         emoji:"🚣" },
+    { en:"Canoeing",       kn:"ಕ್ಯಾನೋಯಿಂಗ್",     pronun:"ಕ್ಯಾನೋಯಿಂಗ್",     emoji:"🛶" },
+    { en:"Rock Climbing",  kn:"ಗಲ್ಲು ಹತ್ತುವುದು",  pronun:"ರಾಕ್ ಕ್ಲೈಂಬಿಂಗ್", emoji:"🧗" },
+    { en:"Skateboarding",  kn:"ಸ್ಕೇಟ್‌ಬೋರ್ಡಿಂಗ್", pronun:"ಸ್ಕೇಟ್‌ಬೋರ್ಡಿಂಗ್", emoji:"🛹" },
+    { en:"Parkour",        kn:"ಪಾರ್ಕೂರ್",        pronun:"ಪಾರ್ಕೂರ್",        emoji:"🤸" },
+    { en:"Esports",        kn:"ಇ-ಕ್ರೀಡೆಗಳು",     pronun:"ಈ-ಸ್ಪೋರ್ಟ್ಸ್",     emoji:"🎮" },
+    { en:"Ludo",           kn:"ಲುಡೋ",            pronun:"ಲುಡೋ",            emoji:"🎲" },
+    { en:"Snake and Ladder", kn:"ಹಾವು ಮೆಟ್ಟಿಲು", pronun:"ಸ್ನೇಕ್ ಅಂಡ್ ಲ್ಯಾಡರ್", emoji:"🐍" },
+    { en:"Car Racing",     kn:"ಕಾರ್ ರೇಸಿಂಗ್",    pronun:"ಕಾರ್ ರೇಸಿಂಗ್",    emoji:"🏎️" },
+    { en:"Motor Racing",   kn:"ಮೋಟಾರ್ ರೇಸಿಂಗ್",  pronun:"ಮೋಟಾರ್ ರೇಸಿಂಗ್",  emoji:"🏍️" },
+    { en:"Weightlifting",  kn:"ಭಾರ ಎತ್ತುವಿಕೆ",   pronun:"ವೇಟ್ ಲಿಫ್ಟಿಂಗ್",  emoji:"🏋️" },
+    { en:"Gymnastics",     kn:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",  pronun:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",  emoji:"🤸‍♀️" },
+    { en:"Skating",        kn:"ಸ್ಕೇಟಿಂಗ್",       pronun:"ಸ್ಕೇಟಿಂಗ್",       emoji:"⛸️" }
+],
 };
 
 const catColors = {
   Animals:"#6BCB77", Fruits:"#FF6B35", Vegetables:"#2EC4B6",
   Colors:"#C77DFF", Body:"#FF85A1", Home:"#4D96FF", Food:"#FF4D6D",
-  Birds:"#00B4D8", Flowers:"#E040FB", Festivals:"#FF9800", Numbers:"#F72585", Transport:"#3D5A80"
+  Birds:"#00B4D8", Flowers:"#E040FB", Festivals:"#FF9800", Numbers:"#F72585", Transport:"#3D5A80", Games:"#FFB703"
 };
 
 const sentences = {
@@ -831,20 +915,50 @@ function switchMode(mode) {
   document.getElementById("sentencesSection").classList.toggle("show", mode === "sentences");
 }
 
+let showAllCats = false;
+//const visibleLimit = 6;
+const visibleLimit = window.innerWidth < 600 ? 4 : 6;
+//👉 Mobile = 4
+//👉 Desktop = 6
+
 function renderCats() {
   const bar = document.getElementById("catBar");
   bar.innerHTML = "";
-  Object.keys(words).forEach(cat => {
+
+  const allCats = Object.keys(words);
+  const catsToShow = showAllCats ? allCats : allCats.slice(0, visibleLimit);
+
+  catsToShow.forEach(cat => {
     const btn = document.createElement("button");
     btn.className = "cat-btn" + (cat === currentCat ? " active" : "");
     btn.dataset.cat = cat;
     btn.textContent = catEmoji(cat) + " " + cat;
-    btn.onclick = () => { currentCat = cat; renderCats(); renderGrid(); };
+
+    btn.onclick = () => {
+      currentCat = cat;
+      renderCats();
+      renderGrid();
+    };
+
     bar.appendChild(btn);
   });
+
+  // ➕ More / ➖ Less button
+  if (allCats.length > visibleLimit) {
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "cat-btn";
+    toggleBtn.textContent = showAllCats ? "➖ Less" : "➕ More";
+
+    toggleBtn.onclick = () => {
+      showAllCats = !showAllCats;
+      renderCats();
+    };
+
+    bar.appendChild(toggleBtn);
+  }
 }
 function catEmoji(cat) {
-  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢",Transport:"🚗"}[cat] || "📌";
+  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢",Transport:"🚗",Games:"🎮",}[cat] || "📌";
 }
 function renderGrid() {
   const grid = document.getElementById("grid");
@@ -885,17 +999,47 @@ function openModal(w, card) {
   card.classList.remove("bounce"); void card.offsetWidth; card.classList.add("bounce");
 }
 
+let showAllSCats = false;
+//const sVisibleLimit = 4;
+const sVisibleLimit = window.innerWidth < 600 ? 2 : 4;
+//👉 Mobile = 4
+//👉 Desktop = 6
+
 function renderSentCats() {
   const bar = document.getElementById("sentCatBar");
   bar.innerHTML = "";
-  Object.keys(sentences).forEach(cat => {
+
+  const allCats = Object.keys(sentences);
+  const catsToShow = showAllSCats ? allCats : allCats.slice(0, sVisibleLimit);
+
+  catsToShow.forEach(cat => {
     const btn = document.createElement("button");
     btn.className = "sent-cat-btn" + (cat === currentSCat ? " active" : "");
     btn.dataset.scat = cat;
     btn.textContent = sentCatEmoji(cat) + " " + cat;
-    btn.onclick = () => { currentSCat = cat; renderSentCats(); renderSentences(); };
+
+    btn.onclick = () => {
+      currentSCat = cat;
+      renderSentCats();
+      renderSentences();
+    };
+
     bar.appendChild(btn);
   });
+
+  // ➕ More / ➖ Less button
+  if (allCats.length > sVisibleLimit) {
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "sent-cat-btn";
+    toggleBtn.textContent = showAllSCats ? "➖ Less" : "➕ More";
+
+    toggleBtn.onclick = () => {
+      showAllSCats = !showAllSCats;
+      renderSentCats();
+    };
+
+    bar.appendChild(toggleBtn);
+  }
 }
 function sentCatEmoji(cat) {
   return {"Animals & Nature":"🐾","Family & People":"👨‍👩‍👧","Food & Eating":"🍽️","School & Playing":"🏫","Vegetables & Fruits":"🥦","Birds & Flowers":"🌸","Festivals 🎉":"🎊","Numbers 🔢":"🔢","Transport 🚗":"🚗"}[cat] || "💬";
