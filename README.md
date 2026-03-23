@@ -36,12 +36,5 @@ This project can include:
 
 ## 🛠️ Tech Stack
 
-*(Update this based on your project)*
-
 - Frontend: HTML / CSS / JavaScript
-- Backend: (if any)
 - Tools: GitHub, VS Code
-
----
-
-## 📂 Project Structure
