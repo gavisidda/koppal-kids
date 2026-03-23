@@ -6,63 +6,65 @@
 <title>Koppal - Kids | Learn English with Kannada 🌟</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  #mainHeader {
-    position: relative;
-  }
+/* ========================= */
+/* HEADER FLEX LAYOUT */
+/* ========================= */
 
-  .hero-images {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+#mainHeader {
+  padding: 20px;
+}
+
+/* main row */
+.header-row {
+  display: flex;
+  align-items: center;       /* vertical alignment */
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* title center */
+.title-block {
+  text-align: center;
+  flex: 1;
+}
+
+/* 🔥 IMPORTANT FIX */
+.title-block h1 {
+  margin: 0;                 /* remove default margin */
+}
+
+/* images */
+.hero-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  animation: float 5s ease-in-out infinite;
+  flex-shrink: 0;            /* ✅ prevents image shrinking */
+}
+
+/* animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========================= */
+/* MOBILE FIX */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+  .header-row {
+    flex-direction: column;
   }
 
   .hero-img {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-	image-rendering: auto; /* ✅ add here */
-	/*image-rendering: -webkit-optimize-contrast; */
-  }
-
-  .hero-img.left {
-    top: 70px;
-    left: 40px;
-  }
-
-  .hero-img.right {
-    top: 80px;
-    right: 50px;
-  }
-
-  .hero-img {
-    animation: float 5s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-  @media (max-width: 600px) {
-
-  .hero-images {
-    position: relative;
-    margin-top: 10px;
-    text-align: center;
-    pointer-events: auto; /* ✅ FIX */
-  }
-
-  .hero-img {
-    position: static;
     width: 70px;
     height: 70px;
-    margin: 5px;
   }
 
 }
@@ -93,11 +95,12 @@
   }
   /* ── HEADER ── */
   header {
-    text-align: center;
-    padding: 28px 20px 8px;
-    position: relative;
-    overflow: hidden;
-  }
+  text-align: center;
+  padding: 28px 20px 8px;
+  padding-top: 140px; /* ✅ ADD THIS LINE */
+  position: relative;
+  overflow: hidden;
+}
 
   /* Floating sparkles behind header */
   .spark {
@@ -320,18 +323,18 @@
 <body>
 
 <header id="mainHeader">
-  <!-- Sparkle particles injected by JS -->
-  <div class="title-wrap">
-    <span class="title-star"></span>
-    <h1>Koppal - Kids</h1>
-    <span class="title-star"></span>
+
+  <div class="header-row">
+    <img src="images/kid1.png" class="hero-img left">
+
+    <div class="title-block">
+      <h1>Koppal - Kids</h1>
+      <p>Learn English with Kannada · ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! Click on any card!</p>
+    </div>
+
+    <img src="images/kid2.png" class="hero-img right">
   </div>
-  <p>Learn English with Kannada &nbsp;· &nbsp;ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! &nbsp;Click on any card!</p>
-  <!-- ✅ ADD HERE -->
-  <div class="hero-images">
-    <img src="images/kid1.png" class="hero-img left" />
-    <img src="images/kid2.png" class="hero-img right" />
-  </div>
+
 </header>
 
 <div class="mode-tabs">
