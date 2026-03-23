@@ -300,16 +300,28 @@
 
   <p style="font-size:0.88rem;">
     Created by <span class="credit-name">Gavisiddappa HATTI</span> 
-    &nbsp;with help of <strong style="color:#4D96FF;">Claude 🤖</strong>
+    &nbsp;with the help of <strong style="color:#4D96FF;">Claude 🤖</strong>
   </p>
 
   <p style="font-size:0.85rem;">
     📞 For advice or feedback: 
-    <a href="https://wa.me/919902022509" target="_blank" rel="noopener noreferrer" style="color:#25D366; text-decoration:none;">
+    <a id="whatsapp-link" href="#" style="color:#25D366; text-decoration:none;">
       Send a WhatsApp Message
     </a>
   </p>
 </footer>
+
+<script>
+  // Stealthy WhatsApp number
+  const phoneNumber = '919902022509'; // Number hidden in JS
+  const waLink = `https://wa.me/${phoneNumber}`;
+  
+  // Assign the link when page loads
+  const link = document.getElementById('whatsapp-link');
+  link.href = waLink;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+</script>
 
 <script>
 const words = {
