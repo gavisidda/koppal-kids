@@ -56,15 +56,42 @@
 /* MOBILE FIX */
 /* ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
   .header-row {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
   }
 
+  /* 🔥 Auto-scaling images */
   .hero-img {
-    width: 70px;
-    height: 70px;
+    width: 14vw;        /* responsive size */
+    height: 14vw;
+    min-width: 45px;    /* prevent too small */
+    min-height: 45px;
+    max-width: 70px;    /* prevent too big */
+    max-height: 70px;
+    flex-shrink: 0;
+  }
+
+  /* 🔥 Title adjusts automatically */
+  .title-block {
+    flex: 1;
+    text-align: center;
+    padding: 0 5px;
+  }
+
+  .title-block h1 {
+    font-size: 5vw;     /* responsive text */
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .title-block p {
+    font-size: 3.2vw;
+    line-height: 1.3;
   }
 
 }
