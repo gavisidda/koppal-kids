@@ -7,367 +7,240 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Noto+Sans+Kannada:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ========================= */
-/* HEADER FLEX LAYOUT */
+/* HEADER FLEX LAYOUT        */
 /* ========================= */
-
-#mainHeader {
-  padding: 20px;
-}
-
-/* main row */
+#mainHeader { padding: 20px; }
 .header-row {
-  display: flex;
-  align-items: center;       /* vertical alignment */
-  justify-content: space-between;
-  gap: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
 }
-
-/* title center */
-.title-block {
-  text-align: center;
-  flex: 1;
-}
-
-/* 🔥 IMPORTANT FIX */
-.title-block h1 {
-  margin: 0;                 /* remove default margin */
-}
-
-/* images */
+.title-block { text-align: center; flex: 1; }
+.title-block h1 { margin: 0; }
 .hero-img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  animation: float 5s ease-in-out infinite;
-  flex-shrink: 0;            /* ✅ prevents image shrinking */
+  width: 100px; height: 100px; object-fit: cover; border-radius: 50%;
+  border: 4px solid #fff; box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  animation: float 5s ease-in-out infinite; flex-shrink: 0;
 }
-
-/* animation */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-/* ========================= */
-/* MOBILE FIX */
-/* ========================= */
-
+@keyframes float { 0%{transform:translateY(0);} 50%{transform:translateY(-10px);} 100%{transform:translateY(0);} }
 @media (max-width: 768px) {
-
-  .header-row {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-  }
-
-  /* 🔥 Auto-scaling images */
-  .hero-img {
-    width: 14vw;        /* responsive size */
-    height: 14vw;
-    min-width: 45px;    /* prevent too small */
-    min-height: 45px;
-    max-width: 70px;    /* prevent too big */
-    max-height: 70px;
-    flex-shrink: 0;
-  }
-
-  /* 🔥 Title adjusts automatically */
-  .title-block {
-    flex: 1;
-    text-align: center;
-    padding: 0 5px;
-  }
-
-  .title-block h1 {
-    font-size: 5vw;     /* responsive text */
-    margin: 0;
-    line-height: 1.2;
-  }
-
-  .title-block p {
-    font-size: 3.2vw;
-    line-height: 1.3;
-  }
-
+  .header-row { flex-direction: row; align-items: center; justify-content: space-between; gap: 6px; }
+  .hero-img { width:14vw; height:14vw; min-width:45px; min-height:45px; max-width:70px; max-height:70px; flex-shrink:0; }
+  .title-block { flex:1; text-align:center; padding:0 5px; }
+  .title-block h1 { font-size:5vw; margin:0; line-height:1.2; }
+  .title-block p { font-size:3.2vw; line-height:1.3; }
 }
-  :root {
-    --sky: #FFF8E7;
-    --yellow: #FFD93D;
-    --orange: #FF6B35;
-    --pink: #FF85A1;
-    --green: #6BCB77;
-    --blue: #4D96FF;
-    --purple: #C77DFF;
-    --red: #FF4D6D;
-    --teal: #2EC4B6;
-    --white: #ffffff;
-    --dark: #2B2D42;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Baloo 2', cursive;
-    background: var(--sky);
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-image:
-      radial-gradient(circle at 10% 10%, #FFD93D44 80px, transparent 80px),
-      radial-gradient(circle at 90% 15%, #FF85A144 60px, transparent 60px),
-      radial-gradient(circle at 80% 85%, #6BCB7744 70px, transparent 70px),
-      radial-gradient(circle at 20% 80%, #4D96FF44 55px, transparent 55px);
-  }
-  /* ── HEADER ── */
-  header {
-  text-align: center;
-  padding: 28px 20px 8px;
-  padding-top: 140px; /* ✅ ADD THIS LINE */
-  position: relative;
-  overflow: hidden;
+:root {
+  --sky:#FFF8E7; --yellow:#FFD93D; --orange:#FF6B35; --pink:#FF85A1;
+  --green:#6BCB77; --blue:#4D96FF; --purple:#C77DFF; --red:#FF4D6D;
+  --teal:#2EC4B6; --white:#ffffff; --dark:#2B2D42;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Baloo 2',cursive; background:var(--sky); min-height:100vh; overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 10% 10%,#FFD93D44 80px,transparent 80px),
+    radial-gradient(circle at 90% 15%,#FF85A144 60px,transparent 60px),
+    radial-gradient(circle at 80% 85%,#6BCB7744 70px,transparent 70px),
+    radial-gradient(circle at 20% 80%,#4D96FF44 55px,transparent 55px);
 }
 
-  /* Floating sparkles behind header */
-  .spark {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: sparkFloat linear infinite;
-  }
-  @keyframes sparkFloat {
-    0%   { transform: translateY(0) scale(1) rotate(0deg); opacity:0; }
-    20%  { opacity: 1; }
-    80%  { opacity: 1; }
-    100% { transform: translateY(-120px) scale(0.3) rotate(360deg); opacity:0; }
-  }
+/* ── HEADER ANIMATIONS ── */
+header { text-align:center; padding:28px 20px 8px; position:relative; overflow:hidden; }
+.spark { position:absolute; border-radius:50%; pointer-events:none; animation:sparkFloat linear infinite; }
+@keyframes sparkFloat { 0%{transform:translateY(0) scale(1) rotate(0deg);opacity:0;} 20%{opacity:1;} 80%{opacity:1;} 100%{transform:translateY(-120px) scale(0.3) rotate(360deg);opacity:0;} }
+.title-wrap { position:relative; display:inline-block; }
+header h1 {
+  font-size:clamp(2rem,6vw,3.4rem); font-weight:800; letter-spacing:2px;
+  background:linear-gradient(135deg,#FF6B35 0%,#FFD93D 40%,#FF85A1 70%,#C77DFF 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  background-size:200% auto; animation:titleShine 3s linear infinite,titleBounce 2s ease-in-out infinite;
+  filter:drop-shadow(0 4px 8px #FF6B3544); position:relative;
+}
+@keyframes titleShine { 0%{background-position:0% center;} 100%{background-position:200% center;} }
+@keyframes titleBounce { 0%,100%{transform:translateY(0) scale(1);} 50%{transform:translateY(-4px) scale(1.02);} }
+.title-star { display:inline-block; animation:starSpin 2s ease-in-out infinite; font-size:clamp(1.4rem,4vw,2rem); }
+.title-star:nth-child(1){animation-delay:0s;} .title-star:nth-child(3){animation-delay:0.5s;}
+@keyframes starSpin { 0%,100%{transform:rotate(-15deg) scale(1);} 50%{transform:rotate(15deg) scale(1.3);} }
+header p { font-size:1.05rem; color:var(--dark); margin-top:5px; font-weight:600; animation:fadeSlideUp 0.8s ease both; }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
 
-  /* Main title */
-  .title-wrap { position: relative; display: inline-block; }
-  header h1 {
-    font-size: clamp(2rem, 6vw, 3.4rem);
-    font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #FF6B35 0%, #FFD93D 40%, #FF85A1 70%, #C77DFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% auto;
-    animation: titleShine 3s linear infinite, titleBounce 2s ease-in-out infinite;
-    filter: drop-shadow(0 4px 8px #FF6B3544);
-    position: relative;
-  }
-  @keyframes titleShine {
-    0%   { background-position: 0% center; }
-    100% { background-position: 200% center; }
-  }
-  @keyframes titleBounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50%       { transform: translateY(-4px) scale(1.02); }
-  }
+/* ── FOOTER CREDIT ── */
+.credit-name {
+  display:inline-block; font-weight:800; font-size:1rem;
+  background:linear-gradient(90deg,#FF6B35,#FFD93D,#FF85A1,#C77DFF,#4D96FF,#FF6B35);
+  background-size:300% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; animation:nameShine 2.5s linear infinite; position:relative;
+}
+@keyframes nameShine { 0%{background-position:0% center;} 100%{background-position:300% center;} }
+.credit-name::after { content:' ✨'; animation:sparkle 1.5s ease-in-out infinite; -webkit-text-fill-color:initial; font-size:0.85rem; }
+@keyframes sparkle { 0%,100%{opacity:1;transform:scale(1) rotate(0deg);} 50%{opacity:0.6;transform:scale(1.4) rotate(20deg);} }
+footer { text-align:center; padding:20px 14px 14px; font-size:0.9rem; font-weight:600; color:#aaa; position:relative; }
+.footer-hearts { display:inline-block; animation:heartBeat 1s ease-in-out infinite; }
+@keyframes heartBeat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.3);} }
 
-  /* Stars around the title */
-  .title-star {
-    display: inline-block;
-    animation: starSpin 2s ease-in-out infinite;
-    font-size: clamp(1.4rem, 4vw, 2rem);
-  }
-  .title-star:nth-child(1) { animation-delay: 0s; }
-  .title-star:nth-child(3) { animation-delay: 0.5s; }
-  @keyframes starSpin {
-    0%,100% { transform: rotate(-15deg) scale(1); }
-    50%     { transform: rotate(15deg) scale(1.3); }
-  }
+/* ── TABS ── */
+.mode-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:16px 16px 6px; }
+.mode-tab {
+  background:var(--white); border:3px solid var(--dark); border-radius:50px;
+  padding:9px 22px; font-family:'Baloo 2',cursive; font-size:1rem; font-weight:800;
+  cursor:pointer; box-shadow:4px 4px 0 var(--dark); transition:all 0.15s; color:var(--dark);
+}
+.mode-tab:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
+.mode-tab.active { background:var(--dark); color:#fff; transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--orange); }
 
-  header p {
-    font-size: 1.05rem; color: var(--dark); margin-top: 5px; font-weight: 600;
-    animation: fadeSlideUp 0.8s ease both;
-  }
-  @keyframes fadeSlideUp {
-    from { opacity:0; transform: translateY(10px); }
-    to   { opacity:1; transform: translateY(0); }
-  }
+/* ── SCORE BAR ── */
+.score-bar { text-align:center; padding:6px; font-size:1.1rem; font-weight:700; color:var(--dark); }
+.star { font-size:1.3rem; animation:spin 0.5s ease; display:inline-block; }
+@keyframes spin { from{transform:rotate(0deg) scale(0);} to{transform:rotate(360deg) scale(1);} }
 
-  /* ── FOOTER CREDIT ── */
-  .credit-name {
-    display: inline-block;
-    font-weight: 800;
-    font-size: 1rem;
-    background: linear-gradient(90deg, #FF6B35, #FFD93D, #FF85A1, #C77DFF, #4D96FF, #FF6B35);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: nameShine 2.5s linear infinite;
-    position: relative;
-  }
-  @keyframes nameShine {
-    0%   { background-position: 0% center; }
-    100% { background-position: 300% center; }
-  }
-  .credit-name::after {
-    content: ' ✨';
-    animation: sparkle 1.5s ease-in-out infinite;
-    -webkit-text-fill-color: initial;
-    font-size: 0.85rem;
-  }
-  @keyframes sparkle {
-    0%,100% { opacity:1; transform: scale(1) rotate(0deg); }
-    50%     { opacity:0.6; transform: scale(1.4) rotate(20deg); }
-  }
+/* ── CATEGORY BAR ── */
+.category-bar { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:14px 16px 8px; }
+.cat-btn {
+  background:var(--white); border:3px solid var(--dark); border-radius:50px;
+  padding:7px 18px; font-family:'Baloo 2',cursive; font-size:0.95rem; font-weight:700;
+  cursor:pointer; transition:all 0.2s; box-shadow:3px 3px 0 var(--dark); color:var(--dark);
+}
+.cat-btn:hover,.cat-btn.active { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--dark); }
+.cat-btn.active { color:#fff; }
+.cat-btn[data-cat="Animals"].active  { background:var(--green); }
+.cat-btn[data-cat="Fruits"].active   { background:var(--orange); }
+.cat-btn[data-cat="Vegetables"].active{background:var(--teal); }
+.cat-btn[data-cat="Colors"].active   { background:var(--purple); }
+.cat-btn[data-cat="Body"].active     { background:var(--pink); }
+.cat-btn[data-cat="Home"].active     { background:var(--blue); }
+.cat-btn[data-cat="Food"].active     { background:var(--red); }
+.cat-btn[data-cat="Birds"].active    { background:#00B4D8; }
+.cat-btn[data-cat="Flowers"].active  { background:#E040FB; }
+.cat-btn[data-cat="Festivals"].active{ background:#FF9800; }
+.cat-btn[data-cat="Numbers"].active  { background:#F72585; }
+.cat-btn[data-cat="Transport"].active{ background:#3D5A80; }
+.cat-btn[data-cat="Games"].active    { background:#FFB703; }
 
-  footer {
-    text-align: center;
-    padding: 20px 14px 14px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #aaa;
-    position: relative;
-  }
-  .footer-hearts {
-    display: inline-block;
-    animation: heartBeat 1s ease-in-out infinite;
-  }
-  @keyframes heartBeat {
-    0%,100% { transform: scale(1); }
-    50%     { transform: scale(1.3); }
-  }
+/* ── WORD GRID ── */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:16px; padding:16px 18px 36px; max-width:920px; margin:0 auto; }
+.card { background:var(--white); border:3px solid var(--dark); border-radius:20px; padding:16px 10px 13px; text-align:center; cursor:pointer; box-shadow:5px 5px 0 var(--dark); transition:transform 0.15s,box-shadow 0.15s; position:relative; overflow:hidden; animation:popIn 0.4s cubic-bezier(.36,1.4,.64,1) both; }
+.card:hover { transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--dark); }
+.card:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--dark); }
+.card.bounce { animation:bounce 0.4s cubic-bezier(.36,1.6,.64,1); }
+@keyframes popIn { from{opacity:0;transform:scale(0.6) translateY(20px);} to{opacity:1;transform:scale(1) translateY(0);} }
+@keyframes bounce { 0%{transform:scale(1);} 40%{transform:scale(1.18) translate(-3px,-3px);} 70%{transform:scale(0.95);} 100%{transform:scale(1);} }
+.card-emoji { font-size:2.8rem; display:block; margin-bottom:7px; line-height:1; }
+.card-en { font-size:1.05rem; font-weight:800; color:var(--dark); margin-bottom:3px; }
+.card-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:0.95rem; font-weight:700; color:var(--orange); }
+.card-badge { position:absolute; top:7px; right:8px; font-size:0.65rem; font-weight:800; padding:2px 7px; border-radius:20px; border:2px solid var(--dark); color:#fff; }
+.swatch { width:46px; height:46px; border-radius:50%; border:3px solid var(--dark); margin:0 auto 7px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
 
-  .mode-tabs { display: flex; justify-content: center; gap: 12px; padding: 16px 16px 6px; }
-  .mode-tab {
-    background: var(--white); border: 3px solid var(--dark); border-radius: 50px;
-    padding: 10px 28px; font-family: 'Baloo 2', cursive; font-size: 1.05rem; font-weight: 800;
-    cursor: pointer; box-shadow: 4px 4px 0 var(--dark); transition: all 0.15s; color: var(--dark);
-  }
-  .mode-tab:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--dark); }
-  .mode-tab.active { background: var(--dark); color: #fff; transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--orange); }
+/* ── SENTENCES ── */
+#sentencesSection { display:none; max-width:860px; margin:0 auto; padding:10px 18px 40px; }
+#sentencesSection.show { display:block; }
+.sent-cat-bar { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:10px 0 16px; }
+.sent-cat-btn { background:var(--white); border:3px solid var(--dark); border-radius:50px; padding:7px 16px; font-family:'Baloo 2',cursive; font-size:0.9rem; font-weight:700; cursor:pointer; box-shadow:3px 3px 0 var(--dark); transition:all 0.2s; color:var(--dark); }
+.sent-cat-btn:hover,.sent-cat-btn.active { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--dark); }
+.sent-cat-btn.active { color:#fff; }
+.sent-cat-btn[data-scat="Animals & Nature"].active { background:var(--green); }
+.sent-cat-btn[data-scat="Family & People"].active  { background:var(--pink); }
+.sent-cat-btn[data-scat="Food & Eating"].active    { background:var(--orange); }
+.sent-cat-btn[data-scat="School & Playing"].active { background:var(--blue); }
+.sent-cat-btn[data-scat="Vegetables & Fruits"].active{ background:var(--teal); }
+.sent-cat-btn[data-scat="Birds & Flowers"].active  { background:#E040FB; }
+.sent-cat-btn[data-scat="Festivals 🎉"].active     { background:#FF9800; }
+.sent-cat-btn[data-scat="Numbers 🔢"].active       { background:#F72585; }
+.sent-cat-btn[data-scat="Transport 🚗"].active     { background:#3D5A80; }
+.sent-list { display:flex; flex-direction:column; gap:14px; }
+.sent-card { background:var(--white); border:3px solid var(--dark); border-radius:18px; padding:14px 18px; box-shadow:5px 5px 0 var(--dark); cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; animation:popIn 0.35s cubic-bezier(.36,1.4,.64,1) both; display:flex; align-items:center; gap:14px; }
+.sent-card:hover { transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--dark); }
+.sent-card:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--dark); }
+.sent-card.bounce { animation:bounce 0.4s cubic-bezier(.36,1.6,.64,1); }
+.sent-emoji { font-size:2.2rem; flex-shrink:0; }
+.sent-text { flex:1; }
+.sent-en { font-size:1.1rem; font-weight:800; color:var(--dark); margin-bottom:4px; }
+.sent-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:0.98rem; font-weight:700; color:var(--orange); margin-bottom:3px; }
+.sent-pronun { font-size:0.82rem; color:#999; font-style:italic; }
+.sent-say { background:var(--yellow); border:2px solid var(--dark); border-radius:30px; padding:6px 14px; font-family:'Baloo 2',cursive; font-size:0.88rem; font-weight:700; cursor:pointer; box-shadow:2px 2px 0 var(--dark); flex-shrink:0; transition:all 0.15s; }
+.sent-say:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--dark); }
 
-  .score-bar { text-align: center; padding: 6px; font-size: 1.1rem; font-weight: 700; color: var(--dark); }
-  .star { font-size: 1.3rem; animation: spin 0.5s ease; display: inline-block; }
-  @keyframes spin { from { transform: rotate(0deg) scale(0); } to { transform: rotate(360deg) scale(1); } }
+/* ── MODAL ── */
+.modal-overlay { display:none; position:fixed; inset:0; background:#0007; z-index:100; align-items:center; justify-content:center; }
+.modal-overlay.show { display:flex; }
+.modal { background:#fff; border:4px solid var(--dark); border-radius:28px; padding:30px 26px; text-align:center; max-width:340px; width:90%; box-shadow:8px 8px 0 var(--dark); animation:popIn 0.3s cubic-bezier(.36,1.4,.64,1); }
+.modal-emoji { font-size:4.5rem; display:block; margin-bottom:10px; }
+.modal-en { font-size:1.9rem; font-weight:800; color:var(--dark); }
+.modal-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:1.5rem; font-weight:700; color:var(--orange); margin:5px 0 3px; }
+.modal-pronun { font-size:0.95rem; color:#777; margin-bottom:18px; }
+.close-btn { background:var(--pink); border:3px solid var(--dark); border-radius:50px; padding:9px 24px; font-family:'Baloo 2',cursive; font-size:1rem; font-weight:800; cursor:pointer; color:#fff; box-shadow:4px 4px 0 var(--dark); transition:all 0.15s; }
+.close-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
 
-  .category-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 14px 16px 8px; }
-  .cat-btn {
-    background: var(--white); border: 3px solid var(--dark); border-radius: 50px;
-    padding: 7px 18px; font-family: 'Baloo 2', cursive; font-size: 0.95rem; font-weight: 700;
-    cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--dark); color: var(--dark);
-  }
-  .cat-btn:hover, .cat-btn.active { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
-  .cat-btn.active { color: #fff; }
-  .cat-btn[data-cat="Animals"].active    { background: var(--green); }
-  .cat-btn[data-cat="Fruits"].active     { background: var(--orange); }
-  .cat-btn[data-cat="Vegetables"].active { background: var(--teal); }
-  .cat-btn[data-cat="Colors"].active     { background: var(--purple); }
-  .cat-btn[data-cat="Body"].active       { background: var(--pink); }
-  .cat-btn[data-cat="Home"].active       { background: var(--blue); }
-  .cat-btn[data-cat="Food"].active       { background: var(--red); }
-  .cat-btn[data-cat="Birds"].active      { background: #00B4D8; }
-  .cat-btn[data-cat="Flowers"].active    { background: #E040FB; }
-  .cat-btn[data-cat="Festivals"].active  { background: #FF9800; }
-  .cat-btn[data-cat="Numbers"].active    { background: #F72585; }
-  .cat-btn[data-cat="Transport"].active  { background: #3D5A80; }
-  .cat-btn[data-cat="Games"].active { background: #3D5A80; }
+/* ── ALPHABET SECTION ── */
+#alphabetSection { display:none; max-width:920px; margin:0 auto; padding:10px 18px 40px; }
+#alphabetSection.show { display:block; }
+#alphabetGrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; padding:10px 0; }
+.alpha-card { background:#fff; border:3px solid var(--dark); border-radius:20px; padding:14px 10px 12px; text-align:center; cursor:pointer; box-shadow:5px 5px 0 var(--dark); transition:transform 0.15s,box-shadow 0.15s; animation:popIn 0.4s cubic-bezier(.36,1.4,.64,1) both; }
+.alpha-card:hover { transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--dark); }
+.alpha-card:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--dark); }
+.alpha-card.bounce { animation:bounce 0.4s cubic-bezier(.36,1.6,.64,1); }
+.alpha-letter { font-size:2.4rem; font-weight:800; line-height:1; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:4px; display:block; }
+.alpha-emoji { font-size:1.8rem; display:block; margin-bottom:4px; }
+.alpha-word { font-size:0.9rem; font-weight:800; color:var(--dark); }
+.alpha-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:0.8rem; font-weight:700; color:var(--orange); }
 
-  .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-    gap: 16px; padding: 16px 18px 36px; max-width: 920px; margin: 0 auto;
-  }
-  .card {
-    background: var(--white); border: 3px solid var(--dark); border-radius: 20px;
-    padding: 16px 10px 13px; text-align: center; cursor: pointer;
-    box-shadow: 5px 5px 0 var(--dark); transition: transform 0.15s, box-shadow 0.15s;
-    position: relative; overflow: hidden;
-    animation: popIn 0.4s cubic-bezier(.36,1.4,.64,1) both;
-  }
-  .card:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--dark); }
-  .card:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--dark); }
-  .card.bounce { animation: bounce 0.4s cubic-bezier(.36,1.6,.64,1); }
-  @keyframes popIn { from { opacity:0; transform:scale(0.6) translateY(20px);} to { opacity:1; transform:scale(1) translateY(0);} }
-  @keyframes bounce { 0%{transform:scale(1);} 40%{transform:scale(1.18) translate(-3px,-3px);} 70%{transform:scale(0.95);} 100%{transform:scale(1);} }
-  .card-emoji { font-size: 2.8rem; display: block; margin-bottom: 7px; line-height: 1; }
-  .card-en { font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
-  .card-kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--orange); }
-  .card-badge { position: absolute; top: 7px; right: 8px; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 20px; border: 2px solid var(--dark); color: #fff; }
-  .swatch { width: 46px; height: 46px; border-radius: 50%; border: 3px solid var(--dark); margin: 0 auto 7px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+/* ── QUIZ SECTION ── */
+#quizSection { display:none; max-width:600px; margin:0 auto; padding:10px 18px 40px; }
+#quizSection.show { display:block; }
+.quiz-score-row { display:flex; justify-content:center; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+.quiz-score-pill { background:#fff; border:3px solid var(--dark); border-radius:50px; padding:6px 20px; font-weight:800; font-size:0.95rem; box-shadow:3px 3px 0 var(--dark); }
+.quiz-score-pill.correct { color:var(--green); }
+.quiz-score-pill.wrong   { color:var(--red); }
+.quiz-score-pill.total   { color:var(--blue); }
+.quiz-cat-select { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:18px; }
+.quiz-cat-btn { background:#fff; border:2px solid var(--dark); border-radius:50px; padding:5px 14px; font-family:'Baloo 2',cursive; font-size:0.85rem; font-weight:700; cursor:pointer; box-shadow:2px 2px 0 var(--dark); transition:all 0.15s; color:var(--dark); }
+.quiz-cat-btn.active { background:var(--dark); color:#fff; }
+.quiz-cat-btn:hover { transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--dark); }
+.quiz-card { background:#fff; border:3px solid var(--dark); border-radius:24px; padding:28px 20px 22px; text-align:center; box-shadow:6px 6px 0 var(--dark); animation:popIn 0.4s cubic-bezier(.36,1.4,.64,1); }
+.quiz-question-label { font-size:0.78rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#aaa; margin-bottom:10px; }
+.quiz-emoji { font-size:5rem; display:block; margin-bottom:12px; }
+.quiz-kn { font-family:'Noto Sans Kannada',sans-serif; font-size:1.5rem; font-weight:700; color:var(--orange); margin-bottom:6px; }
+.quiz-hint { font-size:0.85rem; color:#aaa; margin-bottom:20px; font-style:italic; }
+.quiz-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px; }
+.quiz-opt { background:#fff; border:3px solid var(--dark); border-radius:16px; padding:14px 10px; font-family:'Baloo 2',cursive; font-size:1.05rem; font-weight:800; cursor:pointer; box-shadow:4px 4px 0 var(--dark); transition:all 0.15s; color:var(--dark); text-align:center; }
+.quiz-opt:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
+.quiz-opt.correct-ans { background:var(--green); color:#fff; border-color:#3a8a3a; box-shadow:4px 4px 0 #3a8a3a; transform:scale(1.05); }
+.quiz-opt.wrong-ans   { background:var(--red); color:#fff; border-color:#a0001e; box-shadow:4px 4px 0 #a0001e; }
+.quiz-result { font-size:1.4rem; font-weight:800; margin-top:16px; animation:popIn 0.3s cubic-bezier(.36,1.6,.64,1); min-height:2rem; }
+.quiz-next-btn { background:var(--yellow); border:3px solid var(--dark); border-radius:50px; padding:12px 36px; font-family:'Baloo 2',cursive; font-size:1.1rem; font-weight:800; cursor:pointer; box-shadow:4px 4px 0 var(--dark); transition:all 0.15s; margin-top:14px; display:none; }
+.quiz-next-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
+.quiz-next-btn.show { display:inline-block; }
+.quiz-finish { text-align:center; padding:30px 20px; background:#fff; border:3px solid var(--dark); border-radius:24px; box-shadow:6px 6px 0 var(--dark); animation:popIn 0.4s cubic-bezier(.36,1.4,.64,1); }
+.quiz-finish-emoji { font-size:4rem; display:block; margin-bottom:10px; }
+.quiz-finish-title { font-size:1.8rem; font-weight:800; margin-bottom:8px; }
+.quiz-finish-score { font-size:1.1rem; color:#555; margin-bottom:20px; }
+.quiz-restart-btn { background:var(--green); border:3px solid var(--dark); border-radius:50px; padding:12px 32px; font-family:'Baloo 2',cursive; font-size:1.05rem; font-weight:800; cursor:pointer; color:#fff; box-shadow:4px 4px 0 var(--dark); transition:all 0.15s; }
+.quiz-restart-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--dark); }
 
-  #sentencesSection { display: none; max-width: 860px; margin: 0 auto; padding: 10px 18px 40px; }
-  #sentencesSection.show { display: block; }
-
-  .sent-cat-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0 16px; }
-  .sent-cat-btn {
-    background: var(--white); border: 3px solid var(--dark); border-radius: 50px;
-    padding: 7px 16px; font-family: 'Baloo 2', cursive; font-size: 0.9rem; font-weight: 700;
-    cursor: pointer; box-shadow: 3px 3px 0 var(--dark); transition: all 0.2s; color: var(--dark);
-  }
-  .sent-cat-btn:hover, .sent-cat-btn.active { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
-  .sent-cat-btn.active { color: #fff; }
-  .sent-cat-btn[data-scat="Animals & Nature"].active   { background: var(--green); }
-  .sent-cat-btn[data-scat="Family & People"].active    { background: var(--pink); }
-  .sent-cat-btn[data-scat="Food & Eating"].active      { background: var(--orange); }
-  .sent-cat-btn[data-scat="School & Playing"].active   { background: var(--blue); }
-  .sent-cat-btn[data-scat="Vegetables & Fruits"].active{ background: var(--teal); }
-  .sent-cat-btn[data-scat="Birds & Flowers"].active   { background: #E040FB; }
-  .sent-cat-btn[data-scat="Festivals 🎉"].active      { background: #FF9800; }
-  .sent-cat-btn[data-scat="Numbers 🔢"].active        { background: #F72585; }
-  .sent-cat-btn[data-scat="Transport 🚗"].active      { background: #3D5A80; }
-
-  .sent-list { display: flex; flex-direction: column; gap: 14px; }
-  .sent-card {
-    background: var(--white); border: 3px solid var(--dark); border-radius: 18px;
-    padding: 14px 18px; box-shadow: 5px 5px 0 var(--dark);
-    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    animation: popIn 0.35s cubic-bezier(.36,1.4,.64,1) both;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .sent-card:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--dark); }
-  .sent-card:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--dark); }
-  .sent-card.bounce { animation: bounce 0.4s cubic-bezier(.36,1.6,.64,1); }
-  .sent-emoji { font-size: 2.2rem; flex-shrink: 0; }
-  .sent-text { flex: 1; }
-  .sent-en { font-size: 1.1rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
-  .sent-kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.98rem; font-weight: 700; color: var(--orange); margin-bottom: 3px; }
-  .sent-pronun { font-size: 0.82rem; color: #999; font-style: italic; }
-  .sent-say { background: var(--yellow); border: 2px solid var(--dark); border-radius: 30px; padding: 6px 14px; font-family: 'Baloo 2', cursive; font-size: 0.88rem; font-weight: 700; cursor: pointer; box-shadow: 2px 2px 0 var(--dark); flex-shrink: 0; transition: all 0.15s; }
-  .sent-say:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--dark); }
-
-  .modal-overlay { display: none; position: fixed; inset: 0; background: #0007; z-index: 100; align-items: center; justify-content: center; }
-  .modal-overlay.show { display: flex; }
-  .modal { background: #fff; border: 4px solid var(--dark); border-radius: 28px; padding: 30px 26px; text-align: center; max-width: 340px; width: 90%; box-shadow: 8px 8px 0 var(--dark); animation: popIn 0.3s cubic-bezier(.36,1.4,.64,1); }
-  .modal-emoji { font-size: 4.5rem; display: block; margin-bottom: 10px; }
-  .modal-en { font-size: 1.9rem; font-weight: 800; color: var(--dark); }
-  .modal-kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--orange); margin: 5px 0 3px; }
-  .modal-pronun { font-size: 0.95rem; color: #777; margin-bottom: 18px; }
-  .say-btn { background: var(--yellow); border: 3px solid var(--dark); border-radius: 50px; padding: 9px 24px; font-family: 'Baloo 2', cursive; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 4px 4px 0 var(--dark); transition: all 0.15s; margin-right: 8px; }
-  .say-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--dark); }
-  .close-btn { background: var(--pink); border: 3px solid var(--dark); border-radius: 50px; padding: 9px 24px; font-family: 'Baloo 2', cursive; font-size: 1rem; font-weight: 800; cursor: pointer; color: #fff; box-shadow: 4px 4px 0 var(--dark); transition: all 0.15s; }
-  .close-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--dark); }
-
-  footer { text-align: center; padding: 12px; font-size: 0.88rem; color: #bbb; font-weight: 600; }
-  #wordsSection.hide { display: none; }
+#wordsSection.hide { display:none; }
 </style>
 </head>
 <body>
 
 <header id="mainHeader">
-
   <div class="header-row">
-    <img src="images/kid1.png" class="hero-img left">
-
+    <img src="images/kid1.png" class="hero-img left" alt="kid">
     <div class="title-block">
-      <h1>Koppal - Kids</h1>
-      <p> ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ!</p>  
+      <div class="title-wrap">
+        <span class="title-star">🌟</span>
+        <h1>Koppal - Kids</h1>
+        <span class="title-star">🌟</span>
+      </div>
+      <p>ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ!</p>
       <p>Learn English with Kannada. Click on any card!</p>
     </div>
-
-    <img src="images/kid2.png" class="hero-img right">
+    <img src="images/kid2.png" class="hero-img right" alt="kid">
   </div>
-
 </header>
 
 <div class="mode-tabs">
-  <button class="mode-tab active" id="tabWords" onclick="switchMode('words')">📖 Words</button>
-  <button class="mode-tab" id="tabSentences" onclick="switchMode('sentences')">💬 Sentences</button>
+  <button class="mode-tab"        id="tabAlphabet"  onclick="switchMode('alphabet')">🔤 A-Z</button>
+  <button class="mode-tab active" id="tabWords"     onclick="switchMode('words')">📖 Words</button>
+  <button class="mode-tab"        id="tabSentences" onclick="switchMode('sentences')">💬 Sentences</button>
+  <button class="mode-tab"        id="tabQuiz"      onclick="switchMode('quiz')">🎯 Quiz</button>
 </div>
 
 <div class="score-bar" id="scoreBar">⭐ Stars collected: <span id="starCount">0</span></div>
@@ -382,6 +255,14 @@
   <div class="sent-list" id="sentList"></div>
 </div>
 
+<div id="alphabetSection">
+  <div id="alphabetGrid"></div>
+</div>
+
+<div id="quizSection">
+  <div id="quizBox"></div>
+</div>
+
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <span class="modal-emoji" id="mEmoji"></span>
@@ -393,22 +274,21 @@
 </div>
 
 <footer>
-  Made with <span class="footer-hearts" aria-label="heart">❤️</span> for little learners<br>
-
+  Made with <span class="footer-hearts">❤️</span> for little learners<br>
   <p style="font-size:0.88rem;">
-    Created by <span class="credit-name">Gavisiddappa HATTI</span> 
+    Created by <span class="credit-name">Gavisiddappa HATTI</span>
     &nbsp;with the help of <strong style="color:#4D96FF;">Claude 🤖</strong>
   </p>
-
   <p style="font-size:0.85rem;">
-    📞 For advice or feedback: 
-    <a id="whatsapp-link" href="#" style="color:#25D366; text-decoration:none;">
+    📞 For advice or feedback:
+    <a id="whatsapp-link" href="#" style="color:#25D366;text-decoration:none;">
       Send a WhatsApp Message
     </a>
   </p>
 </footer>
 
 <script>
+
 const words = {
   Animals: [
     { en:"Cat",          kn:"ಬೆಕ್ಕು",       pronun:"ಕ್ಯಾಟ್",          emoji:"🐱" },
@@ -801,53 +681,39 @@ const words = {
     { en:"Birthday",           kn:"ಹುಟ್ಟುಹಬ್ಬ",         pronun:"ಬರ್ತ್‌ಡೇ",           emoji:"🎂" },
     { en:"Wedding",            kn:"ಮದುವೆ",              pronun:"ವೆಡಿಂಗ್",             emoji:"💒" },
   ],
+
   Games: [
-    { en:"Cricket",        kn:"ಕ್ರಿಕೆಟ್",        pronun:"ಕ್ರಿಕೆಟ್",        emoji:"🏏" },
-    { en:"Football",       kn:"ಫುಟ್ಬಾಲ್",        pronun:"ಫುಟ್ಬಾಲ್",        emoji:"⚽" },
-    { en:"Kabaddi",        kn:"ಕಬಡ್ಡಿ",          pronun:"ಕಬಡ್ಡಿ",          emoji:"🤼" },
-    { en:"Chess",          kn:"ಚದುರಂಗ",          pronun:"ಚೆಸ್",            emoji:"♟️" },
-    { en:"Carrom",         kn:"ಕ್ಯಾರಂ",          pronun:"ಕ್ಯಾರಂ",          emoji:"🎯" },
-    { en:"Hockey",         kn:"ಹಾಕಿ",            pronun:"ಹಾಕಿ",            emoji:"🏑" },
-    { en:"Tennis",         kn:"ಟೆನ್ನಿಸ್",         pronun:"ಟೆನ್ನಿಸ್",         emoji:"🎾" },
-    { en:"Badminton",      kn:"ಬ್ಯಾಡ್ಮಿಂಟನ್",     pronun:"ಬ್ಯಾಡ್ಮಿಂಟನ್",     emoji:"🏸" },
-    { en:"Volleyball",     kn:"ವಾಲಿಬಾಲ್",        pronun:"ವಾಲಿಬಾಲ್",        emoji:"🏐" },
-    { en:"Basketball",     kn:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",    pronun:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",    emoji:"🏀" },
-    { en:"Table Tennis",   kn:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",   pronun:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",   emoji:"🏓" },
-    { en:"Baseball",       kn:"ಬೇಸ್‌ಬಾಲ್",       pronun:"ಬೇಸ್‌ಬಾಲ್",       emoji:"⚾" },
-    { en:"Rugby",          kn:"ರಗ್ಬಿ",            pronun:"ರಗ್ಬಿ",            emoji:"🏉" },
-    { en:"Golf",           kn:"ಗಾಲ್ಫ್",          pronun:"ಗಾಲ್ಫ್",          emoji:"⛳" },
-    { en:"Boxing",         kn:"ಬಾಕ್ಸಿಂಗ್",        pronun:"ಬಾಕ್ಸಿಂಗ್",        emoji:"🥊" },
-    { en:"Wrestling",      kn:"ಕುಸ್ತಿ",           pronun:"ರೆಸ್ಲಿಂಗ್",       emoji:"🤼" },
-    { en:"Swimming",       kn:"ಈಜು",             pronun:"ಸ್ವಿಮ್ಮಿಂಗ್",      emoji:"🏊" },
-    { en:"Cycling",        kn:"ಸೈಕ್ಲಿಂಗ್",       pronun:"ಸೈಕ್ಲಿಂಗ್",       emoji:"🚴" },
-    { en:"Running",        kn:"ಓಟ",              pronun:"ರನ್ನಿಂಗ್",         emoji:"🏃" },
-    { en:"Archery",        kn:"ಬಿಲ್ಲುಗಾರಿಕೆ",     pronun:"ಆರ್ಚರಿ",          emoji:"🏹" },
-    { en:"Bowling",        kn:"ಬೌಲಿಂಗ್",         pronun:"ಬೌಲಿಂಗ್",         emoji:"🎳" },
-    { en:"Snooker",        kn:"ಸ್ನೂಕರ್",         pronun:"ಸ್ನೂಕರ್",         emoji:"🎱" },
-    { en:"Billiards",      kn:"ಬಿಲ್ಲಿಯರ್ಡ್ಸ್",    pronun:"ಬಿಲ್ಲಿಯರ್ಡ್ಸ್",    emoji:"🎱" },
-    { en:"Darts",          kn:"ಡಾರ್ಟ್ಸ್",         pronun:"ಡಾರ್ಟ್ಸ್",         emoji:"🎯" },
-    { en:"Handball",       kn:"ಹ್ಯಾಂಡ್‌ಬಾಲ್",     pronun:"ಹ್ಯಾಂಡ್‌ಬಾಲ್",     emoji:"🤾" },
-    { en:"Softball",       kn:"ಸಾಫ್ಟ್‌ಬಾಲ್",     pronun:"ಸಾಫ್ಟ್‌ಬಾಲ್",     emoji:"🥎" },
-    { en:"Ice Hockey",     kn:"ಐಸ್ ಹಾಕಿ",        pronun:"ಐಸ್ ಹಾಕಿ",        emoji:"🏒" },
-    { en:"Fencing",        kn:"ಕತ್ತಿ ಕಲೆ",        pronun:"ಫೆನ್ಸಿಂಗ್",       emoji:"🤺" },
-    { en:"Judo",           kn:"ಜೂಡೋ",            pronun:"ಜೂಡೋ",            emoji:"🥋" },
-    { en:"Karate",         kn:"ಕರಾಟೆ",           pronun:"ಕರಾಟೆ",           emoji:"🥋" },
-    { en:"Taekwondo",      kn:"ಟೈಕ್ವಾಂಡೋ",       pronun:"ಟೈಕ್ವಾಂಡೋ",       emoji:"🥋" },
-    { en:"Horse Riding",   kn:"ಕುದುರೆ ಸವಾರಿ",    pronun:"ಹಾರ್ಸ್ ರೈಡಿಂಗ್",  emoji:"🏇" },
-    { en:"Rowing",         kn:"ದೋಣಿ ಓಟ",         pronun:"ರೋವಿಂಗ್",         emoji:"🚣" },
-    { en:"Canoeing",       kn:"ಕ್ಯಾನೋಯಿಂಗ್",     pronun:"ಕ್ಯಾನೋಯಿಂಗ್",     emoji:"🛶" },
-    { en:"Rock Climbing",  kn:"ಗಲ್ಲು ಹತ್ತುವುದು",  pronun:"ರಾಕ್ ಕ್ಲೈಂಬಿಂಗ್", emoji:"🧗" },
-    { en:"Skateboarding",  kn:"ಸ್ಕೇಟ್‌ಬೋರ್ಡಿಂಗ್", pronun:"ಸ್ಕೇಟ್‌ಬೋರ್ಡಿಂಗ್", emoji:"🛹" },
-    { en:"Parkour",        kn:"ಪಾರ್ಕೂರ್",        pronun:"ಪಾರ್ಕೂರ್",        emoji:"🤸" },
-    { en:"Esports",        kn:"ಇ-ಕ್ರೀಡೆಗಳು",     pronun:"ಈ-ಸ್ಪೋರ್ಟ್ಸ್",     emoji:"🎮" },
-    { en:"Ludo",           kn:"ಲುಡೋ",            pronun:"ಲುಡೋ",            emoji:"🎲" },
-    { en:"Snake and Ladder", kn:"ಹಾವು ಮೆಟ್ಟಿಲು", pronun:"ಸ್ನೇಕ್ ಅಂಡ್ ಲ್ಯಾಡರ್", emoji:"🐍" },
-    { en:"Car Racing",     kn:"ಕಾರ್ ರೇಸಿಂಗ್",    pronun:"ಕಾರ್ ರೇಸಿಂಗ್",    emoji:"🏎️" },
-    { en:"Motor Racing",   kn:"ಮೋಟಾರ್ ರೇಸಿಂಗ್",  pronun:"ಮೋಟಾರ್ ರೇಸಿಂಗ್",  emoji:"🏍️" },
-    { en:"Weightlifting",  kn:"ಭಾರ ಎತ್ತುವಿಕೆ",   pronun:"ವೇಟ್ ಲಿಫ್ಟಿಂಗ್",  emoji:"🏋️" },
-    { en:"Gymnastics",     kn:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",  pronun:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",  emoji:"🤸‍♀️" },
-    { en:"Skating",        kn:"ಸ್ಕೇಟಿಂಗ್",       pronun:"ಸ್ಕೇಟಿಂಗ್",       emoji:"⛸️" }
-],
+    { en:"Cricket",       kn:"ಕ್ರಿಕೆಟ್",          pronun:"ಕ್ರಿಕೆಟ್",          emoji:"🏏" },
+    { en:"Football",      kn:"ಫುಟ್ಬಾಲ್",          pronun:"ಫುಟ್ಬಾಲ್",          emoji:"⚽" },
+    { en:"Kabaddi",       kn:"ಕಬಡ್ಡಿ",            pronun:"ಕಬಡ್ಡಿ",            emoji:"🤼" },
+    { en:"Chess",         kn:"ಚದುರಂಗ",            pronun:"ಚೆಸ್",              emoji:"♟️" },
+    { en:"Carrom",        kn:"ಕ್ಯಾರಂ",             pronun:"ಕ್ಯಾರಂ",            emoji:"🎯" },
+    { en:"Hockey",        kn:"ಹಾಕಿ",              pronun:"ಹಾಕಿ",              emoji:"🏑" },
+    { en:"Tennis",        kn:"ಟೆನ್ನಿಸ್",           pronun:"ಟೆನ್ನಿಸ್",           emoji:"🎾" },
+    { en:"Badminton",     kn:"ಬ್ಯಾಡ್ಮಿಂಟನ್",        pronun:"ಬ್ಯಾಡ್ಮಿಂಟನ್",        emoji:"🏸" },
+    { en:"Volleyball",    kn:"ವಾಲಿಬಾಲ್",           pronun:"ವಾಲಿಬಾಲ್",           emoji:"🏐" },
+    { en:"Basketball",    kn:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",        pronun:"ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",        emoji:"🏀" },
+    { en:"Table Tennis",  kn:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",      pronun:"ಟೇಬಲ್ ಟೆನ್ನಿಸ್",      emoji:"🏓" },
+    { en:"Baseball",      kn:"ಬೇಸ್‌ಬಾಲ್",           pronun:"ಬೇಸ್‌ಬಾಲ್",           emoji:"⚾" },
+    { en:"Golf",          kn:"ಗಾಲ್ಫ್",             pronun:"ಗಾಲ್ಫ್",             emoji:"⛳" },
+    { en:"Boxing",        kn:"ಬಾಕ್ಸಿಂಗ್",           pronun:"ಬಾಕ್ಸಿಂಗ್",           emoji:"🥊" },
+    { en:"Wrestling",     kn:"ಕುಸ್ತಿ",             pronun:"ರೆಸ್ಲಿಂಗ್",           emoji:"🤼" },
+    { en:"Swimming",      kn:"ಈಜು",               pronun:"ಸ್ವಿಮ್ಮಿಂಗ್",          emoji:"🏊" },
+    { en:"Cycling",       kn:"ಸೈಕ್ಲಿಂಗ್",           pronun:"ಸೈಕ್ಲಿಂಗ್",           emoji:"🚴" },
+    { en:"Running",       kn:"ಓಟ",                pronun:"ರನ್ನಿಂಗ್",            emoji:"🏃" },
+    { en:"Archery",       kn:"ಬಿಲ್ಲುಗಾರಿಕೆ",        pronun:"ಆರ್ಚರಿ",            emoji:"🏹" },
+    { en:"Bowling",       kn:"ಬೌಲಿಂಗ್",            pronun:"ಬೌಲಿಂಗ್",            emoji:"🎳" },
+    { en:"Judo",          kn:"ಜೂಡೋ",              pronun:"ಜೂಡೋ",              emoji:"🥋" },
+    { en:"Karate",        kn:"ಕರಾಟೆ",             pronun:"ಕರಾಟೆ",             emoji:"🥋" },
+    { en:"Horse Riding",  kn:"ಕುದುರೆ ಸವಾರಿ",       pronun:"ಹಾರ್ಸ್ ರೈಡಿಂಗ್",       emoji:"🏇" },
+    { en:"Gymnastics",    kn:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",        pronun:"ಜಿಮ್ನಾಸ್ಟಿಕ್ಸ್",        emoji:"🤸" },
+    { en:"Weightlifting", kn:"ಭಾರ ಎತ್ತುವಿಕೆ",       pronun:"ವೇಟ್ ಲಿಫ್ಟಿಂಗ್",       emoji:"🏋️" },
+    { en:"Rowing",        kn:"ದೋಣಿ ಓಟ",            pronun:"ರೋವಿಂಗ್",            emoji:"🚣" },
+    { en:"Skating",       kn:"ಸ್ಕೇಟಿಂಗ್",           pronun:"ಸ್ಕೇಟಿಂಗ್",           emoji:"⛸️" },
+    { en:"Ludo",          kn:"ಲುಡೋ",              pronun:"ಲುಡೋ",              emoji:"🎲" },
+    { en:"Snake and Ladder",kn:"ಹಾವು ಮೆಟ್ಟಿಲು",    pronun:"ಸ್ನೇಕ್ ಅಂಡ್ ಲ್ಯಾಡರ್",   emoji:"🐍" },
+    { en:"Car Racing",    kn:"ಕಾರ್ ರೇಸಿಂಗ್",        pronun:"ಕಾರ್ ರೇಸಿಂಗ್",        emoji:"🏎️" },
+  ],
 };
 
 const catColors = {
@@ -858,403 +724,95 @@ const catColors = {
 
 const sentences = {
   "Animals & Nature": [
-    { en:"This is a cat.",           kn:"ಇದು ಒಂದು ಬೆಕ್ಕು.",                          pronun:"ದಿಸ್ ಇಸ್ ಎ ಕ್ಯಾಟ್",                              emoji:"🐱" },
-    { en:"The dog is big.",          kn:"ನಾಯಿ ದೊಡ್ಡದಾಗಿದೆ.",                         pronun:"ದ ಡಾಗ್ ಇಸ್ ಬಿಗ್",                               emoji:"🐶" },
-    { en:"I see a bird.",            kn:"ನಾನು ಒಂದು ಹಕ್ಕಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",          pronun:"ಐ ಸೀ ಎ ಬರ್ಡ್",                                 emoji:"🐦" },
-    { en:"The cow gives milk.",      kn:"ಹಸು ಹಾಲು ಕೊಡುತ್ತದೆ.",                       pronun:"ದ ಕ್ಯಾ ಗಿವ್ಸ್ ಮಿಲ್ಕ್",                             emoji:"🐄" },
-    { en:"The elephant is very big.",kn:"ಆನೆ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.",                    pronun:"ದ ಎಲೆಫೆಂಟ್ ಇಸ್ ವ್ಯರಿ ಬಿಗ್",                        emoji:"🐘" },
-    { en:"Fish live in water.",      kn:"ಮೀನುಗಳು ನೀರಿನಲ್ಲಿ ವಾಸಿಸುತ್ತವೆ.",            pronun:"ಫಿಷ್ ಲೈವ್ ಇನ್ ವಾಟರ್",                             emoji:"🐟" },
-    { en:"The sun is bright.",       kn:"ಸೂರ್ಯ ತೇಜಸ್ವಿಯಾಗಿದ್ದಾನೆ.",                   pronun:"ದ ಸನ್ ಇಸ್ ಬ್ರೈಟ್",                               emoji:"☀️" },
-    { en:"It is raining today.",     kn:"ಇಂದು ಮಳೆ ಬರುತ್ತಿದೆ.",                       pronun:"ಇಟ್ ಇಸ್ ರೈನಿಂಗ್ ಟುಡೇ",                           emoji:"🌧️" },
-    { en:"The moon is white.",       kn:"ಚಂದ್ರ ಬಿಳಿಯಾಗಿದೆ.",                         pronun:"ದ ಮೂನ್ ಇಸ್ ವೈಟ್",                                emoji:"🌕" },
-    { en:"I like butterflies.",      kn:"ನಾನು ಫುಲಕೀಟಗಳನ್ನು ಇಷ್ಟಪಡುವೆನು.",          pronun:"ಐ ಲೈಕ್ ಬಟರ್ಫ್ಲೈಸ್",                              emoji:"🦋" },
-    { en:"Ants are small.",          kn:"ಎಂಟುಗಳು ಚಿಕ್ಕವು.",                          pronun:"ಆಂಟ್ಸ್ ಆರ್ ಸ್ಮಾಲ್",                               emoji:"🐜" },
-    { en:"The frog jumps.",          kn:"ಬೆಂಡೆ ಹಾರುತ್ತದೆ.",                           pronun:"ದ ಫ್ರಾಗ್ ಜಂಪ್ಸ್",                                 emoji:"🐸" },
-    { en:"The lion is strong.",      kn:"ಸಿಂಹ ಶಕ್ತಿಶಾಲಿಯಾಗಿದೆ.",                      pronun:"ದ ಲಯನ್ ಇಸ್ ಸ್ಟ್ರಾಂಗ್",                              emoji:"🦁" },
-    { en:"The tiger runs fast.",     kn:"ಹುಲಿಯು ವೇಗವಾಗಿ ಓಡುತ್ತದೆ.",                  pronun:"ದ ಟೈಗರ್ ರನ್ಸ್ ಫಾಸ್ಟ್",                             emoji:"🐅" },
-    { en:"I see a monkey.",          kn:"ನಾನು ಕೋತಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",                 pronun:"ಐ ಸೀ ಎ ಮಾಂಕಿ",                                   emoji:"🐒" },
-    { en:"The horse is brown.",      kn:"ಕುದುರೆ ಕಂದು ಬಣ್ಣದಾಗಿದೆ.",                    pronun:"ದ ಹಾರ್ಸ್ ಇಸ್ ಬ್ರೌನ್",                               emoji:"🐎" },
-    { en:"The snake is long.",       kn:"ಹಾವು ಉದ್ದವಾಗಿದೆ.",                           pronun:"ದ ಸ್ನೇಕ್ ಇಸ್ ಲಾಂಗ್",                                emoji:"🐍" },
-    { en:"I see a rabbit.",          kn:"ನಾನು ಮೊಲವನ್ನು ನೋಡುತ್ತೇನೆ.",                 pronun:"ಐ ಸೀ ಎ ರ್ಯಾಬಿಟ್",                                 emoji:"🐇" },
-    { en:"The bear is big.",         kn:"ಕರಡಿ ದೊಡ್ಡದಾಗಿದೆ.",                          pronun:"ದ ಬೇರ್ ಇಸ್ ಬಿಗ್",                                   emoji:"🐻" },
-    { en:"The fox is clever.",       kn:"ಕೋಗಿಲು ಬುದ್ಧಿವಂತವಾಗಿದೆ.",                   pronun:"ದ ಫಾಕ್ಸ್ ಇಸ್ ಕ್ಲೆವರ್",                               emoji:"🦊" },
-    { en:"The wolf howls.",          kn:"ನರಿ ಕೋಪುತ್ತದೆ.",                             pronun:"ದ ವೂಲ್ಫ್ ಹೌಲ್ಸ್",                                   emoji:"🐺" },
-    { en:"I see a dolphin.",         kn:"ನಾನು ಡಾಲ್ಫಿನ್ ನೋಡುತ್ತೇನೆ.",                pronun:"ಐ ಸೀ ಎ ಡಾಲ್ಫಿನ್",                                 emoji:"🐬" },
-    { en:"The whale is huge.",       kn:"ತಿಮಿಂಗಿಲ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.",                pronun:"ದ ವೆಲ್ ಇಸ್ ಹ್ಯೂಜ್",                                  emoji:"🐋" },
-    { en:"The shark is scary.",      kn:"ಹಾರ್ಕ್ ಭಯಾನಕವಾಗಿದೆ.",                       pronun:"ದ ಶಾರ್ಕ್ ಇಸ್ ಸ್ಕೇರಿ",                                emoji:"🦈" },
-    { en:"I see a penguin.",         kn:"ನಾನು ಪೆಂಗ್ವಿನ್ ನೋಡುತ್ತೇನೆ.",                pronun:"ಐ ಸೀ ಎ ಪೆಂಗ್ವಿನ್",                                 emoji:"🐧" },
-    { en:"The parrot talks.",        kn:"ತಿಟ್ಟುಕೋಣಿಯಾಗಿ ಪಕ್ಷಿ ಮಾತಾಡುತ್ತದೆ.",          pronun:"ದ ಪ್ಯಾರಟ್ ಟಾಕ್ಸ್",                                  emoji:"🦜" },
-    { en:"I see a peacock.",         kn:"ನಾನು ನವಿಲನ್ನು ನೋಡುತ್ತೇನೆ.",                  pronun:"ಐ ಸೀ ಎ ಪೀಕಾಕ್",                                   emoji:"🦚" },
-    { en:"The camel has a hump.",    kn:"ಒಂಟೆಗುಂಟೆಯಿದೆ.",                            pronun:"ದ ಕ್ಯಾಮೆಲ್ ಹ್ಯಾಸ ಎ ಹಂಪ್",                             emoji:"🐫" },
-    { en:"I see a giraffe.",         kn:"ನಾನು ಜಿರಾಫ್ ನೋಡುತ್ತೇನೆ.",                  pronun:"ಐ ಸೀ ಎ ಜಿರಾಫ್",                                   emoji:"🦒" },
-    { en:"The zebra has stripes.",   kn:"ಜೀಬ್ರಾ ರೇಖೆಗಳು ಹೊಂದಿದೆ.",                  pronun:"ದ ಜೀಬ್ರಾ ಹ್ಯಾಸ ಸ್ಟ್ರೈಪ್ಸ್",                           emoji:"🦓" },
-    { en:"I see a koala.",           kn:"ನಾನು ಕೋಅಲಾ ನೋಡುತ್ತೇನೆ.",                    pronun:"ಐ ಸೀ ಎ ಕೋಅಲಾ",                                     emoji:"🐨" },
-    { en:"The kangaroo jumps.",      kn:"ಕಂಗಾರೂ ಹಾರುತ್ತದೆ.",                           pronun:"ದ ಕಂಗಾರೂ ಜಂಪ್ಸ್",                                    emoji:"🦘" },
-    { en:"The owl is awake.",        kn:"ಆನೆಯ ಮುತ್ತು ಜಾಗೃತವಾಗಿದೆ.",                 pronun:"ದ ಔಲ್ ಇಸ್ ಅವೇಕ್",                                   emoji:"🦉" },
-    { en:"The crow is black.",       kn:"ಕಾಗೆ ಕಪ್ಪಾಗಿದೆ.",                            pronun:"ದ ಕ್ರೋ ಇಸ್ ಬ್ಲ್ಯಾಕ್",                                 emoji:"🐦‍⬛" },
-    { en:"I see a butterfly.",       kn:"ನಾನು ಫುಲಕೀಟವನ್ನು ನೋಡುತ್ತೇನೆ.",              pronun:"ಐ ಸೀ ಎ ಬಟರ್ಫ್ಲೈ",                                 emoji:"🦋" },
-    { en:"The grass is green.",      kn:"ಹುಲ್ಲು ಹಸಿರಾಗಿದೆ.",                           pronun:"ದ ಗ್ರಾಸ್ ಇಸ್ ಗ್ರೀನ್",                                  emoji:"🌱" },
-    { en:"The tree is tall.",        kn:"ಮರ ಎತ್ತರವಾಗಿದೆ.",                            pronun:"ದ ಟ್ರೀ ಇಸ್ ಟಾಲ್",                                     emoji:"🌳" },
-    { en:"I see a flower.",          kn:"ನಾನು ಹೂವಿನ ನೋಡಿ.",                           pronun:"ಐ ಸೀ ಎ ಫ್ಲವರ್",                                     emoji:"🌸" },
-    { en:"The rose is red.",         kn:"ಗೂವು ಕೆಂಪಾಗಿದೆ.",                             pronun:"ದ ರೋಸ್ ಇಸ್ ರೆಡ್",                                      emoji:"🌹" },
-    { en:"The leaf is green.",       kn:"ಇಲೆ ಹಸಿರಾಗಿದೆ.",                              pronun:"ದ ಲೀಫ್ ಇಸ್ ಗ್ರೀನ್",                                     emoji:"🍃" },
-    { en:"I see a rainbow.",         kn:"ನಾನು ಧಾರಾಕಾರವನ್ನು ನೋಡುತ್ತೇನೆ.",               pronun:"ಐ ಸೀ ಎ ರೇನ್‌ಬೋ",                                     emoji:"🌈" },
-    { en:"The mountain is high.",    kn:"ಪರ್ವತ ಎತ್ತರವಾಗಿದೆ.",                           pronun:"ದ ಮಾಉಂಟನ್ ಇಸ್ ಹೈ",                                     emoji:"🏔️" },
-    { en:"The river flows.",         kn:"ನದಿ ಹರಿಯುತ್ತದೆ.",                               pronun:"ದ ರಿವರ್ ಫ್ಲೋಸ್",                                        emoji:"🌊" },
-    { en:"The cloud is white.",      kn:"ಮೇಕೆ ಬಿಳಿಯಾಗಿದೆ.",                             pronun:"ದ ಕ್ಲೌಡ್ ಇಸ್ ವೈಟ್",                                    emoji:"☁️" },
-    { en:"The wind is strong.",      kn:"ಗಾಳಿ ಬಲವಾಗಿದೆ.",                               pronun:"ದ ವಿಂಡ್ ಇಸ್ ಸ್ಟ್ರಾಂಗ್",                                  emoji:"💨" },
-    { en:"It is snowing.",            kn:"ಹಿಮಪಾತವಾಗುತ್ತಿದೆ.",                             pronun:"ಇಟ್ ಇಸ್ ಸ್ಫೋಯಿಂಗ್",                                    emoji:"❄️" },
-    { en:"The lightning is bright.", kn:"ವಿಜೃಂಭಣೆ ಉಜ್ವಲವಾಗಿದೆ.",                        pronun:"ದ ಲೈಟ್ನಿಂಗ್ ಇಸ್ ಬ್ರೈಟ್",                               emoji:"⚡" },
-    { en:"The rainbow is colorful.", kn:"ಧಾರಾಕಾರ ಬಣ್ಣಗಳಿಂದ ತುಂಬಿದೆ.",                   pronun:"ದ ರೇನ್‌ಬೋ ಇಸ್ ಕಾಲರ್ಫುಲ್",                              emoji:"🌈" },
-    { en:"I see a star.",             kn:"ನಾನು ನಕ್ಷತ್ರವನ್ನು ನೋಡುತ್ತೇನೆ.",                  pronun:"ಐ ಸೀ ಎ ಸ್ಟಾರ್",                                       emoji:"⭐" },
-    { en:"The moon is shining.",     kn:"ಚಂದ್ರ ಹೊಳೆಯುತ್ತಿದೆ.",                             pronun:"ದ ಮೂನ್ ಇಸ್ ಶೈನಿಂಗ್",                                   emoji:"🌙" }
-],
+    { en:"This is a cat.",           kn:"ಇದು ಒಂದು ಬೆಕ್ಕು.",                          pronun:"i-du on-du be-kku",                              emoji:"🐱" },
+    { en:"The dog is big.",          kn:"ನಾಯಿ ದೊಡ್ಡದಾಗಿದೆ.",                         pronun:"naa-yi dod-da-daa-gi-de",                        emoji:"🐶" },
+    { en:"I see a bird.",            kn:"ನಾನು ಒಂದು ಹಕ್ಕಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",          pronun:"naa-nu on-du hak-ki-yan-nu no-dut-te-ne",        emoji:"🐦" },
+    { en:"The cow gives milk.",      kn:"ಹಸು ಹಾಲು ಕೊಡುತ್ತದೆ.",                       pronun:"ha-su haa-lu ko-dut-ta-de",                      emoji:"🐄" },
+    { en:"The elephant is very big.",kn:"ಆನೆ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ.",                    pronun:"aa-ne tum-baa dod-da-daa-gi-de",                 emoji:"🐘" },
+    { en:"Fish live in water.",      kn:"ಮೀನುಗಳು ನೀರಿನಲ್ಲಿ ವಾಸಿಸುತ್ತವೆ.",            pronun:"mee-nu-ga-lu nee-ri-nal-li vaa-si-sut-ta-ve",    emoji:"🐟" },
+    { en:"The sun is bright.",       kn:"ಸೂರ್ಯ ತೇಜಸ್ವಿಯಾಗಿದ್ದಾನೆ.",                   pronun:"soor-ya te-jas-vi-yaa-gid-daa-ne",               emoji:"☀️" },
+    { en:"It is raining today.",     kn:"ಇಂದು ಮಳೆ ಬರುತ್ತಿದೆ.",                       pronun:"in-du ma-le ba-rut-ti-de",                       emoji:"🌧️" },
+  ],
   "Family & People": [
-    { en:"This is my mother.",       kn:"ಇವರು ನನ್ನ ಅಮ್ಮ.",                            pronun:"ದಿಸ್ ಇಸ್ ಮೈ ಮದರ್",                                emoji:"👩" },
-    { en:"This is my father.",       kn:"ಇವರು ನನ್ನ ಅಪ್ಪ.",                            pronun:"ದಿಸ್ ಇಸ್ ಮೈ ಫಾದರ್",                                emoji:"👨" },
-    { en:"I love my family.",        kn:"ನಾನು ನನ್ನ ಕುಟುಂಬವನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.",      pronun:"ಐ ಲವ್ ಮೈ ಫ್ಯಾಮಿಲಿ",                               emoji:"❤️" },
-    { en:"My sister is small.",      kn:"ನನ್ನ ತಂಗಿ ಚಿಕ್ಕವಳು.",                        pronun:"ಮೈ ಸಿಸ್ಟರ್ ಇಸ್ ಸ್ಮಾಲ್",                              emoji:"👧" },
-    { en:"My brother is tall.",      kn:"ನನ್ನ ಅಣ್ಣ ಎತ್ತರವಾಗಿದ್ದಾನೆ.",                  pronun:"ಮೈ ಬ್ರದರ್ ಇಸ್ ಟಾಲ್",                                 emoji:"👦" },
-    { en:"Grandma tells stories.",   kn:"ಅಜ್ಜಿ ಕಥೆ ಹೇಳುತ್ತಾರೆ.",                      pronun:"ಗ್ರಾಂಡ್ಮಾ ಟೆಲ್ಸ್ ಸ್ಟೋರೀಸ್",                          emoji:"👵" },
-    { en:"We are a happy family.",   kn:"ನಾವು ಸಂತೋಷದ ಕುಟುಂಬ.",                       pronun:"ವಿ ಆರ್ ಎ ಹ್ಯಾಪಿ ಫ್ಯಾಮಿಲಿ",                             emoji:"🏠" },
-    { en:"I help my mother.",        kn:"ನಾನು ಅಮ್ಮನಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",            pronun:"ಐ ಹೆಲ್ಪ್ ಮೈ ಮದರ್",                                  emoji:"🤝" },
-    { en:"I help my father.",        kn:"ನಾನು ಅಪ್ಪನಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",            pronun:"ಐ ಹೆಲ್ಪ್ ಮೈ ಫಾದರ್",                                  emoji:"🤝" },
-    { en:"My grandparents are old.", kn:"ನನ್ನ ಹಜ್ಜಾಜಿ ಹಜ್ಜಾಜಿಗಳು ಹಳೆಯವರು.",         pronun:"ಮೈ ಗ್ರ್ಯಾಂಡ್‌ಪರೆಂಟ್ಸ್ ಆರ್ ಓಲ್ಡ್",                        emoji:"👴👵" },
-    { en:"My uncle is kind.",        kn:"ನನ್ನ ಚಿಕ್ಕಮಾಮನವರು ದಯಾಳುವಾಗಿದ್ದಾರೆ.",          pronun:"ಮೈ ಅಂಕಲ್ ಇಸ್ ಕೈಂಡ್",                                  emoji:"🧑" },
-    { en:"My aunt is sweet.",        kn:"ನನ್ನ ಚಿಕ್ಕಅಮ್ಮಾಯಿ ಮುದ್ದಾಗಿದ್ದಾರೆ.",              pronun:"ಮೈ ಆಂಟ್ ಇಸ್ ಸ್ವೀಟ್",                                    emoji:"👩" },
-    { en:"I have a baby brother.",   kn:"ನನ್ನಿಗೆ ಒಂದು ಶಿಶು ಅಣ್ಣನಿದ್ದಾನೆ.",              pronun:"ಐ ಹ್ಯಾವ್ ಎ ಬೇಬಿ ಬ್ರದರ್",                                emoji:"👶" },
-    { en:"I have a baby sister.",    kn:"ನನ್ನಿಗೆ ಒಂದು ಶಿಶು ತಂಗಿಯಿದ್ದಾಳೆ.",             pronun:"ಐ ಹ್ಯಾವ್ ಎ ಬೇಬಿ ಸಿಸ್ಟರ್",                               emoji:"👶" },
-    { en:"We love our family.",      kn:"ನಾವು ನಮ್ಮ ಕುಟುಂಬವನ್ನು ಪ್ರೀತಿಸುತ್ತೇವೆ.",        pronun:"ವಿ ಲವ್ ಔರ್ ಫ್ಯಾಮಿಲಿ",                                   emoji:"❤️" },
-    { en:"I hug my mother.",         kn:"ನಾನು ಅಮ್ಮನನ್ನು объಹಿಸುತ್ತೇನೆ.",             pronun:"ಐ ಹಗ್ ಮೈ ಮದರ್",                                     emoji:"🤗" },
-    { en:"I hug my father.",         kn:"ನಾನು ಅಪ್ಪನನ್ನು объಹಿಸುತ್ತೇನೆ.",             pronun:"ಐ ಹಗ್ ಮೈ ಫಾದರ್",                                     emoji:"🤗" },
-    { en:"My family is big.",        kn:"ನನ್ನ ಕುಟುಂಬ ದೊಡ್ಡದು.",                        pronun:"ಮೈ ಫ್ಯಾಮಿಲಿ ಇಸ್ ಬಿಗ್",                                   emoji:"🏡" },
-    { en:"My mother cooks food.",    kn:"ನನ್ನ ಅಮ್ಮ ಆಹಾರವನ್ನು ಅಡಗಿ ಮಾಡುತ್ತಾಳೆ.",        pronun:"ಮೈ ಮದರ್ ಕೂಕ್ಸ್ ಫುಡ್",                                   emoji:"👩‍🍳" },
-    { en:"My father goes to work.",  kn:"ನನ್ನ ಅಪ್ಪ ಕೆಲಸಕ್ಕೆ ಹೋಗುತ್ತಾರೆ.",              pronun:"ಮೈ ಫಾದರ್ ಗೋಸ್ ಟು ವರ್ಕ್",                                 emoji:"👨‍💼" },
-    { en:"My sister studies.",       kn:"ನನ್ನ ತಂಗಿ ಓದುವಳು.",                         pronun:"ಮೈ ಸಿಸ್ಟರ್ ಸ್ಟಡೀಸ್",                                   emoji:"👧" },
-    { en:"My brother plays.",        kn:"ನನ್ನ ಅಣ್ಣ ಆಟವಾಡುತ್ತಾನೆ.",                    pronun:"ಮೈ ಬ್ರದರ್ ಪ್ಲೇಸ್",                                     emoji:"👦" },
-    { en:"Grandpa tells stories.",   kn:"ತಾತಾ ಕಥೆ ಹೇಳುತ್ತಾರೆ.",                        pronun:"ಗ್ರ್ಯಾಂಡ್ಪಾ ಟೆಲ್ಸ್ ಸ್ಟೋರೀಸ್",                             emoji:"👴" },
-    { en:"We are happy.",            kn:"ನಾವು ಸಂತೋಷದಲ್ಲಿದ್ದೇವೆ.",                     pronun:"ವಿ ಆರ್ ಹ್ಯಾಪಿ",                                         emoji:"😊" },
-    { en:"I respect my parents.",    kn:"ನಾನು ನನ್ನ ಪಾಲಕರನ್ನು ಗೌರವಿಸುತ್ತೇನೆ.",         pronun:"ಐ ರಿಸ್ಪೆಕ್ಟ್ ಮೈ ಪರೆಂಟ್ಸ್",                                emoji:"🙏" },
-    { en:"My uncle teaches me.",     kn:"ನನ್ನ ಮಾವ ನನಗೆ ಕಲಿಸುತ್ತಾರೆ.",                  pronun:"ಮೈ ಅಂಕಲ್ ಟೀಚಸ್ ಮೀ",                                     emoji:"🧑‍🏫" },
-    { en:"My aunt helps me.",        kn:"ನನ್ನ ಮಾವಿ ನನಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",           pronun:"ಮೈ ಆಂಟ್ ಹೆಲ್ಪ್ಸ್ ಮೀ",                                      emoji:"👩‍🏫" },
-    { en:"I talk to my grandparents.",kn:"ನಾನು ನನ್ನ ಹಜ್ಜಾಜಿ ಹಜ್ಜಾಜಿಗಳೊಂದಿಗೆ ಮಾತನಾಡುತ್ತೇನೆ.", pronun:"ಐ ಟಾಕ್ ಟು ಮೈ ಗ್ರ್ಯಾಂಡ್‌ಪರೆಂಟ್ಸ್", emoji:"🗣️" },
-    { en:"I call my mother.",        kn:"ನಾನು ಅಮ್ಮನಿಗೆ ಕರೆ ಮಾಡುತ್ತೇನೆ.",              pronun:"ಐ ಕಾಲ್ ಮೈ ಮದರ್",                                       emoji:"📞" },
-    { en:"I call my father.",        kn:"ನಾನು ಅಪ್ಪನಿಗೆ ಕರೆ ಮಾಡುತ್ತೇನೆ.",              pronun:"ಐ ಕಾಲ್ ಮೈ ಫಾದರ್",                                       emoji:"📞" },
-    { en:"We celebrate birthdays.",  kn:"ನಾವು ಹುಟ್ಟುಹಬ್ಬವನ್ನು ಆಚರಿಸುತ್ತೇವೆ.",          pronun:"ವಿ ಸೆಲಿಬ್ರೇಟ್ ಬರ್ತ್‌ಡೇಸ್",                                emoji:"🎂" },
-    { en:"My sister is my friend.",  kn:"ನನ್ನ ತಂಗಿ ನನ್ನ ಸ್ನೇಹಿತೆಯಾಗಿದ್ದಾಳೆ.",            pronun:"ಮೈ ಸಿಸ್ಟರ್ ಇಸ್ ಮೈ ಫ್ರೆಂಡ್",                               emoji:"👭" },
-    { en:"My brother is my friend.", kn:"ನನ್ನ ಅಣ್ಣ ನನ್ನ ಸ್ನೇಹಿತನಾಗಿದ್ದಾನೆ.",              pronun:"ಮೈ ಬ್ರದರ್ ಇಸ್ ಮೈ ಫ್ರೆಂಡ್",                               emoji:"👬" },
-    { en:"I give gifts to family.",  kn:"ನಾನು ಕುಟುಂಬಕ್ಕೆ ಉಡುಗೊರೆ ಕೊಡುತ್ತೇನೆ.",         pronun:"ಐ ಗಿವ್ ಗಿಫ್ಟ್‌ಸ್ ಟು ಫ್ಯಾಮಿಲಿ",                             emoji:"🎁" },
-    { en:"My mother reads stories.", kn:"ನನ್ನ ಅಮ್ಮ ಕಥೆ ಓದುತ್ತಾಳೆ.",                    pronun:"ಮೈ ಮದರ್ ರೀಡ್ಸ್ ಸ್ಟೋರೀಸ್",                               emoji:"📖" },
-    { en:"My father reads news.",    kn:"ನನ್ನ ಅಪ್ಪ ಸುದ್ದಿಗಳನ್ನು ಓದುವರು.",              pronun:"ಮೈ ಫಾದರ್ ರೀಡ್ಸ್ ನ್ಯೂಸ್",                                  emoji:"📰" },
-    { en:"I love my sister.",        kn:"ನಾನು ನನ್ನ ತಂಗಿಯನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.",          pronun:"ಐ ಲವ್ ಮೈ ಸಿಸ್ಟರ್",                                     emoji:"❤️" },
-    { en:"I love my brother.",       kn:"ನಾನು ನನ್ನ ಅಣ್ಣನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.",           pronun:"ಐ ಲವ್ ಮೈ ಬ್ರದರ್",                                     emoji:"❤️" },
-    { en:"I greet my family.",       kn:"ನಾನು ನನ್ನ ಕುಟುಂಬಕ್ಕೆ ನಮಸ್ಕಾರ ಹೇಳುತ್ತೇನೆ.",       pronun:"ಐ ಗ್ರೀಟ್ ಮೈ ಫ್ಯಾಮಿಲಿ",                                  emoji:"🙌" },
-    { en:"We play together.",        kn:"ನಾವು ಜೊತೆಯಾಗಿ ಆಡುತ್ತೇವೆ.",                     pronun:"ವಿ ಪ್ಲೇ ಟುಗೆದರ್",                                       emoji:"🎉" },
-    { en:"My family hugs me.",       kn:"ನನ್ನ ಕುಟುಂಬ ನನ್ನನ್ನು объಹಿಸುತ್ತದೆ.",           pronun:"ಮೈ ಫ್ಯಾಮಿಲಿ ಹಗ್ಸ್ ಮೀ",                                   emoji:"🤗" },
-    { en:"I thank my parents.",      kn:"ನಾನು ನನ್ನ ಪಾಲಕರಿಗೆ ಧನ್ಯವಾದ ಹೇಳುತ್ತೇನೆ.",       pronun:"ಐ ಥ್ಯಾಂಕ್ ಮೈ ಪರೆಂಟ್ಸ್",                                  emoji:"🙏" },
-    { en:"We love each other.",      kn:"ನಾವು ಪರಸ್ಪರ ಪ್ರೀತಿಸುತ್ತೇವೆ.",                  pronun:"ವಿ ಲವೀಚ್ ಅಚರ್",                                       emoji:"❤️" }
-],
+    { en:"This is my mother.",       kn:"ಇವರು ನನ್ನ ಅಮ್ಮ.",                            pronun:"i-va-ru nan-na am-ma",                           emoji:"👩" },
+    { en:"This is my father.",       kn:"ಇವರು ನನ್ನ ಅಪ್ಪ.",                            pronun:"i-va-ru nan-na ap-pa",                           emoji:"👨" },
+    { en:"I love my family.",        kn:"ನಾನು ನನ್ನ ಕುಟುಂಬವನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.",      pronun:"naa-nu nan-na ku-tum-ba-van-nu pree-ti-sut-te-ne",emoji:"❤️" },
+    { en:"My sister is small.",      kn:"ನನ್ನ ತಂಗಿ ಚಿಕ್ಕವಳು.",                        pronun:"nan-na tan-gi chik-ka-va-lu",                    emoji:"👧" },
+    { en:"My brother is tall.",      kn:"ನನ್ನ ಅಣ್ಣ ಎತ್ತರವಾಗಿದ್ದಾನೆ.",                  pronun:"nan-na an-na et-ta-ra-vaa-gid-daa-ne",           emoji:"👦" },
+    { en:"Grandma tells stories.",   kn:"ಅಜ್ಜಿ ಕಥೆ ಹೇಳುತ್ತಾರೆ.",                      pronun:"aj-ji ka-the he-lut-taa-re",                     emoji:"👵" },
+    { en:"We are a happy family.",   kn:"ನಾವು ಸಂತೋಷದ ಕುಟುಂಬ.",                       pronun:"naa-vu san-to-sha-da ku-tum-ba",                 emoji:"🏠" },
+    { en:"I help my mother.",        kn:"ನಾನು ಅಮ್ಮನಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",            pronun:"naa-nu am-ma-ni-ge sa-haa-ya maa-dut-te-ne",     emoji:"🤝" },
+  ],
   "Food & Eating": [
-    { en:"I am hungry.",                   kn:"ನನಗೆ ಹಸಿವಾಗಿದೆ.",                           pronun:"ಐ ಆಮ್ ಹಂಗ್ರಿ",                                       emoji:"😋" },
-    { en:"I drink milk.",                  kn:"ನಾನು ಹಾಲು ಕುಡಿಯುತ್ತೇನೆ.",                   pronun:"ಐ ಡ್ರಿಂಕ್ ಮಿಲ್ಕ್",                                     emoji:"🥛" },
-    { en:"I eat rice.",                    kn:"ನಾನು ಅನ್ನ ತಿನ್ನುತ್ತೇನೆ.",                    pronun:"ಐ ಈಟ್ ರೈಸ್",                                         emoji:"🍚" },
-    { en:"This mango is sweet.",           kn:"ಈ ಮಾವಿನ ಹಣ್ಣು ಸಿಹಿಯಾಗಿದೆ.",                 pronun:"ದಿಸ್ ಮ್ಯಾಂಗೋ ಇಸ್ ಸ್ವೀಟ್",                               emoji:"🥭" },
-    { en:"I like bananas.",                kn:"ನನಗೆ ಬಾಳೆ ಹಣ್ಣು ಇಷ್ಟ.",                     pronun:"ಐ ಲೈಕ್ ಬನಾನಾಸ್",                                      emoji:"🍌" },
-    { en:"I wash my hands before eating.", kn:"ನಾನು ತಿನ್ನುವ ಮೊದಲು ಕೈ ತೊಳೆಯುತ್ತೇನೆ.",         pronun:"ಐ ವಾಷ್ ಮೈ ಹ್ಯಾಂಡ್ಸ್ ಬಿಫೋರ್ ಈಟಿಂಗ್",                      emoji:"🙌" },
-    { en:"Water is good for health.",      kn:"ನೀರು ಆರೋಗ್ಯಕ್ಕೆ ಒಳ್ಳೆಯದು.",                  pronun:"ವಾಟರ್ ಇಸ್ ಗುಡ್ ಫಾರ್ ಹೆಲ್ತ್",                              emoji:"💧" },
-    { en:"I eat vegetables every day.",    kn:"ನಾನು ಪ್ರತಿದಿನ ತರಕಾರಿ ತಿನ್ನುತ್ತೇನೆ.",           pronun:"ಐ ಈಟ್ ವೆಜಿಟೇಬಲ್ಸ್ ಎವರಿ ಡೇ",                             emoji:"🥦" },
-    { en:"I drink juice.",                 kn:"ನಾನು ಜ್ಯೂಸ್ ಕುಡಿಯುತ್ತೇನೆ.",                   pronun:"ಐ ಡ್ರಿಂಕ್ ಜ್ಯೂಸ್",                                      emoji:"🧃" },
-    { en:"I like ice cream.",              kn:"ನನಗೆ ಐಸ್ ಕ್ರೀಮ್ ಇಷ್ಟ.",                     pronun:"ಐ ಲೈಕ್ ಐಸ್ ಕ್ರೀಮ್",                                     emoji:"🍦" },
-    { en:"I eat bread.",                    kn:"ನಾನು ರೊಟ್ಟಿ ತಿನ್ನುತ್ತೇನೆ.",                    pronun:"ಐ ಈಟ್ ಬ್ರೆಡ್",                                         emoji:"🍞" },
-    { en:"I eat eggs.",                     kn:"ನಾನು ಮೊಟ್ಟೆ ತಿನ್ನುತ್ತೇನೆ.",                     pronun:"ಐ ಈಟ್ ಎಗ್ಸ್",                                          emoji:"🥚" },
-    { en:"I eat fish.",                     kn:"ನಾನು ಮೀನು ತಿನ್ನುತ್ತೇನೆ.",                     pronun:"ಐ ಈಟ್ ಫಿಶ್",                                          emoji:"🐟" },
-    { en:"I eat chicken.",                  kn:"ನಾನು ಕೋಳಿ ತಿನ್ನುತ್ತೇನೆ.",                      pronun:"ಐ ಈಟ್ ಚಿಕನ್",                                         emoji:"🍗" },
-    { en:"I like fruits.",                  kn:"ನನಗೆ ಹಣ್ಣುಗಳು ಇಷ್ಟ.",                        pronun:"ಐ ಲೈಕ್ ಫ್ರೂಟ್ಸ್",                                       emoji:"🍎" },
-    { en:"I eat soup.",                      kn:"ನಾನು ಸೂಪ್ ತಿನ್ನುತ್ತೇನೆ.",                      pronun:"ಐ ಈಟ್ ಸೂಪ್",                                           emoji:"🍲" },
-    { en:"I eat noodles.",                   kn:"ನಾನು ನೋಡಲ್ಸ್ ತಿನ್ನುತ್ತೇನೆ.",                   pronun:"ಐ ಈಟ್ ನೂಡಲ್ಸ್",                                        emoji:"🍜" },
-    { en:"I drink water.",                   kn:"ನಾನು ನೀರು ಕುಡಿಯುತ್ತೇನೆ.",                     pronun:"ಐ ಡ್ರಿಂಕ್ ವಾಟರ್",                                      emoji:"💦" },
-    { en:"I eat fruits every morning.",     kn:"ನಾನು ಪ್ರತಿದಿನ ಬೆಳಿಗ್ಗೆ ಹಣ್ಣು ತಿನ್ನುತ್ತೇನೆ.",        pronun:"ಐ ಈಟ್ ಫ್ರೂಟ್ಸ್ ಎವರಿ ಮೋರ್ನಿಂಗ್",                           emoji:"🍊" },
-    { en:"I like chocolate.",                kn:"ನನಗೆ ಚಾಕೊಲೇಟ್ ಇಷ್ಟ.",                         pronun:"ಐ ಲೈಕ್ ಚಾಕ್ಲೆಟ್",                                       emoji:"🍫" },
-    { en:"I drink tea.",                     kn:"ನಾನು ಚಹಾ ಕುಡಿಯುತ್ತೇನೆ.",                        pronun:"ಐ ಡ್ರಿಂಕ್ ಟೀ",                                          emoji:"🍵" },
-    { en:"I drink coffee.",                  kn:"ನಾನು ಕಾಫಿ ಕುಡಿಯುತ್ತೇನೆ.",                       pronun:"ಐ ಡ್ರಿಂಕ್ ಕೊಫಿ",                                        emoji:"☕" },
-    { en:"I eat sandwich.",                  kn:"ನಾನು ಸ್ಯಾಂಡ್ವಿಚ್ ತಿನ್ನುತ್ತೇನೆ.",                   pronun:"ಐ ಈಟ್ ಸ್ಯಾಂಡ್ವಿಚ್",                                     emoji:"🥪" },
-    { en:"I eat pizza.",                      kn:"ನಾನು ಪಿಜ್ಜಾ ತಿನ್ನುತ್ತೇನೆ.",                      pronun:"ಐ ಈಟ್ ಪಿಜ್ಜಾ",                                         emoji:"🍕" },
-    { en:"I like honey.",                     kn:"ನನಗೆ ಜೇನು ಇಷ್ಟ.",                               pronun:"ಐ ಲೈಕ್ ಹನಿ",                                           emoji:"🍯" },
-    { en:"I drink soup.",                     kn:"ನಾನು ಸೂಪ್ ಕುಡಿಯುತ್ತೇನೆ.",                        pronun:"ಐ ಡ್ರಿಂಕ್ ಸೂಪ್",                                        emoji:"🍲" },
-    { en:"I eat cake.",                        kn:"ನಾನು ಕೆಕ್ ತಿನ್ನುತ್ತೇನೆ.",                        pronun:"ಐ ಈಟ್ ಕೆಕ್",                                           emoji:"🍰" },
-    { en:"I eat chocolate cake.",              kn:"ನಾನು ಚಾಕೊಲೇಟ್ ಕೇಕ್ ತಿನ್ನುತ್ತೇನೆ.",             pronun:"ಐ ಈಟ್ ಚಾಕ್ಲೆಟ್ ಕೆಕ್",                                    emoji:"🍫🍰" },
-    { en:"I like ice.",                        kn:"ನನಗೆ ಹಿಮ ಇಷ್ಟ.",                                 pronun:"ಐ ಲೈಕ್ ಐಸ್",                                           emoji:"🧊" },
-    { en:"I eat pancakes.",                     kn:"ನಾನು ಪ್ಯಾಂಕೆಕ್ ತಿನ್ನುತ್ತೇನೆ.",                    pronun:"ಐ ಈಟ್ ಪ್ಯಾನ್‌ಕೆಕ್ಸ್",                                     emoji:"🥞" },
-    { en:"I eat samosa.",                        kn:"ನಾನು ಸಮೋಸಾ ತಿನ್ನುತ್ತೇನೆ.",                     pronun:"ಐ ಈಟ್ ಸಮೋಸಾ",                                        emoji:"🥟" },
-    { en:"I eat burger.",                         kn:"ನಾನು ಬರ್ಗರ್ ತಿನ್ನುತ್ತೇನೆ.",                      pronun:"ಐ ಈಟ್ ಬರ್ಗರ್",                                        emoji:"🍔" },
-    { en:"I eat fries.",                          kn:"ನಾನು ಫ್ರೈಸ್ ತಿನ್ನುತ್ತೇನೆ.",                     pronun:"ಐ ಈಟ್ ಫ್ರೈಸ್",                                        emoji:"🍟" },
-    { en:"I like pizza.",                         kn:"ನನಗೆ ಪಿಜ್ಜಾ ಇಷ್ಟ.",                               pronun:"ಐ ಲೈಕ್ ಪಿಜ್ಜಾ",                                        emoji:"🍕" },
-    { en:"I like noodles.",                       kn:"ನನಗೆ ನೋಡಲ್ಸ್ ಇಷ್ಟ.",                              pronun:"ಐ ಲೈಕ್ ನೂಡಲ್ಸ್",                                       emoji:"🍜" },
-    { en:"I eat chapati.",                         kn:"ನಾನು ಚಪಾತಿ ತಿನ್ನುತ್ತೇನೆ.",                        pronun:"ಐ ಈಟ್ ಚಪಾತಿ",                                        emoji:"🥖" },
-    { en:"I eat dal.",                             kn:"ನಾನು ದಾಲ್ ತಿನ್ನುತ್ತೇನೆ.",                          pronun:"ಐ ಈಟ್ ದಾಲ್",                                          emoji:"🥣" },
-    { en:"I drink soup.",                           kn:"ನಾನು ಸೂಪ್ ಕುಡಿಯುತ್ತೇನೆ.",                         pronun:"ಐ ಡ್ರಿಂಕ್ ಸೂಪ್",                                        emoji:"🍲" },
-    { en:"I eat salad.",                            kn:"ನಾನು ಸ್ಯಾಲಡ್ ತಿನ್ನುತ್ತೇನೆ.",                        pronun:"ಐ ಈಟ್ ಸಲಾಡ್",                                         emoji:"🥗" },
-    { en:"I like salad.",                           kn:"ನನಗೆ ಸ್ಯಾಲಡ್ ಇಷ್ಟ.",                               pronun:"ಐ ಲೈಕ್ ಸಲಾಡ್",                                        emoji:"🥗" },
-    { en:"I eat sandwich every day.",               kn:"ನಾನು ಪ್ರತಿದಿನ ಸ್ಯಾಂಡ್ವಿಚ್ ತಿನ್ನುತ್ತೇನೆ.",             pronun:"ಐ ಈಟ್ ಸ್ಯಾಂಡ್ವಿಚ್ ಎವರಿ ಡೇ",                              emoji:"🥪" },
-    { en:"I drink milk every morning.",            kn:"ನಾನು ಪ್ರತಿದಿನ ಬೆಳಿಗ್ಗೆ ಹಾಲು ಕುಡಿಯುತ್ತೇನೆ.",         pronun:"ಐ ಡ್ರಿಂಕ್ ಮಿಲ್ಕ್ ಎವರಿ ಮೋರ್ನಿಂಗ್",                          emoji:"🥛" },
-    { en:"I like mangoes.",                          kn:"ನನಗೆ ಮಾವಿನ ಹಣ್ಣು ಇಷ್ಟ.",                           pronun:"ಐ ಲೈಕ್ ಮ್ಯಾಂಗೋಸ್",                                       emoji:"🥭" },
-    { en:"I eat sweets.",                             kn:"ನಾನು ಸಿಹಿತಿಂಡಿಗಳನ್ನು ತಿನ್ನುತ್ತೇನೆ.",                pronun:"ಐ ಈಟ್ ಸ್ವೀಟ್ಸ್",                                         emoji:"🍬" },
-    { en:"I drink lemonade.",                          kn:"ನಾನು ಲೆಮನೇಡ್ ಕುಡಿಯುತ್ತೇನೆ.",                       pronun:"ಐ ಡ್ರಿಂಕ್ ಲೆಮನೇಡ್",                                     emoji:"🍋" }
-],
+    { en:"I am hungry.",             kn:"ನನಗೆ ಹಸಿವಾಗಿದೆ.",                           pronun:"na-na-ge ha-si-vaa-gi-de",                       emoji:"😋" },
+    { en:"I drink milk.",            kn:"ನಾನು ಹಾಲು ಕುಡಿಯುತ್ತೇನೆ.",                   pronun:"naa-nu haa-lu ku-di-yut-te-ne",                  emoji:"🥛" },
+    { en:"I eat rice.",              kn:"ನಾನು ಅನ್ನ ತಿನ್ನುತ್ತೇನೆ.",                    pronun:"naa-nu an-na tin-nut-te-ne",                     emoji:"🍚" },
+    { en:"This mango is sweet.",     kn:"ಈ ಮಾವಿನ ಹಣ್ಣು ಸಿಹಿಯಾಗಿದೆ.",                 pronun:"ee maa-vi-na han-nu si-hi-yaa-gi-de",            emoji:"🥭" },
+    { en:"I like bananas.",          kn:"ನನಗೆ ಬಾಳೆ ಹಣ್ಣು ಇಷ್ಟ.",                     pronun:"na-na-ge baa-le han-nu ish-ta",                  emoji:"🍌" },
+    { en:"I wash my hands before eating.", kn:"ನಾನು ತಿನ್ನುವ ಮೊದಲು ಕೈ ತೊಳೆಯುತ್ತೇನೆ.", pronun:"naa-nu tin-nu-va mo-da-lu kai to-le-yut-te-ne", emoji:"🙌" },
+    { en:"Water is good for health.",kn:"ನೀರು ಆರೋಗ್ಯಕ್ಕೆ ಒಳ್ಳೆಯದು.",                  pronun:"nee-ru aa-rog-yak-ke ol-le-ya-du",               emoji:"💧" },
+    { en:"I eat vegetables every day.",kn:"ನಾನು ಪ್ರತಿದಿನ ತರಕಾರಿ ತಿನ್ನುತ್ತೇನೆ.",       pronun:"naa-nu pra-ti-di-na ta-ra-kaa-ri tin-nut-te-ne", emoji:"🥦" },
+  ],
   "School & Playing": [
-    { en:"I go to school.",           kn:"ನಾನು ಶಾಲೆಗೆ ಹೋಗುತ್ತೇನೆ.",                   pronun:"ಐ ಗೋ ಟು ಶಾಲ್",                                      emoji:"🏫" },
-    { en:"I love my teacher.",        kn:"ನನಗೆ ನನ್ನ ಟೀಚರ್ ಇಷ್ಟ.",                     pronun:"ಐ ಲವ್ ಮೈ ಟೀಚರ್",                                     emoji:"👩‍🏫" },
-    { en:"I write with a pencil.",    kn:"ನಾನು ಪೆನ್ಸಿಲ್‌ನಿಂದ ಬರೆಯುತ್ತೇನೆ.",            pronun:"ಐ ರೈಟ್ ವಿಥ ಎ ಪೆನ್ಸಿಲ್",                               emoji:"✏️" },
-    { en:"I read my book.",           kn:"ನಾನು ನನ್ನ ಪುಸ್ತಕ ಓದುತ್ತೇನೆ.",               pronun:"ಐ ರೀಡ್ ಮೈ ಬುಕ್",                                      emoji:"📖" },
-    { en:"I play with my friends.",   kn:"ನಾನು ನನ್ನ ಗೆಳೆಯರೊಂದಿಗೆ ಆಡುತ್ತೇನೆ.",         pronun:"ಐ ಪ್ಲೇ ವಿಥ ಮೈ ಫ್ರೆಂಡ್ಸ್",                               emoji:"🤸" },
-    { en:"I like to draw pictures.",  kn:"ನನಗೆ ಚಿತ್ರ ಬಿಡಿಸಲು ಇಷ್ಟ.",                  pronun:"ಐ ಲೈಕ್ ಟು ಡ್ರಾ ಪಿಕ್ಚರ್ಸ್",                               emoji:"🎨" },
-    { en:"I sit on a chair.",         kn:"ನಾನು ಕುರ್ಚಿ ಮೇಲೆ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.",      pronun:"ಐ ಸಿಟ್ ಆನ್ ಎ ಚೇರ್",                                     emoji:"🪑" },
-    { en:"School is fun!",            kn:"ಶಾಲೆ ತುಂಬಾ ಮೋಜಿನದು!",                      pronun:"ಸ್ಕೂಲ್ ಇಸ್ ಫನ್",                                         emoji:"🎉" },
-    { en:"I run in the playground.",  kn:"ನಾನು ಆಟದ ಮೈದಾನದಲ್ಲಿ ಓಡುತ್ತೇನೆ.",           pronun:"ಐ ರನ್ ಇನ್ ದ ಪ್ಲೇಗ್ರೌಂಡ್",                                  emoji:"🏃" },
-    { en:"I climb the slide.",        kn:"ನಾನು ಸ್ಲೈಡ್ ಮೇಲೆ ಏರುತ್ತೇನೆ.",             pronun:"ಐ ಕ್ಲೈಮ್ ದ ಸ್ಲೈಡ್",                                     emoji:"🛝" },
-    { en:"I draw with colors.",       kn:"ನಾನು ಬಣ್ಣಗಳಿಂದ ಚಿತ್ರ ಬಿಡುತ್ತೇನೆ.",           pronun:"ಐ ಡ್ರಾ ವಿಥ ಕಾಲರ್ಸ್",                                    emoji:"🖍️" },
-    { en:"I play football.",          kn:"ನಾನು ಫುಟ್ಬಾಲ್ ಆಡುತ್ತೇನೆ.",                 pronun:"ಐ ಪ್ಲೇ ಫುಟ್‌ಬಾಲ್",                                     emoji:"⚽" },
-    { en:"I play cricket.",           kn:"ನಾನು ಕ್ರಿಕೆಟ್ ಆಡುತ್ತೇನೆ.",                  pronun:"ಐ ಪ್ಲೇ ಕ್ರಿಕೆಟ್",                                        emoji:"🏏" },
-    { en:"I jump rope.",              kn:"ನಾನು ರಾಶಿ ಹಾರಿಸುತ್ತೇನೆ.",                   pronun:"ಐ ಜಂಪ್ ರೋಪ್",                                          emoji:"🤾" },
-    { en:"I sing a song.",            kn:"ನಾನು ಹಾಡು ಹಾಡುತ್ತೇನೆ.",                     pronun:"ಐ ಸಿಂಗ್ ಎ ಸಾಂಗ್",                                       emoji:"🎵" },
-    { en:"I dance happily.",          kn:"ನಾನು ಸಂತೋಷದಿಂದ ನೃತ್ಯ ಮಾಡುತ್ತೇನೆ.",         pronun:"ಐ ಡ್ಯಾನ್ಸ್ ಹ್ಯಾಪಿಲಿ",                                     emoji:"💃" },
-    { en:"I learn new things.",       kn:"ನಾನು ಹೊಸ ವಿಷಯಗಳನ್ನು ಕಲಿಯುತ್ತೇನೆ.",           pronun:"ಐ ಲರ್ನ್ ನ್ಯೂ ಥಿಂಗ್ಸ್",                                    emoji:"📚" },
-    { en:"I sit with my friends.",    kn:"ನಾನು ನನ್ನ ಗೆಳೆಯರೊಂದಿಗೆ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.", pronun:"ಐ ಸಿಟ್ ವಿತ್ ಮೈ ಫ್ರೆಂಡ್ಸ್",                                  emoji:"🪑" },
-    { en:"I clean my desk.",          kn:"ನಾನು ನನ್ನ ಮೇಜು ಸ್ವಚ್ಛಗೊಳಿಸುತ್ತೇನೆ.",           pronun:"ಐ ಕ್ಲೀನ್ ಮೈ ಡೆಸ್ಕ್",                                      emoji:"🧹" },
-    { en:"I read the blackboard.",    kn:"ನಾನು ಬ್ಲ್ಯಾಕ್‌ಬೋರ್ಡ್ ಓದುತ್ತೇನೆ.",            pronun:"ಐ ರೀಡ್ ದ್ ಬ್ಲ್ಯಾಕ್‌ಬೋರ್ಡ್",                                emoji:"🖤" },
-    { en:"I write in my notebook.",   kn:"ನಾನು ನನ್ನ ನೋಟ್ಬುಕ್‌ನಲ್ಲಿ ಬರೆಯುತ್ತೇನೆ.",        pronun:"ಐ ರೈಟ್ ಇನ್ ಮೈ ನೋಟ್ಬುಕ್",                                  emoji:"📓" },
-    { en:"I play on the swing.",      kn:"ನಾನು ಸಿಂಗ್ಗಿನಲ್ಲಿ ಆಟವಾಡುತ್ತೇನೆ.",            pronun:"ಐ ಪ್ಲೇ ಆನ್ ದ್ ಸ್ವಿಂಗ್",                                    emoji:"💺" },
-    { en:"I enjoy school.",           kn:"ನಾನು ಶಾಲೆಯನ್ನು ಆನಂದಿಸುತ್ತೇನೆ.",              pronun:"ಐ ಎಂಜಾಯ್ ಸ್ಕೂಲ್",                                        emoji:"🎒" },
-    { en:"I paint pictures.",         kn:"ನಾನು ಚಿತ್ರಗಳನ್ನು ಬಣ್ಣಿಸುತ್ತೇನೆ.",             pronun:"ಐ ಪೇಂಟ್ ಪಿಕ್ಚರ್ಸ್",                                      emoji:"🖌️" },
-    { en:"I play hide and seek.",     kn:"ನಾನು ಲುಕೌಟ್ ಆಟವಾಡುತ್ತೇನೆ.",               pronun:"ಐ ಪ್ಲೇ ಹೈಡ್ ಅಂಡ್ ಸೀಕ್",                                   emoji:"🙈" },
-    { en:"I play tag.",                kn:"ನಾನು ಟ್ಯಾಗ್ ಆಟವಾಡುತ್ತೇನೆ.",               pronun:"ಐ ಪ್ಲೇ ಟ್ಯಾಗ್",                                          emoji:"🏃‍♂️" },
-    { en:"I run fast.",                kn:"ನಾನು ವೇಗವಾಗಿ ಓಡುತ್ತೇನೆ.",                   pronun:"ಐ ರನ್ ಫಾಸ್ಟ್",                                          emoji:"🏃‍♀️" },
-    { en:"I sit quietly.",             kn:"ನಾನು ಶಾಂತವಾಗಿ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.",           pronun:"ಐ ಸಿಟ್ ಕ್ವೈಟ್ಲಿ",                                       emoji:"🤫" },
-    { en:"I read a story.",            kn:"ನಾನು ಕಥೆಯನ್ನು ಓದುತ್ತೇನೆ.",                   pronun:"ಐ ರೀಡ್ ಎ ಸ್ಟೋರಿ",                                        emoji:"📖" },
-    { en:"I write my name.",           kn:"ನಾನು ನನ್ನ ಹೆಸರನ್ನು ಬರೆಯುತ್ತೇನೆ.",             pronun:"ಐ ರೈಟ್ ಮೈ ನೇಮ್",                                        emoji:"✍️" },
-    { en:"I play basketball.",         kn:"ನಾನು ಬಾಸ್ಕೆಟ್‌ಬಾಲ್ ಆಡುತ್ತೇನೆ.",             pronun:"ಐ ಪ್ಲೇ ಬಾಸ್ಕೆಟ್‌ಬಾಲ್",                                   emoji:"🏀" },
-    { en:"I play volleyball.",         kn:"ನಾನು ವಾಲಿಬಾಲ್ ಆಡುತ್ತೇನೆ.",                  pronun:"ಐ ಪ್ಲೇ ವಾಲಿಬಾಲ್",                                       emoji:"🏐" },
-    { en:"I ride a bicycle.",          kn:"ನಾನು ಸೈಕಲ್ ಸವಾರಿ ಮಾಡುತ್ತೇನೆ.",             pronun:"ಐ ರೈಡ್ ಎ ಬೈಸಿಕಲ್",                                     emoji:"🚲" },
-    { en:"I play with toys.",          kn:"ನಾನು ಆಟಿಕೆಗಳೊಂದಿಗೆ ಆಡುತ್ತೇನೆ.",              pronun:"ಐ ಪ್ಲೇ ವಿಥ ಟಾಯ್ಸ್",                                     emoji:"🧸" },
-    { en:"I do my homework.",          kn:"ನಾನು ನನ್ನ ಮನೆಮಾತು ಮಾಡುತ್ತೇನೆ.",             pronun:"ಐ ಡು ಮೈ ಹೋಮ್‌ವರ್ಕ್",                                    emoji:"📝" },
-    { en:"I learn numbers.",           kn:"ನಾನು ಸಂಖ್ಯೆಯನ್ನು ಕಲಿಯುತ್ತೇನೆ.",              pronun:"ಐ ಲರ್ನ್ ನಂಬರ್‍ಸ್",                                       emoji:"🔢" },
-    { en:"I learn alphabets.",         kn:"ನಾನು ಅಕ್ಷರಮಾಲೆಯನ್ನು ಕಲಿಯುತ್ತೇನೆ.",           pronun:"ಐ ಲರ್ನ್ ಆಲ್ಫಾಬೆಟ್ಸ್",                                     emoji:"🔤" },
-    { en:"I enjoy playground.",        kn:"ನಾನು ಆಟದ ಮೈದಾನವನ್ನು ಆನಂದಿಸುತ್ತೇನೆ.",       pronun:"ಐ ಎಂಜಾಯ್ ಪ್ಲೇಗ್ರೌಂಡ್",                                   emoji:"🏞️" },
-    { en:"I run and jump.",            kn:"ನಾನು ಓಡಿ ಹಾರಿ ಆಟವಾಡುತ್ತೇನೆ.",             pronun:"ಐ ರನ್ ಅಂಡ್ ಜಂಪ್",                                        emoji:"🏃‍♂️🤸" },
-    { en:"I play games.",              kn:"ನಾನು ಆಟವಾಡುತ್ತೇನೆ.",                          pronun:"ಐ ಪ್ಲೇ ಗೇಮ್ಸ್",                                         emoji:"🎮" },
-    { en:"I enjoy painting.",          kn:"ನಾನು ಚಿತ್ರ ಬಣ್ಣಿಸುತ್ತೇನೆ.",                     pronun:"ಐ ಎಂಜಾಯ್ ಪೇಂಟಿಂಗ್",                                     emoji:"🎨" },
-    { en:"I run with friends.",        kn:"ನಾನು ಗೆಳೆಯರೊಂದಿಗೆ ಓಡುತ್ತೇನೆ.",               pronun:"ಐ ರನ್ ವಿಥ ಫ್ರೆಂಡ್ಸ್",                                     emoji:"🏃‍♀️" },
-    { en:"I sit on the floor.",        kn:"ನಾನು ನೆಲದ ಮೇಲೆ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.",          pronun:"ಐ ಸಿಟ್ ಆನ್ ದ ಫ್ಲೋರ್",                                    emoji:"🪑" }
-],
+    { en:"I go to school.",          kn:"ನಾನು ಶಾಲೆಗೆ ಹೋಗುತ್ತೇನೆ.",                   pronun:"naa-nu shaa-le-ge ho-gut-te-ne",                 emoji:"🏫" },
+    { en:"I love my teacher.",       kn:"ನನಗೆ ನನ್ನ ಟೀಚರ್ ಇಷ್ಟ.",                     pronun:"na-na-ge nan-na tee-char ish-ta",                emoji:"👩‍🏫" },
+    { en:"I write with a pencil.",   kn:"ನಾನು ಪೆನ್ಸಿಲ್‌ನಿಂದ ಬರೆಯುತ್ತೇನೆ.",            pronun:"naa-nu pen-sil-nin-da ba-re-yut-te-ne",          emoji:"✏️" },
+    { en:"I read my book.",          kn:"ನಾನು ನನ್ನ ಪುಸ್ತಕ ಓದುತ್ತೇನೆ.",               pronun:"naa-nu nan-na pus-ta-ka o-dut-te-ne",            emoji:"📖" },
+    { en:"I play with my friends.",  kn:"ನಾನು ನನ್ನ ಗೆಳೆಯರೊಂದಿಗೆ ಆಡುತ್ತೇನೆ.",         pronun:"naa-nu nan-na ge-le-ya-ron-di-ge aa-dut-te-ne",  emoji:"🤸" },
+    { en:"I like to draw pictures.", kn:"ನನಗೆ ಚಿತ್ರ ಬಿಡಿಸಲು ಇಷ್ಟ.",                  pronun:"na-na-ge chit-ra bi-di-sa-lu ish-ta",            emoji:"🎨" },
+    { en:"I sit on a chair.",        kn:"ನಾನು ಕುರ್ಚಿ ಮೇಲೆ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.",      pronun:"naa-nu kur-chi me-le ku-li-tu-kol-lut-te-ne",   emoji:"🪑" },
+    { en:"School is fun!",           kn:"ಶಾಲೆ ತುಂಬಾ ಮೋಜಿನದು!",                      pronun:"shaa-le tum-baa mo-ji-na-du",                    emoji:"🎉" },
+  ],
   "Vegetables & Fruits": [
-    { en:"This is a tomato.",          kn:"ಇದು ಒಂದು ಟೊಮ್ಯಾಟೊ.",                        pronun:"ದಿಸ್ ಇಸ್ ಎ ಟೊಮ್ಯಾಟೊ",                               emoji:"🍅" },
-    { en:"Carrot is orange.",          kn:"ಗಜ್ಜರಿ ಕಿತ್ತಳೆ ಬಣ್ಣದ್ದು.",                   pronun:"ಕ್ಯಾರೆಟ್ ಇಸ್ ಓರೆಂಜ್",                                  emoji:"🥕" },
-    { en:"I like grapes.",             kn:"ನನಗೆ ದ್ರಾಕ್ಷಿ ಇಷ್ಟ.",                        pronun:"ಐ ಲೈಕ್ ಗ್ರೇಪ್ಸ್",                                     emoji:"🍇" },
-    { en:"Apple is red and sweet.",    kn:"ಸೇಬು ಕೆಂಪಗಿದ್ದು ಸಿಹಿಯಾಗಿದೆ.",               pronun:"ಆಪಲ್ ಇಸ್ ರೆಡ್ ಅಂಡ್ ಸ್ವೀಟ್",                             emoji:"🍎" },
-    { en:"Potato grows in the soil.",  kn:"ಆಲೂಗಡ್ಡೆ ಮಣ್ಣಿನಲ್ಲಿ ಬೆಳೆಯುತ್ತದೆ.",          pronun:"ಪೋಟಾಟೋ ಗ್ರೋಸ್ ಇನ್ ದ ಸೋಯಿಲ್",                           emoji:"🥔" },
-    { en:"Vegetables keep us healthy.",kn:"ತರಕಾರಿ ನಮ್ಮನ್ನು ಆರೋಗ್ಯವಾಗಿ ಇಡುತ್ತದೆ.",        pronun:"ವೆಜಿಟೇಬಲ್ಸ್ ಕೀಪ್ ಅಸ್ ಹೆಲ್ತ್‌ವಿ",                          emoji:"🥦" },
-    { en:"Mango is my favourite fruit.",kn:"ಮಾವಿನ ಹಣ್ಣು ನನ್ನ ನೆಚ್ಚಿನ ಹಣ್ಣು.",           pronun:"ಮ್ಯಾಂಗೋ ಇಸ್ ಮೈ ಫೇವರಿಟ್ ಫ್ರೂಟ್",                        emoji:"🥭" },
-    { en:"Onion makes us cry.",        kn:"ಈರುಳ್ಳಿ ಕಣ್ಣೀರು ತರಿಸುತ್ತದೆ.",              pronun:"ಆನಿಯನ್ ಮೆಕ್ಸ್ ಅಸ್ ಕ್ರೈ",                                  emoji:"🧅" },
-    { en:"I eat cucumber.",             kn:"ನಾನು ಹೊಲಿಗೆಕಾಯಿ ತಿನ್ನುತ್ತೇನೆ.",             pronun:"ಐ ಈಟ್ ಕ್ಯೂಕಂಬರ್",                                     emoji:"🥒" },
-    { en:"Tomato is red.",              kn:"ಟೊಮ್ಯಾಟೊ ಕೆಂಪಾಗಿದೆ.",                      pronun:"ಟೊಮ್ಯಾಟೊ ಇಸ್ ರೆಡ್",                                      emoji:"🍅" },
-    { en:"I like spinach.",             kn:"ನನಗೆ ಪಾಲಕ್ ಇಷ್ಟ.",                          pronun:"ಐ ಲೈಕ್ ಸ್ಪಿನಾಚ್",                                       emoji:"🥬" },
-    { en:"Pumpkin is big.",             kn:"ಕುಂಬಳಕಾಯಿ ದೊಡ್ಡದು.",                        pronun:"ಪುಂಪ್ಕಿನ್ ಇಸ್ ಬಿಗ್",                                     emoji:"🎃" },
-    { en:"Banana is yellow.",           kn:"ಬಾಳೆಹಣ್ಣು ಹಳದಿ ಬಣ್ಣವಾಗಿದೆ.",               pronun:"ಬನಾನಾ ಇಸ್ ಯೆಲ್ಲೋ",                                       emoji:"🍌" },
-    { en:"Strawberry is sweet.",        kn:"ಸ್ಟ್ರಾಬೆರಿ ಸಿಹಿಯಾಗಿದೆ.",                     pronun:"ಸ್ಟ್ರಾಬೆರಿ ಇಸ್ ಸ್ವೀಟ್",                                    emoji:"🍓" },
-    { en:"Pineapple is tasty.",         kn:"ಅನಾನಸ್ ರುಚಿಯಾಗಿದೆ.",                        pronun:"ಪೈನಾಪಲ್ ಇಸ್ ಟೆಸ್ಟಿ",                                     emoji:"🍍" },
-    { en:"I eat carrot.",                kn:"ನಾನು ಗಜ್ಜರಿ ತಿನ್ನುತ್ತೇನೆ.",                  pronun:"ಐ ಈಟ್ ಕ್ಯಾರೆಟ್",                                        emoji:"🥕" },
-    { en:"I like pumpkin.",              kn:"ನನಗೆ ಕುಂಭಳಕಾಯಿ ಇಷ್ಟ.",                     pronun:"ಐ ಲೈಕ್ ಪುಂಪ್ಕಿನ್",                                       emoji:"🎃" },
-    { en:"I eat grapes.",                kn:"ನಾನು ದ್ರಾಕ್ಷಿ ತಿನ್ನುತ್ತೇನೆ.",                  pronun:"ಐ ಈಟ್ ಗ್ರೇಪ್ಸ್",                                         emoji:"🍇" },
-    { en:"I eat apple.",                  kn:"ನಾನು ಸೇಬು ತಿನ್ನುತ್ತೇನೆ.",                      pronun:"ಐ ಈಟ್ ಆಪಲ್",                                           emoji:"🍎" },
-    { en:"I eat mango.",                  kn:"ನಾನು ಮಾವಿನ ಹಣ್ಣು ತಿನ್ನುತ್ತೇನೆ.",             pronun:"ಐ ಈಟ್ ಮ್ಯಾಂಗೋ",                                         emoji:"🥭" },
-    { en:"I eat onion.",                  kn:"ನಾನು ಈರುಳ್ಳಿ ತಿನ್ನುತ್ತೇನೆ.",                  pronun:"ಐ ಈಟ್ ಆನಿಯನ್",                                          emoji:"🧅" },
-    { en:"I eat potato.",                 kn:"ನಾನು ಆಲೂಗಡ್ಡೆ ತಿನ್ನುತ್ತೇನೆ.",                pronun:"ಐ ಈಟ್ ಪೋಟಾಟೋ",                                        emoji:"🥔" },
-    { en:"I eat cucumber every day.",    kn:"ನಾನು ಪ್ರತಿದಿನ ಹೊಲಿಗೆಕಾಯಿ ತಿನ್ನುತ್ತೇನೆ.",       pronun:"ಐ ಈಟ್ ಕ್ಯೂಕಂಬರ್ ಎವರಿ ಡೇ",                                emoji:"🥒" },
-    { en:"I like tomato.",                kn:"ನನಗೆ ಟೊಮ್ಯಾಟೊ ಇಷ್ಟ.",                        pronun:"ಐ ಲೈಕ್ ಟೊಮ್ಯಾಟೋ",                                       emoji:"🍅" },
-    { en:"I eat spinach.",                kn:"ನಾನು ಪಾಲಕ್ ತಿನ್ನುತ್ತೇನೆ.",                    pronun:"ಐ ಈಟ್ ಸ್ಪಿನಾಚ್",                                        emoji:"🥬" },
-    { en:"I like pineapple.",             kn:"ನನಗೆ ಅನಾನಸ್ ಇಷ್ಟ.",                           pronun:"ಐ ಲೈಕ್ ಪೈನಾಪಲ್",                                        emoji:"🍍" },
-    { en:"I eat strawberry.",             kn:"ನಾನು ಸ್ಟ್ರಾಬೆರಿ ತಿನ್ನುತ್ತೇನೆ.",               pronun:"ಐ ಈಟ್ ಸ್ಟ್ರಾಬೆರಿ",                                       emoji:"🍓" },
-    { en:"I like cucumber.",              kn:"ನನಗೆ ಹೊಲಿಗೆಕಾಯಿ ಇಷ್ಟ.",                       pronun:"ಐ ಲೈಕ್ ಕ್ಯೂಕಂಬರ್",                                       emoji:"🥒" },
-    { en:"I like onion.",                 kn:"ನನಗೆ ಈರುಳ್ಳಿ ಇಷ್ಟ.",                           pronun:"ಐ ಲೈಕ್ ಆನಿಯನ್",                                         emoji:"🧅" },
-    { en:"I eat pumpkin.",                kn:"ನಾನು ಕುಂಭಳಕಾಯಿ ತಿನ್ನುತ್ತೇನೆ.",                pronun:"ಐ ಈಟ್ ಪುಂಪ್ಕಿನ್",                                        emoji:"🎃" },
-    { en:"Vegetables are healthy.",      kn:"ತರಕಾರಿಗಳು ಆರೋಗ್ಯಕರವಾಗಿವೆ.",                pronun:"ವೆಜಿಟೇಬಲ್ಸ್ ಆರ್ ಹೆಲ್ತಿ",                                   emoji:"🥦" },
-    { en:"I eat fruits.",                 kn:"ನಾನು ಹಣ್ಣು ತಿನ್ನುತ್ತೇನೆ.",                     pronun:"ಐ ಈಟ್ ಫ್ರೂಟ್ಸ್",                                        emoji:"🍎🍌" },
-    { en:"I like vegetables.",            kn:"ನನಗೆ ತರಕಾರಿಗಳು ಇಷ್ಟ.",                         pronun:"ಐ ಲೈಕ್ ವೆಜಿಟೇಬಲ್ಸ್",                                     emoji:"🥦" },
-    { en:"I eat carrot and cucumber.",   kn:"ನಾನು ಗಜ್ಜರಿ ಮತ್ತು ಹೊಲಿಗೆಕಾಯಿ ತಿನ್ನುತ್ತೇನೆ.",     pronun:"ಐ ಈಟ್ ಕ್ಯಾರೆಟ್ ಅಂಡ್ ಕ್ಯೂಕಂಬರ್",                             emoji:"🥕🥒" },
-    { en:"I eat mango and banana.",      kn:"ನಾನು ಮಾವು ಮತ್ತು ಬಾಳೆಹಣ್ಣು ತಿನ್ನುತ್ತೇನೆ.",        pronun:"ಐ ಈಟ್ ಮ್ಯಾಂಗೋ ಅಂಡ್ ಬನಾನಾ",                               emoji:"🥭🍌" },
-    { en:"I like apple and grapes.",     kn:"ನನಗೆ ಸೇಬು ಮತ್ತು ದ್ರಾಕ್ಷಿ ಇಷ್ಟ.",               pronun:"ಐ ಲೈಕ್ ಆಪಲ್ ಅಂಡ್ ಗ್ರೇಪ್ಸ್",                                emoji:"🍎🍇" },
-    { en:"I like strawberry and pineapple.",kn:"ನನಗೆ ಸ್ಟ್ರಾಬೆರಿ ಮತ್ತು ಅನಾನಸ್ ಇಷ್ಟ.",        pronun:"ಐ ಲೈಕ್ ಸ್ಟ್ರಾಬೆರಿ ಅಂಡ್ ಪೈನಾಪಲ್",                           emoji:"🍓🍍" },
-    { en:"I eat potato and tomato.",     kn:"ನಾನು ಆಲೂಗಡ್ಡೆ ಮತ್ತು ಟೊಮ್ಯಾಟೊ ತಿನ್ನುತ್ತೇನೆ.",    pronun:"ಐ ಈಟ್ ಪೋಟಾಟೋ ಅಂಡ್ ಟೊಮ್ಯಾಟೋ",                            emoji:"🥔🍅" },
-    { en:"I eat all vegetables.",        kn:"ನಾನು ಎಲ್ಲಾ ತರಕಾರಿಗಳನ್ನು ತಿನ್ನುತ್ತೇನೆ.",         pronun:"ಐ ಈಟ್ ಆಲ್ ವೆಜಿಟೇಬಲ್ಸ್",                                   emoji:"🥦🥕🥬" },
-    { en:"I eat all fruits.",             kn:"ನಾನು ಎಲ್ಲಾ ಹಣ್ಣುಗಳನ್ನು ತಿನ್ನುತ್ತೇನೆ.",         pronun:"ಐ ಈಟ್ ಆಲ್ ಫ್ರೂಟ್ಸ್",                                      emoji:"🍎🍌🥭" },
-    { en:"I like all fruits.",            kn:"ನನಗೆ ಎಲ್ಲಾ ಹಣ್ಣುಗಳು ಇಷ್ಟ.",                   pronun:"ಐ ಲೈಕ್ ಆಲ್ ಫ್ರೂಟ್ಸ್",                                      emoji:"🍇🍓🍍" },
-    { en:"I like all vegetables.",       kn:"ನನಗೆ ಎಲ್ಲಾ ತರಕಾರಿಗಳು ಇಷ್ಟ.",                  pronun:"ಐ ಲೈಕ್ ಆಲ್ ವೆಜಿಟೇಬಲ್ಸ್",                                   emoji:"🥦🥕🥬" },
-    { en:"I eat carrot every day.",      kn:"ನಾನು ಪ್ರತಿದಿನ ಗಜ್ಜರಿ ತಿನ್ನುತ್ತೇನೆ.",          pronun:"ಐ ಈಟ್ ಕ್ಯಾರೆಟ್ ಎವರಿ ಡೇ",                                  emoji:"🥕" },
-    { en:"I eat apple every day.",       kn:"ನಾನು ಪ್ರತಿದಿನ ಸೇಬು ತಿನ್ನುತ್ತೇನೆ.",            pronun:"ಐ ಈಟ್ ಆಪಲ್ ಎವರಿ ಡೇ",                                     emoji:"🍎" }
-],
+    { en:"This is a tomato.",        kn:"ಇದು ಒಂದು ಟೊಮ್ಯಾಟೊ.",                        pronun:"i-du on-du to-mya-to",                           emoji:"🍅" },
+    { en:"Carrot is orange.",        kn:"ಗಜ್ಜರಿ ಕಿತ್ತಳೆ ಬಣ್ಣದ್ದು.",                   pronun:"gaj-ja-ri kit-ta-le ban-nad-du",                 emoji:"🥕" },
+    { en:"I like grapes.",           kn:"ನನಗೆ ದ್ರಾಕ್ಷಿ ಇಷ್ಟ.",                        pronun:"na-na-ge draak-shi ish-ta",                      emoji:"🍇" },
+    { en:"Apple is red and sweet.",  kn:"ಸೇಬು ಕೆಂಪಗಿದ್ದು ಸಿಹಿಯಾಗಿದೆ.",               pronun:"se-bu kem-pa-gid-du si-hi-yaa-gi-de",            emoji:"🍎" },
+    { en:"Potato grows in the soil.",kn:"ಆಲೂಗಡ್ಡೆ ಮಣ್ಣಿನಲ್ಲಿ ಬೆಳೆಯುತ್ತದೆ.",          pronun:"aa-loo-gad-de man-ni-nal-li be-le-yut-ta-de",    emoji:"🥔" },
+    { en:"Vegetables keep us healthy.",kn:"ತರಕಾರಿ ನಮ್ಮನ್ನು ಆರೋಗ್ಯವಾಗಿ ಇಡುತ್ತದೆ.",    pronun:"ta-ra-kaa-ri nam-man-nu aa-rog-ya-vaa-gi i-dut-ta-de",emoji:"🥦" },
+    { en:"Mango is my favourite fruit.",kn:"ಮಾವಿನ ಹಣ್ಣು ನನ್ನ ನೆಚ್ಚಿನ ಹಣ್ಣು.",         pronun:"maa-vi-na han-nu nan-na nech-chi-na han-nu",     emoji:"🥭" },
+    { en:"Onion makes us cry.",      kn:"ಈರುಳ್ಳಿ ಕಣ್ಣೀರು ತರಿಸುತ್ತದೆ.",              pronun:"ee-rul-li kan-nee-ru ta-ri-sut-ta-de",           emoji:"🧅" },
+  ],
   "Birds & Flowers": [
-    { en:"The peacock is beautiful.",   kn:"ನವಿಲು ತುಂಬಾ ಸುಂದರವಾಗಿದೆ.",          pronun:"ದಿ ಪೀವಾಕ್ ಇಸ್ ಬ್ಯೂಟಿಫುಲ್",                              emoji:"🦚" },
-    { en:"I see a parrot.",             kn:"ನಾನು ಒಂದು ಗಿಣಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",       pronun:"ಐ ಸೀ ಎ ಪ್ಯಾರಟ್",                                        emoji:"🦜" },
-    { en:"The owl comes at night.",     kn:"ಗೂಬೆ ರಾತ್ರಿ ಬರುತ್ತದೆ.",               pronun:"ದಿ ಔಲ್ ಕಮ್‌ಸ್ ಅಟ್ ನೈಟ್",                                  emoji:"🦉" },
-    { en:"The rose is red.",            kn:"ಗುಲಾಬಿ ಹೂವು ಕೆಂಪಗಿದೆ.",               pronun:"ದಿ ರೋಸ್ ಇಸ್ ರೆಡ್",                                        emoji:"🌹" },
-    { en:"Jasmine smells nice.",        kn:"ಮಲ್ಲಿಗೆ ಹೂವು ಪರಿಮಳ ಬರುತ್ತದೆ.",       pronun:"ಜ್ಯಾಸ್ಮಿನ್ ಸ್ನೆಲ್ಸ್ ನೈಸ್",                                     emoji:"🌸" },
-    { en:"Lotus grows in water.",       kn:"ಕಮಲ ನೀರಿನಲ್ಲಿ ಅರಳುತ್ತದೆ.",             pronun:"ಲೋಟಸ್ ಗ್ರೋಸ್ ಇನ್ ವಾಟರ್",                                    emoji:"🪷" },
-    { en:"I like marigold flowers.",    kn:"ನನಗೆ ಚೆಂಡುಹೂವು ಇಷ್ಟ.",               pronun:"ಐ ಲೈಕ್ ಮ್ಯಾರಿಗೋಲ್ಡ್ ಫ್ಲವರ್ಸ್",                              emoji:"🌼" },
-    { en:"Birds fly in the sky.",       kn:"ಹಕ್ಕಿಗಳು ಆಕಾಶದಲ್ಲಿ ಹಾರುತ್ತವೆ.",         pronun:"ಬರ್ಡ್ಸ್ ಫ್ಲೈ ಇನ್ ದ್ ಸ್ಕೈ",                                     emoji:"🐦" },
-    { en:"I see a crow.",                kn:"ನಾನು ಒಂದು ಕಾಗೆಯನ್ನು ನೋಡುತ್ತೇನೆ.",       pronun:"ಐ ಸೀ ಎ ಕ್ರೋ",                                             emoji:"🐦‍⬛" },
-    { en:"Sunflower is yellow.",         kn:"ಸೂರ್ಯಮೆಣಸು ಹಳದಿ ಬಣ್ಣವಾಗಿದೆ.",         pronun:"ಸನ್‌ಫ್ಲವರ್ ಇಸ್ ಯೆಲ್ಲೋ",                                      emoji:"🌻" },
-    { en:"I see a sparrow.",             kn:"ನಾನು ಒಂದು ಗಿಳಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",       pronun:"ಐ ಸೀ ಎ ಸ್ಪ್ಯಾರೋ",                                          emoji:"🐤" },
-    { en:"Tulip is red and pink.",       kn:"ಟ್ಯುಲಿಪ್ ಹ लाल ಮತ್ತು ಗುಲಾಬಿ ಬಣ್ಣವಾಗಿದೆ.", pronun:"ಟುಲಿಪ್ ಇಸ್ ರೆಡ್ ಅಂಡ್ ಪಿಂಕ್",                                  emoji:"🌷" },
-    { en:"I like hibiscus flowers.",     kn:"ನನಗೆ ಜಾಸ್ವಂದಿ ಹೂವು ಇಷ್ಟ.",            pronun:"ಐ ಲೈಕ್ ಹಿಬಿಸ್ಕಸ್ ಫ್ಲವರ್ಸ್",                                   emoji:"🌺" },
-    { en:"I see a pigeon.",               kn:"ನಾನು ಒಂದು ಕಬ್ಬು ತೂಕನ್ನು ನೋಡುತ್ತೇನೆ.",    pronun:"ಐ ಸೀ ಎ ಪಿಜನ್",                                           emoji:"🕊️" },
-    { en:"I like lilies.",                kn:"ನನಗೆ ಲಿಲಿ ಹೂವು ಇಷ್ಟ.",                 pronun:"ಐ ಲೈಕ್ ಲಿಲೀಸ್",                                           emoji:"🌸" },
-    { en:"I see a hummingbird.",          kn:"ನಾನು ಒಂದು ಹುಮ್ಮಿಂಗ್ ಬರ್ಡ್ ನೋಡುತ್ತೇನೆ.",   pronun:"ಐ ಸೀ ಎ ಹಮ್ಮಿಂಗ್ಬರ್ಡ್",                                       emoji:"🐦‍⬛" },
-    { en:"Flowers bloom in spring.",      kn:"ಹೂವುಗಳು ವಸಂತದಲ್ಲಿ ಅರಳುತ್ತವೆ.",         pronun:"ಫ್ಲವರ್ಸ್ ಬ್ಲೂಮ್ ಇನ್ ಸ್ಪ್ರಿಂಗ್",                                emoji:"🌼🌸" },
-    { en:"I like roses.",                  kn:"ನನಗೆ ಗುಲಾಬಿ ಹೂವು ಇಷ್ಟ.",               pronun:"ಐ ಲೈಕ್ ರೋಸ್‌ಸ್",                                           emoji:"🌹" },
-    { en:"I see a kingfisher.",           kn:"ನಾನು ಒಂದು ಕಿಂಗ್‌ಫಿಷರ್ ನೋಡುತ್ತೇನೆ.",     pronun:"ಐ ಸೀ ಎ ಕಿಂಗ್‌ಫಿಷರ್",                                      emoji:"🦜" },
-    { en:"I see a hummingbird.",          kn:"ನಾನು ಒಂದು ಹುಮ್ಮಿಂಗ್ ಬರ್ಡ್ ನೋಡುತ್ತೇನೆ.",   pronun:"ಐ ಸೀ ಎ ಹಮ್ಮಿಂಗ್ಬರ್ಡ್",                                       emoji:"🐦‍⬛" },
-    { en:"I like daisies.",                kn:"ನನಗೆ ಡೈಸಿ ಹೂವು ಇಷ್ಟ.",                 pronun:"ಐ ಲೈಕ್ ಡೈಸಿಸ್",                                           emoji:"🌼" },
-    { en:"I see a crow in the tree.",      kn:"ನಾನು ಮರದಲ್ಲಿ ಒಂದು ಕಾಗೆಯನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎ ಕ್ರೋ ಇನ್ ದ್ ಟ್ರೀ",                                     emoji:"🐦‍⬛🌳" },
-    { en:"I see a parakeet.",              kn:"ನಾನು ಒಂದು ಪೆರಾಕೀಟ್ ನೋಡುತ್ತೇನೆ.",        pronun:"ಐ ಸೀ ಎ ಪೆರಾಕೀಟ್",                                        emoji:"🦜" },
-    { en:"I like lotus flowers.",          kn:"ನನಗೆ ಕಮಲ ಹೂವು ಇಷ್ಟ.",                  pronun:"ಐ ಲೈಕ್ ಲೋಟಸ್ ಫ್ಲವರ್ಸ್",                                     emoji:"🪷" },
-    { en:"I see a swan.",                  kn:"ನಾನು ಒಂದು ಹಂಸನನ್ನು ನೋಡುತ್ತೇನೆ.",         pronun:"ಐ ಸೀ ಎ ಸ್ವಾನ್",                                            emoji:"🦢" },
-    { en:"I see a hummingbird on a flower.",kn:"ನಾನು ಹೂವಿನ ಮೇಲೆ ಒಂದು ಹುಮ್ಮಿಂಗ್ ಬರ್ಡ್ ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎ ಹಮ್ಮಿಂಗ್ಬರ್ಡ್ ಆನ್ ಎ ಫ್ಲವರ್", emoji:"🐦‍⬛🌸" },
-    { en:"I like sunflowers.",             kn:"ನನಗೆ ಸೂರ್ಯಮೆಣಸು ಇಷ್ಟ.",                 pronun:"ಐ ಲೈಕ್ ಸನ್‌ಫ್ಲವರ್ಸ್",                                      emoji:"🌻" },
-    { en:"Flowers are colorful.",         kn:"ಹೂವುಗಳು ಬಣ್ಣಬರದ್ದಾದವು.",                 pronun:"ಫ್ಲವರ್ಸ್ ಆರ್ ಕಾಲರ್‌ಫುಲ್",                                   emoji:"🌼🌸🌷" },
-    { en:"I see a sparrow in the garden.", kn:"ನಾನು ತೋಟದಲ್ಲಿ ಒಂದು ಗಿಳಿಯನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎ ಸ್ಪ್ಯಾರೋ ಇನ್ ದ್ ಗಾರ್ಡನ್",                               emoji:"🐤🌿" },
-    { en:"I like jasmine flowers.",       kn:"ನನಗೆ ಮಲ್ಲಿಗೆ ಹೂವು ಇಷ್ಟ.",                pronun:"ಐ ಲೈಕ್ ಜ್ಯಾಸ್ಮಿನ್ ಫ್ಲವರ್ಸ್",                                 emoji:"🌸" },
-    { en:"I see a dove.",                  kn:"ನಾನು ಒಂದು ಹಬ್ಬಳಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",      pronun:"ಐ ಸೀ ಎ ಡವ್",                                             emoji:"🕊️" },
-    { en:"I see a peacock dancing.",      kn:"ನಾನು ನವಿಲು ನೃತ್ಯ ಮಾಡುತ್ತಿರುವುದು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎ ಪೀವಾಕ್ ಡ್ಯಾನ್ಸಿಂಗ್",                              emoji:"🦚💃" },
-    { en:"I like tulips.",                 kn:"ನನಗೆ ಟ್ಯುಲಿಪ್ ಹೂವು ಇಷ್ಟ.",               pronun:"ಐ ಲೈಕ್ ಟುಲಿಪ್ಸ್",                                         emoji:"🌷" },
-    { en:"I see a bird on a tree.",       kn:"ನಾನು ಮರದ ಮೇಲೆ ಹಕ್ಕಿ ನೋಡುತ್ತೇನೆ.",         pronun:"ಐ ಸೀ ಎ ಬರ್ಡ್ ಆನ್ ಎ ಟ್ರೀ",                                    emoji:"🐦🌳" },
-    { en:"I see flowers in the garden.",  kn:"ನಾನು ತೋಟದಲ್ಲಿ ಹೂವುಗಳನ್ನು ನೋಡುತ್ತೇನೆ.",    pronun:"ಐ ಸೀ ಫ್ಲವರ್ಸ್ ಇನ್ ದ್ ಗಾರ್ಡನ್",                                emoji:"🌸🌼🌷" },
-    { en:"I like hibiscus.",               kn:"ನನಗೆ ಜಾಸ್ವಂದಿ ಇಷ್ಟ.",                      pronun:"ಐ ಲೈಕ್ ಹಿಬಿಸ್ಕಸ್",                                         emoji:"🌺" },
-    { en:"I see a bluebird.",              kn:"ನಾನು ಒಂದು ನೀಲ ಹಕ್ಕಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",       pronun:"ಐ ಸೀ ಎ ಬ್ಲೂಬರ್ಡ್",                                         emoji:"🐦" },
-    { en:"I like peacocks.",               kn:"ನನಗೆ ನವಿಲುಗಳು ಇಷ್ಟ.",                     pronun:"ಐ ಲೈಕ್ ಪೀವಾಕ್ಸ್",                                         emoji:"🦚" },
-    { en:"I see a hummingbird near lotus.",kn:"ನಾನು ಕಮಲ ಹೂವಿನ ಬಳಿ ಹುಮ್ಮಿಂಗ್ ಬರ್ಡ್ ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎ ಹಮ್ಮಿಂಗ್ಬರ್ಡ್ ನೀರ್ ಲೋಟಸ್", emoji:"🐦‍⬛🪷" },
-    { en:"I see a rose garden.",           kn:"ನಾನು ಗುಲಾಬಿ ತೋಟವನ್ನು ನೋಡುತ್ತೇನೆ.",        pronun:"ಐ ಸೀ ಎ ರೋಸ್ ಗಾರ್ಡನ್",                                     emoji:"🌹🌹" },
-    { en:"I like cockscomb flowers.",     kn:"ನನಗೆ ಕೊಂಬುಹೂವು ಇಷ್ಟ.",                     pronun:"ಐ ಲೈಕ್ ಕಾಕ್‌ಸ್ಕೋಂಬ್ ಫ್ಲವರ್ಸ್",                              emoji:"🌺" }
-],
+    { en:"The peacock is beautiful.", kn:"ನವಿಲು ತುಂಬಾ ಸುಂದರವಾಗಿದೆ.",    pronun:"na-vi-lu tum-baa sun-da-ra-vaa-gi-de",  emoji:"🦚" },
+    { en:"I see a parrot.",           kn:"ನಾನು ಒಂದು ಗಿಣಿಯನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"naa-nu on-du gi-ni-yan-nu no-dut-te-ne",emoji:"🦜" },
+    { en:"The owl comes at night.",   kn:"ಗೂಬೆ ರಾತ್ರಿ ಬರುತ್ತದೆ.",         pronun:"goo-be raa-tri ba-rut-ta-de",           emoji:"🦉" },
+    { en:"The rose is red.",          kn:"ಗುಲಾಬಿ ಹೂವು ಕೆಂಪಗಿದೆ.",         pronun:"gu-laa-bi hoo-vu kem-pa-gi-de",         emoji:"🌹" },
+    { en:"Jasmine smells nice.",      kn:"ಮಲ್ಲಿಗೆ ಹೂವು ಪರಿಮಳ ಬರುತ್ತದೆ.", pronun:"mal-li-ge hoo-vu pa-ri-ma-la ba-rut-ta-de",emoji:"🌸" },
+    { en:"Lotus grows in water.",     kn:"ಕಮಲ ನೀರಿನಲ್ಲಿ ಅರಳುತ್ತದೆ.",     pronun:"ka-ma-la nee-ri-nal-li a-ra-lut-ta-de", emoji:"🪷" },
+    { en:"I like marigold flowers.",  kn:"ನನಗೆ ಚೆಂಡುಹೂವು ಇಷ್ಟ.",          pronun:"na-na-ge chen-du-hoo-vu ish-ta",        emoji:"🌼" },
+    { en:"Birds fly in the sky.",     kn:"ಹಕ್ಕಿಗಳು ಆಕಾಶದಲ್ಲಿ ಹಾರುತ್ತವೆ.", pronun:"hak-ki-ga-lu aa-kaa-sha-dal-li haa-rut-ta-ve",emoji:"🐦" },
+  ],
   "Festivals 🎉": [
-    { en:"Diwali is the festival of lights.",         kn:"ದೀಪಾವಳಿ ದೀಪಗಳ ಹಬ್ಬ.",                  pronun:"ದೀವಾಲಿ ಇಸ್ ದ ಫೆಸ್ಟಿವಲ್ ಆಫ್ ಲೈಟ್ಸ್",                  emoji:"🪔" },
-    { en:"We celebrate Dussehra.",                     kn:"ನಾವು ದಸರ ಆಚರಿಸುತ್ತೇವೆ.",                 pronun:"ವಿ ಸೆಲೆಬ್ರೇಟ್ ದಸ್ಸೆರಾ",                                 emoji:"🎊" },
-    { en:"Christmas is in December.",                  kn:"ಕ್ರಿಸ್‌ಮಸ್ ಡಿಸೆಂಬರ್‌ನಲ್ಲಿ ಬರುತ್ತದೆ.",       pronun:"ಕ್ರಿಸ್ಮಸ್ ಇಸ್ ಇನ್ ಡಿಸೆಂಬರ್",                             emoji:"🎄" },
-    { en:"We fly kites on Sankranthi.",                kn:"ಸಂಕ್ರಾಂತಿಯಲ್ಲಿ ನಾವು ಗಾಳಿಪಟ ಹಾರಿಸುತ್ತೇವೆ.", pronun:"ವಿ ಫ್ಲೈ ಕೈಟ್ಸ್ ಆನ್ ಸಂಕ್ರಾಂತಿ",                             emoji:"🪁" },
-    { en:"Eid is a joyful festival.",                  kn:"ಈದ್ ಸಂತೋಷದ ಹಬ್ಬ.",                        pronun:"ಈಡ್ ಇಸ್ ಅ ಜಾಯ್‌ಫುಲ್ ಫೆಸ್ಟಿವಲ್",                            emoji:"🌙" },
-    { en:"Ganesha festival is fun.",                   kn:"ಗಣೇಶ ಹಬ್ಬ ತುಂಬಾ ಮೋಜಿನದು.",               pronun:"ಗನೇಶಾ ಫೆಸ್ಟಿವಲ್ ಇಸ್ ಫನ್",                                 emoji:"🐘" },
-    { en:"We wear new clothes on festivals.",          kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಹೊಸ ಬಟ್ಟೆ ತೊಡುತ್ತೇವೆ.",       pronun:"ವಿ ವೇರ್ ನ್ಯೂ ಕ್ಲೋಥ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                       emoji:"👗" },
-    { en:"Festivals bring joy and happiness.",         kn:"ಹಬ್ಬಗಳು ಸಂತೋಷ ತರುತ್ತವೆ.",               pronun:"ಫೆಸ್ಟಿವಲ್ಸ್ ಬ್ರಿಂಗ್ ಜಾಯ್ ಅಂಡ್ ಹ್ಯಾಪಿನೆಸ್",                    emoji:"🎉" },
-    { en:"Holi is the festival of colors.",           kn:"ಹೋಳಿ ಬಣ್ಣಗಳ ಹಬ್ಬ.",                        pronun:"ಹೊಳಿ ಇಸ್ ದ ಫೆಸ್ಟಿವಲ್ ಆಫ್ ಕಲರ್ಸ್",                          emoji:"🌈" },
-    { en:"We eat sweets on festivals.",               kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಹಣ್ಣುಹಾಲು ತಿನ್ನುತ್ತೇವೆ.",   pronun:"ವಿ ಈಟ್ ಸ್ವೀಟ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                              emoji:"🍬" },
-    { en:"We light lamps during Diwali.",             kn:"ದೀಪಾವಳಿ ಸಮಯದಲ್ಲಿ ನಾವು ದೀಪಗಳನ್ನು ಜಗಿಸುತ್ತೇವೆ.", pronun:"ವಿ ಲೈಟ್ ಲ್ಯಾಂಪ್ಸ್ ಡ್ಯೂರಿಂಗ್ ದೀವಾಲಿ",                  emoji:"🪔" },
-    { en:"We decorate houses on festivals.",          kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಮನೆಗಳನ್ನು ಅಲಂಕರಿಸುತ್ತೇವೆ.", pronun:"ವಿ ಡೆಕೋರೇಟ್ ಹೌಸಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                  emoji:"🏠" },
-    { en:"We exchange gifts on festivals.",           kn:"ಹಬ್ಬದ ಸಂದರ್ಭದಲ್ಲಿ ನಾವು ಉಡುಗೊರೆಗಳನ್ನು ವಿನಿಮಯ ಮಾಡುತ್ತೇವೆ.", pronun:"ವಿ ಎಕ್ಸ್ಚೇಂಜ್ ಗಿಫ್ಟ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",      emoji:"🎁" },
-    { en:"Festival time is happy time.",              kn:"ಹಬ್ಬದ ಸಮಯ ಸಂತೋಷದ ಸಮಯವಾಗಿದೆ.",            pronun:"ಫೆಸ್ಟಿವಲ್ ಟೈಮ್ ಇಸ್ ಹ್ಯಾಪಿ ಟೈಮ್",                        emoji:"🎉" },
-    { en:"We sing songs on festivals.",               kn:"ಹಬ್ಬದ ಸಂದರ್ಭದಲ್ಲಿ ನಾವು ಹಾಡು ಹಾಡುತ್ತೇವೆ.",   pronun:"ವಿ ಸಿಂಗ್ ಸಾಂಗ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                           emoji:"🎵" },
-    { en:"We dance on festivals.",                     kn:"ಹಬ್ಬದ ಸಂದರ್ಭದಲ್ಲಿ ನಾವು ನೃತ್ಯ ಮಾಡುತ್ತೇವೆ.",    pronun:"ವಿ ಡ್ಯಾನ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                                 emoji:"💃" },
-    { en:"Rangoli is made on festivals.",             kn:"ಹಬ್ಬದ ದಿನ ರಂಗೋಳಿ ಮಾಡಲಾಗುತ್ತದೆ.",         pronun:"ರಂಗೋಳಿ ಇಸ್ ಮೇಡ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                            emoji:"🎨" },
-    { en:"We visit relatives on festivals.",          kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಸಂಬಂಧಿಗಳನ್ನು ಭೇಟಿಯಾಗುತ್ತೇವೆ.", pronun:"ವಿ ವಿಸಿಟ್ ರೆಲೆಟಿವ್ಸ್ ಆನ್ ಫೆಸ್ಟಿವಲ್ಸ್",                     emoji:"🏡" },
-    { en:"We enjoy festivals with family.",           kn:"ಹಬ್ಬವನ್ನು ನಾವು ಕುಟುಂಬದೊಂದಿಗೆ ಆನಂದಿಸುತ್ತೇವೆ.", pronun:"ವಿ ಎಂಜಾಯ್ ಫೆಸ್ಟಿವಲ್ಸ್ ವಿಥ ಫ್ಯಾಮಿಲಿ",                          emoji:"👨‍👩‍👧‍👦" },
-    { en:"Festivals are fun.",                        kn:"ಹಬ್ಬಗಳು ಮೋಜಿನವು.",                        pronun:"ಫೆಸ್ಟಿವಲ್ಸ್ ಆರ ಫನ್",                                         emoji:"🎉" }
-],
+    { en:"Diwali is the festival of lights.", kn:"ದೀಪಾವಳಿ ದೀಪಗಳ ಹಬ್ಬ.",          pronun:"dee-paa-va-li dee-pa-ga-la hab-ba",         emoji:"🪔" },
+    { en:"We celebrate Dussehra.",            kn:"ನಾವು ದಸರ ಆಚರಿಸುತ್ತೇವೆ.",        pronun:"naa-vu da-sa-ra aa-cha-ri-sut-te-ve",       emoji:"🎊" },
+    { en:"Christmas is in December.",         kn:"ಕ್ರಿಸ್‌ಮಸ್ ಡಿಸೆಂಬರ್‌ನಲ್ಲಿ ಬರುತ್ತದೆ.", pronun:"kris-mas di-sem-bar-nal-li ba-rut-ta-de",emoji:"🎄" },
+    { en:"We fly kites on Sankranthi.",       kn:"ಸಂಕ್ರಾಂತಿಯಲ್ಲಿ ನಾವು ಗಾಳಿಪಟ ಹಾರಿಸುತ್ತೇವೆ.", pronun:"san-kraan-ti-yal-li naa-vu gaa-li-pa-ta haa-ri-sut-te-ve",emoji:"🪁" },
+    { en:"Eid is a joyful festival.",         kn:"ಈದ್ ಸಂತೋಷದ ಹಬ್ಬ.",              pronun:"eed san-to-sha-da hab-ba",                  emoji:"🌙" },
+    { en:"Ganesha festival is fun.",          kn:"ಗಣೇಶ ಹಬ್ಬ ತುಂಬಾ ಮೋಜಿನದು.",     pronun:"ga-ne-sha hab-ba tum-baa mo-ji-na-du",      emoji:"🐘" },
+    { en:"We wear new clothes on festivals.", kn:"ಹಬ್ಬದ ದಿನ ನಾವು ಹೊಸ ಬಟ್ಟೆ ತೊಡುತ್ತೇವೆ.", pronun:"hab-ba-da di-na naa-vu ho-sa bat-te to-dut-te-ve",emoji:"👗" },
+    { en:"Festivals bring joy and happiness.",kn:"ಹಬ್ಬಗಳು ಸಂತೋಷ ತರುತ್ತವೆ.",       pronun:"hab-ba-ga-lu san-to-sha ta-rut-ta-ve",       emoji:"🎉" },
+  ],
   "Transport 🚗": [
-    { en:"I go to school by bus.",             kn:"ನಾನು ಬಸ್ಸಿನಲ್ಲಿ ಶಾಲೆಗೆ ಹೋಗುತ್ತೇನೆ.",       pronun:"ಐ ಗೋ ಟು ಸ್ಕೂಲ್ ಬೈ ಬಸ್",                     emoji:"🚌" },
-    { en:"This is a red car.",                 kn:"ಇದು ಒಂದು ಕೆಂಪು ಕಾರು.",                  pronun:"ದಿಸ್ ಇಸ್ ಎ ರೆಡ್ ಕಾರ್",                        emoji:"🚗" },
-    { en:"The train is very fast.",            kn:"ರೈಲು ತುಂಬಾ ವೇಗವಾಗಿ ಹೋಗುತ್ತದೆ.",         pronun:"ದಿ ಟ್ರೇನ್ ಇಸ್ ವೆರಿ ಫಾಸ್ಟ್",                   emoji:"🚂" },
-    { en:"I ride a bicycle.",                  kn:"ನಾನು ಸೈಕಲ್ ತುಳಿಯುತ್ತೇನೆ.",              pronun:"ಐ ರೈಡ್ ಎ ಸೈಕಲ್",                            emoji:"🚲" },
-    { en:"The aeroplane flies high.",          kn:"ವಿಮಾನ ಆಕಾಶದಲ್ಲಿ ಹಾರುತ್ತದೆ.",             pronun:"ದಿ ಏರ್‌ಪ್ಲೇನ್ ಫ್ಲೈಸ್ ಹೈ",                     emoji:"✈️" },
-    { en:"The truck carries goods.",           kn:"ಟ್ರಕ್ ಸಾಮಾನು ಸಾಗಿಸುತ್ತದೆ.",              pronun:"ದಿ ಟ್ರಕ್ ಕ್ಯಾರೀಸ್ ಗುಡ್ಸ್",                       emoji:"🚚" },
-    { en:"We travel by boat.",                 kn:"ನಾವು ದೋಣಿಯಲ್ಲಿ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",        pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಬೋಟ್",                           emoji:"⛵" },
-    { en:"The ambulance helps sick people.",   kn:"ಆಂಬುಲೆನ್ಸ್ ರೋಗಿಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",  pronun:"ದಿ ಆಂಬುಲೆನ್ಸ್ ಹೆಲ್ಪ್ಸ್ ಸಿಕ್ ಪೀಪಲ್",             emoji:"🚑" },
-    { en:"I like trains.",                      kn:"ನನಗೆ ರೈಲುಗಳು ಇಷ್ಟ.",                    pronun:"ಐ ಲೈಕ್ ಟ್ರೇನ್ಸ್",                               emoji:"🚆" },
-    { en:"The bicycle is blue.",                kn:"ಸೈಕಲ್ ನೀಲಿ ಬಣ್ಣವಾಗಿದೆ.",                 pronun:"ದಿ ಸೈಕಲ್ ಇಸ್ ಬ್ಲೂ",                             emoji:"🚲" },
-    { en:"We travel by car.",                   kn:"ನಾವು ಕಾರಿನಿಂದ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",          pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಕಾರ್",                             emoji:"🚗" },
-    { en:"The helicopter flies high.",          kn:"ಹೆಲಿಕಾಪ್ಟರ್ ಎತ್ತರದಲ್ಲಿ ಹಾರುತ್ತದೆ.",        pronun:"ದಿ ಹೆಲಿಕಾಪ್ಟರ್ ಫ್ಲೈಸ್ ಹೈ",                     emoji:"🚁" },
-    { en:"I go to market by bus.",              kn:"ನಾನು ಬಸ್ಸಿನಲ್ಲಿ ಮಾರುಕಟ್ಟೆಗೆ ಹೋಗುತ್ತೇನೆ.",   pronun:"ಐ ಗೋ ಟು ಮಾರ್ಕೆಟ್ ಬೈ ಬಸ್",                         emoji:"🚌" },
-    { en:"The ship sails on water.",            kn:"ನೌಕೆ ನೀರಿನಲ್ಲಿ ಸಾಗುತ್ತದೆ.",                 pronun:"ದಿ ಶಿಪ್ ಸೇಲ್ಸ್ ಆನ್ ವಾಟರ್",                         emoji:"🚢" },
-    { en:"We ride a scooter.",                  kn:"ನಾವು ಸ್ಕೂಟರ್ ಸವಾರಿಯಾಗುತ್ತೇವೆ.",           pronun:"ವಿ ರೈಡ್ ಎ ಸ್ಕೂಟರ್",                               emoji:"🛵" },
-    { en:"The bus is yellow.",                   kn:"ಬಸ್ ಹಳದಿ ಬಣ್ಣವಾಗಿದೆ.",                     pronun:"ದಿ ಬಸ್ ಇಸ್ ಯೆಲ್ಲೋ",                                emoji:"🚌" },
-    { en:"I see a train.",                       kn:"ನಾನು ರೈಲನ್ನು ನೋಡುತ್ತೇನೆ.",                pronun:"ಐ ಸೀ ಎ ಟ್ರೇನ್",                                   emoji:"🚂" },
-    { en:"I ride a bike every day.",             kn:"ನಾನು ಪ್ರತಿದಿನ ಸೈಕಲ್ ಚಲಿಸುತ್ತೇನೆ.",        pronun:"ಐ ರೈಡ್ ಎ ಬೈಕ್ ಎವರಿ ಡೇ",                          emoji:"🚲" },
-    { en:"We travel by airplane.",               kn:"ನಾವು ವಿಮಾನದಿಂದ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",         pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಏರ್ಪ್ಲೇನ್",                            emoji:"✈️" },
-    { en:"I like cars.",                          kn:"ನನಗೆ ಕಾರುಗಳು ಇಷ್ಟ.",                       pronun:"ಐ ಲೈಕ್ ಕಾರ್ಸ್",                                     emoji:"🚗" },
-    { en:"The bus stops here.",                  kn:"ಬಸ್ ಇಲ್ಲಿ ನಿಲ್ಲುತ್ತದೆ.",                     pronun:"ದಿ ಬಸ್ ಸ್ಟಾಪ್ಸ್ ಹಿಯರ್",                             emoji:"🚌" },
-    { en:"The train comes on time.",             kn:"ರೈಲು ಸಮಯಕ್ಕೆ ಬರುತ್ತದೆ.",                   pronun:"ದಿ ಟ್ರೇನ್ ಕಮ್‌ಸ್ ಆನ್ ಟೈಮ್",                         emoji:"🚆" },
-    { en:"I sit in the car.",                     kn:"ನಾನು ಕಾರಿನಲ್ಲಿ ಕುಳಿತುಕೊಳ್ಳುತ್ತೇನೆ.",        pronun:"ಐ ಸಿಟ್ ಇನ್ ದ್ ಕಾರ್",                                 emoji:"🚗" },
-    { en:"We ride the bus every day.",           kn:"ನಾವು ಪ್ರತಿದಿನ ಬಸ್ ಚಲಿಸುತ್ತೇವೆ.",           pronun:"ವಿ ರೈಡ್ ದ್ ಬಸ್ ಎವರಿ ಡೇ",                             emoji:"🚌" },
-    { en:"The airplane lands safely.",           kn:"ವಿಮಾನ ಸುರಕ್ಷಿತವಾಗಿ ಲ್ಯಾಂಡ್ ಆಗುತ್ತದೆ.",       pronun:"ದಿ ಏರ್ಪ್ಲೇನ್ ಲ್ಯಾಂಡ್ಸ್ ಸೆಫ್ಲಿ",                         emoji:"✈️" },
-    { en:"I see a helicopter.",                   kn:"ನಾನು ಒಂದು ಹೆಲಿಕಾಪ್ಟರ್ ನೋಡುತ್ತೇನೆ.",        pronun:"ಐ ಸೀ ಎ ಹೆಲಿಕಾಪ್ಟರ್",                                 emoji:"🚁" },
-    { en:"The boat floats on water.",             kn:"ದೋಣಿ ನೀರಿನಲ್ಲಿ ತೇಲುತ್ತದೆ.",                pronun:"ದಿ ಬೋಟ್ ಫ್ಲೋಟ್ಸ್ ಆನ್ ವಾಟರ್",                           emoji:"⛵" },
-    { en:"I ride a scooter to school.",           kn:"ನಾನು ಶಾಲೆಗೆ ಸ್ಕೂಟರ್ ಸವಾರಿಯಾಗುತ್ತೇನೆ.",       pronun:"ಐ ರೈಡ್ ಎ ಸ್ಕೂಟರ್ ಟು ಸ್ಕೂಲ್",                          emoji:"🛵" },
-    { en:"The truck moves slowly.",               kn:"ಟ್ರಕ್ ನಿಧಾನವಾಗಿ ಸಾಗುತ್ತದೆ.",                pronun:"ದಿ ಟ್ರಕ್ ಮೂವ್ಸ್ ಸ್ಲೋಲಿ",                               emoji:"🚚" },
-    { en:"We travel by train.",                   kn:"ನಾವು ರೈಲಿನಲ್ಲಿ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",           pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಟ್ರೇನ್",                                 emoji:"🚆" },
-    { en:"I like buses.",                          kn:"ನನಗೆ ಬಸ್‌ಗಳು ಇಷ್ಟ.",                        pronun:"ಐ ಲೈಕ್ ಬಸ್ಸಸ್",                                     emoji:"🚌" },
-    { en:"The ambulance is fast.",                 kn:"ಆಂಬುಲೆನ್ಸ್ ವೇಗವಾಗಿ ಹೋಗುತ್ತದೆ.",            pronun:"ದಿ ಆಂಬುಲೆನ್ಸ್ ಇಸ್ ಫಾಸ್ಟ್",                             emoji:"🚑" },
-    { en:"I see a boat on the river.",            kn:"ನಾನು ನದಿಯಲ್ಲಿ ದೋಣಿಯನ್ನು ನೋಡುತ್ತೇನೆ.",        pronun:"ಐ ಸೀ ಎ ಬೋಟ್ ಆನ್ ದ್ ರಿವರ್",                               emoji:"⛵" },
-    { en:"The scooter is red.",                    kn:"ಸ್ಕೂಟರ್ ಕೆಂಪು ಬಣ್ಣವಾಗಿದೆ.",                 pronun:"ದಿ ಸ್ಕೂಟರ್ ಇಸ್ ರೆಡ್",                                   emoji:"🛵" },
-    { en:"We ride bicycles in the park.",         kn:"ನಾವು ಉದ್ಯಾನವನದಲ್ಲಿ ಸೈಕಲ್ ಚಲಿಸುತ್ತೇವೆ.",     pronun:"ವಿ ರೈಡ್ ಬೈಸಿಕಲ್ಸ್ ಇನ್ ದ್ ಪಾರ್ಕ್",                          emoji:"🚲🌳" },
-    { en:"I like airplanes.",                       kn:"ನನಗೆ ವಿಮಾನಗಳು ಇಷ್ಟ.",                       pronun:"ಐ ಲೈಕ್ ಏರ್ಪ್ಲೇನ್ಸ್",                                     emoji:"✈️" },
-    { en:"The car is very fast.",                  kn:"ಕಾರು ತುಂಬಾ ವೇಗವಾಗಿ ಓಡುತ್ತದೆ.",              pronun:"ದಿ ಕಾರ್ ಇಸ್ ವೆರಿ ಫಾಸ್ಟ್",                                emoji:"🚗" },
-    { en:"I go by train to city.",                 kn:"ನಾನು ನಗರದ ಕಡೆಗೆ ರೈಲಿನಲ್ಲಿ ಹೋಗುತ್ತೇನೆ.",    pronun:"ಐ ಗೋ ಬೈ ಟ್ರೇನ್ ಟು ಸಿಟಿ",                               emoji:"🚆🏙️" },
-    { en:"The bus is big.",                        kn:"ಬಸ್ ದೊಡ್ಡದು.",                              pronun:"ದಿ ಬಸ್ ಇಸ್ ಬಿಗ್",                                        emoji:"🚌" },
-    { en:"We ride the truck sometimes.",          kn:"ನಾವು ಕೆಲವೊಮ್ಮೆ ಟ್ರಕ್ ಚಾಲನೆ ಮಾಡುತ್ತೇವೆ.",     pronun:"ವಿ ರೈಡ್ ದ್ ಟ್ರಕ್ ಸಮ್ಮಟೈಮ್ಸ್",                           emoji:"🚚" },
-    { en:"I see an ambulance on road.",           kn:"ನಾನು ರಸ್ತೆಯಲ್ಲಿ ಆಂಬುಲೆನ್ಸ್ ನೋಡುತ್ತೇನೆ.",      pronun:"ಐ ಸೀ ಅನ ಆಂಬುಲೆನ್ಸ್ ಆನ್ ರೋಡ್",                            emoji:"🚑" },
-    { en:"The train is long.",                      kn:"ರೈಲು ಉದ್ದವಾಗಿದೆ.",                          pronun:"ದಿ ಟ್ರೇನ್ ಇಸ್ ಲಾಂಗ್",                                     emoji:"🚆" },
-    { en:"I ride a car with my father.",           kn:"ನಾನು ನನ್ನ ಅಪ್ಪನೊಂದಿಗೆ ಕಾರಿನಲ್ಲಿ ಹೋಗುತ್ತೇನೆ.",  pronun:"ಐ ರೈಡ್ ಎ ಕಾರ್ ವಿಥ ಮೈ ಫಾದರ್",                             emoji:"🚗" },
-    { en:"We travel by helicopter.",               kn:"ನಾವು ಹೆಲಿಕಾಪ್ಟರ್ ಮೂಲಕ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",     pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಹೆಲಿಕಾಪ್ಟರ್",                             emoji:"🚁" },
-    { en:"The bicycle is small.",                   kn:"ಸೈಕಲ್ ಚಿಕ್ಕದು.",                             pronun:"ದಿ ಸೈಕಲ್ ಇಸ್ ಸ್ಮಾಲ್",                                    emoji:"🚲" },
-    { en:"I see a ship on the sea.",                kn:"ನಾನು ಸಮುದ್ರದಲ್ಲಿ ನೌಕೆಯನ್ನು ನೋಡುತ್ತೇನೆ.",      pronun:"ಐ ಸೀ ಎ ಶಿಪ್ ಆನ್ ದ್ ಸೀ",                                  emoji:"🚢" },
-    { en:"The bus is green.",                       kn:"ಬಸ್ ಹಸಿರಾಗಿದೆ.",                            pronun:"ದಿ ಬಸ್ ಇಸ್ ಗ್ರೀನ್",                                       emoji:"🚌" },
-    { en:"I ride a bicycle to park.",              kn:"ನಾನು ಉದ್ಯಾನವನಕ್ಕೆ ಸೈಕಲ್ ಸವಾರಿಯಾಗುತ್ತೇನೆ.",     pronun:"ಐ ರೈಡ್ ಎ ಬೈಸಿಕಲ್ ಟು ಪಾರ್ಕ್",                             emoji:"🚲🌳" },
-    { en:"The car is small.",                        kn:"ಕಾರು ಚಿಕ್ಕದು.",                              pronun:"ದಿ ಕಾರ್ ಇಸ್ ಸ್ಮಾಲ್",                                      emoji:"🚗" },
-    { en:"I like scooters.",                        kn:"ನನಗೆ ಸ್ಕೂಟರ್‌ಗಳು ಇಷ್ಟ.",                      pronun:"ಐ ಲೈಕ್ ಸ್ಕೂಟರ್ಸ್",                                     emoji:"🛵" },
-    { en:"The train is yellow.",                      kn:"ರೈಲು ಹಳದಿ ಬಣ್ಣವಾಗಿದೆ.",                      pronun:"ದಿ ಟ್ರೇನ್ ಇಸ್ ಯೆಲ್ಲೋ",                                     emoji:"🚆" },
-    { en:"We travel by ambulance.",                  kn:"ನಾವು ಆಂಬುಲೆನ್ಸ್ ಮೂಲಕ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",       pronun:"ವಿ ಟ್ರಾವಲ್ ಬೈ ಆಂಬುಲೆನ್ಸ್",                               emoji:"🚑" },
-    { en:"I see a bus on the road.",                 kn:"ನಾನು ರಸ್ತೆಯಲ್ಲಿ ಬಸ್ ನೋಡುತ್ತೇನೆ.",              pronun:"ಐ ಸೀ ಎ ಬಸ್ ಆನ್ ದ್ ರೋಡ್",                                 emoji:"🚌" }
-],
+    { en:"I go to school by bus.",     kn:"ನಾನು ಬಸ್ಸಿನಲ್ಲಿ ಶಾಲೆಗೆ ಹೋಗುತ್ತೇನೆ.",    pronun:"ಐ ಗೋ ಟು ಸ್ಕೂಲ್ ಬೈ ಬಸ್",       emoji:"🚌" },
+    { en:"This is a red car.",         kn:"ಇದು ಒಂದು ಕೆಂಪು ಕಾರು.",               pronun:"ದಿಸ್ ಇಸ್ ಎ ರೆಡ್ ಕಾರ್",         emoji:"🚗" },
+    { en:"The train is very fast.",    kn:"ರೈಲು ತುಂಬಾ ವೇಗವಾಗಿ ಹೋಗುತ್ತದೆ.",       pronun:"ದ ಟ್ರೇನ್ ಇಸ್ ವೆರಿ ಫಾಸ್ಟ್",      emoji:"🚂" },
+    { en:"I ride a bicycle.",          kn:"ನಾನು ಸೈಕಲ್ ತುಳಿಯುತ್ತೇನೆ.",           pronun:"ಐ ರೈಡ್ ಎ ಸೈಕಲ್",             emoji:"🚲" },
+    { en:"The aeroplane flies high.",  kn:"ವಿಮಾನ ಆಕಾಶದಲ್ಲಿ ಹಾರುತ್ತದೆ.",         pronun:"ದ ಏರ್‌ಪ್ಲೇನ್ ಫ್ಲೈಸ್ ಹೈ",       emoji:"✈️" },
+    { en:"The truck carries goods.",   kn:"ಟ್ರಕ್ ಸಾಮಾನು ಸಾಗಿಸುತ್ತದೆ.",           pronun:"ದ ಟ್ರಕ್ ಕ್ಯಾರೀಸ್ ಗುಡ್ಸ್",       emoji:"🚚" },
+    { en:"We travel by boat.",         kn:"ನಾವು ದೋಣಿಯಲ್ಲಿ ಪ್ರಯಾಣಿಸುತ್ತೇವೆ.",     pronun:"ವಿ ಟ್ರ್ಯಾವಲ್ ಬೈ ಬೋಟ್",         emoji:"⛵" },
+    { en:"The ambulance helps sick people.", kn:"ಆಂಬುಲೆನ್ಸ್ ರೋಗಿಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.", pronun:"ದ ಆಂಬುಲೆನ್ಸ್ ಹೆಲ್ಪ್ಸ್ ಸಿಕ್ ಪೀಪಲ್", emoji:"🚑" },
+  ],
   "Numbers 🔢": [
-    { en:"I have one nose.",         kn:"ನನಗೆ ಒಂದು ಮೂಗಿದೆ.",               pronun:"ಐ ಹ್ಯಾವ್ ಒನ್ ನೋಸ್",                           emoji:"1️⃣" },
-    { en:"I have two eyes.",         kn:"ನನಗೆ ಎರಡು ಕಣ್ಣುಗಳಿವೆ.",           pronun:"ಐ ಹ್ಯಾವ್ ಟೂ ಐಸ್",                             emoji:"2️⃣" },
-    { en:"I have two ears.",         kn:"ನನಗೆ ಎರಡು ಕಿವಿಗಳಿವೆ.",            pronun:"ಐ ಹ್ಯಾವ್ ಟೂ ಈರ್ಸ್",                            emoji:"👂" },
-    { en:"I have ten fingers.",      kn:"ನನಗೆ ಹತ್ತು ಬೆರಳುಗಳಿವೆ.",           pronun:"ಐ ಹ್ಯಾವ್ ಟೆನ್ ಫಿಂಗರ್ಸ್",                         emoji:"🖐️" },
-    { en:"I can count one to ten.",  kn:"ನಾನು ಒಂದರಿಂದ ಹತ್ತರವರೆಗೆ ಎಣಿಸಬಲ್ಲೆ.", pronun:"ಐ ಕ್ಯಾನ್ ಕೌಂಟ್ ಒನ್ ಟು ಟೆನ್",                 emoji:"🔢" },
-    { en:"Five plus five is ten.",   kn:"ಐದು ಜಮೆ ಐದು ಹತ್ತು.",              pronun:"ಫೈವ್ ಪ್ಲಸ್ ಫೈವ್ ಇಸ್ ಟೆನ್",                     emoji:"➕" },
-    { en:"I see three birds.",       kn:"ನಾನು ಮೂರು ಹಕ್ಕಿಗಳನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಥ್ರೀ ಬರ್ಡ್ಸ್",                               emoji:"🐦" },
-    { en:"I have four books.",       kn:"ನನ್ನ ಬಳಿ ನಾಲ್ಕು ಪುಸ್ತಕಗಳಿವೆ.",     pronun:"ಐ ಹ್ಯಾವ್ ಫೋರ್ ಬುಕ್ಸ್",                            emoji:"📚" },
-    { en:"I have six pencils.",      kn:"ನನ್ನ ಬಳಿ ಆರು ಪೆನ್ಸಿಲ್‌ಗಳಿವೆ.",      pronun:"ಐ ಹ್ಯಾವ್ ಸಿಕ್ಸ್ ಪೆನ್ಸಿಲ್ಸ್",                        emoji:"✏️" },
-    { en:"I have seven toys.",       kn:"ನನ್ನ ಬಳಿ ಏಳು ಆಟಿಕೆಗಳಿವೆ.",        pronun:"ಐ ಹ್ಯಾವ್ ಸೆವೆನ್ ಟಾಯ್ಸ್",                           emoji:"🧸" },
-    { en:"I see eight cats.",        kn:"ನಾನು ಎಂಟು ಬೆಕ್ಕುಗಳನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಎೈಟ್ ಕ್ಯಾಟ್ಸ್",                               emoji:"🐱" },
-    { en:"I have nine apples.",      kn:"ನನ್ನ ಬಳಿ ಒಂಬತ್ತು ಸೇಬುಗಳಿವೆ.",       pronun:"ಐ ಹ್ಯಾವ್ ನೈನ್ ಆಪಲ್ಸ್",                            emoji:"🍎" },
-    { en:"Ten birds are flying.",    kn:"ಹತ್ತು ಹಕ್ಕಿಗಳು ಹಾರುತ್ತಿವೆ.",         pronun:"ಟೆನ್ ಬರ್ಡ್ಸ್ ಆರ್ ಫ್ಲೈಯಿಂಗ್",                      emoji:"🐦" },
-    { en:"I have three balloons.",   kn:"ನನ್ನ ಬಳಿ ಮೂರು ಹಬ್ಬಿ ಬಲ್ಲೋನ್ಗಳು ಇದ್ದವೆ.", pronun:"ಐ ಹ್ಯಾವ್ ಥ್ರೀ ಬಲೂನ್ಸ್",                         emoji:"🎈" },
-    { en:"I see four flowers.",      kn:"ನಾನು ನಾಲ್ಕು ಹೂವುಗಳನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"ಐ ಸೀ ಫೋರ್ ಫ್ಲಾವರ್ಸ್",                             emoji:"🌸" },
-    { en:"I have five stars.",       kn:"ನನ್ನ ಬಳಿ ಐದು ನಕ್ಷತ್ರಗಳಿವೆ.",        pronun:"ಐ ಹ್ಯಾವ್ ಫೈವ್ ಸ್ಟಾರ್ಸ್",                           emoji:"⭐" },
-    { en:"Six cars are on the road.",kn:"ರಸ್ತೆಯಲ್ಲಿ ಆರು ಕಾರುಗಳು ಇವೆ.",        pronun:"ಸಿಕ್ಸ್ ಕಾರ್ಸ್ ಆರ್ ಆನ್ ದ್ ರೋಡ್",                        emoji:"🚗" },
-    { en:"I have seven crayons.",    kn:"ನನ್ನ ಬಳಿ ಏಳು ಕ್ರೆಯಾನ್ಸ್ ಇದ್ದವೆ.",    pronun:"ಐ ಹ್ಯಾವ್ ಸೆವೆನ್ ಕ್ರೆಯಾನ್ಸ್",                         emoji:"🖍️" },
-    { en:"I see eight fishes.",      kn:"ನಾನು ಎಂಟು ಮೀನುಗಳನ್ನು ನೋಡುತ್ತೇನೆ.",    pronun:"ಐ ಸೀ ಎೈಟ್ ಫಿಶಸ್",                                 emoji:"🐟" },
-    { en:"I have nine balloons.",    kn:"ನನ್ನ ಬಳಿ ಒಂಬತ್ತು ಹಬ್ಬಿ ಬಲ್ಲೋನ್ಗಳು ಇದ್ದವೆ.", pronun:"ಐ ಹ್ಯಾವ್ ನೈನ್ ಬಲೂನ್ಸ್",                         emoji:"🎈" },
-    { en:"Ten pencils are on table.",kn:"ಮೇಜಿನ ಮೇಲೆ ಹತ್ತು ಪೆನ್ಸಿಲ್‌ಗಳಿವೆ.",   pronun:"ಟೆನ್ ಪೆನ್ಸಿಲ್ಸ್ ಆರ್ ಆನ್ ದ್ ಟೇಬಲ್",                    emoji:"✏️" },
-    { en:"I have one bag.",           kn:"ನನ್ನ ಬಳಿ ಒಂದು ಬ್ಯಾಗ್ ಇದೆ.",          pronun:"ಐ ಹ್ಯಾವ್ ಒನ್ ಬ್ಯಾಗ್",                               emoji:"👜" },
-    { en:"Two cats are playing.",     kn:"ಎರಡು ಬೆಕ್ಕುಗಳು ಆಟವಾಡುತ್ತಿವೆ.",      pronun:"ಟೂ ಕ್ಯಾಟ್ಸ್ ಆರ್ ಪ್ಲೇಯಿಂಗ್",                           emoji:"🐱" },
-    { en:"Three dogs are running.",   kn:"ಮೂರು ನಾಯಿಗಳು ಓಡುತ್ತಿದ್ದಿವೆ.",         pronun:"ಥ್ರೀ ಡಾಗ್ಸ್ ಆರ್ ರನ್ನಿಂಗ್",                              emoji:"🐶" },
-    { en:"Four birds are singing.",   kn:"ನಾಲ್ಕು ಹಕ್ಕಿಗಳು ಹಾಡುತ್ತಿವೆ.",         pronun:"ಫೋರ್ ಬರ್ಡ್ಸ್ ಆರ್ ಸಿಂಗ್ಿಂಗ್",                           emoji:"🐦" },
-    { en:"Five fish swim in pond.",   kn:"ಐದು ಮೀನುಗಳು ಕೆರೆದಲ್ಲಿ ಈರುಳುತ್ತಿವೆ.",   pronun:"ಫೈವ್ ಫಿಶ್ ಸ್ವಿಮ್ ಇನ್ ಪೊಂಡ್",                            emoji:"🐟" },
-    { en:"I have six oranges.",       kn:"ನನ್ನ ಬಳಿ ಆರು ಕಿತ್ತಳೆ ಹಣ್ಣುಗಳು ಇವೆ.", pronun:"ಐ ಹ್ಯಾವ್ ಸಿಕ್ಸ್ ಔರೆಂಜಸ್",                             emoji:"🍊" },
-    { en:"Seven apples are red.",     kn:"ಏಳು ಸೇಬುಗಳು ಕೆಂಪಾಗಿವೆ.",            pronun:"ಸೆವೆನ್ ಆಪಲ್ಸ್ ಆರ್ ರೆಡ್",                                emoji:"🍎" },
-    { en:"Eight bananas are yellow.", kn:"ಎಂಟು ಬಾಳೆಹಣ್ಣುಗಳು ಹಳದಿವೆ.",       pronun:"ಎೈಟ್ ಬಾನಾನಾಸ್ ಆರ್ ಯೆಲ್ಲೋ",                             emoji:"🍌" },
-    { en:"Nine grapes are purple.",   kn:"ಒಂಬತ್ತು ದ್ರಾಕ್ಷಿಗಳು ಜಾಂಬಳ ಬಣ್ಣದಲ್ಲಿವೆ.", pronun:"ನೈನ್ ಗ್ರೇಪ್ಸ್ ಆರ್ ಪರ್ಪಲ್",                           emoji:"🍇" },
-    { en:"Ten mangoes are sweet.",    kn:"ಹತ್ತು ಮಾವಿನ ಹಣ್ಣುಗಳು ಸಿಹಿಯಾದವು.",     pronun:"ಟೆನ್ ಮ್ಯಾಂಗೋಸ್ ಆರ್ ಸ್ವೀಟ್",                               emoji:"🥭" },
-    { en:"I have one pencil.",         kn:"ನನ್ನ ಬಳಿ ಒಂದು ಪೆನ್ಸಿಲ್ ಇದೆ.",         pronun:"ಐ ಹ್ಯಾವ್ ಒನ್ ಪೆನ್ಸಿಲ್",                                emoji:"✏️" },
-    { en:"Two books are on desk.",    kn:"ಡೆಸ್ಕ್ ಮೇಲೆ ಎರಡು ಪುಸ್ತಕಗಳಿವೆ.",       pronun:"ಟೂ ಬುಕ್ಸ್ ಆರ್ ಆನ್ ಡೆಸ್ಕ್",                               emoji:"📚" },
-    { en:"Three chairs are in room.", kn:"ಮೂಡು ಕುರ್ಚಿಗಳು ಕೋಣೆಯಲ್ಲಿ ಇವೆ.",       pronun:"ಥ್ರೀ ಚೇರ್ಸ್ ಆರ್ ಇನ್ ರೂಮ್",                              emoji:"🪑" },
-    { en:"Four tables are in class.", kn:"ಕ್ಲಾಸಿನಲ್ಲಿ ನಾಲ್ಕು ಮೇಜುಗಳಿವೆ.",        pronun:"ಫೋರ್ ಟೇಬಲ್ಸ್ ಆರ್ ಇನ್ ಕ್ಲಾಸ್",                           emoji:"🪑" },
-    { en:"Five cups are on table.",    kn:"ಮೇಜಿನ ಮೇಲೆ ಐದು ಕಪ್‌ಗಳಿವೆ.",          pronun:"ಫೈವ್ ಕಪ್ಸ್ ಆರ್ ಆನ್ ಟೇಬಲ್",                             emoji:"☕" },
-    { en:"Six hats are on head.",      kn:"ತಲೆಯ ಮೇಲೆ ಆರು ಟೋಪಿ ಇದ್ದವು.",         pronun:"ಸಿಕ್ಸ್ ಹ್ಯಾಟ್ಸ್ ಆರ್ ಆನ್ ಹೆಡ್",                             emoji:"🎩" },
-    { en:"Seven pencils are in box.",  kn:"ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಏಳು ಪೆನ್ಸಿಲ್ಸ್ ಇದ್ದವು.",    pronun:"ಸೆವೆನ್ ಪೆನ್ಸಿಲ್ಸ್ ಆರ್ ಇನ್ ಬಾಕ್ಸ್",                           emoji:"✏️" },
-    { en:"Eight erasers are here.",    kn:"ಇಲ್ಲಿ ಎಂಟು ರಬ್ಬರ್‌ಗಳಿವೆ.",            pronun:"ಎೈಟ್ ಇರೇಸರ್ಸ್ ಆರ್ ಹಿಯರ್",                               emoji:"🧽" },
-    { en:"Nine shoes are on floor.",   kn:"ನೆಲದ ಮೇಲೆ ಒಂಬತ್ತು ಚಪ್ಪಲಿಗಳು ಇವೆ.",   pronun:"ನೈನ್ ಶೂಸ್ ಆರ್ ಆನ್ ಫ್ಲೋರ್",                                emoji:"👟" },
-    { en:"Ten balls are in basket.",   kn:"ಬಾಸ್ಕೆಟ್‌ನಲ್ಲಿ ಹತ್ತು ಚೆಂಡುಗಳು ಇದ್ದವು.",   pronun:"ಟೆನ್ ಬಾಲ್ಸ್ ಆರ್ ಇನ್ ಬಾಸ್ಕೆಟ್",                               emoji:"⚽" }
-],
+    { en:"I have one nose.",      kn:"ನನಗೆ ಒಂದು ಮೂಗಿದೆ.",              pronun:"na-na-ge on-du moo-gi-de",               emoji:"1️⃣" },
+    { en:"I have two eyes.",      kn:"ನನಗೆ ಎರಡು ಕಣ್ಣುಗಳಿವೆ.",           pronun:"na-na-ge e-ra-du kan-nu-ga-li-ve",       emoji:"2️⃣" },
+    { en:"I have two ears.",      kn:"ನನಗೆ ಎರಡು ಕಿವಿಗಳಿವೆ.",            pronun:"na-na-ge e-ra-du ki-vi-ga-li-ve",        emoji:"👂" },
+    { en:"I have ten fingers.",   kn:"ನನಗೆ ಹತ್ತು ಬೆರಳುಗಳಿವೆ.",          pronun:"na-na-ge hat-tu be-ra-lu-ga-li-ve",      emoji:"🖐️" },
+    { en:"I can count one to ten.",kn:"ನಾನು ಒಂದರಿಂದ ಹತ್ತರವರೆಗೆ ಎಣಿಸಬಲ್ಲೆ.", pronun:"naa-nu on-da-rin-da hat-ta-ra-va-re-ge e-ni-sa-bal-le",emoji:"🔢" },
+    { en:"Five plus five is ten.", kn:"ಐದು ಜಮೆ ಐದು ಹತ್ತು.",             pronun:"ai-du ja-me ai-du hat-tu",               emoji:"➕" },
+    { en:"I see three birds.",    kn:"ನಾನು ಮೂರು ಹಕ್ಕಿಗಳನ್ನು ನೋಡುತ್ತೇನೆ.", pronun:"naa-nu moo-ru hak-ki-ga-lan-nu no-dut-te-ne",emoji:"🐦" },
+    { en:"I have four books.",    kn:"ನನ್ನ ಬಳಿ ನಾಲ್ಕು ಪುಸ್ತಕಗಳಿವೆ.",    pronun:"nan-na ba-li naal-ku pus-ta-ka-ga-li-ve",emoji:"📚" },
+  ],
 };
 
 let currentMode = "words";
@@ -1265,11 +823,30 @@ let seen = new Set();
 
 function switchMode(mode) {
   currentMode = mode;
-  document.getElementById("tabWords").classList.toggle("active", mode === "words");
-  document.getElementById("tabSentences").classList.toggle("active", mode === "sentences");
+  ["Words","Sentences","Alphabet","Quiz"].forEach(m => {
+    const tab = document.getElementById("tab"+m);
+    if(tab) tab.classList.toggle("active", mode === m.toLowerCase());
+  });
   document.getElementById("wordsSection").classList.toggle("hide", mode !== "words");
   document.getElementById("sentencesSection").classList.toggle("show", mode === "sentences");
+  document.getElementById("alphabetSection").classList.toggle("show", mode === "alphabet");
+  document.getElementById("quizSection").classList.toggle("show", mode === "quiz");
+  if (mode === "alphabet") renderAlphabet();
+  if (mode === "quiz") initQuiz();
 }
+
+/*function renderCats() {
+  const bar = document.getElementById("catBar");
+  bar.innerHTML = "";
+  Object.keys(words).forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "cat-btn" + (cat === currentCat ? " active" : "");
+    btn.dataset.cat = cat;
+    btn.textContent = catEmoji(cat) + " " + cat;
+    btn.onclick = () => { currentCat = cat; renderCats(); renderGrid(); };
+    bar.appendChild(btn);
+  });
+}*/
 
 let showAllCats = false;
 //const visibleLimit = 6;
@@ -1313,8 +890,9 @@ function renderCats() {
     bar.appendChild(toggleBtn);
   }
 }
+
 function catEmoji(cat) {
-  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢",Transport:"🚗",Games:"🎮",}[cat] || "📌";
+  return {Animals:"🐾",Fruits:"🍓",Vegetables:"🥦",Colors:"🎨",Body:"🙋",Home:"🏠",Food:"🍽️",Birds:"🐦",Flowers:"🌸",Festivals:"🎉",Numbers:"🔢",Transport:"🚗",Games:"🏏"}[cat] || "📌";
 }
 function renderGrid() {
   const grid = document.getElementById("grid");
@@ -1354,6 +932,19 @@ function openModal(w, card) {
   if (!seen.has(key)) { seen.add(key); stars++; document.getElementById("starCount").textContent = stars; addStar(); }
   card.classList.remove("bounce"); void card.offsetWidth; card.classList.add("bounce");
 }
+
+/*function renderSentCats() {
+  const bar = document.getElementById("sentCatBar");
+  bar.innerHTML = "";
+  Object.keys(sentences).forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "sent-cat-btn" + (cat === currentSCat ? " active" : "");
+    btn.dataset.scat = cat;
+    btn.textContent = sentCatEmoji(cat) + " " + cat;
+    btn.onclick = () => { currentSCat = cat; renderSentCats(); renderSentences(); };
+    bar.appendChild(btn);
+  });
+}*/
 
 let showAllSCats = false;
 //const sVisibleLimit = 4;
@@ -1428,18 +1019,391 @@ function renderSentences() {
 }
 
 function speakText(text) {
-  if ('speechSynthesis' in window) {
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.rate = 0.8; u.pitch = 1.2; u.lang = "en-US";
-    speechSynthesis.speak(u);
-  }
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-US"; u.rate = 0.8; u.pitch = 1.2;
+  speechSynthesis.speak(u);
 }
 function addStar() {
   const bar = document.getElementById("scoreBar");
   const s = document.createElement("span"); s.className = "star"; s.textContent = "⭐"; bar.appendChild(s);
   setTimeout(() => s.remove(), 1000);
 }
+
+// ── ALPHABET A-Z ──
+const alphabet = [
+  { letter:"A", word:"Apple",     kn:"ಸೇಬು",          emoji:"🍎" },
+  { letter:"B", word:"Ball",      kn:"ಚೆಂಡು",         emoji:"⚽" },
+  { letter:"C", word:"Cat",       kn:"ಬೆಕ್ಕು",         emoji:"🐱" },
+  { letter:"D", word:"Dog",       kn:"ನಾಯಿ",          emoji:"🐶" },
+  { letter:"E", word:"Elephant",  kn:"ಆನೆ",           emoji:"🐘" },
+  { letter:"F", word:"Fish",      kn:"ಮೀನು",          emoji:"🐟" },
+  { letter:"G", word:"Grapes",    kn:"ದ್ರಾಕ್ಷಿ",       emoji:"🍇" },
+  { letter:"H", word:"Horse",     kn:"ಕುದುರೆ",        emoji:"🐴" },
+  { letter:"I", word:"Ice cream", kn:"ಐಸ್ ಕ್ರೀಮ್",    emoji:"🍦" },
+  { letter:"J", word:"Jackfruit", kn:"ಹಲಸಿನ ಹಣ್ಣು",   emoji:"🟡" },
+  { letter:"K", word:"Kite",      kn:"ಗಾಳಿಪಟ",        emoji:"🪁" },
+  { letter:"L", word:"Lion",      kn:"ಸಿಂಹ",          emoji:"🦁" },
+  { letter:"M", word:"Mango",     kn:"ಮಾವಿನ ಹಣ್ಣು",   emoji:"🥭" },
+  { letter:"N", word:"Nest",      kn:"ಗೂಡು",          emoji:"🪺" },
+  { letter:"O", word:"Orange",    kn:"ಕಿತ್ತಳೆ",        emoji:"🍊" },
+  { letter:"P", word:"Peacock",   kn:"ನವಿಲು",         emoji:"🦚" },
+  { letter:"Q", word:"Queen",     kn:"ರಾಣಿ",          emoji:"👸" },
+  { letter:"R", word:"Rabbit",    kn:"ಮೊಲ",           emoji:"🐰" },
+  { letter:"S", word:"Sun",       kn:"ಸೂರ್ಯ",         emoji:"☀️" },
+  { letter:"T", word:"Tiger",     kn:"ಹುಲಿ",          emoji:"🐯" },
+  { letter:"U", word:"Umbrella",  kn:"ಛತ್ರಿ",          emoji:"☂️" },
+  { letter:"V", word:"Van",       kn:"ವ್ಯಾನ್",         emoji:"🚐" },
+  { letter:"W", word:"Water",     kn:"ನೀರು",          emoji:"💧" },
+  { letter:"X", word:"Xylophone", kn:"ಕ್ಸೈಲೋಫೋನ್",    emoji:"🎵" },
+  { letter:"Y", word:"Yak",       kn:"ಯಾಕ್",           emoji:"🐂" },
+  { letter:"Z", word:"Zebra",     kn:"ಜೀಬ್ರಾ",        emoji:"🦓" },
+];
+const alphaColors = ["#FF6B35","#FFD93D","#6BCB77","#4D96FF","#FF85A1","#C77DFF","#2EC4B6","#FF4D6D","#FF9800","#00B4D8","#E040FB","#F72585","#3D5A80","#FF6B35","#FFD93D","#6BCB77","#4D96FF","#FF85A1","#C77DFF","#2EC4B6","#FF4D6D","#FF9800","#00B4D8","#E040FB","#F72585","#3D5A80"];
+
+function renderAlphabet() {
+  const grid = document.getElementById("alphabetGrid");
+  grid.innerHTML = "";
+  alphabet.forEach((a, i) => {
+    const card = document.createElement("div");
+    card.className = "alpha-card";
+    card.style.animationDelay = (i * 0.04) + "s";
+    card.style.borderColor = alphaColors[i];
+    card.style.boxShadow = `5px 5px 0 ${alphaColors[i]}`;
+    card.innerHTML = `
+      <span class="alpha-letter" style="background:linear-gradient(135deg,${alphaColors[i]},${alphaColors[(i+3)%26]});-webkit-background-clip:text;-webkit-text-fill-color:transparent;">${a.letter}</span>
+      <span class="alpha-emoji">${a.emoji}</span>
+      <div class="alpha-word">${a.word}</div>
+      <div class="alpha-kn">${a.kn}</div>`;
+    card.onclick = () => {
+      speakText(a.letter + " for " + a.word);
+      card.classList.remove("bounce"); void card.offsetWidth; card.classList.add("bounce");
+      const key = "alpha_" + a.letter;
+      if (!seen.has(key)) { seen.add(key); stars++; document.getElementById("starCount").textContent = stars; addStar(); }
+    };
+    grid.appendChild(card);
+  });
+}
+
+// ── QUIZ MODE ──
+let quizCat = "Animals";
+let quizWords = [];
+let quizIndex = 0;
+let quizCorrect = 0;
+let quizWrong = 0;
+let quizAnswered = false;
+const QUIZ_TOTAL = 10;
+
+// ⭐ CATEGORY CONTROL
+let showAllQuizCats = false;
+const quizVisibleLimit = window.innerWidth < 600 ? 3 : 4;
+
+// ⭐ PROGRESS STORAGE
+let quizProgress = JSON.parse(localStorage.getItem("quizProgress") || "{}");
+
+// ── INIT ──
+function initQuiz() {
+  quizCorrect = 0;
+  quizWrong = 0;
+  quizIndex = 0;
+  quizAnswered = false;
+  renderQuizUI();
+}
+
+// ── NEXT CATEGORY ──
+function goToNextCategory() {
+  const allCats = Object.keys(words);
+  let currentIndex = allCats.indexOf(quizCat);
+  const nextIndex = (currentIndex + 1) % allCats.length;
+
+  quizCat = allCats[nextIndex];
+  initQuiz();
+}
+
+// ── UI ──
+function renderQuizUI() {
+  const box = document.getElementById("quizBox");
+
+  quizWords = shuffle([...words[quizCat]]).slice(0, QUIZ_TOTAL);
+
+  box.innerHTML = `
+    <div style="text-align:center; margin-bottom:10px;">
+      <div class="quiz-score-row">
+        <div class="quiz-score-pill correct">⭐ <span id="qStars">0</span></div>
+        <div class="quiz-score-pill correct">✅ <span id="qCorrect">0</span></div>
+        <div class="quiz-score-pill wrong">❌ <span id="qWrong">0</span></div>
+        <div class="quiz-score-pill total">📝 <span id="qIndex">1</span>/${QUIZ_TOTAL}</div>
+      </div>
+      <div class="quiz-cat-select" id="quizCatSelect"></div>
+    </div>
+    <div id="quizCardArea"></div>
+  `;
+
+  // 🎯 CATEGORY BAR
+  const catSelect = document.getElementById("quizCatSelect");
+  catSelect.innerHTML = "";
+
+  const allCats = Object.keys(words);
+
+  const catsToShow = showAllQuizCats
+    ? allCats
+    : allCats.slice(0, quizVisibleLimit);
+
+  catsToShow.forEach((cat, index) => {
+    const isLocked = index > 0 && !quizProgress[allCats[index - 1]];
+
+    const btn = document.createElement("button");
+    btn.className =
+      "quiz-cat-btn" +
+      (cat === quizCat ? " active" : "") +
+      (isLocked ? " locked" : "");
+
+    const stars = quizProgress[cat] ? "⭐" : "";
+    btn.textContent = (isLocked ? "🔒 " : "") + cat + " " + stars;
+
+    btn.onclick = () => {
+      if (isLocked) return;
+
+      quizCat = cat;
+      initQuiz();
+    };
+
+    catSelect.appendChild(btn);
+  });
+
+  // ➕ More / Less
+  if (allCats.length > quizVisibleLimit) {
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "quiz-cat-btn";
+    toggleBtn.textContent = showAllQuizCats ? "➖ Less" : "➕ More";
+
+    toggleBtn.onclick = () => {
+      showAllQuizCats = !showAllQuizCats;
+      renderQuizUI();
+    };
+
+    catSelect.appendChild(toggleBtn);
+  }
+
+  renderQuestion();
+}
+
+// ── SHUFFLE ──
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ── SCORE ──
+function updateQuizScore() {
+  const c = document.getElementById("qCorrect");
+  const w = document.getElementById("qWrong");
+  const i = document.getElementById("qIndex");
+  const s = document.getElementById("qStars");
+
+  if (c) c.textContent = quizCorrect;
+  if (w) w.textContent = quizWrong;
+  if (i) i.textContent = Math.min(quizIndex + 1, QUIZ_TOTAL);
+
+  if (s) {
+    const stars = quizProgress[quizCat] ? "⭐" : "0";
+    s.textContent = stars;
+  }
+}
+
+// ── CHECK ANSWER ──
+function checkAnswer(selected, correct, btn) {
+  if (quizAnswered) return;
+
+  quizAnswered = true;
+
+  // Disable all buttons and mark correct/wrong
+  document.querySelectorAll(".quiz-opt").forEach(b => {
+    b.disabled = true;
+
+    if (b.textContent === correct) {
+      b.classList.add("correct");
+    } else if (b === btn && selected !== correct) {
+      b.classList.add("wrong");
+    }
+  });
+
+  const result = document.getElementById("quizResult");
+  const nextBtn = document.getElementById("quizNextBtn");
+
+  if (selected === correct) {
+    quizCorrect++;
+    result.textContent = "✅ Correct! ಸರಿಯಾಗಿದೆ!";
+    result.style.color = "#6BCB77";
+    speakText("Correct! " + correct);
+  } else {
+    quizWrong++;
+    result.textContent = "❌ It is " + correct + "!";
+    result.style.color = "#FF4D6D";
+    speakText("The answer is " + correct);
+  }
+
+  updateQuizScore();
+
+  if (nextBtn) {
+    nextBtn.disabled = false;
+    nextBtn.style.display = "inline-block";  // ensure visible
+  }
+}
+
+// ── NEXT QUESTION ──
+function nextQuestion() {
+  if (!quizAnswered) return; // block skipping without answer
+
+  quizIndex++;
+  renderQuestion();
+}
+
+// ── RENDER QUESTION ──
+function renderQuestion() {
+  const area = document.getElementById("quizCardArea");
+  if (!area) return;
+
+  if (quizIndex >= QUIZ_TOTAL || quizIndex >= quizWords.length) {
+    const pct = Math.round((quizCorrect / QUIZ_TOTAL) * 100);
+
+    // ⭐ SAVE PROGRESS
+    if (pct >= 90) {
+      quizProgress[quizCat] = true;
+      localStorage.setItem("quizProgress", JSON.stringify(quizProgress));
+    }
+
+    const trophy =
+      pct >= 90 ? "🏆" :
+      pct >= 70 ? "🥇" :
+      pct >= 50 ? "🥈" : "🎯";
+
+    const msg =
+      pct >= 90 ? "Excellent! ಭಲೇ!" :
+      pct >= 70 ? "Well done! ಚೆನ್ನಾಗಿದೆ!" :
+      pct >= 50 ? "Good try! ಮತ್ತೆ ಪ್ರಯತ್ನಿಸು!" :
+                  "Keep learning! ಕಲಿಯುತ್ತಿರು!";
+
+    area.innerHTML = `
+      <div class="quiz-finish">
+        <span class="quiz-finish-emoji">${trophy}</span>
+        <div class="quiz-finish-title">${msg}</div>
+        <div class="quiz-finish-score">
+          ✅ ${quizCorrect} / ${QUIZ_TOTAL} (${pct}%)
+        </div>
+
+        ${
+          pct >= 90
+            ? `<button class="quiz-restart-btn" onclick="goToNextCategory()">➡ Next Category</button>`
+            : `<button class="quiz-restart-btn" onclick="initQuiz()">🔄 Try Again</button>`
+        }
+      </div>
+    `;
+
+    //if (pct >= 90) {
+    //  setTimeout(goToNextCategory, 2000);
+    //}
+
+    return;
+  }
+
+  const w = quizWords[quizIndex];
+  quizAnswered = false;
+
+  const others = shuffle(
+    words[quizCat].filter(x => x.en !== w.en)
+  ).slice(0, 3);
+
+  const options = shuffle([w, ...others]);
+
+  speakText(w.en);
+
+  area.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-question-label">What is this in English?</div>
+      <span class="quiz-emoji">${w.emoji}</span>
+      <div class="quiz-kn">${w.kn}</div>
+      <div class="quiz-hint">ಇದು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಏನು?</div>
+
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-result" id="quizResult"></div>
+
+      <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuestion()" disabled style="display:none; margin:15px auto;">
+        Next ▶
+      </button>
+    </div>
+  `;
+
+  const optContainer = document.getElementById("quizOptions");
+
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "quiz-opt";
+    btn.textContent = opt.en;
+    btn.onclick = () => checkAnswer(opt.en, w.en, btn);
+    optContainer.appendChild(btn);
+  });
+
+  updateQuizScore();
+}
+function checkAnswer(chosen, correct, btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+
+  // Disable all option buttons and mark correct/wrong
+  document.querySelectorAll(".quiz-opt").forEach(b => {
+    b.disabled = true;
+    b.style.cursor = "default";
+
+    if (b.textContent === correct) {
+      b.classList.add("correct-ans");
+    } else if (b === btn && chosen !== correct) {
+      b.classList.add("wrong-ans");
+    }
+  });
+
+  const result = document.getElementById("quizResult");
+  const nextBtn = document.getElementById("quizNextBtn");
+
+  if (chosen === correct) {
+    quizCorrect++;
+    result.textContent = "✅ Correct! ಸರಿಯಾಗಿದೆ!";
+    result.style.color = "#6BCB77";
+    speakText("Correct! " + correct);
+
+    // If you have stars and addStar, define them; else comment/remove:
+    // stars++;
+    // document.getElementById("starCount").textContent = stars;
+    // addStar();
+
+  } else {
+    quizWrong++;
+    result.textContent = "❌ It is " + correct + "!";
+    result.style.color = "#FF4D6D";
+    speakText("The answer is " + correct);
+  }
+
+  updateQuizScore();
+
+  // Show and enable Next button
+  if (nextBtn) {
+    nextBtn.disabled = false;
+    nextBtn.style.display = "inline-block";
+  }
+}
+
+function nextQuestion() {
+  if (!quizAnswered) return;  // Prevent skipping
+
+  quizIndex++;
+  renderQuestion();
+  updateQuizScore();
+}
+// DON'T TUCH BELOW LINES IS IT NOT CODE OF QUIZ ---
 
 document.getElementById("closeBtn").onclick = () => document.getElementById("modalOverlay").classList.remove("show");
 document.getElementById("modalOverlay").onclick = (e) => {
@@ -1449,37 +1413,27 @@ document.getElementById("modalOverlay").onclick = (e) => {
 renderCats(); renderGrid();
 renderSentCats(); renderSentences();
 
+
 // ── SPARKLE PARTICLES ──
 (function() {
-  const header = document.getElementById('mainHeader');
-  const colors = ['#FF6B35','#FFD93D','#FF85A1','#C77DFF','#4D96FF','#6BCB77','#2EC4B6'];
-  const shapes = ['⭐','✨','💫','🌟','⚡','🎈','🎀'];
+  const header = document.getElementById("mainHeader");
+  if (!header) return;
+  const colors = ["#FF6B35","#FFD93D","#FF85A1","#C77DFF","#4D96FF","#6BCB77","#2EC4B6"];
+  const shapes = ["⭐","✨","💫","🌟","⚡","🎈","🎀"];
   function createSpark() {
-    const el = document.createElement('div');
-    el.className = 'spark';
-    const size = Math.random() * 16 + 8;
-    el.style.cssText = [
-      `width:${size}px`, `height:${size}px`,
-      `left:${Math.random()*100}%`,
-      `top:${Math.random()*100}%`,
-      `background:${colors[Math.floor(Math.random()*colors.length)]}`,
-      `animation-duration:${Math.random()*2+1.5}s`,
-      `animation-delay:${Math.random()*3}s`,
-      `opacity:0`,
-    ].join(';');
-    // Mix between dot and emoji
+    const el = document.createElement("div");
+    el.className = "spark";
+    const size = Math.random()*16+8;
     if (Math.random() > 0.5) {
       el.textContent = shapes[Math.floor(Math.random()*shapes.length)];
-      el.style.background = 'transparent';
-      el.style.fontSize = size + 'px';
-      el.style.width = 'auto';
-      el.style.height = 'auto';
+      el.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;position:absolute;pointer-events:none;font-size:${size}px;animation:sparkFloat ${Math.random()*2+1.5}s linear infinite;animation-delay:${Math.random()*3}s;opacity:0;`;
+    } else {
+      el.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*2+1.5}s;animation-delay:${Math.random()*3}s;opacity:0;`;
     }
     header.appendChild(el);
     setTimeout(() => el.remove(), 5000);
   }
   setInterval(createSpark, 300);
-  // Initial burst
   for(let i=0;i<8;i++) setTimeout(createSpark, i*150);
 })();
 </script>
