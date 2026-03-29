@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kids Smart Learning App 🌟</title>
+
+  <!-- ============================================================
+    § SECTION 1 — GOOGLE FONTS
+    Using "Fredoka One" for headings (playful, rounded, child-friendly)
+    and "Nunito" for body text (soft, readable for young learners).
+  ============================================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ============================================================
+      § SECTION 2 — CSS VARIABLES (Theme Colors & Sizes)
+      Centralised design tokens — change here to restyle entire app.
+    ============================================================ */
+    /* NEW: Added per-level theme variables that swap dynamically via JS */
+    :root {
+      --bg-sky:       #e0f7fa;        /* light cyan background */
+      --bg-card:      #ffffff;
+      --clr-primary:  #ff6f00;        /* orange — main accent */
+      --clr-secondary:#7c4dff;        /* purple — secondary accent */
+      --clr-success:  #00c853;        /* green — correct answer */
+      --clr-danger:   #ff1744;        /* red — wrong answer */
+      --clr-gold:     #ffd600;        /* yellow — stars & rewards */
+      --clr-text:     #212121;
+      --clr-muted:    #757575;
+      --radius:       18px;
+      --shadow:       0 8px 30px rgba(0,0,0,0.12);
+      --transition:   0.3s ease;
+      /* NEW: Dynamic theme colors per level — overridden by JS when level starts */
+      --level-bg1: #e0f7fa;
+      --level-bg2: #e0f7fa;
+      --level-dot: #b2ebf2;
+    }
+
+    /* ============================================================
+      § SECTION 3 — RESET & BASE STYLES
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      /* NEW: Dynamic gradient background — changes per level via CSS vars */
+      background: linear-gradient(160deg, var(--level-bg1) 0%, var(--level-bg2) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: var(--clr-text);
+      overflow-x: hidden;
+      /* NEW: Smooth background transition when level changes */
+      transition: background 0.8s ease;
+    }
+
+    /* NEW: Polka-dot overlay using level-specific dot color variable */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: radial-gradient(circle, var(--level-dot) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+      § SECTION 4 — SCREEN MANAGEMENT
+      Each "screen" is a full-page div. Only the active screen is shown.
+      We toggle the class "active" via JavaScript.
+    ============================================================ */
+    .screen { display: none; padding: 20px; min-height: 100vh; position: relative; z-index: 1; }
+    .screen.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+    /* ============================================================
+      § SECTION 5 — HEADER BAR (shown on quiz/level screens)
+    ============================================================ */
+    .top-bar {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 8px;
+    }
+
+    /* Score badge in top-right corner */
+    .score-badge {
+      background: var(--clr-gold);
+      color: #5d4037;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      padding: 6px 14px;
+      border-radius: 30px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    }
+
+    /* Level indicator badge */
+    .level-badge {
+      background: var(--clr-secondary);
+      color: #fff;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 30px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    /* NEW: Streak badge — glows orange when streak is 3+ */
+    .streak-badge {
+      background: linear-gradient(135deg, #ff6f00, #ff8f00);
+      color: #fff;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 30px;
+      box-shadow: 0 3px 10px rgba(255,111,0,0.3);
+      white-space: nowrap;
+      transition: box-shadow 0.3s ease;
+    }
+    /* NEW: Hot glow when streak >= 3 */
+    .streak-badge.hot {
+      box-shadow: 0 0 0 4px rgba(255,111,0,0.3), 0 3px 15px rgba(255,111,0,0.5);
+      animation: streakPulse 1s infinite;
+    }
+    @keyframes streakPulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(255,111,0,0.3); }
+      50%       { box-shadow: 0 0 0 8px rgba(255,111,0,0.1); }
+    }
+
+    /* ============================================================
+      § SECTION 6 — CARD COMPONENT (shared container)
+    ============================================================ */
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 680px;
+      animation: slideUp 0.4s ease both;
+      position: relative; z-index: 1;
+    }
+
+    /* Entry animation for cards */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+      § SECTION 7 — TYPOGRAPHY HELPERS
+    ============================================================ */
+    h1, h2, h3 { font-family: 'Fredoka One', cursive; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); color: var(--clr-primary); }
+    h2 { font-size: clamp(1.4rem, 4vw, 2rem); color: var(--clr-secondary); }
+    h3 { font-size: 1.2rem; color: var(--clr-muted); font-weight: 600; }
+    p  { font-size: 1rem; line-height: 1.6; }
+
+    /* ============================================================
+      § SECTION 8 — BUTTON STYLES
+    ============================================================ */
+    .btn {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.1rem;
+      padding: 13px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      letter-spacing: 0.5px;
+    }
+    .btn:hover  { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .btn:active { transform: scale(0.97); }
+
+    /* Primary orange button */
+    .btn-primary {
+      background: var(--clr-primary);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(255,111,0,0.4);
+    }
+
+    /* Purple secondary button */
+    .btn-secondary {
+      background: var(--clr-secondary);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(124,77,255,0.35);
+    }
+
+    /* Neutral/outline button */
+    .btn-outline {
+      background: transparent;
+      color: var(--clr-primary);
+      border: 2px solid var(--clr-primary);
+    }
+
+    /* ============================================================
+      § SECTION 9 — HOME SCREEN
+    ============================================================ */
+    #homeScreen { text-align: center; gap: 16px; }
+
+    .home-emoji {
+      font-size: 5rem;
+      /* Gentle bounce animation to attract kids' attention */
+      animation: bounce 1.6s infinite ease-in-out;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-14px); }
+    }
+
+    .home-title { margin-bottom: 6px; }
+    .home-subtitle { color: var(--clr-muted); font-size: 1.1rem; margin-bottom: 10px; }
+
+    /* Character name input on home screen */
+    .name-input-wrap { width: 100%; max-width: 340px; margin: 0 auto 10px; }
+    .name-input-wrap input {
+      width: 100%;
+      padding: 12px 18px;
+      border: 2.5px solid #e0e0e0;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      text-align: center;
+      transition: border-color var(--transition);
+      background: rgba(255,255,255,0.9);
+    }
+    .name-input-wrap input:focus { border-color: var(--clr-primary); }
+
+    /* NEW: Sound toggle button — styled like a pill chip */
+    .sound-toggle {
+      background: rgba(255,255,255,0.85);
+      border: 2px solid #e0e0e0;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      color: var(--clr-text);
+    }
+    .sound-toggle:hover { border-color: var(--clr-primary); color: var(--clr-primary); }
+    .sound-toggle.muted { opacity: 0.6; }
+
+    /* NEW: Animated sound wave bars inside the button */
+    .sound-indicator {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .sound-indicator span {
+      display: block;
+      width: 3px;
+      background: var(--clr-primary);
+      border-radius: 2px;
+      animation: soundBar 0.8s infinite ease-in-out;
+    }
+    .sound-indicator span:nth-child(1) { height: 6px;  animation-delay: 0s; }
+    .sound-indicator span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+    .sound-indicator span:nth-child(3) { height: 8px;  animation-delay: 0.3s; }
+    @keyframes soundBar {
+      0%, 100% { transform: scaleY(0.4); }
+      50%       { transform: scaleY(1); }
+    }
+
+    /* ============================================================
+      § SECTION 10 — LEVEL SELECT SCREEN
+    ============================================================ */
+    #levelScreen { gap: 20px; }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 680px;
+      margin-top: 10px;
+    }
+
+    /* Individual level card button */
+    .level-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .level-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.15);
+      border-color: var(--clr-primary);
+    }
+
+    /* Lock icon overlay for locked levels */
+    .level-card.locked {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .level-card .lv-emoji  { font-size: 2.4rem; margin-bottom: 8px; }
+    .level-card .lv-name   { font-family: 'Fredoka One', cursive; font-size: 1rem; color: var(--clr-secondary); }
+    .level-card .lv-desc   { font-size: 0.8rem; color: var(--clr-muted); margin-top: 4px; }
+    /* Star count below level name */
+    .level-card .lv-stars  { font-size: 0.85rem; color: var(--clr-gold); margin-top: 6px; }
+    /* NEW: Shows pool size vs picks e.g. "10 of 15 Qs 🎲" */
+    .level-card .lv-qcount { font-size: 0.72rem; color: #bbb; margin-top: 4px; }
+
+    /* ============================================================
+      § SECTION 11 — QUIZ SCREEN LAYOUT
+    ============================================================ */
+    #quizScreen { gap: 14px; }
+
+    /* Progress bar at top showing current question number */
+    .progress-wrap {
+      width: 100%;
+      max-width: 680px;
+      background: #e0e0e0;
+      border-radius: 50px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--clr-primary), var(--clr-gold));
+      border-radius: 50px;
+      transition: width 0.5s ease;
+    }
+
+    /* Question number label */
+    .q-counter {
+      font-size: 0.85rem;
+      color: var(--clr-muted);
+      width: 100%;
+      max-width: 680px;
+      text-align: right;
+    }
+
+    /* Question image (emoji displayed large) */
+    .q-image {
+      font-size: 4.5rem;
+      text-align: center;
+      margin-bottom: 8px;
+      /* Subtle pop animation when new question loads */
+      animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    /* Question text */
+    .q-text {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      font-weight: 700;
+      text-align: center;
+      color: var(--clr-text);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    /* Hint text (optional) */
+    .q-hint {
+      font-size: 0.85rem;
+      color: var(--clr-muted);
+      text-align: center;
+      margin-top: -14px;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    /* ============================================================
+      § SECTION 12 — ANSWER OPTIONS GRID
+      2 columns for most levels, 1 column for typing level.
+    ============================================================ */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Each answer option button */
+    .option-btn {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 14px 10px;
+      border: 2.5px solid #e0e0e0;
+      border-radius: var(--radius);
+      background: #fafafa;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: center;
+      color: var(--clr-text);
+    }
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--clr-secondary);
+      background: #ede7f6;
+      transform: scale(1.03);
+    }
+
+    /* Correct answer highlight */
+    .option-btn.correct {
+      border-color: var(--clr-success);
+      background: #e8f5e9;
+      color: var(--clr-success);
+      animation: correctPop 0.4s ease;
+    }
+    @keyframes correctPop {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+
+    /* Wrong answer highlight */
+    .option-btn.wrong {
+      border-color: var(--clr-danger);
+      background: #ffebee;
+      color: var(--clr-danger);
+      animation: shake 0.4s ease;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25%      { transform: translateX(-8px); }
+      75%      { transform: translateX(8px); }
+    }
+
+    /* Disable all buttons after answering */
+    .option-btn:disabled { cursor: not-allowed; }
+
+    /* ============================================================
+      § SECTION 13 — TYPING ANSWER INPUT (used in Level 5)
+    ============================================================ */
+    .type-wrap {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .type-wrap input {
+      flex: 1;
+      padding: 13px 18px;
+      border: 2.5px solid #e0e0e0;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .type-wrap input:focus { border-color: var(--clr-primary); }
+
+    /* ============================================================
+      § SECTION 14 — FEEDBACK TOAST (correct / wrong popup)
+    ============================================================ -->
+    */
+    .feedback-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px); /* start hidden above */
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem;
+      color: #fff;
+      z-index: 999;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+    }
+    /* Slide into view */
+    .feedback-toast.show { transform: translateX(-50%) translateY(0); }
+    .feedback-toast.correct-toast { background: var(--clr-success); }
+    .feedback-toast.wrong-toast   { background: var(--clr-danger); }
+
+    /* ============================================================
+      § SECTION 15 — SPARKLE / STAR PARTICLES
+      Small CSS-only star burst when a correct answer is given.
+    ============================================================ */
+    .sparkle-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 998;
+      overflow: hidden;
+    }
+    .sparkle {
+      position: absolute;
+      font-size: 1.6rem;
+      animation: sparkleFly 0.8s ease forwards;
+      opacity: 0;
+    }
+    @keyframes sparkleFly {
+      0%   { opacity: 1; transform: translate(0,0) scale(1); }
+      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.3); }
+    }
+
+    /* ============================================================
+      § SECTION 16 — RESULTS SCREEN
+    ============================================================ */
+    #resultScreen { text-align: center; gap: 18px; }
+
+    /* Big trophy or emoji depending on score */
+    .result-emoji { font-size: 5rem; animation: bounce 1.5s infinite; }
+
+    /* Star display row */
+    .stars-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 2.5rem;
+      margin: 8px 0;
+    }
+
+    /* Individual star — filled vs empty */
+    .star { color: #e0e0e0; transition: color 0.3s; }
+    .star.filled { color: var(--clr-gold); animation: starPop 0.4s ease both; }
+    @keyframes starPop {
+      0% { transform: scale(0) rotate(-30deg); }
+      70%{ transform: scale(1.2) rotate(5deg); }
+      100%{ transform: scale(1) rotate(0); }
+    }
+
+    /* Score percentage text */
+    .result-score {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: var(--clr-primary);
+    }
+
+    /* Wrong answers review list */
+    .review-list {
+      text-align: left;
+      background: #fff3e0;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      max-height: 180px;
+      overflow-y: auto;
+      width: 100%;
+      max-width: 680px;
+    }
+    .review-list h4 {
+      font-family: 'Fredoka One', cursive;
+      color: var(--clr-primary);
+      margin-bottom: 8px;
+    }
+    .review-item { margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px dashed #ffe0b2; }
+    .review-item:last-child { border-bottom: none; }
+
+    /* Button row on result screen */
+    .result-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+
+    /* ============================================================
+      § SECTION 17 — TIMER BAR (used in Level 3, 4, 5)
+    ============================================================ */
+    .timer-wrap {
+      width: 100%;
+      max-width: 680px;
+      background: #f5f5f5;
+      border-radius: 50px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 2px;
+    }
+    .timer-bar {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #00c853, #ffd600, #ff1744);
+      transition: width 1s linear;
+    }
+    /* Text label next to timer */
+    .timer-label {
+      font-size: 0.8rem;
+      color: var(--clr-muted);
+      text-align: right;
+      width: 100%;
+      max-width: 680px;
+    }
+    /* NEW: Urgent style when ≤5s remain — text pulses red */
+    .timer-label.urgent { color: var(--clr-danger); animation: urgentPulse 0.5s infinite; }
+    @keyframes urgentPulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+
+    /* ============================================================
+      § SECTION 18 — RESPONSIVE BREAKPOINTS
+    ============================================================ */
+    @media (max-width: 480px) {
+      .options-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .card { padding: 22px 16px; }
+      .level-grid { grid-template-columns: 1fr 1fr; }
+      .result-btns { flex-direction: column; }
+    }
+
+    /* ============================================================
+      § SECTION 19 — UTILITY CLASSES
+    ============================================================ */
+    .text-center { text-align: center; }
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .flex-col { display: flex; flex-direction: column; gap: 12px; }
+    .w-full { width: 100%; }
+
+    /* ============================================================
+      § SECTION 20 — ACHIEVEMENT BADGE POP-UP
+    ============================================================ */
+    .achievement-popup {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background: linear-gradient(135deg, #ffd600, #ff6f00);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.95rem;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(200%); /* hidden off-screen right */
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .achievement-popup.show { transform: translateX(0); }
+    .achievement-popup .ach-icon { font-size: 1.8rem; }
+
+    /* ============================================================
+      § SECTION 21 — KANNADA LABEL SUPPORT (bilingual tags)
+    ============================================================ */
+    .kn-label {
+      font-size: 0.78rem;
+      color: var(--clr-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* NEW: ============================================================
+      § SECTION 21B — MASCOT CHARACTER (animated animal guide)
+      A level-themed mascot sits in the bottom-left corner during quiz.
+    ============================================================ */
+    .mascot {
+      position: fixed;
+      bottom: 12px;
+      left: 14px;
+      font-size: 2.8rem;
+      z-index: 500;
+      animation: mascotSway 3s infinite ease-in-out; /* NEW: gentle idle sway */
+      cursor: default;
+      user-select: none;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      transition: transform 0.2s ease;
+    }
+    .mascot:hover { transform: scale(1.2) rotate(-8deg); }
+    @keyframes mascotSway {
+      0%, 100% { transform: rotate(-5deg); }
+      50%       { transform: rotate(5deg); }
+    }
+
+    /* NEW: Speech bubble above the mascot with encouragement text */
+    .mascot-bubble {
+      position: fixed;
+      bottom: 70px;
+      left: 12px;
+      background: #fff;
+      border: 2.5px solid var(--clr-gold);
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.82rem;
+      color: var(--clr-primary);
+      max-width: 170px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      z-index: 501;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    /* NEW: Triangle tail of speech bubble pointing down-left */
+    .mascot-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      border: 5px solid transparent;
+      border-top-color: var(--clr-gold);
+    }
+    .mascot-bubble.show { opacity: 1; transform: translateY(0); } /* NEW: visible state */
+
+    /* NEW: ============================================================
+      § SECTION 21C — COMBO BURST LABEL
+      Shows "2x Combo!" in the screen centre on consecutive correct answers.
+    ============================================================ */
+    .combo-burst {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      z-index: 997;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .combo-burst.show {
+      animation: comboPop 0.9s cubic-bezier(0.34,1.56,0.64,1) forwards; /* NEW: pop-float animation */
+    }
+    @keyframes comboPop {
+      0%   { transform: translate(-50%,-50%) scale(0); opacity: 1; }
+      60%  { transform: translate(-50%,-70%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%,-80%) scale(0.8); opacity: 0; }
+    }
+
+    /* NEW: ============================================================
+      § SECTION 21D — FLOATING BACKGROUND EMOJIS
+      Level-themed emoji float upward for playful atmosphere.
+    ============================================================ */
+    .bg-float {
+      position: fixed;
+      font-size: 1.8rem;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+      animation: floatDrift linear infinite;
+    }
+    @keyframes floatDrift {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.15; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+    § SECTION 22 — SPARKLE PARTICLES CONTAINER
+    Appended dynamically via JS; placed here for z-index layering.
+  ============================================================ -->
+  <div class="sparkle-container" id="sparkleContainer"></div>
+
+  <!-- ============================================================
+    § SECTION 23 — FEEDBACK TOAST (correct / wrong notification)
+  ============================================================ -->
+  <div class="feedback-toast" id="feedbackToast"></div>
+
+  <!-- ============================================================
+    § SECTION 24 — ACHIEVEMENT POPUP (milestone notifications)
+  ============================================================ -->
+  <div class="achievement-popup" id="achievementPopup">
+    <span class="ach-icon" id="achIcon">🏅</span>
+    <span id="achText">First Quiz Done!</span>
+  </div>
+
+  <!-- NEW: Mascot fixed to bottom-left — shown only during quiz -->
+  <div class="mascot" id="mascot" style="display:none">🦉</div>
+  <div class="mascot-bubble" id="mascotBubble">You've got this! 💪</div>
+
+  <!-- NEW: Combo burst text shown in screen centre on streaks -->
+  <div class="combo-burst" id="comboBurst">🔥 3x Combo!</div>
+
+  <!-- ===================================================================
+    § SECTION 25 — SCREEN 1: HOME SCREEN
+    Entry point — collects player name and shows start buttons.
+  =================================================================== -->
+  <div class="screen active" id="homeScreen">
+    <!-- <div class="home-emoji">🧠</div> -->
+    <h1 class="home-title">Kids Smart Learning!</h1>
+    <p class="home-subtitle">Quiz • Levels • Rewards 🌟</p>
+
+    <!-- Player name input -->
+    <div class="name-input-wrap">
+      <input type="text" id="playerName" placeholder="✏️ Enter your name..." maxlength="20"/>
+    </div>
+
+    <button class="btn btn-primary" onclick="goToLevels()">🚀 Start Learning!</button>
+    <button class="btn btn-outline mt-8" onclick="showTutorial()">❓ How to Play?</button>
+
+    <!-- NEW: Sound on/off toggle with animated wave indicator -->
+    <button class="sound-toggle mt-8" id="soundToggleBtn" onclick="toggleSound()">
+      🔊 Sound ON
+      <span class="sound-indicator">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <!-- Total stars earned across all levels (from localStorage) -->
+    <p style="margin-top:14px; color:var(--clr-muted); font-size:0.9rem; position:relative; z-index:1;">
+      🌟 Total Stars: <strong id="totalStarsHome">0</strong>
+    </p>
+  </div>
+
+  <!-- ===================================================================
+    § SECTION 26 — SCREEN 2: LEVEL SELECT SCREEN
+    Shows 5 levels; levels 2–5 unlock progressively by earning ≥2 stars.
+  =================================================================== -->
+  <div class="screen" id="levelScreen">
+    <h2 style="text-align:center">🎮 Choose Your Level</h2>
+    <p style="color:var(--clr-muted); text-align:center; font-size:0.9rem;">
+      Hello, <strong id="greetName">Friend</strong>! Pick a challenge 👇
+    </p>
+
+    <!-- Level cards — generated by buildLevelGrid() in JS -->
+    <div class="level-grid" id="levelGrid"></div>
+
+    <button class="btn btn-outline mt-16" onclick="showScreen('homeScreen')">🏠 Home</button>
+  </div>
+
+  <!-- ===================================================================
+    § SECTION 27 — SCREEN 3: QUIZ SCREEN
+    Displays one question at a time with progress bar.
+  =================================================================== -->
+  <div class="screen" id="quizScreen">
+
+    <!-- Top bar: Level label, Streak badge, Score -->
+    <div class="top-bar">
+      <span class="level-badge" id="quizLevelLabel">Level 1</span>
+      <!-- NEW: Streak badge shows consecutive correct answers -->
+      <span class="streak-badge" id="streakBadge">🔥 0 Streak</span>
+      <span class="score-badge">⭐ <span id="liveScore">0</span> pts</span>
+    </div>
+
+    <!-- Timer bar (hidden for levels 1 & 2) -->
+    <div class="timer-label" id="timerLabel" style="display:none">⏱ <span id="timerSec">15</span>s left</div>
+    <div class="timer-wrap" id="timerWrap" style="display:none">
+      <div class="timer-bar" id="timerBar"></div>
+    </div>
+
+    <!-- Progress bar (questions completed) -->
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar" style="width:0%"></div>
+    </div>
+    <p class="q-counter" id="qCounter">Q 1 / 10</p>
+
+    <!-- Main question card -->
+    <div class="card">
+      <div class="q-image" id="qImage">🍎</div>
+      <p class="q-text" id="qText">Loading question...</p>
+      <p class="q-hint" id="qHint"></p>
+
+      <!-- MCQ options grid (used in Level 1–4) -->
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <!-- Typing input (used in Level 5) -->
+      <div class="type-wrap" id="typeWrap" style="display:none">
+        <input type="text" id="typeInput" placeholder="Type your answer..." autocomplete="off"/>
+        <button class="btn btn-primary" onclick="checkTypedAnswer()">✅ Submit</button>
+      </div>
+    </div>
+
+    <!-- Skip button — deducts 1 pt but moves to next question -->
+    <button class="btn btn-outline mt-8" id="skipBtn" onclick="skipQuestion()">⏭ Skip (−1 pt)</button>
+  </div>
+
+  <!-- ===================================================================
+    § SECTION 28 — SCREEN 4: RESULTS SCREEN
+    Shows score, stars earned, and a review of wrong answers.
+  =================================================================== -->
+  <div class="screen" id="resultScreen">
+
+    <div class="result-emoji" id="resultEmoji">🏆</div>
+    <h2 id="resultTitle">Great Job!</h2>
+
+    <!-- Stars row (max 3 stars per level) -->
+    <div class="stars-row" id="starsRow">
+      <span class="star" id="star1">★</span>
+      <span class="star" id="star2">★</span>
+      <span class="star" id="star3">★</span>
+    </div>
+
+    <p class="result-score" id="resultScore">You scored 8 / 10</p>
+    <p style="color:var(--clr-muted); font-size:0.9rem" id="resultPercent">80% Correct</p>
+    <!-- NEW: Best streak achieved during this quiz session -->
+    <p style="color:var(--clr-primary); font-size:0.9rem; font-weight:700;" id="resultStreak"></p>
+
+    <!-- Wrong answer review list -->
+    <div class="review-list" id="reviewList" style="display:none">
+      <h4>📝 Review Wrong Answers</h4>
+      <div id="reviewItems"></div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="result-btns">
+      <button class="btn btn-primary"   onclick="retryLevel()">🔄 Try Again</button>
+      <button class="btn btn-secondary" onclick="goToLevels()">🎮 Levels</button>
+      <button class="btn btn-outline"   onclick="showScreen('homeScreen')">🏠 Home</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+    § SECTION 29 — TUTORIAL OVERLAY (simple modal)
+  =================================================================== -->
+  <div id="tutorialOverlay" style="
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55);
+    z-index:2000; align-items:center; justify-content:center; padding:20px;">
+    <div class="card" style="max-width:420px; gap:14px;">
+      <h2 style="text-align:center">❓ How to Play</h2>
+      <ul style="padding-left:18px; line-height:2; font-size:0.95rem;">
+        <li>🎯 Pick the correct answer from the options.</li>
+        <li>⭐ Earn points for every correct answer.</li>
+        <li>🌟 Collect 1–3 stars based on your score.</li>
+        <li>🔓 Earn ≥ 2 stars to unlock the next level.</li>
+        <li>⏱ Levels 3–5 have a countdown timer!</li>
+        <li>✍️ Level 5 requires you to type the answer.</li>
+        <li>⏭ You can skip a question (−1 pt).</li>
+        <!-- NEW: Streak and random question rules added to tutorial -->
+        <li>🔥 Get answers right in a row for Streak Bonus pts!</li>
+        <li>🎲 10 <em>random</em> questions picked every quiz!</li>
+      </ul>
+      <button class="btn btn-primary w-full" onclick="closeTutorial()">Got it! 🚀</button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+    § SECTION 30 — JAVASCRIPT: QUESTION DATA BANK
+    NEW: Each level now has MORE than 10 questions in its pool.
+    The app picks 10 at random via shuffleAndPick() on every quiz start.
+    To add more questions: just append more objects to any questions array!
+    Structure:
+    { q, emoji, options, answer, hint }
+    - q        : question text
+    - emoji    : large visual aid
+    - options  : array of 4 answer choices (MCQ levels only)
+    - answer   : correct string (must match one option exactly)
+    - hint     : optional hint text shown below question
+  =================================================================== -->
+  <script>
+
+  const LEVELS = [
+    // ─────────────────────────────────────────────────────────────────
+    //  LEVEL 1 — Shapes & Colors (Easy, No Timer)
+    //  NEW: Pool of 15 questions — 10 picked randomly per quiz
+    // ─────────────────────────────────────────────────────────────────
+    {
+      name: "Shapes & Colors",
+      emoji: "🔴",
+      description: "Easy — No Timer",
+      timer: 0,           // 0 = no timer
+      pickCount: 10,      // NEW: how many questions to randomly pick per run
+      // NEW: Per-level visual theme: bg gradient + dot color + mascot + music style
+      theme: { bg1: "#e1f5fe", bg2: "#fce4ec", dot: "#b3e5fc", mascot: "🦉", music: "happy" },
+      questions: [
+        { q:"What color is the sky on a sunny day?",   emoji:"☀️", options:["Blue","Green","Red","Yellow"],           answer:"Blue",     hint:"Look up outside!" },
+        { q:"How many sides does a triangle have?",     emoji:"🔺", options:["3","4","5","6"],                         answer:"3",        hint:"Tri means three!" },
+        { q:"What shape is a football?",                emoji:"⚽", options:["Square","Circle","Triangle","Rectangle"],answer:"Circle",   hint:"It rolls!" },
+        { q:"What color is grass?",                     emoji:"🌿", options:["Blue","Green","Pink","Orange"],          answer:"Green",    hint:"Plants are mostly this color." },
+        { q:"How many sides does a square have?",       emoji:"🟦", options:["3","4","5","6"],                         answer:"4",        hint:"All sides equal!" },
+        { q:"What color is a banana?",                  emoji:"🍌", options:["Red","Blue","Yellow","Green"],           answer:"Yellow",   hint:"It is a fruit." },
+        { q:"What shape is the moon?",                  emoji:"🌙", options:["Square","Circle","Triangle","Star"],    answer:"Circle",   hint:"Full moon looks like this." },
+        { q:"What color is an apple?",                  emoji:"🍎", options:["Blue","Yellow","Red","Purple"],          answer:"Red",      hint:"Snow White ate one!" },
+        { q:"A rectangle has how many corners?",        emoji:"📐", options:["2","3","4","6"],                         answer:"4",        hint:"Count the corners!" },
+        { q:"What color is the sun?",                   emoji:"🌞", options:["Yellow","Blue","Pink","White"],          answer:"Yellow",   hint:"Very bright in the sky." },
+        // NEW extra questions — randomly appear when pool is re-drawn
+        { q:"What color is a carrot?",                  emoji:"🥕", options:["Orange","Green","Red","Yellow"],        answer:"Orange",   hint:"Rabbits love it!" },
+        { q:"How many sides does a pentagon have?",     emoji:"⬠",  options:["4","5","6","7"],                        answer:"5",        hint:"Penta means five!" },
+        { q:"What shape is a pizza?",                   emoji:"🍕", options:["Square","Circle","Triangle","Oval"],    answer:"Circle",   hint:"Round and yummy!" },
+        { q:"What color is a frog?",                    emoji:"🐸", options:["Blue","Green","Yellow","Pink"],         answer:"Green",    hint:"It lives near ponds." },
+        { q:"What shape has 6 sides?",                  emoji:"⬡",  options:["Pentagon","Hexagon","Heptagon","Octagon"], answer:"Hexagon", hint:"Like a honeycomb!" },
+      ]
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    //  LEVEL 2 — Animals & Nature (Medium, No Timer)
+    //  NEW: Pool of 15 questions — 10 picked randomly per quiz
+    // ─────────────────────────────────────────────────────────────────
+    {
+      name: "Animals & Nature",
+      emoji: "🐘",
+      description: "Medium — No Timer",
+      timer: 0,
+      pickCount: 10, // NEW: picks 10 random per quiz
+      // NEW: Jungle green theme
+      theme: { bg1: "#e8f5e9", bg2: "#fff8e1", dot: "#c8e6c9", mascot: "🐯", music: "jungle" },
+      questions: [
+        { q:"Which animal is the tallest in the world?",    emoji:"🦒", options:["Elephant","Giraffe","Lion","Horse"],         answer:"Giraffe",    hint:"Very long neck!" },
+        { q:"What do caterpillars turn into?",              emoji:"🐛", options:["Bees","Butterflies","Ants","Spiders"],       answer:"Butterflies", hint:"They cocoon first." },
+        { q:"Which animal says 'Moo'?",                     emoji:"🐄", options:["Dog","Sheep","Cow","Horse"],                 answer:"Cow",         hint:"It gives us milk." },
+        { q:"How many legs does a spider have?",            emoji:"🕷️", options:["4","6","8","10"],                            answer:"8",           hint:"More than insects!" },
+        { q:"What is the largest animal on Earth?",         emoji:"🐋", options:["Elephant","Blue Whale","Shark","Dinosaur"],  answer:"Blue Whale",  hint:"Lives in the ocean." },
+        { q:"Which bird cannot fly?",                       emoji:"🐧", options:["Eagle","Sparrow","Penguin","Parrot"],        answer:"Penguin",     hint:"Lives in cold places." },
+        { q:"Where do fish live?",                          emoji:"🐟", options:["Land","Trees","Water","Sky"],                answer:"Water",       hint:"They swim!" },
+        { q:"What does a frog eat?",                        emoji:"🐸", options:["Grass","Insects","Fruits","Seeds"],          answer:"Insects",     hint:"It uses its long tongue." },
+        { q:"Which animal is King of the Jungle?",          emoji:"🦁", options:["Tiger","Lion","Elephant","Leopard"],        answer:"Lion",        hint:"Has a mane!" },
+        { q:"What covers a bird's body?",                   emoji:"🐦", options:["Scales","Fur","Feathers","Skin"],           answer:"Feathers",    hint:"Helps them fly." },
+        // NEW extra questions
+        { q:"Which animal sleeps up to 22 hrs a day?",     emoji:"🐨", options:["Lion","Koala","Dog","Rabbit"],              answer:"Koala",       hint:"Lives in Australia." },
+        { q:"What do bees make?",                           emoji:"🐝", options:["Milk","Honey","Butter","Sugar"],            answer:"Honey",       hint:"Sweet and golden!" },
+        { q:"Which is the fastest land animal?",            emoji:"🐆", options:["Lion","Horse","Cheetah","Leopard"],         answer:"Cheetah",     hint:"0 to 100 km/h in seconds!" },
+        { q:"How many legs does an ant have?",              emoji:"🐜", options:["4","6","8","10"],                            answer:"6",           hint:"All insects have this many." },
+        { q:"Which animal has a long trunk?",               emoji:"🐘", options:["Giraffe","Hippo","Elephant","Rhino"],       answer:"Elephant",    hint:"It drinks with it." },
+      ]
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    //  LEVEL 3 — Math Basics (Medium, 15s Timer)
+    //  NEW: Pool of 15 questions — 10 picked randomly per quiz
+    // ─────────────────────────────────────────────────────────────────
+    {
+      name: "Math Basics",
+      emoji: "➕",
+      description: "Medium — 15s Timer",
+      timer: 15,
+      pickCount: 10, // NEW: random 10 per quiz
+      // NEW: Cool blue school theme
+      theme: { bg1: "#e8eaf6", bg2: "#e3f2fd", dot: "#c5cae9", mascot: "🤓", music: "school" },
+      questions: [
+        { q:"What is 3 + 4?",   emoji:"🔢", options:["6","7","8","9"],       answer:"7",  hint:"Count on your fingers!" },
+        { q:"What is 10 − 3?",  emoji:"✏️", options:["6","7","8","9"],       answer:"7",  hint:"Start at 10, count back." },
+        { q:"What is 5 × 2?",   emoji:"⭐", options:["7","8","10","12"],      answer:"10", hint:"5 added twice." },
+        { q:"What is 12 ÷ 4?",  emoji:"🍕", options:["2","3","4","6"],        answer:"3",  hint:"Share 12 among 4 friends." },
+        { q:"What is 6 + 9?",   emoji:"🎲", options:["13","14","15","16"],    answer:"15", hint:"Close to 20!" },
+        { q:"What is 20 − 8?",  emoji:"🔑", options:["10","11","12","13"],    answer:"12", hint:"Think 8 + ? = 20" },
+        { q:"What is 4 × 4?",   emoji:"🟧", options:["12","14","16","18"],    answer:"16", hint:"4 rows of 4." },
+        { q:"What is 25 ÷ 5?",  emoji:"🍬", options:["4","5","6","7"],        answer:"5",  hint:"5 times tables!" },
+        { q:"What is 7 + 8?",   emoji:"🎯", options:["13","14","15","16"],    answer:"15", hint:"7+7=14, add 1 more." },
+        { q:"What is 9 × 3?",   emoji:"📦", options:["24","27","30","33"],    answer:"27", hint:"9 added three times." },
+        // NEW extra questions
+        { q:"What is 50 ÷ 10?", emoji:"🔟", options:["4","5","6","7"],        answer:"5",  hint:"5 tens!" },
+        { q:"What is 8 + 7?",   emoji:"➕", options:["13","14","15","16"],    answer:"15", hint:"8+8=16, minus 1." },
+        { q:"What is 6 × 6?",   emoji:"🎱", options:["30","34","36","40"],    answer:"36", hint:"6 sixes!" },
+        { q:"What is 100 − 45?",emoji:"💯", options:["45","55","65","75"],    answer:"55", hint:"What's left after 45?" },
+        { q:"What is 3 × 7?",   emoji:"🌟", options:["18","21","24","28"],    answer:"21", hint:"3 sevens." },
+      ]
+    },
+
+    // ─────────────────────────────────────────────────────────────────
+    //  LEVEL 4 — Science & World (Hard, 12s Timer)
+    //  NEW: Pool of 15 questions — 10 picked randomly per quiz
+    // ─────────────────────────────────────────────────────────────────
+    {
+      name: "Science & World",
+      emoji: "🔬",
+      description: "Hard — 12s Timer",
+      timer: 12,
+      pickCount: 10, // NEW: random 10 per quiz
+      // NEW: Deep purple space theme
+      theme: { bg1: "#f3e5f5", bg2: "#e8eaf6", dot: "#e1bee7", mascot: "🚀", music: "space" },
+      questions: [
+        { q:"What do plants need to make food?",         emoji:"🌱", options:["Darkness","Sunlight","Rain Only","Soil Only"],  answer:"Sunlight", hint:"Photosynthesis clue!" },
+        { q:"Closest planet to the Sun?",                emoji:"🌍", options:["Venus","Earth","Mercury","Mars"],              answer:"Mercury",  hint:"Very very hot!" },
+        { q:"How many colors in a rainbow?",             emoji:"🌈", options:["5","6","7","8"],                               answer:"7",        hint:"VIBGYOR!" },
+        { q:"What gas do we breathe in?",                emoji:"💨", options:["Carbon Dioxide","Oxygen","Nitrogen","Hydrogen"],answer:"Oxygen",   hint:"O2!" },
+        { q:"Boiling point of water?",                   emoji:"♨️", options:["80°C","90°C","100°C","110°C"],               answer:"100°C",    hint:"Standard at sea level." },
+        { q:"Which planet has rings?",                   emoji:"🪐", options:["Jupiter","Mars","Saturn","Neptune"],           answer:"Saturn",   hint:"Famous for its rings!" },
+        { q:"What is H₂O?",                             emoji:"💧", options:["Milk","Water","Juice","Air"],                  answer:"Water",    hint:"Chemical formula!" },
+        { q:"How many continents on Earth?",             emoji:"🌏", options:["5","6","7","8"],                               answer:"7",        hint:"Asia is the biggest." },
+        { q:"What is a baby frog called?",               emoji:"🐸", options:["Cub","Tadpole","Kitten","Foal"],              answer:"Tadpole",  hint:"Swims with a tail first." },
+        { q:"How many planets in Solar System?",         emoji:"🚀", options:["7","8","9","10"],                              answer:"8",        hint:"Pluto was removed!" },
+        // NEW extra questions
+        { q:"Centre of an atom is called?",              emoji:"⚛️", options:["Electron","Proton","Nucleus","Neutron"],      answer:"Nucleus",  hint:"Everything orbits around it." },
+        { q:"What force keeps us on the ground?",        emoji:"🍎", options:["Magnetism","Electricity","Gravity","Friction"],answer:"Gravity",  hint:"Newton discovered it!" },
+        { q:"Which planet is the Red Planet?",           emoji:"🔴", options:["Venus","Mars","Jupiter","Saturn"],             answer:"Mars",     hint:"Named after Roman god of war." },
+        { q:"Largest organ in the human body?",          emoji:"🧴", options:["Heart","Brain","Liver","Skin"],               answer:"Skin",     hint:"It covers everything!" },
+        { q:"Sound travels fastest through which?",      emoji:"🔊", options:["Air","Water","Steel","Vacuum"],               answer:"Steel",    hint:"Solids conduct better." },
+      ]
+    },
+	
+	// ─────────────────────────────────────────────────────────────────
+//  LEVEL 11 — Geography Basics (Medium, 15s Timer)
+//  NEW: Pool of 20 questions — 10 picked randomly per quiz
+// ─────────────────────────────────────────────────────────────────
+{
+name: "Geography Basics",
+  emoji: "🗺️",
+  description: "Medium — 15s Timer",
+  timer: 15,
+  pickCount: 10,
+  theme: { bg1: "#e0f7fa", bg2: "#e8f5e9", dot: "#80deea", mascot: "🗺️", music: "travel" },
+  questions: [
+    { q:"What is the capital of France?", emoji:"🇫🇷", options:["Paris","Berlin","Rome","Madrid"], answer:"Paris", hint:"City of lights!" },
+    { q:"Which continent is Egypt in?", emoji:"🌍", options:["Asia","Africa","Europe","South America"], answer:"Africa", hint:"Think Nile river!" },
+    { q:"Mount Everest is located in which country?", emoji:"⛰️", options:["Nepal","China","India","Bhutan"], answer:"Nepal", hint:"Highest mountain!" },
+    { q:"Which is the largest ocean?", emoji:"🌊", options:["Atlantic","Indian","Pacific","Arctic"], answer:"Pacific", hint:"Covers more than 30% of Earth." },
+    { q:"Which country has a maple leaf on its flag?", emoji:"🍁", options:["Canada","USA","UK","Japan"], answer:"Canada", hint:"Northern neighbor of USA." },
+    { q:"Which desert is the largest in the world?", emoji:"🏜️", options:["Sahara","Gobi","Kalahari","Arabian"], answer:"Sahara", hint:"Africa’s huge desert!" },
+    { q:"Which river flows through Egypt?", emoji:"🏞️", options:["Amazon","Nile","Yangtze","Mississippi"], answer:"Nile", hint:"Longest river in the world." },
+    { q:"Which country is shaped like a boot?", emoji:"👢", options:["Italy","Spain","France","Greece"], answer:"Italy", hint:"Pizza and Rome!" },
+    { q:"Which is the smallest country by area?", emoji:"🏰", options:["Vatican City","Monaco","Nauru","San Marino"], answer:"Vatican City", hint:"Inside Rome!" },
+    { q:"Which is the longest river in South America?", emoji:"🌎", options:["Amazon","Orinoco","Parana","Rio Grande"], answer:"Amazon", hint:"Flows mostly in Brazil." },
+    { q:"Which US state is famous for its geysers?", emoji:"🌋", options:["California","Wyoming","Alaska","Nevada"], answer:"Wyoming", hint:"Yellowstone National Park." },
+    { q:"Which country is home to the Great Barrier Reef?", emoji:"🐠", options:["Australia","New Zealand","Fiji","Philippines"], answer:"Australia", hint:"Famous for coral reefs." },
+    { q:"Which is the largest country in the world?", emoji:"🌏", options:["USA","Canada","Russia","China"], answer:"Russia", hint:"Spans 11 time zones!" },
+    { q:"Which continent has the most countries?", emoji:"🌍", options:["Africa","Europe","Asia","South America"], answer:"Africa", hint:"Over 50 countries." },
+    { q:"Which country has the nickname 'Land of the Rising Sun'?", emoji:"🌅", options:["China","Japan","Thailand","South Korea"], answer:"Japan", hint:"Eastern Asia." },
+    { q:"Which river passes through London?", emoji:"🌉", options:["Thames","Seine","Danube","Rhine"], answer:"Thames", hint:"UK capital river." },
+    { q:"Which US city is known as 'The Windy City'?", emoji:"🌬️", options:["Chicago","Boston","Seattle","Miami"], answer:"Chicago", hint:"Famous skyscrapers!" },
+    { q:"Which mountain range separates Europe and Asia?", emoji:"⛰️", options:["Himalayas","Alps","Urals","Andes"], answer:"Urals", hint:"Runs North to South in Russia." },
+    { q:"Which country is famous for tulips and windmills?", emoji:"🌷", options:["Netherlands","Belgium","Denmark","Sweden"], answer:"Netherlands", hint:"Known for canals." },
+    { q:"Which continent is known as the 'Dark Continent'?", emoji:"🌍", options:["Africa","Asia","South America","Europe"], answer:"Africa", hint:"Historical term." }
+]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 12 — History Basics (Hard, 12s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "History Basics",
+  emoji: "🏺",
+  description: "Hard — 12s Timer",
+  timer: 12,
+  pickCount: 10,
+  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffb74d", mascot: "🕰️", music: "classical" },
+  questions: [
+    { q:"Who was the first president of the United States?", emoji:"🇺🇸", options:["Abraham Lincoln","George Washington","Thomas Jefferson","John Adams"], answer:"George Washington", hint:"1789!" },
+    { q:"Which empire built the Colosseum?", emoji:"🏛️", options:["Greek","Roman","Persian","Egyptian"], answer:"Roman", hint:"Ancient Rome." },
+    { q:"Who discovered America in 1492?", emoji:"🛶", options:["Magellan","Columbus","Vespucci","Cook"], answer:"Columbus", hint:"Italian explorer." },
+    { q:"Which wall divided Berlin until 1989?", emoji:"🧱", options:["Great Wall","Berlin Wall","Hadrian's Wall","Western Wall"], answer:"Berlin Wall", hint:"Cold War era." },
+    { q:"Who was known as the Maid of Orleans?", emoji:"⚔️", options:["Joan of Arc","Marie Curie","Cleopatra","Elizabeth I"], answer:"Joan of Arc", hint:"French heroine." },
+    { q:"Who was the first man to step on the moon?", emoji:"🌕", options:["Neil Armstrong","Buzz Aldrin","Yuri Gagarin","Michael Collins"], answer:"Neil Armstrong", hint:"1969 Apollo 11." },
+    { q:"Which ship sank in 1912?", emoji:"🚢", options:["Titanic","Lusitania","Queen Mary","Britannic"], answer:"Titanic", hint:"North Atlantic disaster." },
+    { q:"Who was the first emperor of China?", emoji:"🐉", options:["Qin Shi Huang","Han Wudi","Kublai Khan","Sun Tzu"], answer:"Qin Shi Huang", hint:"Built part of Great Wall." },
+    { q:"Which ancient civilization built pyramids?", emoji:"🏺", options:["Romans","Egyptians","Mayans","Greeks"], answer:"Egyptians", hint:"Pharaohs!" },
+    { q:"Who wrote the 'I Have a Dream' speech?", emoji:"🗣️", options:["Martin Luther King Jr.","Nelson Mandela","Malcolm X","Rosa Parks"], answer:"Martin Luther King Jr.", hint:"Civil Rights Movement." },
+    { q:"Which war ended in 1945?", emoji:"⚔️", options:["World War I","World War II","Vietnam War","Korean War"], answer:"World War II", hint:"Atomic bombs involved." },
+    { q:"Who was Cleopatra?", emoji:"👑", options:["Queen of Egypt","Queen of Greece","Empress of Rome","Queen of Persia"], answer:"Queen of Egypt", hint:"Famous female ruler." },
+    { q:"Who was known as the Iron Lady?", emoji:"🇬🇧", options:["Theresa May","Angela Merkel","Margaret Thatcher","Indira Gandhi"], answer:"Margaret Thatcher", hint:"UK Prime Minister." },
+    { q:"Which revolution took place in 1789?", emoji:"🔴", options:["French Revolution","American Revolution","Russian Revolution","Industrial Revolution"], answer:"French Revolution", hint:"Stormed the Bastille!" },
+    { q:"Who was the first pharaoh of Egypt?", emoji:"🏺", options:["Tutankhamun","Narmer","Ramses II","Akhenaten"], answer:"Narmer", hint:"Also called Menes." },
+    { q:"Which famous wall is in China?", emoji:"🧱", options:["Great Wall","Berlin Wall","Hadrian's Wall","Western Wall"], answer:"Great Wall", hint:"Longest wall!" },
+    { q:"Who invented the printing press?", emoji:"📜", options:["Galileo","Gutenberg","Newton","Edison"], answer:"Gutenberg", hint:"Movable type." },
+    { q:"Which empire was ruled by Julius Caesar?", emoji:"🏛️", options:["Roman","Greek","Persian","Egyptian"], answer:"Roman", hint:"Assassinated in 44 BC." },
+    { q:"Who was the leader of the Soviet Union during WWII?", emoji:"🇷🇺", options:["Lenin","Stalin","Trotsky","Khrushchev"], answer:"Stalin", hint:"Dictator." },
+    { q:"Which ancient city was buried by a volcano in 79 AD?", emoji:"🌋", options:["Pompeii","Rome","Athens","Carthage"], answer:"Pompeii", hint:"Vesuvius eruption!" }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 13 — Literature & Arts (Medium, 15s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Literature & Arts",
+  emoji: "📚",
+  description: "Medium — 15s Timer",
+  timer: 15,
+  pickCount: 10,
+  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffcc80", mascot: "🎨", music: "classical" },
+  questions: [
+    { q:"Who wrote 'Romeo and Juliet'?", emoji:"✒️", options:["Shakespeare","Hemingway","Tolkien","Dickens"], answer:"Shakespeare", hint:"Famous English playwright." },
+    { q:"Who painted the Mona Lisa?", emoji:"🖼️", options:["Da Vinci","Michelangelo","Van Gogh","Picasso"], answer:"Da Vinci", hint:"Renaissance artist." },
+    { q:"Which author wrote 'Harry Potter'?", emoji:"🧙‍♂️", options:["J.K. Rowling","Tolkien","C.S. Lewis","Suzanne Collins"], answer:"J.K. Rowling", hint:"Wizard school." },
+    { q:"Which is a famous play by Shakespeare?", emoji:"🎭", options:["Hamlet","Odyssey","Inferno","Paradise Lost"], answer:"Hamlet", hint:"Prince of Denmark." },
+    { q:"What is the primary color of Picasso’s Blue Period?", emoji:"🎨", options:["Blue","Red","Yellow","Green"], answer:"Blue", hint:"Period of sadness." },
+    { q:"Who wrote 'The Odyssey'?", emoji:"📜", options:["Homer","Virgil","Shakespeare","Milton"], answer:"Homer", hint:"Greek epic poet." },
+    { q:"Which artist cut off his own ear?", emoji:"🎨", options:["Van Gogh","Picasso","Dali","Monet"], answer:"Van Gogh", hint:"Famous Post-Impressionist." },
+    { q:"Which book series has Katniss Everdeen?", emoji:"🏹", options:["Hunger Games","Divergent","Percy Jackson","Twilight"], answer:"Hunger Games", hint:"Dystopian trilogy." },
+    { q:"Which novel begins with 'Call me Ishmael'?", emoji:"🐋", options:["Moby Dick","Great Gatsby","Jane Eyre","1984"], answer:"Moby Dick", hint:"White whale story." },
+    { q:"Who painted the ceiling of the Sistine Chapel?", emoji:"🖌️", options:["Michelangelo","Da Vinci","Raphael","Rembrandt"], answer:"Michelangelo", hint:"Famous fresco." },
+    { q:"Who wrote 'Pride and Prejudice'?", emoji:"📖", options:["Jane Austen","Charlotte Bronte","Emily Bronte","Mary Shelley"], answer:"Jane Austen", hint:"Elizabeth Bennet story." },
+    { q:"Which composer wrote the 9th Symphony?", emoji:"🎼", options:["Beethoven","Mozart","Bach","Chopin"], answer:"Beethoven", hint:"Ode to Joy!" },
+    { q:"Who painted 'Starry Night'?", emoji:"🌌", options:["Van Gogh","Picasso","Monet","Dali"], answer:"Van Gogh", hint:"Night sky painting." },
+    { q:"Which author wrote 'The Chronicles of Narnia'?", emoji:"🦁", options:["C.S. Lewis","J.K. Rowling","Tolkien","Roald Dahl"], answer:"C.S. Lewis", hint:"Lion Aslan." },
+    { q:"Who sculpted David?", emoji:"🗿", options:["Michelangelo","Donatello","Rodin","Bernini"], answer:"Michelangelo", hint:"Renaissance sculpture." },
+    { q:"Which book series has Percy Jackson?", emoji:"⚡", options:["Percy Jackson","Harry Potter","Twilight","Maze Runner"], answer:"Percy Jackson", hint:"Greek mythology hero." },
+    { q:"Which composer is famous for 'The Four Seasons'?", emoji:"🎻", options:["Vivaldi","Bach","Mozart","Beethoven"], answer:"Vivaldi", hint:"Baroque violin concertos." },
+    { q:"Who painted 'The Persistence of Memory'?", emoji:"⏰", options:["Dali","Picasso","Van Gogh","Monet"], answer:"Dali", hint:"Melting clocks." },
+    { q:"Which novel is set in 1984?", emoji:"📘", options:["1984","Brave New World","Fahrenheit 451","Animal Farm"], answer:"1984", hint:"Dystopian society." },
+    { q:"Who wrote 'Dracula'?", emoji:"🧛‍♂️", options:["Bram Stoker","Mary Shelley","Edgar Allan Poe","H.G. Wells"], answer:"Bram Stoker", hint:"Vampire novel." }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 14 — Technology & Inventions (Medium, 15s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Technology & Inventions",
+  emoji: "💻",
+  description: "Medium — 15s Timer",
+  timer: 15,
+  pickCount: 10,
+  theme: { bg1: "#e0f2f1", bg2: "#b2dfdb", dot: "#80cbc4", mascot: "🤖", music: "tech" },
+  questions: [
+    { q:"Who invented the telephone?", emoji:"📞", options:["Bell","Edison","Tesla","Marconi"], answer:"Bell", hint:"Alexander Graham Bell." },
+    { q:"What does CPU stand for?", emoji:"🖥️", options:["Central Processing Unit","Computer Primary Unit","Central Program Unit","Computer Processing Unit"], answer:"Central Processing Unit", hint:"Brain of a computer." },
+    { q:"Who invented the light bulb?", emoji:"💡", options:["Edison","Tesla","Bell","Faraday"], answer:"Edison", hint:"Incandescent light." },
+    { q:"What is the symbol for Wi-Fi?", emoji:"📶", options:["Signal waves","Antenna","Plug","Battery"], answer:"Signal waves", hint:"Wireless connection." },
+    { q:"What is the first computer programming language?", emoji:"💻", options:["Fortran","C","Python","Java"], answer:"Fortran", hint:"Developed in 1950s." },
+    { q:"Who developed the theory of relativity?", emoji:"🧠", options:["Einstein","Newton","Tesla","Galileo"], answer:"Einstein", hint:"E=mc²." },
+    { q:"What is a smartphone?", emoji:"📱", options:["Computer","Mobile phone","Tablet","Camera"], answer:"Mobile phone", hint:"Touchscreen device." },
+    { q:"Which company developed Windows?", emoji:"🖱️", options:["Apple","Microsoft","Google","IBM"], answer:"Microsoft", hint:"Bill Gates co-founder." },
+    { q:"What does GPS stand for?", emoji:"🛰️", options:["Global Positioning System","Geography Positioning Service","Global Planning System","Geo Point System"], answer:"Global Positioning System", hint:"Navigation system." },
+    { q:"Who is known as the father of electricity?", emoji:"⚡", options:["Tesla","Edison","Faraday","Volta"], answer:"Faraday", hint:"Magnetic induction." },
+    { q:"Who invented the World Wide Web?", emoji:"🌐", options:["Tim Berners-Lee","Steve Jobs","Bill Gates","Mark Zuckerberg"], answer:"Tim Berners-Lee", hint:"1989!" },
+    { q:"What does USB stand for?", emoji:"🔌", options:["Universal Serial Bus","Universal System Backup","Unified Serial Battery","Universal Signal Bus"], answer:"Universal Serial Bus", hint:"Common computer port." },
+    { q:"Which company created the first iPhone?", emoji:"🍎", options:["Apple","Samsung","Google","Microsoft"], answer:"Apple", hint:"2007 release." },
+    { q:"Which device is used to measure temperature?", emoji:"🌡️", options:["Barometer","Thermometer","Hygrometer","Altimeter"], answer:"Thermometer", hint:"Celcius or Fahrenheit." },
+    { q:"Which programming language is known for web development?", emoji:"🌐", options:["HTML","Python","C++","Java"], answer:"HTML", hint:"Structure of web pages." },
+    { q:"Who invented alternating current?", emoji:"⚡", options:["Tesla","Edison","Faraday","Volta"], answer:"Tesla", hint:"Nikola Tesla." },
+    { q:"Which technology is used for virtual reality?", emoji:"🕶️", options:["AR","VR","AI","IoT"], answer:"VR", hint:"Immersive simulation." },
+    { q:"What is the main function of a router?", emoji:"📡", options:["Connect networks","Store data","Display graphics","Charge devices"], answer:"Connect networks", hint:"Internet traffic." },
+    { q:"Which company is famous for search engines?", emoji:"🔍", options:["Google","Apple","Microsoft","Amazon"], answer:"Google", hint:"Founded in 1998." },
+    { q:"Which invention is Thomas Edison famous for?", emoji:"💡", options:["Light bulb","Telephone","Printing press","Steam engine"], answer:"Light bulb", hint:"Illuminates rooms." }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 15 — Flags of the World (Hard, 12s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Flags of the World",
+  emoji: "🏳️‍🌈",
+  description: "Hard — 12s Timer",
+  timer: 12,
+  pickCount: 10,
+  theme: { bg1: "#ffebee", bg2: "#ffcdd2", dot: "#ef9a9a", mascot: "🗺️", music: "world" },
+  questions: [
+    { q:"Which country's flag has a red circle on white?", emoji:"🇯🇵", options:["Japan","Bangladesh","Switzerland","Turkey"], answer:"Japan", hint:"Land of the Rising Sun." },
+    { q:"Which country has a red maple leaf on its flag?", emoji:"🍁", options:["Canada","USA","UK","Japan"], answer:"Canada", hint:"Northern neighbor of USA." },
+    { q:"Which country’s flag is all red with a yellow star?", emoji:"🇨🇳", options:["China","Vietnam","Turkey","Spain"], answer:"China", hint:"Most populous country." },
+    { q:"Which country has a tricolor of green, white, and orange?", emoji:"🇮🇳", options:["Ireland","India","Italy","Mexico"], answer:"India", hint:"Subcontinent nation." },
+    { q:"Which country has a blue cross on white?", emoji:"🇫🇮", options:["Finland","Sweden","Greece","Norway"], answer:"Finland", hint:"Northern Europe." },
+    { q:"Which country has a crescent moon and star on red?", emoji:"🇹🇷", options:["Turkey","Pakistan","Algeria","Tunisia"], answer:"Turkey", hint:"Located between Europe and Asia." },
+    { q:"Which country has black, red, and yellow stripes?", emoji:"🇩🇪", options:["Germany","Belgium","Spain","Lithuania"], answer:"Germany", hint:"Central Europe." },
+    { q:"Which country’s flag has a Union Jack in corner?", emoji:"🇦🇺", options:["Australia","New Zealand","Fiji","UK"], answer:"Australia", hint:"Down under nation." },
+    { q:"Which country has a red dragon on white and green?", emoji:"🐉", options:["Wales","Bhutan","Malta","China"], answer:"Wales", hint:"Part of UK." },
+    { q:"Which country has a red, white, and blue horizontal tricolor?", emoji:"🇳🇱", options:["Netherlands","Russia","France","Croatia"], answer:"Netherlands", hint:"Windmills and tulips." },
+    { q:"Which country has a red cross on white background?", emoji:"⛑️", options:["Switzerland","Denmark","England","Norway"], answer:"Switzerland", hint:"Famous for chocolates." },
+    { q:"Which country’s flag has five stars?", emoji:"🇨🇳", options:["China","USA","Vietnam","Australia"], answer:"China", hint:"Red background." },
+    { q:"Which country has horizontal stripes of red and white?", emoji:"🇮🇩", options:["Indonesia","Poland","Monaco","Austria"], answer:"Indonesia", hint:"Southeast Asian country." },
+    { q:"Which country has a red, white, and blue vertical tricolor?", emoji:"🇫🇷", options:["France","Netherlands","Russia","Italy"], answer:"France", hint:"Paris is the capital." },
+    { q:"Which country’s flag features a white cross on red?", emoji:"🇩🇰", options:["Denmark","Switzerland","Norway","England"], answer:"Denmark", hint:"Nordic nation." },
+    { q:"Which country has green, white, and red vertical stripes?", emoji:"🇮🇹", options:["Italy","Mexico","Ireland","Bulgaria"], answer:"Italy", hint:"Famous for pizza and pasta." },
+    { q:"Which country’s flag has a red sun on white?", emoji:"🇯🇵", options:["Japan","South Korea","Bangladesh","China"], answer:"Japan", hint:"Duplicate check!" },
+    { q:"Which country has a red and white striped flag with stars?", emoji:"🇺🇸", options:["USA","Liberia","Malaysia","Cuba"], answer:"USA", hint:"50 stars represent states." },
+    { q:"Which country has a black, red, yellow horizontal tricolor?", emoji:"🇩🇪", options:["Germany","Belgium","Spain","Lithuania"], answer:"Germany", hint:"Duplicate check!" },
+    { q:"Which country’s flag has a red crescent?", emoji:"🇵🇰", options:["Pakistan","Turkey","Tunisia","Algeria"], answer:"Pakistan", hint:"Green and white flag." }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 16 — Sports & Games (Medium, 15s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Sports & Games",
+  emoji: "🏅",
+  description: "Medium — 15s Timer",
+  timer: 15,
+  pickCount: 10,
+  theme: { bg1: "#f1f8e9", bg2: "#dcedc8", dot: "#c5e1a5", mascot: "⚽", music: "stadium" },
+  questions: [
+    { q:"How many players are on a soccer team?", emoji:"⚽", options:["9","10","11","12"], answer:"11", hint:"Including goalkeeper." },
+    { q:"Which country won the 2018 FIFA World Cup?", emoji:"🏆", options:["Brazil","Germany","France","Croatia"], answer:"France", hint:"Blue jersey." },
+    { q:"Which sport uses a shuttlecock?", emoji:"🏸", options:["Tennis","Badminton","Squash","Table Tennis"], answer:"Badminton", hint:"Light feathered object." },
+    { q:"How many holes in a standard golf course?", emoji:"⛳", options:["9","12","18","21"], answer:"18", hint:"Full round." },
+    { q:"Which sport is played on ice with sticks?", emoji:"🏒", options:["Hockey","Curling","Skating","Luge"], answer:"Hockey", hint:"Ice rink action." },
+    { q:"Which country invented baseball?", emoji:"⚾", options:["USA","Japan","UK","Canada"], answer:"USA", hint:"American pastime." },
+    { q:"How many rings are on the Olympic flag?", emoji:"🏅", options:["4","5","6","7"], answer:"5", hint:"Represents continents." },
+    { q:"Which sport uses a net and a ball over it?", emoji:"🏐", options:["Volleyball","Basketball","Tennis","Badminton"], answer:"Volleyball", hint:"Hit over the net." },
+    { q:"What is the distance of a marathon?", emoji:"🏃‍♂️", options:["26.2 miles","24 miles","30 miles","20 miles"], answer:"26.2 miles", hint:"Classic long-distance run." },
+    { q:"Which game uses black and white pieces on a board?", emoji:"♟️", options:["Chess","Checkers","Go","Othello"], answer:"Chess", hint:"King, queen, pawns." },
+    { q:"Which country won the 2016 NBA Championship?", emoji:"🏀", options:["Cleveland Cavaliers","Golden State Warriors","Miami Heat","San Antonio Spurs"], answer:"Cleveland Cavaliers", hint:"LeBron James." },
+    { q:"Which sport is known as the 'king of sports'?", emoji:"⚽", options:["Soccer","Basketball","Cricket","Tennis"], answer:"Soccer", hint:"Most popular worldwide." },
+    { q:"Which sport uses a bow and arrow?", emoji:"🏹", options:["Archery","Fencing","Shooting","Javelin"], answer:"Archery", hint:"Olympic target sport." },
+    { q:"Which sport is played at Wimbledon?", emoji:"🎾", options:["Tennis","Badminton","Squash","Table Tennis"], answer:"Tennis", hint:"Grass courts." },
+    { q:"Which country hosted the 2016 Olympics?", emoji:"🇧🇷", options:["Brazil","UK","China","Russia"], answer:"Brazil", hint:"Rio de Janeiro." },
+    { q:"Which sport uses a puck?", emoji:"🏒", options:["Ice Hockey","Field Hockey","Lacrosse","Curling"], answer:"Ice Hockey", hint:"Skating required." },
+    { q:"Which country has the most World Cup wins?", emoji:"🏆", options:["Brazil","Germany","Italy","Argentina"], answer:"Brazil", hint:"Five titles." },
+    { q:"Which sport uses a caddie?", emoji:"⛳", options:["Golf","Tennis","Bowling","Rugby"], answer:"Golf", hint:"Carries clubs." },
+    { q:"Which sport has frames, pins, and a ball?", emoji:"🎳", options:["Bowling","Cricket","Tennis","Billiards"], answer:"Bowling", hint:"Strike and spare." },
+    { q:"Which sport uses the term 'home run'?", emoji:"⚾", options:["Baseball","Softball","Cricket","Tennis"], answer:"Baseball", hint:"Hits out of park." }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 17 — Space & Astronomy (Hard, 12s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Space & Astronomy",
+  emoji: "🚀",
+  description: "Hard — 12s Timer",
+  timer: 12,
+  pickCount: 10,
+  theme: { bg1: "#e8eaf6", bg2: "#c5cae9", dot: "#9fa8da", mascot: "👽", music: "space" },
+  questions: [
+    { q:"Which planet is known as the Red Planet?", emoji:"🪐", options:["Mars","Jupiter","Venus","Mercury"], answer:"Mars", hint:"Color of rust." },
+    { q:"Which planet is the largest in the solar system?", emoji:"🪐", options:["Jupiter","Saturn","Neptune","Earth"], answer:"Jupiter", hint:"Has Great Red Spot." },
+    { q:"Which planet is closest to the Sun?", emoji:"☀️", options:["Mercury","Venus","Earth","Mars"], answer:"Mercury", hint:"Very hot!" },
+    { q:"Which planet is famous for its rings?", emoji:"💍", options:["Saturn","Jupiter","Uranus","Neptune"], answer:"Saturn", hint:"Visible even in small telescopes." },
+    { q:"What is the name of our galaxy?", emoji:"🌌", options:["Milky Way","Andromeda","Whirlpool","Sombrero"], answer:"Milky Way", hint:"Home galaxy." },
+    { q:"Which is the smallest planet in the solar system?", emoji:"🪐", options:["Mercury","Mars","Venus","Pluto"], answer:"Mercury", hint:"Used to be biggest dwarf?" },
+    { q:"Who was first human in space?", emoji:"🚀", options:["Yuri Gagarin","Neil Armstrong","Buzz Aldrin","John Glenn"], answer:"Yuri Gagarin", hint:"1961." },
+    { q:"Which star is closest to Earth?", emoji:"☀️", options:["Proxima Centauri","Sirius","Sun","Alpha Centauri"], answer:"Sun", hint:"We see it every day." },
+    { q:"Which planet is known for its extreme winds?", emoji:"🌪️", options:["Neptune","Mars","Venus","Earth"], answer:"Neptune", hint:"Blue gas giant." },
+    { q:"Which celestial body orbits planets?", emoji:"🌙", options:["Moon","Asteroid","Comet","Star"], answer:"Moon", hint:"Natural satellite." },
+    { q:"What force keeps planets in orbit?", emoji:"🪐", options:["Gravity","Magnetism","Friction","Inertia"], answer:"Gravity", hint:"Newton’s law." },
+    { q:"Which is the hottest planet?", emoji:"🔥", options:["Venus","Mercury","Mars","Jupiter"], answer:"Venus", hint:"Thick atmosphere." },
+    { q:"What galaxy is nearest to Milky Way?", emoji:"🌌", options:["Andromeda","Whirlpool","Triangulum","Sombrero"], answer:"Andromeda", hint:"Will collide in billions of years." },
+    { q:"Which planet has a Great Red Spot?", emoji:"🪐", options:["Jupiter","Saturn","Mars","Earth"], answer:"Jupiter", hint:"Giant storm." },
+    { q:"Which planet rotates on its side?", emoji:"🪐", options:["Uranus","Neptune","Jupiter","Mars"], answer:"Uranus", hint:"Axial tilt extreme." },
+    { q:"Which is the brightest planet in the night sky?", emoji:"🌟", options:["Venus","Mars","Jupiter","Mercury"], answer:"Venus", hint:"Also called Evening Star." },
+    { q:"Which planet is known as Earth’s twin?", emoji:"🪐", options:["Venus","Mars","Mercury","Jupiter"], answer:"Venus", hint:"Similar size." },
+    { q:"Which type of celestial body is Halley’s?", emoji:"☄️", options:["Comet","Asteroid","Planet","Meteor"], answer:"Comet", hint:"Appears every 76 years." },
+    { q:"What is the main component of the Sun?", emoji:"☀️", options:["Hydrogen","Oxygen","Nitrogen","Helium"], answer:"Hydrogen", hint:"Fuel for fusion." },
+    { q:"Which planet has the shortest day?", emoji:"🪐", options:["Jupiter","Earth","Mars","Venus"], answer:"Jupiter", hint:"Less than 10 hours." }
+  ]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 18 — Music & Instruments (Medium, 15s Timer)
+// ─────────────────────────────────────────────────────────────────
+{
+  name: "Music & Instruments",
+  emoji: "🎵",
+  description: "Medium — 15s Timer",
+  timer: 15,
+  pickCount: 10,
+  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffb74d", mascot: "🎸", music: "classical" },
+  questions: [
+    { q:"Which instrument has keys and pedals?", emoji:"🎹", options:["Piano","Guitar","Violin","Drums"], answer:"Piano", hint:"Press the black and white." },
+    { q:"Which family of instruments includes violin?", emoji:"🎻", options:["Strings","Brass","Woodwind","Percussion"], answer:"Strings", hint:"Fiddles!" },
+    { q:"Which instrument uses a bow to play?", emoji:"🎻", options:["Violin","Trumpet","Drum","Piano"], answer:"Violin", hint:"Classical orchestra." },
+    { q:"Which percussion instrument has skins stretched over a frame?", emoji:"🥁", options:["Drum","Tambourine","Cymbal","Triangle"], answer:"Drum", hint:"Beat rhythm." },
+    { q:"Which instrument is blown into?", emoji:"🎷", options:["Flute","Guitar","Drum","Piano"], answer:"Flute", hint:"Air passes through it." },
+    { q:"Which instrument has six strings?", emoji:"🎸", options:["Guitar","Violin","Harp","Cello"], answer:"Guitar", hint:"Strum chords." },
+    { q:"Which is a brass instrument?", emoji:"🎺", options:["Trumpet","Flute","Violin","Piano"], answer:"Trumpet", hint:"Blow and buzz!" },
+    { q:"Which instrument has black and white keys?", emoji:"🎹", options:["Piano","Guitar","Violin","Drums"], answer:"Piano", hint:"Duplicate check!" },
+    { q:"Which instrument is large and played with a bow?", emoji:"🎻", options:["Cello","Violin","Viola","Double Bass"], answer:"Cello", hint:"Sits on floor." },
+    { q:"Which instrument is tuned in EADGBE?", emoji:"🎸", options:["Guitar","Violin","Harp","Piano"], answer:"Guitar", hint:"Standard tuning." },
+    { q:"Which instrument is a woodwind?", emoji:"🎷", options:["Clarinet","Trumpet","Trombone","Tuba"], answer:"Clarinet", hint:"Single reed." },
+    { q:"Which instrument is played in a drum kit?", emoji:"🥁", options:["Snare","Violin","Flute","Trumpet"], answer:"Snare", hint:"Central percussion." },
+    { q:"Which instrument is famous in jazz?", emoji:"🎷", options:["Saxophone","Violin","Piano","Harp"], answer:"Saxophone", hint:"Smooth melodies." },
+    { q:"Which string instrument is used in a harp?", emoji:"🎵", options:["Harp strings","Guitar strings","Violin strings","Cello strings"], answer:"Harp strings", hint:"Pluck them!" },
+    { q:"Which keyboard instrument is electronic?", emoji:"🎹", options:["Synthesizer","Piano","Organ","Accordion"], answer:"Synthesizer", hint:"Digital sounds." },
+    { q:"Which instrument uses valves?", emoji:"🎺", options:["Trumpet","Flute","Violin","Drum"], answer:"Trumpet", hint:"Press valves to change notes." },
+    { q:"Which percussion instrument is circular with jingles?", emoji:"🎶", options:["Tambourine","Drum","Triangle","Cymbal"], answer:"Tambourine", hint:"Shake it!" },
+    { q:"Which instrument is a string and percussion hybrid?", emoji:"🎵", options:["Piano","Guitar","Violin","Harp"], answer:"Piano", hint:"Duplicate check!" },
+    { q:"Which instrument is famous in orchestras for low notes?", emoji:"🎻", options:["Double Bass","Violin","Flute","Trumpet"], answer:"Double Bass", hint:"Largest string." },
+    { q:"Which instrument is associated with bagpipes?", emoji:"🎶", options:["Bagpipes","Harmonica","Flute","Oboe"], answer:"Bagpipes", hint:"Scotland's pride." }
+]
+},
+
+// ─────────────────────────────────────────────────────────────────
+//  LEVEL 19 — Movies & TV (Hard, 12s Timer)
+// ─────────────────────────────────────────────────────────────────
+	
+	// ─────────────────────────────────────────────────────────────────
+    //  LEVEL 5 — Spell It! (Expert, 10s Timer, TYPE the answer)
+    //  NEW: Pool of 12 spelling words — 10 picked randomly per quiz
+    // ─────────────────────────────────────────────────────────────────
+    {
+      name: "Spell It! ✍️",
+      emoji: "🔤",
+      description: "Expert — Type Answer",
+      timer: 10,
+      typeMode: true,   // special flag: show text input instead of MCQ
+      pickCount: 10,    // NEW: random 10 per quiz
+      // NEW: Warm spelling bee theme
+      theme: { bg1: "#fffde7", bg2: "#fff3e0", dot: "#fff9c4", mascot: "🐝", music: "spelling" },
+      questions: [
+        { q:"Spell the name of this fruit:",    emoji:"🍎", answer:"apple",    hint:"A fruit that keeps the doctor away." },
+        { q:"Spell the name of this animal:",   emoji:"🐘", answer:"elephant", hint:"Largest land animal." },
+        { q:"Spell the color of the sky:",      emoji:"🌤️", answer:"blue",     hint:"On a sunny day." },
+        { q:"Spell this season:",               emoji:"❄️", answer:"winter",   hint:"Cold and snowy." },
+        { q:"Spell the name of this shape:",    emoji:"⭕", answer:"circle",   hint:"Round with no corners." },
+        { q:"Spell this number:",               emoji:"7️⃣", answer:"seven",    hint:"Lucky number!" },
+        { q:"Spell the name of this animal:",   emoji:"🦁", answer:"lion",     hint:"King of the jungle." },
+        { q:"Spell the name of our planet:",    emoji:"🌍", answer:"earth",    hint:"We live here!" },
+        { q:"Spell this color:",                emoji:"🌹", answer:"red",      hint:"Color of this flower." },
+        { q:"Spell this fruit:",                emoji:"🍌", answer:"banana",   hint:"Monkeys love it!" },
+        // NEW extra spelling words
+        { q:"Spell this vehicle:",              emoji:"🚂", answer:"train",    hint:"Runs on rails." },
+        { q:"Spell this sea animal:",           emoji:"🐬", answer:"dolphin",  hint:"Very smart ocean animal." },
+      ]
+    },
+  ];
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 31 — APP STATE
+  //  All mutable runtime variables in one object for clarity.
+  // ───────────────────────────────────────────────────────────────────
+  const STATE = {
+    playerName:      "",       // name from home screen input
+    currentLevel:    0,        // 0-indexed level being played
+    currentQ:        0,        // current question index within the PICKED pool
+    score:           0,        // live score (points)
+    wrongAnswers:    [],       // array of {q, correct, chosen} for review
+    timerID:         null,     // setInterval ID for countdown
+    timerSec:        0,        // remaining seconds on timer
+    answered:        false,    // prevents double-answering
+    pickedQuestions: [],       // NEW: 10 randomly selected questions for this run
+    streak:          0,        // NEW: current consecutive correct-answer count
+    bestStreak:      0,        // NEW: best streak reached in this quiz
+    soundEnabled:    true,     // NEW: global mute/unmute toggle
+    bgLoopTimer:     null,     // NEW: setTimeout ID for bg music loop restart
+    floatTimers:     [],       // NEW: setTimeout IDs for floating emoji cleanup
+  };
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 32 — LOCAL STORAGE HELPERS
+  //  We persist stars per level (best score) so level grid shows progress.
+  // ───────────────────────────────────────────────────────────────────
+
+  /** Get stars array [stars0, stars1, stars2, stars3, stars4] from storage */
+  function getStarsData() {
+    const raw = localStorage.getItem("kidsAppStars");
+    return raw ? JSON.parse(raw) : [0, 0, 0, 0, 0];
+  }
+
+  /** Save stars for one level if better than previous best */
+  function saveStars(levelIdx, stars) {
+    const data = getStarsData();
+    if (stars > data[levelIdx]) data[levelIdx] = stars;
+    localStorage.setItem("kidsAppStars", JSON.stringify(data));
+  }
+
+  /** Total stars across all levels */
+  function getTotalStars() {
+    return getStarsData().reduce((a, b) => a + b, 0);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 33 — SCREEN NAVIGATION
+  //  Simple show/hide of .screen divs; also handle side effects.
+  // ───────────────────────────────────────────────────────────────────
+
+  function showScreen(id) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+
+    // NEW: Show mascot only on quiz screen
+    document.getElementById("mascot").style.display = (id === "quizScreen") ? "block" : "none";
+
+    // NEW: Stop background music when leaving quiz screen
+    if (id !== "quizScreen") stopBgMusic();
+
+    // Update total stars on home screen whenever we return there
+    if (id === "homeScreen") {
+      document.getElementById("totalStarsHome").textContent = getTotalStars();
+    }
+  }
+
+  /** Navigate to home screen and refresh star count display */
+  function goHome() {
+    stopTimer();
+    showScreen("homeScreen");
+  }
+
+  /** Navigate to level select, update player greeting and rebuild grid */
+  function goToLevels() {
+    stopTimer();
+    const name = document.getElementById("playerName").value.trim() || "Friend";
+    STATE.playerName = name;
+    document.getElementById("greetName").textContent = name;
+    buildLevelGrid();
+    showScreen("levelScreen");
+    playSound("click"); // NEW: play menu click sound
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 34 — LEVEL GRID BUILDER
+  //  Creates one card per level; unlocks based on previous stars.
+  // ───────────────────────────────────────────────────────────────────
+
+  function buildLevelGrid() {
+    const grid = document.getElementById("levelGrid");
+    grid.innerHTML = "";
+
+    const starsData = getStarsData();
+
+    LEVELS.forEach((lv, idx) => {
+      // Level 0 always unlocked; others unlock if previous level has ≥ 2 stars
+      const isLocked = idx > 0 && starsData[idx - 1] < 2;
+      const myStars  = starsData[idx];
+
+      const card = document.createElement("div");
+      card.className = "level-card" + (isLocked ? " locked" : "");
+
+      // Star display for this level
+      const starStr = "★".repeat(myStars) + "☆".repeat(3 - myStars);
+
+      // NEW: Pool size and pick count shown on card
+      const poolSize = lv.questions.length;
+      const picks    = lv.pickCount || 10;
+
+      card.innerHTML = `
+        <div class="lv-emoji">${isLocked ? "🔒" : lv.emoji}</div>
+        <div class="lv-name">Level ${idx + 1}<br/>${lv.name}</div>
+        <div class="lv-desc">${lv.description}</div>
+        <div class="lv-stars">${starStr}</div>
+        <div class="lv-qcount">${picks} of ${poolSize} Qs 🎲</div>
+      `;
+
+      if (!isLocked) {
+        // Start the quiz for this level on click
+        card.onclick = () => startLevel(idx);
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 34B — NEW: FISHER-YATES SHUFFLE & RANDOM PICK
+  //  Randomly selects `count` questions from the full pool each quiz.
+  //  Every run is a different set — keeps the game fresh!
+  // ───────────────────────────────────────────────────────────────────
+
+  function shuffleAndPick(array, count) {
+    // Clone so we never mutate the original question bank
+    const clone = [...array];
+    // Fisher-Yates shuffle: swap from the end backwards for true randomness
+    for (let i = clone.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [clone[i], clone[j]] = [clone[j], clone[i]]; // ES6 destructured swap
+    }
+    // Slice only the requested number; if pool < count, return the whole pool
+    return clone.slice(0, Math.min(count, clone.length));
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 35 — QUIZ INITIALIZATION
+  //  Sets up state and renders the first question.
+  // ───────────────────────────────────────────────────────────────────
+
+  function startLevel(levelIdx) {
+    STATE.currentLevel  = levelIdx;
+    STATE.currentQ      = 0;
+    STATE.score         = 0;
+    STATE.wrongAnswers  = [];
+    STATE.streak        = 0;  // NEW: reset streak on new game
+    STATE.bestStreak    = 0;  // NEW: reset best streak on new game
+
+    const lv = LEVELS[levelIdx];
+
+    // NEW: Pick random questions from the pool — different every time!
+    STATE.pickedQuestions = shuffleAndPick(lv.questions, lv.pickCount || 10);
+
+    // NEW: Apply the level's colour theme to the background
+    applyLevelTheme(lv.theme);
+
+    // NEW: Spawn floating background emojis for atmosphere
+    startFloatingEmojis(lv.emoji);
+
+    document.getElementById("quizLevelLabel").textContent =
+      `Level ${levelIdx + 1}: ${lv.name}`;
+    document.getElementById("liveScore").textContent = "0";
+
+    // Show or hide timer elements based on level config
+    const hasTimer = lv.timer > 0;
+    document.getElementById("timerWrap").style.display  = hasTimer ? "block" : "none";
+    document.getElementById("timerLabel").style.display = hasTimer ? "block" : "none";
+
+    // NEW: Set the mascot emoji from the level theme
+    document.getElementById("mascot").textContent = lv.theme.mascot;
+
+    showScreen("quizScreen");
+
+    // NEW: Start level-specific synthesized background music
+    startBgMusic(lv.theme.music);
+
+    // NEW: Greet player with mascot speech bubble
+    showMascotBubble("Let's go! 🎉");
+
+    renderQuestion();
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 35B — NEW: APPLY LEVEL THEME
+  //  Swaps the CSS custom properties to change the background gradient.
+  // ───────────────────────────────────────────────────────────────────
+
+  function applyLevelTheme(theme) {
+    const root = document.documentElement.style;
+    root.setProperty("--level-bg1", theme.bg1); // top gradient colour
+    root.setProperty("--level-bg2", theme.bg2); // bottom gradient colour
+    root.setProperty("--level-dot", theme.dot); // polka-dot overlay colour
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 35C — NEW: FLOATING BACKGROUND EMOJIS
+  //  Spawns 8 level-themed emojis that drift upward for visual delight.
+  // ───────────────────────────────────────────────────────────────────
+
+  function startFloatingEmojis(levelEmoji) {
+    // Remove any previous floaters
+    document.querySelectorAll(".bg-float").forEach(e => e.remove());
+    STATE.floatTimers.forEach(t => clearTimeout(t));
+    STATE.floatTimers = [];
+
+    const emojis = [levelEmoji, "⭐", "✨", "🌟"]; // mix of level + generic
+    for (let i = 0; i < 8; i++) {
+      const t = setTimeout(() => {
+        const el = document.createElement("div");
+        el.className = "bg-float";
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.left = (Math.random() * 92) + "vw"; // random horizontal position
+        el.style.animationDuration = (9 + Math.random() * 8) + "s"; // varied speed
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 20000); // clean up after animation
+      }, i * 700); // stagger spawn times
+      STATE.floatTimers.push(t);
+    }
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 36 — RENDER CURRENT QUESTION
+  //  Draws the question, emoji, hint, and options for STATE.currentQ.
+  //  NEW: Reads from STATE.pickedQuestions (randomly selected pool).
+  // ───────────────────────────────────────────────────────────────────
+
+  function renderQuestion() {
+    stopTimer(); // always clear any running timer first
+
+    const lv = LEVELS[STATE.currentLevel];
+    const q  = STATE.pickedQuestions[STATE.currentQ]; // NEW: use random pool
+    STATE.answered = false;
+
+    const total = STATE.pickedQuestions.length; // always 10 (or pool if < 10)
+    const idx   = STATE.currentQ;
+
+    // Update progress bar width (% questions completed so far)
+    document.getElementById("progressBar").style.width =
+      ((idx / total) * 100) + "%";
+
+    // Question counter text
+    document.getElementById("qCounter").textContent = `Q ${idx + 1} / ${total}`;
+
+    // Emoji, question, hint
+    document.getElementById("qImage").textContent = q.emoji;
+    document.getElementById("qText").textContent  = q.q;
+    document.getElementById("qHint").textContent  = q.hint ? `💡 Hint: ${q.hint}` : "";
+
+    // NEW: Refresh streak badge each question render
+    updateStreakBadge();
+
+    // ── MCQ mode ──
+    const optionsGrid = document.getElementById("optionsGrid");
+    const typeWrap    = document.getElementById("typeWrap");
+
+    if (lv.typeMode) {
+      // Level 5: hide MCQ grid, show text input
+      optionsGrid.style.display = "none";
+      typeWrap.style.display    = "flex";
+      const inp = document.getElementById("typeInput");
+      inp.value = "";
+      inp.style.borderColor = "#e0e0e0"; // reset border colour
+      inp.disabled = false;
+      inp.focus();
+    } else {
+      // Levels 1–4: show MCQ grid, hide text input
+      optionsGrid.style.display = "grid";
+      typeWrap.style.display    = "none";
+      optionsGrid.innerHTML     = "";
+
+      // Shuffle the options so correct answer isn't always in same position
+      const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+
+      shuffled.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className   = "option-btn";
+        btn.textContent = opt;
+        btn.onclick     = () => checkAnswer(btn, opt, q.answer);
+        optionsGrid.appendChild(btn);
+      });
+    }
+
+    // Start countdown timer if this level requires it
+    if (lv.timer > 0) startTimer(lv.timer);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 37 — ANSWER CHECKING (MCQ)
+  //  Called when a user taps an option button.
+  // ───────────────────────────────────────────────────────────────────
+
+  function checkAnswer(btn, chosen, correct) {
+    if (STATE.answered) return; // prevent double click
+    STATE.answered = true;
+    stopTimer();
+
+    const isCorrect = chosen === correct;
+
+    if (isCorrect) {
+      btn.classList.add("correct");
+      // NEW: Increment streak and calculate streak bonus
+      STATE.streak++;
+      if (STATE.streak > STATE.bestStreak) STATE.bestStreak = STATE.streak;
+      const bonus = STATE.streak >= 3 ? 5 : 0; // +5 bonus for 3+ streak
+      STATE.score += 10 + bonus;
+      document.getElementById("liveScore").textContent = STATE.score;
+
+      // NEW: Show combo burst label for 2+ streaks
+      if (STATE.streak >= 2) showComboBurst(STATE.streak);
+
+      // NEW: Cycle through different praise messages as streak grows
+      const msgs = ["✅ Correct! +10","🎉 Awesome!","⭐ Superstar!","🔥 On Fire!","💡 Brilliant!"];
+      const msg  = msgs[Math.min(STATE.streak - 1, msgs.length - 1)];
+      showFeedback(msg + (bonus ? " +5 Bonus!" : ""), true);
+
+      // NEW: Show mascot encouragement every 3rd correct in a row
+      if (STATE.streak % 3 === 0) showMascotBubble("You're amazing! 🌟");
+
+      spawnSparkles();      // visual celebration
+      playSound("correct"); // NEW: play correct sound effect
+
+    } else {
+      btn.classList.add("wrong");
+      STATE.streak = 0;    // NEW: wrong answer resets streak
+      updateStreakBadge();
+      showFeedback(`❌ Answer: ${correct}`, false);
+      playSound("wrong");  // NEW: play wrong sound effect
+
+      // Highlight the correct button green for teaching
+      const allBtns = document.querySelectorAll(".option-btn");
+      allBtns.forEach(b => {
+        if (b.textContent === correct) b.classList.add("correct");
+      });
+
+      // Record for review screen
+      const q = STATE.pickedQuestions[STATE.currentQ]; // NEW: use pickedQuestions
+      STATE.wrongAnswers.push({ q: q.q, correct, chosen });
+
+      // NEW: Mascot offers comfort on wrong answers
+      const comforts = ["Try again! 💪","Almost there! 😊","Keep going! 🌟","You'll get it! 👍"];
+      showMascotBubble(comforts[Math.floor(Math.random() * comforts.length)]);
+    }
+
+    // Disable all option buttons to prevent further clicks
+    document.querySelectorAll(".option-btn").forEach(b => b.disabled = true);
+
+    // Auto-advance to next question after short delay
+    setTimeout(nextQuestion, 1400);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 38 — ANSWER CHECKING (Type Mode for Level 5)
+  //  Compares typed input to answer (case-insensitive, trimmed).
+  // ───────────────────────────────────────────────────────────────────
+
+  function checkTypedAnswer() {
+    if (STATE.answered) return;
+    const input   = document.getElementById("typeInput");
+    const typed   = input.value.trim().toLowerCase();
+    // NEW: use pickedQuestions instead of full level question array
+    const correct = STATE.pickedQuestions[STATE.currentQ].answer.toLowerCase();
+
+    STATE.answered = true;
+    stopTimer();
+
+    if (typed === correct) {
+      STATE.streak++;
+      if (STATE.streak > STATE.bestStreak) STATE.bestStreak = STATE.streak;
+      const bonus = STATE.streak >= 3 ? 5 : 0; // NEW: streak bonus
+      STATE.score += 10 + bonus;
+      document.getElementById("liveScore").textContent = STATE.score;
+      input.style.borderColor = "var(--clr-success)";
+      if (STATE.streak >= 2) showComboBurst(STATE.streak);
+      showFeedback("✅ Correct! +10" + (bonus ? " +5 Bonus!" : ""), true);
+      spawnSparkles();
+      playSound("correct"); // NEW: play correct sound
+    } else {
+      STATE.streak = 0; // NEW: reset streak on wrong
+      input.style.borderColor = "var(--clr-danger)";
+      showFeedback(`❌ Answer: ${correct}`, false);
+      playSound("wrong"); // NEW: play wrong sound
+      const q = STATE.pickedQuestions[STATE.currentQ]; // NEW: use pickedQuestions
+      STATE.wrongAnswers.push({ q: q.q, correct, chosen: typed });
+    }
+
+    input.disabled = true;
+    updateStreakBadge(); // NEW: refresh streak display after answer
+    setTimeout(nextQuestion, 1400);
+  }
+
+  // Handle Enter key on type input
+  document.getElementById("typeInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") checkTypedAnswer();
+  });
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 39 — SKIP QUESTION
+  //  Deducts 1 pt and moves to the next question immediately.
+  // ───────────────────────────────────────────────────────────────────
+
+  function skipQuestion() {
+    if (STATE.answered) return;
+    STATE.answered = true;
+    stopTimer();
+    STATE.streak = 0;  // NEW: skip breaks the streak
+    updateStreakBadge();
+    STATE.score = Math.max(0, STATE.score - 1); // never below 0
+    document.getElementById("liveScore").textContent = STATE.score;
+    showFeedback("⏭ Skipped (−1 pt)", false);
+    playSound("skip"); // NEW: play skip sound
+    setTimeout(nextQuestion, 800);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 40 — ADVANCE TO NEXT QUESTION OR SHOW RESULTS
+  //  NEW: Checks against STATE.pickedQuestions.length (always 10).
+  // ───────────────────────────────────────────────────────────────────
+
+  function nextQuestion() {
+    STATE.currentQ++;
+    const total = STATE.pickedQuestions.length; // NEW: total from random pick
+
+    if (STATE.currentQ >= total) {
+      showResults(); // all questions done
+    } else {
+      renderQuestion();
+    }
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 41 — COUNTDOWN TIMER
+  //  Starts a countdown; auto-submits as wrong if time runs out.
+  //  NEW: Timer label pulses red at ≤5s for urgency.
+  // ───────────────────────────────────────────────────────────────────
+
+  function startTimer(seconds) {
+    STATE.timerSec = seconds;
+
+    const bar   = document.getElementById("timerBar");
+    const label = document.getElementById("timerSec");
+    const lbl   = document.getElementById("timerLabel"); // NEW: the full label div
+    bar.style.width = "100%";
+    label.textContent = seconds;
+    lbl.classList.remove("urgent"); // NEW: clear urgency at start
+
+    STATE.timerID = setInterval(() => {
+      STATE.timerSec--;
+      label.textContent = STATE.timerSec;
+
+      // Shrink timer bar proportionally
+      const pct = (STATE.timerSec / seconds) * 100;
+      bar.style.width = pct + "%";
+
+      // NEW: Apply urgency style and tick sound when 5 or fewer seconds remain
+      if (STATE.timerSec <= 5) {
+        lbl.classList.add("urgent");
+        playSound("tick"); // NEW: urgent tick sound
+      }
+
+      if (STATE.timerSec <= 0) {
+        stopTimer();
+        if (!STATE.answered) {
+          STATE.answered = true;
+          STATE.streak   = 0;    // NEW: timeout resets streak
+          updateStreakBadge();
+          showFeedback("⏰ Time's Up!", false);
+          playSound("wrong"); // NEW: play wrong on timeout
+          const q = STATE.pickedQuestions[STATE.currentQ]; // NEW: use pickedQuestions
+          STATE.wrongAnswers.push({ q: q.q, correct: q.answer, chosen: "—" });
+          // Highlight correct answer in MCQ
+          document.querySelectorAll(".option-btn").forEach(b => {
+            if (b.textContent === q.answer) b.classList.add("correct");
+            b.disabled = true;
+          });
+          setTimeout(nextQuestion, 1200);
+        }
+      }
+    }, 1000);
+  }
+
+  /** Clear running timer */
+  function stopTimer() {
+    if (STATE.timerID) { clearInterval(STATE.timerID); STATE.timerID = null; }
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 42 — RESULTS SCREEN BUILDER
+  //  Calculates stars (1–3) based on % correct and renders result screen.
+  //  NEW: Uses pickedQuestions.length, shows best streak.
+  // ───────────────────────────────────────────────────────────────────
+
+  function showResults() {
+    stopBgMusic();          // NEW: stop music on results screen
+    playSound("complete");  // NEW: play level complete fanfare
+
+    const total    = STATE.pickedQuestions.length; // NEW: always 10 (or pool size)
+    const maxScore = total * 10;
+    const pct      = Math.round((STATE.score / maxScore) * 100);
+    const correct  = total - STATE.wrongAnswers.length;
+
+    // Star calculation: 3 stars ≥ 80%, 2 stars ≥ 50%, 1 star ≥ 10%, 0 otherwise
+    let stars = 0;
+    if (pct >= 80)      stars = 3;
+    else if (pct >= 50) stars = 2;
+    else if (pct >= 10) stars = 1;
+
+    // Save best stars to localStorage
+    saveStars(STATE.currentLevel, stars);
+
+    // Choose trophy emoji based on stars
+    const emojis = ["😢","😊","😃","🏆"];
+    document.getElementById("resultEmoji").textContent = emojis[stars];
+
+    // Title text
+    const titles = ["Keep Trying!","Good Job!","Great Work!","🏆 Perfect!"];
+    document.getElementById("resultTitle").textContent = titles[stars];
+
+    // Score and percentage text
+    document.getElementById("resultScore").textContent =
+      `You scored ${correct} / ${total} questions`;
+    document.getElementById("resultPercent").textContent = `${pct}% Correct`;
+
+    // NEW: Show best streak on results screen
+    document.getElementById("resultStreak").textContent =
+      STATE.bestStreak >= 2 ? `🔥 Best Streak: ${STATE.bestStreak} in a row!` : "";
+
+    // Animate stars with staggered delays
+    for (let i = 1; i <= 3; i++) {
+      const el = document.getElementById(`star${i}`);
+      el.className = "star"; // reset
+      if (i <= stars) {
+        // Delay each star so they pop one after another
+        setTimeout(() => el.classList.add("filled"), i * 300);
+      }
+    }
+
+    // Show wrong-answer review list if any mistakes
+    const reviewList  = document.getElementById("reviewList");
+    const reviewItems = document.getElementById("reviewItems");
+    if (STATE.wrongAnswers.length > 0) {
+      reviewList.style.display = "block";
+      reviewItems.innerHTML = STATE.wrongAnswers.map(w => `
+        <div class="review-item">
+          <strong>${w.q}</strong><br/>
+          ✅ Correct: <em>${w.correct}</em> &nbsp;|&nbsp;
+          ❌ Your answer: <em>${w.chosen}</em>
+        </div>
+      `).join("");
+    } else {
+      reviewList.style.display = "none";
+    }
+
+    // Trigger achievement popup for milestones
+    if (stars === 3) showAchievement("🏆", "Perfect Score! Amazing!");
+    else if (STATE.currentLevel === 0 && stars >= 1) showAchievement("🎉", "First level complete!");
+    // NEW: Streak achievement badge
+    if (STATE.bestStreak >= 5) showAchievement("🔥", `${STATE.bestStreak}x Streak Master!`);
+
+    // NEW: Extra sparkle burst on perfect score
+    if (stars === 3) { spawnSparkles(); setTimeout(spawnSparkles, 400); }
+
+    showScreen("resultScreen");
+  }
+
+  /** Retry the same level — NEW: re-picks a fresh random question set */
+  function retryLevel() { startLevel(STATE.currentLevel); }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 43 — FEEDBACK TOAST HELPER
+  //  Briefly shows a floating message (correct / wrong).
+  // ───────────────────────────────────────────────────────────────────
+
+  function showFeedback(msg, isCorrect) {
+    const toast = document.getElementById("feedbackToast");
+    toast.textContent = msg;
+    toast.className = "feedback-toast show " + (isCorrect ? "correct-toast" : "wrong-toast");
+
+    // Auto-hide after 1.2 seconds
+    setTimeout(() => { toast.className = "feedback-toast"; }, 1200);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 44 — SPARKLE BURST ANIMATION
+  //  Spawns star emojis that fly out from the centre of the screen.
+  // ───────────────────────────────────────────────────────────────────
+
+  function spawnSparkles() {
+    const container = document.getElementById("sparkleContainer");
+    const sparks    = ["⭐","✨","🌟","💫","🎉"];
+    const count     = 8; // number of particles
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement("span");
+      el.className   = "sparkle";
+      el.textContent = sparks[Math.floor(Math.random() * sparks.length)];
+
+      // Random starting position near centre
+      el.style.left = (30 + Math.random() * 40) + "vw";
+      el.style.top  = (30 + Math.random() * 30) + "vh";
+
+      // Random fly direction using CSS custom properties
+      const angle  = Math.random() * 360;
+      const dist   = 80 + Math.random() * 120;
+      el.style.setProperty("--dx", `${Math.cos(angle) * dist}px`);
+      el.style.setProperty("--dy", `${Math.sin(angle) * dist}px`);
+      el.style.animationDelay = (Math.random() * 0.3) + "s";
+
+      container.appendChild(el);
+
+      // Remove element after animation finishes to keep DOM clean
+      setTimeout(() => el.remove(), 1200);
+    }
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 45 — ACHIEVEMENT POPUP HELPER
+  //  Shows bottom-right slide-in toast for milestones.
+  // ───────────────────────────────────────────────────────────────────
+
+  function showAchievement(icon, text) {
+    document.getElementById("achIcon").textContent = icon;
+    document.getElementById("achText").textContent = text;
+
+    const pop = document.getElementById("achievementPopup");
+    pop.classList.add("show");
+    setTimeout(() => pop.classList.remove("show"), 3500);
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 46 — TUTORIAL OVERLAY TOGGLE
+  // ───────────────────────────────────────────────────────────────────
+
+  function showTutorial() {
+    document.getElementById("tutorialOverlay").style.display = "flex";
+  }
+  function closeTutorial() {
+    document.getElementById("tutorialOverlay").style.display = "none";
+  }
+
+  // ───────────────────────────────────────────────────────────────────
+  //  § SECTION 47 — INITIALISE ON PAGE LOAD
+  //  Reads saved stars and shows total on home screen.
+  // ───────────────────────────────────────────────────────────────────
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("totalStarsHome").textContent = getTotalStars();
+  });
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 48 — WEB AUDIO ENGINE
+  //  All sounds are generated with the Web Audio API — no external files!
+  //  Works 100% offline and on GitHub Pages with zero assets required.
+  // ═══════════════════════════════════════════════════════════════════
+
+  let audioCtx = null; // NEW: Lazily created on first user interaction (browser policy)
+
+  // NEW: Get or create the shared AudioContext instance
+  function getAudioCtx() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+
+  /**
+   * NEW: Play a named sound effect using synthesized tones.
+   * Each sound = array of [frequency_hz, duration_s, waveform] notes.
+   * @param {string} name - sound name: correct|wrong|skip|complete|click|tick
+   */
+  function playSound(name) {
+    if (!STATE.soundEnabled) return; // NEW: respect mute toggle
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // NEW: Sound recipes — each is a timed sequence of oscillator notes
+      const sounds = {
+        // Correct: rising joyful 4-note arpeggio (C5 E5 G5 C6)
+        correct:  [[523,0.1,"sine"],[659,0.1,"sine"],[784,0.15,"sine"],[1046,0.2,"sine"]],
+        // Wrong: descending buzzer (E4 A3 E3)
+        wrong:    [[330,0.1,"sawtooth"],[220,0.1,"sawtooth"],[165,0.2,"sawtooth"]],
+        // Skip: short neutral double-blip
+        skip:     [[440,0.08,"sine"],[330,0.12,"sine"]],
+        // Level complete: cheerful 6-note fanfare
+        complete: [[523,0.1,"sine"],[659,0.1,"sine"],[784,0.1,"sine"],[1046,0.15,"sine"],[784,0.1,"sine"],[1046,0.3,"sine"]],
+        // Menu click: quick ascending pop
+        click:    [[800,0.05,"sine"],[1000,0.07,"sine"]],
+        // Timer tick: sharp square-wave blip (played at ≤5s left)
+        tick:     [[1200,0.04,"square"]],
+      };
+
+      const seq = sounds[name];
+      if (!seq) return;
+
+      // NEW: Play each note at the correct offset time
+      let offset = 0;
+      seq.forEach(([freq, dur, type]) => {
+        const osc  = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now + offset);
+
+        // NEW: Smooth gain envelope to avoid audio clicks
+        gain.gain.setValueAtTime(0.28, now + offset);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + offset + dur);
+
+        osc.start(now + offset);
+        osc.stop(now + offset + dur + 0.01);
+        offset += dur; // next note starts after this one
+      });
+    } catch (e) {
+      console.warn("Audio playback error:", e); // NEW: silent fail on iOS or restricted contexts
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 49 — BACKGROUND MUSIC ENGINE
+  //  Each of the 5 levels plays a different looping ambient melody.
+  //  Entirely synthesized — no audio files or CDN needed!
+  //  Uses Web Audio oscillators + LFO for a living, breathing sound.
+  // ═══════════════════════════════════════════════════════════════════
+
+  let bgNodes = []; // NEW: tracks all active background audio nodes for cleanup
+
+  /**
+   * NEW: Start level-specific looping background music.
+   * Music recipes define melody notes, bass, tempo, and waveforms per theme.
+   * @param {string} style - music style: happy|jungle|school|space|spelling
+   */
+  function startBgMusic(style) {
+    stopBgMusic(); // NEW: always stop previous music before starting new
+    if (!STATE.soundEnabled) return;
+
+    try {
+      const ctx = getAudioCtx();
+
+      // NEW: Music theme definitions — one per level
+      // Each has: melody notes (Hz), bass note (Hz), note duration (s), waveforms
+      const themes = {
+        happy:    { notes:[261,329,392,523,392,329], bass:130, tempo:0.35, wave:"sine",     bassWave:"sine"     }, // C major — bright & cheerful
+        jungle:   { notes:[220,277,330,415,330,277], bass:110, tempo:0.30, wave:"triangle", bassWave:"sine"     }, // pentatonic — bouncy
+        school:   { notes:[349,392,440,392],          bass:174, tempo:0.40, wave:"sine",     bassWave:"triangle" }, // methodical 4-note motif
+        space:    { notes:[196,220,247,196,175],       bass: 98, tempo:0.50, wave:"sine",     bassWave:"sine"     }, // slow eerie minor — mysterious
+        spelling: { notes:[523,587,659,698,784,698,659,587], bass:261, tempo:0.28, wave:"sine", bassWave:"triangle" }, // playful scale run
+      };
+
+      const t        = themes[style] || themes.happy;
+      const now      = ctx.currentTime;
+      const loopDur  = t.notes.length * t.tempo; // total duration of one loop
+      const REPEATS  = 4; // schedule 4 loops upfront for seamless playback
+
+      // NEW: Bass drone with LFO vibrato for warmth
+      const bassOsc  = ctx.createOscillator();
+      const bassGain = ctx.createGain();
+      const lfo      = ctx.createOscillator();
+      const lfoGain  = ctx.createGain();
+
+      lfo.frequency.value = 0.4;  // slow wobble (LFO rate in Hz)
+      lfoGain.gain.value  = 3;    // wobble depth in Hz applied to bass pitch
+      lfo.connect(lfoGain);
+      lfoGain.connect(bassOsc.frequency); // LFO modulates bass pitch
+
+      bassOsc.type = t.bassWave;
+      bassOsc.frequency.setValueAtTime(t.bass, now);
+      bassGain.gain.setValueAtTime(0.06, now); // bass very quiet
+      bassOsc.connect(bassGain);
+      bassGain.connect(ctx.destination);
+      lfo.start(now);
+      bassOsc.start(now);
+      bgNodes.push(bassOsc, lfo); // NEW: track for stopBgMusic cleanup
+
+      // NEW: Schedule melody notes across multiple loop repetitions
+      for (let loop = 0; loop < REPEATS; loop++) {
+        t.notes.forEach((freq, noteIdx) => {
+          const noteStart = now + (loop * loopDur) + (noteIdx * t.tempo);
+          const noteDur   = t.tempo * 0.75; // 75% duty cycle — gap between notes
+
+          const osc  = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.type = t.wave;
+          osc.frequency.setValueAtTime(freq, noteStart);
+
+          // NEW: ADSR-like envelope: fade in quickly, hold, then release
+          gain.gain.setValueAtTime(0, noteStart);
+          gain.gain.linearRampToValueAtTime(0.07, noteStart + 0.02);   // attack
+          gain.gain.setValueAtTime(0.07, noteStart + noteDur - 0.04);
+          gain.gain.linearRampToValueAtTime(0, noteStart + noteDur);   // release
+
+          osc.start(noteStart);
+          osc.stop(noteStart + noteDur + 0.05);
+          bgNodes.push(osc); // NEW: track for cleanup
+        });
+      }
+
+      // NEW: Auto-restart music loop just before scheduled notes end
+      STATE.bgLoopTimer = setTimeout(() => {
+        if (STATE.soundEnabled) startBgMusic(style);
+      }, (loopDur * REPEATS * 1000) - 300); // 300ms early restart for seamless loop
+
+    } catch (e) {
+      console.warn("Background music error:", e);
+    }
+  }
+
+  /**
+   * NEW: Stop all active background music nodes cleanly.
+   * Cancels the auto-restart timer and disconnects every oscillator.
+   */
+  function stopBgMusic() {
+    if (STATE.bgLoopTimer) { clearTimeout(STATE.bgLoopTimer); STATE.bgLoopTimer = null; }
+    bgNodes.forEach(node => {
+      try { node.stop(); }        catch(e) {} // ignore already-stopped errors
+      try { node.disconnect(); }  catch(e) {}
+    });
+    bgNodes = []; // NEW: clear the tracked node list
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 50 — SOUND TOGGLE (mute / unmute)
+  //  Switches STATE.soundEnabled and updates the button label.
+  // ═══════════════════════════════════════════════════════════════════
+
+  function toggleSound() {
+    STATE.soundEnabled = !STATE.soundEnabled;
+    const btn = document.getElementById("soundToggleBtn");
+
+    if (STATE.soundEnabled) {
+      // NEW: Restore sound-on label with animated wave indicator
+      btn.innerHTML = `🔊 Sound ON <span class="sound-indicator"><span></span><span></span><span></span></span>`;
+      btn.classList.remove("muted");
+    } else {
+      btn.innerHTML = "🔇 Sound OFF"; // NEW: muted label
+      btn.classList.add("muted");
+      stopBgMusic(); // NEW: immediately kill music on mute
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 51 — STREAK BADGE UPDATER
+  //  Refreshes the streak counter badge and applies glow if streak ≥ 3.
+  // ═══════════════════════════════════════════════════════════════════
+
+  function updateStreakBadge() {
+    const badge = document.getElementById("streakBadge");
+    badge.textContent = `🔥 ${STATE.streak} Streak`;
+    // NEW: "hot" CSS class adds pulsing orange glow for 3+ streak
+    badge.classList.toggle("hot", STATE.streak >= 3);
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 52 — COMBO BURST ANIMATION
+  //  Flashes a large label in the screen centre when streak reaches 2+.
+  // ═══════════════════════════════════════════════════════════════════
+
+  function showComboBurst(streak) {
+    const el = document.getElementById("comboBurst");
+
+    // NEW: Labels and colours keyed by streak milestone
+    const labels = {
+      2: { text:"2x Combo! ⚡",    color:"#7c4dff" },
+      3: { text:"3x FIRE! 🔥",    color:"#ff6f00" },
+      4: { text:"4x BLAZING! 🌟", color:"#ff1744" },
+      5: { text:"5x LEGEND! 👑",  color:"#ffd600" },
+    };
+    const cfg = labels[Math.min(streak, 5)] || labels[5];
+
+    el.textContent = cfg.text;
+    el.style.color = cfg.color;
+
+    // NEW: Force animation restart by toggling class (reflow trick)
+    el.classList.remove("show");
+    void el.offsetWidth; // triggers browser reflow
+    el.classList.add("show");
+
+    setTimeout(() => el.classList.remove("show"), 1000); // cleanup
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  NEW: § SECTION 53 — MASCOT SPEECH BUBBLE HELPER
+  //  Pops up a short encouragement message next to the mascot character.
+  // ═══════════════════════════════════════════════════════════════════
+
+  function showMascotBubble(text) {
+    const bubble = document.getElementById("mascotBubble");
+    bubble.textContent = text;
+    bubble.classList.add("show"); // NEW: triggers CSS transition to visible
+    // NEW: Auto-hide after 2 seconds
+    setTimeout(() => bubble.classList.remove("show"), 2000);
+  }
+
+  </script>
+</body>
+</html>
