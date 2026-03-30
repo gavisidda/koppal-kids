@@ -747,10 +747,172 @@
       90%  { opacity: 0.15; }
       100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
+    /* ============================================================
+      § SECTION 54 — SCORE TRACKING & USERNAME TOGGLE STYLES
+      Styles for: admin config banner, name-required badge,
+      score submission status toast, and the name-gate modal.
+    ============================================================ */
+
+    /* Admin config banner — fixed top bar visible only to admin
+       Shown when ?admin=1 is in the URL; hidden from normal players */
+    .admin-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #212121;
+      color: #ffd600;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.88rem;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 3000;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .admin-bar label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    /* Toggle switch pill inside admin bar */
+    .admin-toggle {
+      position: relative;
+      width: 40px; height: 22px;
+      display: inline-block;
+    }
+    .admin-toggle input { opacity: 0; width: 0; height: 0; }
+    .admin-slider {
+      position: absolute; inset: 0;
+      background: #555;
+      border-radius: 22px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .admin-slider::before {
+      content: '';
+      position: absolute;
+      width: 16px; height: 16px;
+      left: 3px; top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    .admin-toggle input:checked + .admin-slider { background: var(--clr-success); }
+    .admin-toggle input:checked + .admin-slider::before { transform: translateX(18px); }
+
+    /* Small "Name Required" badge shown on home input when enforced */
+    .name-required-badge {
+      font-size: 0.75rem;
+      color: var(--clr-danger);
+      font-weight: 700;
+      margin-top: 4px;
+      display: none; /* shown by JS when enforce is ON */
+    }
+    .name-required-badge.visible { display: block; }
+
+    /* Score submission status toast — appears after quiz submits to Sheets */
+    .submit-toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #212121;
+      color: #fff;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      padding: 10px 24px;
+      border-radius: 50px;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+    }
+    .submit-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .submit-toast.success { background: var(--clr-success); }
+    .submit-toast.error   { background: var(--clr-danger); }
+
+    /* Name-gate modal — blocks play if name is required but empty */
+    .name-gate-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .name-gate-overlay.show { display: flex; }
+    .name-gate-box {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      max-width: 340px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow);
+      animation: slideUp 0.35s ease both;
+    }
+    .name-gate-box h3 { color: var(--clr-primary); margin-bottom: 10px; }
+    .name-gate-box p  { color: var(--clr-muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .name-gate-box input {
+      width: 100%;
+      padding: 11px 16px;
+      border: 2.5px solid #e0e0e0;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      text-align: center;
+      margin-bottom: 12px;
+      transition: border-color 0.3s;
+    }
+    .name-gate-box input:focus { border-color: var(--clr-primary); }
+    .name-gate-box input.error-shake { animation: shake 0.4s ease; border-color: var(--clr-danger); }
   </style>
 </head>
 
 <body>
+
+  <!-- ============================================================
+    § SECTION 54B — ADMIN CONFIG BAR (HTML)
+    Only visible when URL contains ?admin=1 (e.g. your private link).
+    Contains the username-required toggle switch.
+    Normal players never see this bar.
+  ============================================================ -->
+  <div class="admin-bar" id="adminBar" style="display:none">
+    <span>🛠 Admin Panel — Koppal Kids</span>
+    <label>
+      Require Username:
+      <span class="admin-toggle">
+        <!-- Checkbox drives the toggle; JS reads its state -->
+        <input type="checkbox" id="enforceNameToggle" onchange="onAdminToggle()"/>
+        <span class="admin-slider"></span>
+      </span>
+      <span id="toggleLabel" style="margin-left:4px">OFF</span>
+    </label>
+    <span style="font-size:0.78rem; opacity:0.7">Scores → Google Sheets ✅</span>
+  </div>
+
+  <!-- ============================================================
+    § SECTION 54C — NAME-GATE MODAL (HTML)
+    Appears when name is required but player tried to start without one.
+    Does NOT register the user — just collects a display name for scores.
+  ============================================================ -->
+  <div class="name-gate-overlay" id="nameGateOverlay">
+    <div class="name-gate-box">
+      <h3>✏️ What's your name?</h3>
+      <p>Please enter your name to save your score.<br/>No sign-up needed!</p>
+      <input type="text" id="gateNameInput" placeholder="Your name..." maxlength="20"/>
+      <button class="btn btn-primary w-full" onclick="submitGateName()">Let's Play! 🚀</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    § SECTION 54D — SCORE SUBMIT TOAST (HTML)
+    Small pill that slides up from bottom to confirm score was saved.
+  ============================================================ -->
+  <div class="submit-toast" id="submitToast">📊 Score saved!</div>
 
   <!-- ============================================================
     § SECTION 22 — SPARKLE PARTICLES CONTAINER
@@ -783,13 +945,15 @@
     Entry point — collects player name and shows start buttons.
   =================================================================== -->
   <div class="screen active" id="homeScreen">
-    <!-- <div class="home-emoji">🧠</div> -->
-    <h1 class="home-title">Kids Smart Learning!</h1>
+    <div class="home-emoji">🧠</div>
+    <h1 class="home-title">Kids Smart<br/>Learning!</h1>
     <p class="home-subtitle">Quiz • Levels • Rewards 🌟</p>
 
     <!-- Player name input -->
     <div class="name-input-wrap">
       <input type="text" id="playerName" placeholder="✏️ Enter your name..." maxlength="20"/>
+      <!-- § SECTION 54E: Badge shown when admin enforces name entry -->
+      <div class="name-required-badge" id="nameRequiredBadge">⚠️ Name required to save your score</div>
     </div>
 
     <button class="btn btn-primary" onclick="goToLevels()">🚀 Start Learning!</button>
@@ -1073,285 +1237,8 @@
         { q:"Sound travels fastest through which?",      emoji:"🔊", options:["Air","Water","Steel","Vacuum"],               answer:"Steel",    hint:"Solids conduct better." },
       ]
     },
-	
-	// ─────────────────────────────────────────────────────────────────
-//  LEVEL 11 — Geography Basics (Medium, 15s Timer)
-//  NEW: Pool of 20 questions — 10 picked randomly per quiz
-// ─────────────────────────────────────────────────────────────────
-{
-name: "Geography Basics",
-  emoji: "🗺️",
-  description: "Medium — 15s Timer",
-  timer: 15,
-  pickCount: 10,
-  theme: { bg1: "#e0f7fa", bg2: "#e8f5e9", dot: "#80deea", mascot: "🗺️", music: "travel" },
-  questions: [
-    { q:"What is the capital of France?", emoji:"🇫🇷", options:["Paris","Berlin","Rome","Madrid"], answer:"Paris", hint:"City of lights!" },
-    { q:"Which continent is Egypt in?", emoji:"🌍", options:["Asia","Africa","Europe","South America"], answer:"Africa", hint:"Think Nile river!" },
-    { q:"Mount Everest is located in which country?", emoji:"⛰️", options:["Nepal","China","India","Bhutan"], answer:"Nepal", hint:"Highest mountain!" },
-    { q:"Which is the largest ocean?", emoji:"🌊", options:["Atlantic","Indian","Pacific","Arctic"], answer:"Pacific", hint:"Covers more than 30% of Earth." },
-    { q:"Which country has a maple leaf on its flag?", emoji:"🍁", options:["Canada","USA","UK","Japan"], answer:"Canada", hint:"Northern neighbor of USA." },
-    { q:"Which desert is the largest in the world?", emoji:"🏜️", options:["Sahara","Gobi","Kalahari","Arabian"], answer:"Sahara", hint:"Africa’s huge desert!" },
-    { q:"Which river flows through Egypt?", emoji:"🏞️", options:["Amazon","Nile","Yangtze","Mississippi"], answer:"Nile", hint:"Longest river in the world." },
-    { q:"Which country is shaped like a boot?", emoji:"👢", options:["Italy","Spain","France","Greece"], answer:"Italy", hint:"Pizza and Rome!" },
-    { q:"Which is the smallest country by area?", emoji:"🏰", options:["Vatican City","Monaco","Nauru","San Marino"], answer:"Vatican City", hint:"Inside Rome!" },
-    { q:"Which is the longest river in South America?", emoji:"🌎", options:["Amazon","Orinoco","Parana","Rio Grande"], answer:"Amazon", hint:"Flows mostly in Brazil." },
-    { q:"Which US state is famous for its geysers?", emoji:"🌋", options:["California","Wyoming","Alaska","Nevada"], answer:"Wyoming", hint:"Yellowstone National Park." },
-    { q:"Which country is home to the Great Barrier Reef?", emoji:"🐠", options:["Australia","New Zealand","Fiji","Philippines"], answer:"Australia", hint:"Famous for coral reefs." },
-    { q:"Which is the largest country in the world?", emoji:"🌏", options:["USA","Canada","Russia","China"], answer:"Russia", hint:"Spans 11 time zones!" },
-    { q:"Which continent has the most countries?", emoji:"🌍", options:["Africa","Europe","Asia","South America"], answer:"Africa", hint:"Over 50 countries." },
-    { q:"Which country has the nickname 'Land of the Rising Sun'?", emoji:"🌅", options:["China","Japan","Thailand","South Korea"], answer:"Japan", hint:"Eastern Asia." },
-    { q:"Which river passes through London?", emoji:"🌉", options:["Thames","Seine","Danube","Rhine"], answer:"Thames", hint:"UK capital river." },
-    { q:"Which US city is known as 'The Windy City'?", emoji:"🌬️", options:["Chicago","Boston","Seattle","Miami"], answer:"Chicago", hint:"Famous skyscrapers!" },
-    { q:"Which mountain range separates Europe and Asia?", emoji:"⛰️", options:["Himalayas","Alps","Urals","Andes"], answer:"Urals", hint:"Runs North to South in Russia." },
-    { q:"Which country is famous for tulips and windmills?", emoji:"🌷", options:["Netherlands","Belgium","Denmark","Sweden"], answer:"Netherlands", hint:"Known for canals." },
-    { q:"Which continent is known as the 'Dark Continent'?", emoji:"🌍", options:["Africa","Asia","South America","Europe"], answer:"Africa", hint:"Historical term." }
-]
-},
 
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 12 — History Basics (Hard, 12s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "History Basics",
-  emoji: "🏺",
-  description: "Hard — 12s Timer",
-  timer: 12,
-  pickCount: 10,
-  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffb74d", mascot: "🕰️", music: "classical" },
-  questions: [
-    { q:"Who was the first president of the United States?", emoji:"🇺🇸", options:["Abraham Lincoln","George Washington","Thomas Jefferson","John Adams"], answer:"George Washington", hint:"1789!" },
-    { q:"Which empire built the Colosseum?", emoji:"🏛️", options:["Greek","Roman","Persian","Egyptian"], answer:"Roman", hint:"Ancient Rome." },
-    { q:"Who discovered America in 1492?", emoji:"🛶", options:["Magellan","Columbus","Vespucci","Cook"], answer:"Columbus", hint:"Italian explorer." },
-    { q:"Which wall divided Berlin until 1989?", emoji:"🧱", options:["Great Wall","Berlin Wall","Hadrian's Wall","Western Wall"], answer:"Berlin Wall", hint:"Cold War era." },
-    { q:"Who was known as the Maid of Orleans?", emoji:"⚔️", options:["Joan of Arc","Marie Curie","Cleopatra","Elizabeth I"], answer:"Joan of Arc", hint:"French heroine." },
-    { q:"Who was the first man to step on the moon?", emoji:"🌕", options:["Neil Armstrong","Buzz Aldrin","Yuri Gagarin","Michael Collins"], answer:"Neil Armstrong", hint:"1969 Apollo 11." },
-    { q:"Which ship sank in 1912?", emoji:"🚢", options:["Titanic","Lusitania","Queen Mary","Britannic"], answer:"Titanic", hint:"North Atlantic disaster." },
-    { q:"Who was the first emperor of China?", emoji:"🐉", options:["Qin Shi Huang","Han Wudi","Kublai Khan","Sun Tzu"], answer:"Qin Shi Huang", hint:"Built part of Great Wall." },
-    { q:"Which ancient civilization built pyramids?", emoji:"🏺", options:["Romans","Egyptians","Mayans","Greeks"], answer:"Egyptians", hint:"Pharaohs!" },
-    { q:"Who wrote the 'I Have a Dream' speech?", emoji:"🗣️", options:["Martin Luther King Jr.","Nelson Mandela","Malcolm X","Rosa Parks"], answer:"Martin Luther King Jr.", hint:"Civil Rights Movement." },
-    { q:"Which war ended in 1945?", emoji:"⚔️", options:["World War I","World War II","Vietnam War","Korean War"], answer:"World War II", hint:"Atomic bombs involved." },
-    { q:"Who was Cleopatra?", emoji:"👑", options:["Queen of Egypt","Queen of Greece","Empress of Rome","Queen of Persia"], answer:"Queen of Egypt", hint:"Famous female ruler." },
-    { q:"Who was known as the Iron Lady?", emoji:"🇬🇧", options:["Theresa May","Angela Merkel","Margaret Thatcher","Indira Gandhi"], answer:"Margaret Thatcher", hint:"UK Prime Minister." },
-    { q:"Which revolution took place in 1789?", emoji:"🔴", options:["French Revolution","American Revolution","Russian Revolution","Industrial Revolution"], answer:"French Revolution", hint:"Stormed the Bastille!" },
-    { q:"Who was the first pharaoh of Egypt?", emoji:"🏺", options:["Tutankhamun","Narmer","Ramses II","Akhenaten"], answer:"Narmer", hint:"Also called Menes." },
-    { q:"Which famous wall is in China?", emoji:"🧱", options:["Great Wall","Berlin Wall","Hadrian's Wall","Western Wall"], answer:"Great Wall", hint:"Longest wall!" },
-    { q:"Who invented the printing press?", emoji:"📜", options:["Galileo","Gutenberg","Newton","Edison"], answer:"Gutenberg", hint:"Movable type." },
-    { q:"Which empire was ruled by Julius Caesar?", emoji:"🏛️", options:["Roman","Greek","Persian","Egyptian"], answer:"Roman", hint:"Assassinated in 44 BC." },
-    { q:"Who was the leader of the Soviet Union during WWII?", emoji:"🇷🇺", options:["Lenin","Stalin","Trotsky","Khrushchev"], answer:"Stalin", hint:"Dictator." },
-    { q:"Which ancient city was buried by a volcano in 79 AD?", emoji:"🌋", options:["Pompeii","Rome","Athens","Carthage"], answer:"Pompeii", hint:"Vesuvius eruption!" }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 13 — Literature & Arts (Medium, 15s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Literature & Arts",
-  emoji: "📚",
-  description: "Medium — 15s Timer",
-  timer: 15,
-  pickCount: 10,
-  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffcc80", mascot: "🎨", music: "classical" },
-  questions: [
-    { q:"Who wrote 'Romeo and Juliet'?", emoji:"✒️", options:["Shakespeare","Hemingway","Tolkien","Dickens"], answer:"Shakespeare", hint:"Famous English playwright." },
-    { q:"Who painted the Mona Lisa?", emoji:"🖼️", options:["Da Vinci","Michelangelo","Van Gogh","Picasso"], answer:"Da Vinci", hint:"Renaissance artist." },
-    { q:"Which author wrote 'Harry Potter'?", emoji:"🧙‍♂️", options:["J.K. Rowling","Tolkien","C.S. Lewis","Suzanne Collins"], answer:"J.K. Rowling", hint:"Wizard school." },
-    { q:"Which is a famous play by Shakespeare?", emoji:"🎭", options:["Hamlet","Odyssey","Inferno","Paradise Lost"], answer:"Hamlet", hint:"Prince of Denmark." },
-    { q:"What is the primary color of Picasso’s Blue Period?", emoji:"🎨", options:["Blue","Red","Yellow","Green"], answer:"Blue", hint:"Period of sadness." },
-    { q:"Who wrote 'The Odyssey'?", emoji:"📜", options:["Homer","Virgil","Shakespeare","Milton"], answer:"Homer", hint:"Greek epic poet." },
-    { q:"Which artist cut off his own ear?", emoji:"🎨", options:["Van Gogh","Picasso","Dali","Monet"], answer:"Van Gogh", hint:"Famous Post-Impressionist." },
-    { q:"Which book series has Katniss Everdeen?", emoji:"🏹", options:["Hunger Games","Divergent","Percy Jackson","Twilight"], answer:"Hunger Games", hint:"Dystopian trilogy." },
-    { q:"Which novel begins with 'Call me Ishmael'?", emoji:"🐋", options:["Moby Dick","Great Gatsby","Jane Eyre","1984"], answer:"Moby Dick", hint:"White whale story." },
-    { q:"Who painted the ceiling of the Sistine Chapel?", emoji:"🖌️", options:["Michelangelo","Da Vinci","Raphael","Rembrandt"], answer:"Michelangelo", hint:"Famous fresco." },
-    { q:"Who wrote 'Pride and Prejudice'?", emoji:"📖", options:["Jane Austen","Charlotte Bronte","Emily Bronte","Mary Shelley"], answer:"Jane Austen", hint:"Elizabeth Bennet story." },
-    { q:"Which composer wrote the 9th Symphony?", emoji:"🎼", options:["Beethoven","Mozart","Bach","Chopin"], answer:"Beethoven", hint:"Ode to Joy!" },
-    { q:"Who painted 'Starry Night'?", emoji:"🌌", options:["Van Gogh","Picasso","Monet","Dali"], answer:"Van Gogh", hint:"Night sky painting." },
-    { q:"Which author wrote 'The Chronicles of Narnia'?", emoji:"🦁", options:["C.S. Lewis","J.K. Rowling","Tolkien","Roald Dahl"], answer:"C.S. Lewis", hint:"Lion Aslan." },
-    { q:"Who sculpted David?", emoji:"🗿", options:["Michelangelo","Donatello","Rodin","Bernini"], answer:"Michelangelo", hint:"Renaissance sculpture." },
-    { q:"Which book series has Percy Jackson?", emoji:"⚡", options:["Percy Jackson","Harry Potter","Twilight","Maze Runner"], answer:"Percy Jackson", hint:"Greek mythology hero." },
-    { q:"Which composer is famous for 'The Four Seasons'?", emoji:"🎻", options:["Vivaldi","Bach","Mozart","Beethoven"], answer:"Vivaldi", hint:"Baroque violin concertos." },
-    { q:"Who painted 'The Persistence of Memory'?", emoji:"⏰", options:["Dali","Picasso","Van Gogh","Monet"], answer:"Dali", hint:"Melting clocks." },
-    { q:"Which novel is set in 1984?", emoji:"📘", options:["1984","Brave New World","Fahrenheit 451","Animal Farm"], answer:"1984", hint:"Dystopian society." },
-    { q:"Who wrote 'Dracula'?", emoji:"🧛‍♂️", options:["Bram Stoker","Mary Shelley","Edgar Allan Poe","H.G. Wells"], answer:"Bram Stoker", hint:"Vampire novel." }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 14 — Technology & Inventions (Medium, 15s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Technology & Inventions",
-  emoji: "💻",
-  description: "Medium — 15s Timer",
-  timer: 15,
-  pickCount: 10,
-  theme: { bg1: "#e0f2f1", bg2: "#b2dfdb", dot: "#80cbc4", mascot: "🤖", music: "tech" },
-  questions: [
-    { q:"Who invented the telephone?", emoji:"📞", options:["Bell","Edison","Tesla","Marconi"], answer:"Bell", hint:"Alexander Graham Bell." },
-    { q:"What does CPU stand for?", emoji:"🖥️", options:["Central Processing Unit","Computer Primary Unit","Central Program Unit","Computer Processing Unit"], answer:"Central Processing Unit", hint:"Brain of a computer." },
-    { q:"Who invented the light bulb?", emoji:"💡", options:["Edison","Tesla","Bell","Faraday"], answer:"Edison", hint:"Incandescent light." },
-    { q:"What is the symbol for Wi-Fi?", emoji:"📶", options:["Signal waves","Antenna","Plug","Battery"], answer:"Signal waves", hint:"Wireless connection." },
-    { q:"What is the first computer programming language?", emoji:"💻", options:["Fortran","C","Python","Java"], answer:"Fortran", hint:"Developed in 1950s." },
-    { q:"Who developed the theory of relativity?", emoji:"🧠", options:["Einstein","Newton","Tesla","Galileo"], answer:"Einstein", hint:"E=mc²." },
-    { q:"What is a smartphone?", emoji:"📱", options:["Computer","Mobile phone","Tablet","Camera"], answer:"Mobile phone", hint:"Touchscreen device." },
-    { q:"Which company developed Windows?", emoji:"🖱️", options:["Apple","Microsoft","Google","IBM"], answer:"Microsoft", hint:"Bill Gates co-founder." },
-    { q:"What does GPS stand for?", emoji:"🛰️", options:["Global Positioning System","Geography Positioning Service","Global Planning System","Geo Point System"], answer:"Global Positioning System", hint:"Navigation system." },
-    { q:"Who is known as the father of electricity?", emoji:"⚡", options:["Tesla","Edison","Faraday","Volta"], answer:"Faraday", hint:"Magnetic induction." },
-    { q:"Who invented the World Wide Web?", emoji:"🌐", options:["Tim Berners-Lee","Steve Jobs","Bill Gates","Mark Zuckerberg"], answer:"Tim Berners-Lee", hint:"1989!" },
-    { q:"What does USB stand for?", emoji:"🔌", options:["Universal Serial Bus","Universal System Backup","Unified Serial Battery","Universal Signal Bus"], answer:"Universal Serial Bus", hint:"Common computer port." },
-    { q:"Which company created the first iPhone?", emoji:"🍎", options:["Apple","Samsung","Google","Microsoft"], answer:"Apple", hint:"2007 release." },
-    { q:"Which device is used to measure temperature?", emoji:"🌡️", options:["Barometer","Thermometer","Hygrometer","Altimeter"], answer:"Thermometer", hint:"Celcius or Fahrenheit." },
-    { q:"Which programming language is known for web development?", emoji:"🌐", options:["HTML","Python","C++","Java"], answer:"HTML", hint:"Structure of web pages." },
-    { q:"Who invented alternating current?", emoji:"⚡", options:["Tesla","Edison","Faraday","Volta"], answer:"Tesla", hint:"Nikola Tesla." },
-    { q:"Which technology is used for virtual reality?", emoji:"🕶️", options:["AR","VR","AI","IoT"], answer:"VR", hint:"Immersive simulation." },
-    { q:"What is the main function of a router?", emoji:"📡", options:["Connect networks","Store data","Display graphics","Charge devices"], answer:"Connect networks", hint:"Internet traffic." },
-    { q:"Which company is famous for search engines?", emoji:"🔍", options:["Google","Apple","Microsoft","Amazon"], answer:"Google", hint:"Founded in 1998." },
-    { q:"Which invention is Thomas Edison famous for?", emoji:"💡", options:["Light bulb","Telephone","Printing press","Steam engine"], answer:"Light bulb", hint:"Illuminates rooms." }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 15 — Flags of the World (Hard, 12s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Flags of the World",
-  emoji: "🏳️‍🌈",
-  description: "Hard — 12s Timer",
-  timer: 12,
-  pickCount: 10,
-  theme: { bg1: "#ffebee", bg2: "#ffcdd2", dot: "#ef9a9a", mascot: "🗺️", music: "world" },
-  questions: [
-    { q:"Which country's flag has a red circle on white?", emoji:"🇯🇵", options:["Japan","Bangladesh","Switzerland","Turkey"], answer:"Japan", hint:"Land of the Rising Sun." },
-    { q:"Which country has a red maple leaf on its flag?", emoji:"🍁", options:["Canada","USA","UK","Japan"], answer:"Canada", hint:"Northern neighbor of USA." },
-    { q:"Which country’s flag is all red with a yellow star?", emoji:"🇨🇳", options:["China","Vietnam","Turkey","Spain"], answer:"China", hint:"Most populous country." },
-    { q:"Which country has a tricolor of green, white, and orange?", emoji:"🇮🇳", options:["Ireland","India","Italy","Mexico"], answer:"India", hint:"Subcontinent nation." },
-    { q:"Which country has a blue cross on white?", emoji:"🇫🇮", options:["Finland","Sweden","Greece","Norway"], answer:"Finland", hint:"Northern Europe." },
-    { q:"Which country has a crescent moon and star on red?", emoji:"🇹🇷", options:["Turkey","Pakistan","Algeria","Tunisia"], answer:"Turkey", hint:"Located between Europe and Asia." },
-    { q:"Which country has black, red, and yellow stripes?", emoji:"🇩🇪", options:["Germany","Belgium","Spain","Lithuania"], answer:"Germany", hint:"Central Europe." },
-    { q:"Which country’s flag has a Union Jack in corner?", emoji:"🇦🇺", options:["Australia","New Zealand","Fiji","UK"], answer:"Australia", hint:"Down under nation." },
-    { q:"Which country has a red dragon on white and green?", emoji:"🐉", options:["Wales","Bhutan","Malta","China"], answer:"Wales", hint:"Part of UK." },
-    { q:"Which country has a red, white, and blue horizontal tricolor?", emoji:"🇳🇱", options:["Netherlands","Russia","France","Croatia"], answer:"Netherlands", hint:"Windmills and tulips." },
-    { q:"Which country has a red cross on white background?", emoji:"⛑️", options:["Switzerland","Denmark","England","Norway"], answer:"Switzerland", hint:"Famous for chocolates." },
-    { q:"Which country’s flag has five stars?", emoji:"🇨🇳", options:["China","USA","Vietnam","Australia"], answer:"China", hint:"Red background." },
-    { q:"Which country has horizontal stripes of red and white?", emoji:"🇮🇩", options:["Indonesia","Poland","Monaco","Austria"], answer:"Indonesia", hint:"Southeast Asian country." },
-    { q:"Which country has a red, white, and blue vertical tricolor?", emoji:"🇫🇷", options:["France","Netherlands","Russia","Italy"], answer:"France", hint:"Paris is the capital." },
-    { q:"Which country’s flag features a white cross on red?", emoji:"🇩🇰", options:["Denmark","Switzerland","Norway","England"], answer:"Denmark", hint:"Nordic nation." },
-    { q:"Which country has green, white, and red vertical stripes?", emoji:"🇮🇹", options:["Italy","Mexico","Ireland","Bulgaria"], answer:"Italy", hint:"Famous for pizza and pasta." },
-    { q:"Which country’s flag has a red sun on white?", emoji:"🇯🇵", options:["Japan","South Korea","Bangladesh","China"], answer:"Japan", hint:"Duplicate check!" },
-    { q:"Which country has a red and white striped flag with stars?", emoji:"🇺🇸", options:["USA","Liberia","Malaysia","Cuba"], answer:"USA", hint:"50 stars represent states." },
-    { q:"Which country has a black, red, yellow horizontal tricolor?", emoji:"🇩🇪", options:["Germany","Belgium","Spain","Lithuania"], answer:"Germany", hint:"Duplicate check!" },
-    { q:"Which country’s flag has a red crescent?", emoji:"🇵🇰", options:["Pakistan","Turkey","Tunisia","Algeria"], answer:"Pakistan", hint:"Green and white flag." }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 16 — Sports & Games (Medium, 15s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Sports & Games",
-  emoji: "🏅",
-  description: "Medium — 15s Timer",
-  timer: 15,
-  pickCount: 10,
-  theme: { bg1: "#f1f8e9", bg2: "#dcedc8", dot: "#c5e1a5", mascot: "⚽", music: "stadium" },
-  questions: [
-    { q:"How many players are on a soccer team?", emoji:"⚽", options:["9","10","11","12"], answer:"11", hint:"Including goalkeeper." },
-    { q:"Which country won the 2018 FIFA World Cup?", emoji:"🏆", options:["Brazil","Germany","France","Croatia"], answer:"France", hint:"Blue jersey." },
-    { q:"Which sport uses a shuttlecock?", emoji:"🏸", options:["Tennis","Badminton","Squash","Table Tennis"], answer:"Badminton", hint:"Light feathered object." },
-    { q:"How many holes in a standard golf course?", emoji:"⛳", options:["9","12","18","21"], answer:"18", hint:"Full round." },
-    { q:"Which sport is played on ice with sticks?", emoji:"🏒", options:["Hockey","Curling","Skating","Luge"], answer:"Hockey", hint:"Ice rink action." },
-    { q:"Which country invented baseball?", emoji:"⚾", options:["USA","Japan","UK","Canada"], answer:"USA", hint:"American pastime." },
-    { q:"How many rings are on the Olympic flag?", emoji:"🏅", options:["4","5","6","7"], answer:"5", hint:"Represents continents." },
-    { q:"Which sport uses a net and a ball over it?", emoji:"🏐", options:["Volleyball","Basketball","Tennis","Badminton"], answer:"Volleyball", hint:"Hit over the net." },
-    { q:"What is the distance of a marathon?", emoji:"🏃‍♂️", options:["26.2 miles","24 miles","30 miles","20 miles"], answer:"26.2 miles", hint:"Classic long-distance run." },
-    { q:"Which game uses black and white pieces on a board?", emoji:"♟️", options:["Chess","Checkers","Go","Othello"], answer:"Chess", hint:"King, queen, pawns." },
-    { q:"Which country won the 2016 NBA Championship?", emoji:"🏀", options:["Cleveland Cavaliers","Golden State Warriors","Miami Heat","San Antonio Spurs"], answer:"Cleveland Cavaliers", hint:"LeBron James." },
-    { q:"Which sport is known as the 'king of sports'?", emoji:"⚽", options:["Soccer","Basketball","Cricket","Tennis"], answer:"Soccer", hint:"Most popular worldwide." },
-    { q:"Which sport uses a bow and arrow?", emoji:"🏹", options:["Archery","Fencing","Shooting","Javelin"], answer:"Archery", hint:"Olympic target sport." },
-    { q:"Which sport is played at Wimbledon?", emoji:"🎾", options:["Tennis","Badminton","Squash","Table Tennis"], answer:"Tennis", hint:"Grass courts." },
-    { q:"Which country hosted the 2016 Olympics?", emoji:"🇧🇷", options:["Brazil","UK","China","Russia"], answer:"Brazil", hint:"Rio de Janeiro." },
-    { q:"Which sport uses a puck?", emoji:"🏒", options:["Ice Hockey","Field Hockey","Lacrosse","Curling"], answer:"Ice Hockey", hint:"Skating required." },
-    { q:"Which country has the most World Cup wins?", emoji:"🏆", options:["Brazil","Germany","Italy","Argentina"], answer:"Brazil", hint:"Five titles." },
-    { q:"Which sport uses a caddie?", emoji:"⛳", options:["Golf","Tennis","Bowling","Rugby"], answer:"Golf", hint:"Carries clubs." },
-    { q:"Which sport has frames, pins, and a ball?", emoji:"🎳", options:["Bowling","Cricket","Tennis","Billiards"], answer:"Bowling", hint:"Strike and spare." },
-    { q:"Which sport uses the term 'home run'?", emoji:"⚾", options:["Baseball","Softball","Cricket","Tennis"], answer:"Baseball", hint:"Hits out of park." }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 17 — Space & Astronomy (Hard, 12s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Space & Astronomy",
-  emoji: "🚀",
-  description: "Hard — 12s Timer",
-  timer: 12,
-  pickCount: 10,
-  theme: { bg1: "#e8eaf6", bg2: "#c5cae9", dot: "#9fa8da", mascot: "👽", music: "space" },
-  questions: [
-    { q:"Which planet is known as the Red Planet?", emoji:"🪐", options:["Mars","Jupiter","Venus","Mercury"], answer:"Mars", hint:"Color of rust." },
-    { q:"Which planet is the largest in the solar system?", emoji:"🪐", options:["Jupiter","Saturn","Neptune","Earth"], answer:"Jupiter", hint:"Has Great Red Spot." },
-    { q:"Which planet is closest to the Sun?", emoji:"☀️", options:["Mercury","Venus","Earth","Mars"], answer:"Mercury", hint:"Very hot!" },
-    { q:"Which planet is famous for its rings?", emoji:"💍", options:["Saturn","Jupiter","Uranus","Neptune"], answer:"Saturn", hint:"Visible even in small telescopes." },
-    { q:"What is the name of our galaxy?", emoji:"🌌", options:["Milky Way","Andromeda","Whirlpool","Sombrero"], answer:"Milky Way", hint:"Home galaxy." },
-    { q:"Which is the smallest planet in the solar system?", emoji:"🪐", options:["Mercury","Mars","Venus","Pluto"], answer:"Mercury", hint:"Used to be biggest dwarf?" },
-    { q:"Who was first human in space?", emoji:"🚀", options:["Yuri Gagarin","Neil Armstrong","Buzz Aldrin","John Glenn"], answer:"Yuri Gagarin", hint:"1961." },
-    { q:"Which star is closest to Earth?", emoji:"☀️", options:["Proxima Centauri","Sirius","Sun","Alpha Centauri"], answer:"Sun", hint:"We see it every day." },
-    { q:"Which planet is known for its extreme winds?", emoji:"🌪️", options:["Neptune","Mars","Venus","Earth"], answer:"Neptune", hint:"Blue gas giant." },
-    { q:"Which celestial body orbits planets?", emoji:"🌙", options:["Moon","Asteroid","Comet","Star"], answer:"Moon", hint:"Natural satellite." },
-    { q:"What force keeps planets in orbit?", emoji:"🪐", options:["Gravity","Magnetism","Friction","Inertia"], answer:"Gravity", hint:"Newton’s law." },
-    { q:"Which is the hottest planet?", emoji:"🔥", options:["Venus","Mercury","Mars","Jupiter"], answer:"Venus", hint:"Thick atmosphere." },
-    { q:"What galaxy is nearest to Milky Way?", emoji:"🌌", options:["Andromeda","Whirlpool","Triangulum","Sombrero"], answer:"Andromeda", hint:"Will collide in billions of years." },
-    { q:"Which planet has a Great Red Spot?", emoji:"🪐", options:["Jupiter","Saturn","Mars","Earth"], answer:"Jupiter", hint:"Giant storm." },
-    { q:"Which planet rotates on its side?", emoji:"🪐", options:["Uranus","Neptune","Jupiter","Mars"], answer:"Uranus", hint:"Axial tilt extreme." },
-    { q:"Which is the brightest planet in the night sky?", emoji:"🌟", options:["Venus","Mars","Jupiter","Mercury"], answer:"Venus", hint:"Also called Evening Star." },
-    { q:"Which planet is known as Earth’s twin?", emoji:"🪐", options:["Venus","Mars","Mercury","Jupiter"], answer:"Venus", hint:"Similar size." },
-    { q:"Which type of celestial body is Halley’s?", emoji:"☄️", options:["Comet","Asteroid","Planet","Meteor"], answer:"Comet", hint:"Appears every 76 years." },
-    { q:"What is the main component of the Sun?", emoji:"☀️", options:["Hydrogen","Oxygen","Nitrogen","Helium"], answer:"Hydrogen", hint:"Fuel for fusion." },
-    { q:"Which planet has the shortest day?", emoji:"🪐", options:["Jupiter","Earth","Mars","Venus"], answer:"Jupiter", hint:"Less than 10 hours." }
-  ]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 18 — Music & Instruments (Medium, 15s Timer)
-// ─────────────────────────────────────────────────────────────────
-{
-  name: "Music & Instruments",
-  emoji: "🎵",
-  description: "Medium — 15s Timer",
-  timer: 15,
-  pickCount: 10,
-  theme: { bg1: "#fff3e0", bg2: "#ffe0b2", dot: "#ffb74d", mascot: "🎸", music: "classical" },
-  questions: [
-    { q:"Which instrument has keys and pedals?", emoji:"🎹", options:["Piano","Guitar","Violin","Drums"], answer:"Piano", hint:"Press the black and white." },
-    { q:"Which family of instruments includes violin?", emoji:"🎻", options:["Strings","Brass","Woodwind","Percussion"], answer:"Strings", hint:"Fiddles!" },
-    { q:"Which instrument uses a bow to play?", emoji:"🎻", options:["Violin","Trumpet","Drum","Piano"], answer:"Violin", hint:"Classical orchestra." },
-    { q:"Which percussion instrument has skins stretched over a frame?", emoji:"🥁", options:["Drum","Tambourine","Cymbal","Triangle"], answer:"Drum", hint:"Beat rhythm." },
-    { q:"Which instrument is blown into?", emoji:"🎷", options:["Flute","Guitar","Drum","Piano"], answer:"Flute", hint:"Air passes through it." },
-    { q:"Which instrument has six strings?", emoji:"🎸", options:["Guitar","Violin","Harp","Cello"], answer:"Guitar", hint:"Strum chords." },
-    { q:"Which is a brass instrument?", emoji:"🎺", options:["Trumpet","Flute","Violin","Piano"], answer:"Trumpet", hint:"Blow and buzz!" },
-    { q:"Which instrument has black and white keys?", emoji:"🎹", options:["Piano","Guitar","Violin","Drums"], answer:"Piano", hint:"Duplicate check!" },
-    { q:"Which instrument is large and played with a bow?", emoji:"🎻", options:["Cello","Violin","Viola","Double Bass"], answer:"Cello", hint:"Sits on floor." },
-    { q:"Which instrument is tuned in EADGBE?", emoji:"🎸", options:["Guitar","Violin","Harp","Piano"], answer:"Guitar", hint:"Standard tuning." },
-    { q:"Which instrument is a woodwind?", emoji:"🎷", options:["Clarinet","Trumpet","Trombone","Tuba"], answer:"Clarinet", hint:"Single reed." },
-    { q:"Which instrument is played in a drum kit?", emoji:"🥁", options:["Snare","Violin","Flute","Trumpet"], answer:"Snare", hint:"Central percussion." },
-    { q:"Which instrument is famous in jazz?", emoji:"🎷", options:["Saxophone","Violin","Piano","Harp"], answer:"Saxophone", hint:"Smooth melodies." },
-    { q:"Which string instrument is used in a harp?", emoji:"🎵", options:["Harp strings","Guitar strings","Violin strings","Cello strings"], answer:"Harp strings", hint:"Pluck them!" },
-    { q:"Which keyboard instrument is electronic?", emoji:"🎹", options:["Synthesizer","Piano","Organ","Accordion"], answer:"Synthesizer", hint:"Digital sounds." },
-    { q:"Which instrument uses valves?", emoji:"🎺", options:["Trumpet","Flute","Violin","Drum"], answer:"Trumpet", hint:"Press valves to change notes." },
-    { q:"Which percussion instrument is circular with jingles?", emoji:"🎶", options:["Tambourine","Drum","Triangle","Cymbal"], answer:"Tambourine", hint:"Shake it!" },
-    { q:"Which instrument is a string and percussion hybrid?", emoji:"🎵", options:["Piano","Guitar","Violin","Harp"], answer:"Piano", hint:"Duplicate check!" },
-    { q:"Which instrument is famous in orchestras for low notes?", emoji:"🎻", options:["Double Bass","Violin","Flute","Trumpet"], answer:"Double Bass", hint:"Largest string." },
-    { q:"Which instrument is associated with bagpipes?", emoji:"🎶", options:["Bagpipes","Harmonica","Flute","Oboe"], answer:"Bagpipes", hint:"Scotland's pride." }
-]
-},
-
-// ─────────────────────────────────────────────────────────────────
-//  LEVEL 19 — Movies & TV (Hard, 12s Timer)
-// ─────────────────────────────────────────────────────────────────
-	
-	// ─────────────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────────
     //  LEVEL 5 — Spell It! (Expert, 10s Timer, TYPE the answer)
     //  NEW: Pool of 12 spelling words — 10 picked randomly per quiz
     // ─────────────────────────────────────────────────────────────────
@@ -1899,6 +1786,18 @@ name: "Geography Basics",
     // Save best stars to localStorage
     saveStars(STATE.currentLevel, stars);
 
+    // § SECTION 54E: Submit score to Google Sheets (fire-and-forget)
+    // Runs in background — does not block the results screen from showing.
+    submitScoreToSheet({
+      name:       STATE.playerName || "Anonymous",  // from home screen input
+      level:      STATE.currentLevel + 1,           // 1-indexed for readability
+      levelName:  LEVELS[STATE.currentLevel].name,
+      score:      STATE.score,
+      pct:        pct,
+      stars:      stars,
+      bestStreak: STATE.bestStreak,
+    });
+
     // Choose trophy emoji based on stars
     const emojis = ["😢","😊","😃","🏆"];
     document.getElementById("resultEmoji").textContent = emojis[stars];
@@ -2282,6 +2181,190 @@ name: "Geography Basics",
     bubble.classList.add("show"); // NEW: triggers CSS transition to visible
     // NEW: Auto-hide after 2 seconds
     setTimeout(() => bubble.classList.remove("show"), 2000);
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  //  § SECTION 54 — SCORE TRACKING CONFIGURATION
+  //  ─────────────────────────────────────────────────────────────────
+  //  HOW TO SET UP:
+  //  1. Deploy your Google Apps Script (see Code.gs) and copy the URL.
+  //  2. Paste it below as SHEET_URL.
+  //  3. Set REQUIRE_NAME to true/false as your default preference.
+  //     Admin can also toggle it live via ?admin=1 URL + the toggle switch.
+  //  4. To open admin panel: visit your site with ?admin=1 in the URL.
+  //     e.g. https://gavisidda.github.io/koppal-kids/?admin=1
+  // ═══════════════════════════════════════════════════════════════════
+
+  // ── STEP 1: Paste your Google Apps Script Web App URL here ──────────
+  // After deploying Code.gs, copy the deployment URL and replace the placeholder below.
+  // It looks like: https://script.google.com/macros/s/AKfy.../exec
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwOTMd4xjP4grrU8RjA7qn_J4VCLcmCfdckY1vIHZ_rPrgKZfDu2Wd6b_07WjfCpvoAow/exec";
+
+  // ── STEP 2: Default username-required setting ─────────────────────
+  // true  = players MUST enter a name before playing (name gate shows)
+  // false = name is optional; anonymous scores saved as "Anonymous"
+  // Admin can override this live via the toggle in the admin bar (?admin=1)
+  let REQUIRE_NAME = true;
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54A — ADMIN BAR INITIALISATION
+  //  Reads ?admin=1 from the URL and shows the hidden admin bar.
+  //  Also restores the saved toggle state from localStorage.
+  // ─────────────────────────────────────────────────────────────────
+
+  (function initAdmin() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("admin") === "1") {
+      // Show the admin bar at the top of the page
+      document.getElementById("adminBar").style.display = "flex";
+      // Add top padding to body so the admin bar doesn't cover content
+      document.body.style.paddingTop = "42px";
+    }
+
+    // Restore persisted toggle state from localStorage (survives page refresh)
+    const saved = localStorage.getItem("kidsApp_requireName");
+    if (saved !== null) REQUIRE_NAME = saved === "true";
+
+    // Sync the checkbox and label to current state
+    const chk = document.getElementById("enforceNameToggle");
+    chk.checked = REQUIRE_NAME;
+    document.getElementById("toggleLabel").textContent = REQUIRE_NAME ? "ON" : "OFF";
+
+    // Show/hide the name-required hint badge on the home screen
+    syncNameBadge();
+  })();
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54B — ADMIN TOGGLE HANDLER
+  //  Called when admin flips the "Require Username" toggle switch.
+  //  Saves the new state to localStorage so it persists across sessions.
+  // ─────────────────────────────────────────────────────────────────
+
+  function onAdminToggle() {
+    const chk  = document.getElementById("enforceNameToggle");
+    REQUIRE_NAME = chk.checked;
+    // Persist the admin's choice so it survives page reloads
+    localStorage.setItem("kidsApp_requireName", REQUIRE_NAME);
+    document.getElementById("toggleLabel").textContent = REQUIRE_NAME ? "ON" : "OFF";
+    syncNameBadge(); // update the hint badge on the home screen
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54C — NAME BADGE SYNC HELPER
+  //  Shows or hides the "⚠️ Name required" hint below the name input.
+  // ─────────────────────────────────────────────────────────────────
+
+  function syncNameBadge() {
+    const badge = document.getElementById("nameRequiredBadge");
+    // Toggle the "visible" CSS class which sets display:block
+    badge.classList.toggle("visible", REQUIRE_NAME);
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54D — NAME GATE LOGIC
+  //  Intercepts goToLevels() when REQUIRE_NAME is ON and name is empty.
+  //  Shows a friendly modal asking for a name — no registration needed.
+  // ─────────────────────────────────────────────────────────────────
+
+  // Override goToLevels to inject the name-gate check before proceeding
+  const _originalGoToLevels = goToLevels;  // keep reference to original function
+
+  // Replace goToLevels globally so all call sites get the gated version
+  goToLevels = function() {
+    const nameInput = document.getElementById("playerName");
+    const name      = nameInput.value.trim();
+
+    if (REQUIRE_NAME && !name) {
+      // Name is required but empty — show the name gate modal
+      document.getElementById("gateNameInput").value = "";
+      document.getElementById("nameGateOverlay").classList.add("show");
+      // Focus the gate input after a short delay (allows CSS transition to settle)
+      setTimeout(() => document.getElementById("gateNameInput").focus(), 150);
+      return; // stop here — don't navigate to levels yet
+    }
+
+    // Name is present or not required — proceed as normal
+    _originalGoToLevels();
+  };
+
+  // Called when player clicks "Let's Play!" inside the name gate modal
+  function submitGateName() {
+    const gateInput = document.getElementById("gateNameInput");
+    const name      = gateInput.value.trim();
+
+    if (!name) {
+      // Shake the input to signal it's required
+      gateInput.classList.remove("error-shake");
+      void gateInput.offsetWidth; // force reflow to restart animation
+      gateInput.classList.add("error-shake");
+      return;
+    }
+
+    // Copy the name into the main home screen input so STATE picks it up
+    document.getElementById("playerName").value = name;
+    document.getElementById("nameGateOverlay").classList.remove("show");
+    // Now proceed to levels — name is guaranteed to be set
+    _originalGoToLevels();
+  }
+
+  // Allow Enter key inside the gate input to submit
+  document.getElementById("gateNameInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") submitGateName();
+  });
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54E — SCORE SUBMISSION TO GOOGLE SHEETS
+  //  Called automatically after every completed quiz level.
+  //  Sends: playerName, levelIndex, levelName, score, pct, stars,
+  //         bestStreak, timestamp — to the Apps Script Web App URL.
+  //  Uses no-cors fetch (Google Apps Script limitation on GitHub Pages).
+  //  We don't read the response — just fire-and-forget with a toast.
+  // ─────────────────────────────────────────────────────────────────
+
+  function submitScoreToSheet(scoreData) {
+    // If no URL is configured yet, skip silently (don't confuse kids with errors)
+    if (!SHEET_URL || SHEET_URL.includes("YOUR_SCRIPT_ID_HERE")) {
+      console.warn("§54E: SHEET_URL not set. Score not saved. See SECTION 54 setup steps.");
+      return;
+    }
+
+    // Build query string: Apps Script reads these as e.parameter.xxx
+    const params = new URLSearchParams({
+      name:       scoreData.name       || "Anonymous",
+      level:      scoreData.level,          // 1-indexed level number
+      levelName:  scoreData.levelName,
+      score:      scoreData.score,
+      pct:        scoreData.pct,            // percentage correct
+      stars:      scoreData.stars,
+      streak:     scoreData.bestStreak,
+      timestamp:  new Date().toISOString(), // UTC timestamp
+    });
+
+    // Use mode:no-cors because Google Apps Script does not return CORS headers
+    // We can't read the response, but the data still reaches the sheet
+    fetch(`${SHEET_URL}?${params.toString()}`, { method: "GET", mode: "no-cors" })
+      .then(() => {
+        showSubmitToast("📊 Score saved! 🎉", "success");
+      })
+      .catch(() => {
+        // Network error — show a warning but don't block gameplay
+        showSubmitToast("⚠️ Score not saved (offline?)", "error");
+      });
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+  //  § SECTION 54F — SUBMIT TOAST HELPER
+  //  Slides up a small pill notification from the bottom of the screen.
+  //  @param {string} msg   - message text to display
+  //  @param {string} type  - "success" | "error" (sets background colour)
+  // ─────────────────────────────────────────────────────────────────
+
+  function showSubmitToast(msg, type) {
+    const toast = document.getElementById("submitToast");
+    toast.textContent = msg;
+    toast.className   = `submit-toast show ${type}`; // apply colour class
+    // Auto-hide after 3 seconds
+    setTimeout(() => { toast.className = "submit-toast"; }, 3000);
   }
 
   </script>
