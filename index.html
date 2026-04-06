@@ -297,15 +297,6 @@ footer { text-align:center; padding:20px 14px 14px; font-size:0.9rem; font-weigh
 }
 
 /* Individual word card styles */
-/* WORD CARD BACKGROUND - CUSTOM */
-//.card {
-  //background:var(--white); border:3px solid var(--dark); border-radius:20px;
-  //padding:16px 10px 13px; text-align:center; cursor:pointer;
-  //box-shadow:5px 5px 0 var(--pink); transition:transform 0.15s,box-shadow 0.15s;
-  //position:relative; overflow:hidden;
-  //animation:popIn 0.4s cubic-bezier(.36,1.4,.64,1) both; /* Pop-in animation on load */
-//}
-/*=============================================================================================*/
 .card {
   /* Animated Gradient Background */
   background: linear-gradient(45deg, var(--white));
@@ -531,9 +522,22 @@ footer { text-align:center; padding:20px 14px 14px; font-size:0.9rem; font-weigh
 
 /* Styles for the large letter in alphabet cards */
 .alpha-letter {
-  font-size:2.4rem; font-weight:800; line-height:1;
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  margin-bottom:4px; display:block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+
+  /* Gradient background */
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+
+  /* Clip background to text */
+  -webkit-background-clip: text; /* Chrome, Safari, iOS */
+  background-clip: text;         /* Standard property for Firefox 73+ */
+
+  /* Make text fill transparent so background shows through */
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 4px;
+  display: block;
 }
 /* Styles for emoji in alphabet cards */
 .alpha-emoji { font-size:1.8rem; display:block; margin-bottom:4px; }
@@ -679,49 +683,39 @@ footer { text-align:center; padding:20px 14px 14px; font-size:0.9rem; font-weigh
 
 <!-- Mode selection tabs -->
 <div class="mode-tabs">
-  <!-- Alphabet (A-Z) tab -->
-  <button class="mode-tab"        id="tabAlphabet"  onclick="switchMode('alphabet')">🔤 A-Z</button>
-  <!-- Words tab (active by default) -->
-  <button class="mode-tab active" id="tabWords"     onclick="switchMode('words')">📖 Words</button>
-  <!-- Sentences tab -->
+  <button class="mode-tab"        id="tabAlphabet"  onclick="switchMode('alphabet')">🔤 alphabet</button>
+  <button class="mode-tab"        id="tabWords"     onclick="switchMode('words')">📖 Words</button>
   <button class="mode-tab"        id="tabSentences" onclick="switchMode('sentences')">💬 Sentences</button>
-  <!-- Quiz tab -->
   <button class="mode-tab"        id="tabQuiz"      onclick="switchMode('quiz')">🎯 Quiz</button>
 </div>
 
-<!-- Score bar to display collected stars -->
 <div class="score-bar" id="scoreBar">⭐ Stars collected: <span id="starCount">0</span></div>
 
-<!-- Words Section: Contains category buttons and word cards -->
-<div id="wordsSection">
-  <div class="category-bar" id="catBar"></div> <!-- Category buttons will be rendered here by JavaScript -->
-  <div class="grid" id="grid"></div> <!-- Word-image cards will be rendered here by JavaScript -->
+<div id="wordsSection" class="hide">
+  <div class="category-bar" id="catBar"></div>
+  <div class="grid" id="grid"></div>
 </div>
 
-<!-- Sentences Section: Contains category buttons and sentence cards -->
 <div id="sentencesSection">
-  <div class="sent-cat-bar" id="sentCatBar"></div> <!-- Sentence category buttons will be rendered here by JavaScript -->
-  <div class="sent-list" id="sentList"></div> <!-- Sentence cards will be rendered here by JavaScript -->
+  <div class="sent-cat-bar" id="sentCatBar"></div>
+  <div class="sent-list" id="sentList"></div>
 </div>
 
-<!-- Alphabet Section: Contains letter-word cards -->
 <div id="alphabetSection">
-  <div id="alphabetGrid"></div> <!-- Alphabet cards will be rendered here by JavaScript -->
+  <div id="alphabetGrid"></div>
 </div>
 
-<!-- Quiz Section: Contains quiz questions -->
 <div id="quizSection">
-  <div id="quizBox"></div> <!-- Quiz content will be rendered here by JavaScript -->
+  <div id="quizBox"></div>
 </div>
 
-<!-- Modal Overlay: Popup for displaying word details -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <span class="modal-emoji" id="mEmoji"></span> <!-- Emoji for the word -->
-    <div class="modal-en" id="mEn"></div> <!-- English word -->
-    <div class="modal-kn" id="mKn"></div> <!-- Kannada translation -->
-    <div class="modal-pronun" id="mPronun"></div> <!-- Pronunciation guide -->
-    <button class="close-btn" id="closeBtn">✓ OK!</button> <!-- Button to close the modal -->
+    <span class="modal-emoji" id="mEmoji"></span>
+    <div class="modal-en" id="mEn"></div>
+    <div class="modal-kn" id="mKn"></div>
+    <div class="modal-pronun" id="mPronun"></div>
+    <button class="close-btn" id="closeBtn">✓ OK!</button>
   </div>
 </div>
 
@@ -2005,71 +1999,110 @@ const alphaColors = ["#FF6B35","#FFD93D","#6BCB77","#4D96FF","#FF85A1","#C77DFF"
 
 // Function to switch between learning modes (Words, Sentences, Alphabet, Quiz)
 function switchMode(mode) {
-  currentMode = mode; // Update the global current mode variable
+  currentMode = mode;
 
-  // Update active state for mode tabs
+  // ✅ SAVE selected tab
+  localStorage.setItem("selectedMode", mode);
+
+  // Toggle active tab
   ["Words","Sentences","Alphabet","Quiz"].forEach(m => {
     const tab = document.getElementById("tab"+m);
-    if(tab) tab.classList.toggle("active", mode === m.toLowerCase());
+    if (tab) tab.classList.toggle("active", mode === m.toLowerCase());
   });
 
-  // Show/hide relevant sections based on the active mode
-  document.getElementById("wordsSection").classList.toggle("hide", mode !== "words");
-  document.getElementById("sentencesSection").classList.toggle("show", mode === "sentences");
-  document.getElementById("alphabetSection").classList.toggle("show", mode === "alphabet");
-  document.getElementById("quizSection").classList.toggle("show", mode === "quiz");
+  // Show / hide sections
+  document.getElementById("wordsSection")
+    .classList.toggle("hide", mode !== "words");
 
-  // Call specific rendering functions when switching to certain modes
-  if (mode === "alphabet") renderAlphabet(); // Render alphabet cards if switched to A-Z
-  if (mode === "quiz") initQuiz(); // Initialize quiz if switched to Quiz mode
+  document.getElementById("sentencesSection")
+    .classList.toggle("show", mode === "sentences");
+
+  document.getElementById("alphabetSection")
+    .classList.toggle("show", mode === "alphabet");
+
+  document.getElementById("quizSection")
+    .classList.toggle("show", mode === "quiz");
+
+  // Load content when needed
+  if (mode === "alphabet") renderAlphabet();
+  if (mode === "quiz") initQuiz();
 }
+
+// ── WINDOW ONLOAD: RESTORE STATE ──
+window.onload = () => {
+  // 🔹 Restore saved mode
+  const savedMode = localStorage.getItem("selectedMode");
+  if (savedMode) switchMode(savedMode);
+
+  // 🔹 Restore WORD category
+  const savedCat = localStorage.getItem("selectedCategory");
+  if (savedCat) currentCat = savedCat;
+
+  // 🔹 Restore SENTENCE category
+  const savedSCat = localStorage.getItem("selectedSCat");
+  if (savedSCat) currentSCat = savedSCat;
+
+  // 🔹 Restore stars
+  const savedStars = parseInt(localStorage.getItem("stars"), 10);
+  if (!isNaN(savedStars)) {
+    stars = savedStars;
+    document.getElementById("starCount").textContent = stars;
+  }
+
+  // 🔹 Restore seen items
+  const savedSeen = localStorage.getItem("seenItems");
+  if (savedSeen) {
+    seen = new Set(JSON.parse(savedSeen));
+  }
+
+  // 🔹 Render UI after restore
+  renderCats();
+  renderGrid();
+  renderSentCats();
+  renderSentences();
+};
 
 // =========================
 // WORD SECTION FUNCTIONS
 // =========================
 
-let showAllCats = false; // Controls visibility of all word categories or limited ones
-// Determines how many word categories are initially visible based on screen width
-const visibleLimit = window.innerWidth < 600 ? 5 : 7; // Changed from 4 to 5 for mobile and 6 to 7 for desktop
+let showAllCats = false;
+//const visibleLimit = 6;
+const visibleLimit = window.innerWidth < 600 ? 4 : 6;
+//👉 Mobile = 4
+//👉 Desktop = 6
 
-// Renders the category buttons for the "Words" section
+// ── RENDER WORD CATEGORIES ──
 function renderCats() {
   const bar = document.getElementById("catBar");
-  bar.innerHTML = ""; // Clear existing buttons
+  bar.innerHTML = "";
 
-  const allCats = Object.keys(words); // Get all word category names
-  // Decide which categories to show (all or limited)
+  const allCats = Object.keys(words);
   const catsToShow = showAllCats ? allCats : allCats.slice(0, visibleLimit);
 
-  // Create a button for each category
   catsToShow.forEach(cat => {
     const btn = document.createElement("button");
-    btn.className = "cat-btn" + (cat === currentCat ? " active" : ""); // Add 'active' class if it's the current category
-    btn.dataset.cat = cat; // Store category name in data attribute
-    btn.textContent = catEmoji(cat) + " " + cat; // Display emoji and category name
+    btn.className = "cat-btn" + (cat === currentCat ? " active" : "");
+    btn.dataset.cat = cat;
+    btn.textContent = catEmoji(cat) + " " + cat;
 
-    // Set click event: update current category, re-render category buttons and word grid
     btn.onclick = () => {
       currentCat = cat;
+      // ✅ SAVE category
+      localStorage.setItem("selectedCategory", cat);
       renderCats();
       renderGrid();
     };
 
-    bar.appendChild(btn); // Add button to the category bar
+    bar.appendChild(btn);
   });
 
-  // Add "More/Less" button if there are more categories than visibleLimit
+  // ➕ More / ➖ Less button
   if (allCats.length > visibleLimit) {
     const toggleBtn = document.createElement("button");
-    toggleBtn.className = "cat-btn"; // Standard button style
-    toggleBtn.textContent = showAllCats ? "➖ Less" : "➕ More"; // Text changes based on state
-
-    // Toggle showAllCats and re-render categories on click
-    toggleBtn.onclick = () => {
-      showAllCats = !showAllCats;
-      renderCats();
-    };
-
+    toggleBtn.className = "cat-btn";
+    toggleBtn.textContent = showAllCats ? "➖ Less" : "➕ More";
+    toggleBtn.onclick = () => { showAllCats = !showAllCats; renderCats(); };
     bar.appendChild(toggleBtn);
   }
 }
@@ -2140,6 +2173,11 @@ function openModal(w, card) {
     stars++; // Increment star count
     document.getElementById("starCount").textContent = stars; // Update star display
     addStar(); // Show a visual star animation
+          // ✅ SAVE stars
+  localStorage.setItem("stars", stars);
+
+  // ✅ SAVE seen items
+  localStorage.setItem("seenItems", JSON.stringify([...seen]));
   }
   // Trigger bounce animation on the clicked card
   card.classList.remove("bounce"); void card.offsetWidth; card.classList.add("bounce");
@@ -2247,6 +2285,11 @@ function renderSentences() {
         stars++; // Increment star count
         document.getElementById("starCount").textContent = stars; // Update star display
         addStar(); // Show a visual star animation
+                  // ✅ SAVE stars
+  localStorage.setItem("stars", stars);
+
+  // ✅ SAVE seen items
+  localStorage.setItem("seenItems", JSON.stringify([...seen]));
       }
       // Trigger bounce animation on the clicked card
       card.classList.remove("bounce"); void card.offsetWidth; card.classList.add("bounce");
@@ -2292,6 +2335,11 @@ function renderAlphabet() {
         stars++; // Increment star count
         document.getElementById("starCount").textContent = stars; // Update star display
         addStar(); // Show a visual star animation
+                  // ✅ SAVE stars
+  localStorage.setItem("stars", stars);
+
+  // ✅ SAVE seen items
+  localStorage.setItem("seenItems", JSON.stringify([...seen]));
       }
     };
     grid.appendChild(card); // Add card to the alphabet grid
