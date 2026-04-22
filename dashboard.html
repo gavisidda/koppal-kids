@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Web Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  text-align: center;
+}
+
+/* 🔒 Fixed Header */
+h1 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* 📱 Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  gap: 12px;
+  padding: 70px 12px 15px; /* space for fixed header */
+}
+
+/* 🧊 Card Design */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px 8px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(56,189,248,0.25);
+}
+
+.icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* 💻 Slightly bigger on tablets/desktop */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🚀 My Web Hub</h1>
+
+<div class="grid">
+
+  <a class="card" href="https://gavisidda.github.io/koppal-kids" target="_blank">
+    <div class="icon">📘</div>
+    <div class="title">Kids</div>
+  </a>
+
+  <a class="card" href="https://gavisidda.github.io/kk-kbc" target="_blank">
+    <div class="icon">🧠</div>
+    <div class="title">Quiz</div>
+  </a>
+
+  <a class="card" href="https://gavisidda.github.io/hatti-budget" target="_blank">
+    <div class="icon">💰</div>
+    <div class="title">Budget</div>
+  </a>
+
+  <a class="card" href="https://yourusername.github.io/gps" target="_blank">
+    <div class="icon">🚗</div>
+    <div class="title">GPS</div>
+  </a>
+
+  <a class="card" href="https://gavisidda.github.io/it-support" target="_blank">
+    <div class="icon">🛠️</div>
+    <div class="title">Tools</div>
+  </a>
+
+  <a class="card" href="https://yourusername.github.io/gallery" target="_blank">
+    <div class="icon">🖼️</div>
+    <div class="title">Gallery</div>
+  </a>
+
+  <a class="card" href="https://yourusername.github.io/notes" target="_blank">
+    <div class="icon">📝</div>
+    <div class="title">Notes</div>
+  </a>
+
+  <a class="card" href="https://yourusername.github.io/settings" target="_blank">
+    <div class="icon">⚙️</div>
+    <div class="title">Settings</div>
+  </a>
+
+</div>
+
+</body>
+</html>
