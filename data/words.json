@@ -1,0 +1,195 @@
+{
+  "categories": [
+    {
+      "id": "animals",
+      "icon": "🐾",
+      "label": { "en": "Animals", "kn": "ಪ್ರಾಣಿಗಳು" },
+      "cards": [
+        { "en": "Dog",     "kn": "ನಾಯಿ",       "emoji": "🐕", "sound": "dog" },
+        { "en": "Cat",     "kn": "ಬೆಕ್ಕು",      "emoji": "🐈", "sound": "cat" },
+        { "en": "Cow",     "kn": "ಹಸು",        "emoji": "🐄", "sound": "cow" },
+        { "en": "Horse",   "kn": "ಕುದುರೆ",     "emoji": "🐎", "sound": "horse" },
+        { "en": "Elephant","kn": "ಆನೆ",        "emoji": "🐘", "sound": "elephant" },
+        { "en": "Lion",    "kn": "ಸಿಂಹ",       "emoji": "🦁", "sound": "lion" },
+        { "en": "Tiger",   "kn": "ಹುಲಿ",       "emoji": "🐯", "sound": "tiger" },
+        { "en": "Monkey",  "kn": "ಕೋತಿ",       "emoji": "🐒", "sound": "monkey" },
+        { "en": "Rabbit",  "kn": "ಮೊಲ",        "emoji": "🐇", "sound": "rabbit" },
+        { "en": "Goat",    "kn": "ಮೇಕೆ",       "emoji": "🐐", "sound": "goat" },
+        { "en": "Sheep",   "kn": "ಕುರಿ",       "emoji": "🐑", "sound": "sheep" },
+        { "en": "Pig",     "kn": "ಹಂದಿ",       "emoji": "🐷", "sound": "pig" },
+        { "en": "Bear",    "kn": "ಕರಡಿ",       "emoji": "🐻", "sound": "bear" },
+        { "en": "Fox",     "kn": "ನರಿ",        "emoji": "🦊", "sound": "fox" },
+        { "en": "Deer",    "kn": "ಜಿಂಕೆ",      "emoji": "🦌", "sound": "deer" },
+        { "en": "Camel",   "kn": "ಒಂಟೆ",       "emoji": "🐪", "sound": "camel" },
+        { "en": "Zebra",   "kn": "ಜೀಬ್ರಾ",     "emoji": "🦓", "sound": "zebra" },
+        { "en": "Giraffe", "kn": "ಜಿರಾಫೆ",    "emoji": "🦒", "sound": "giraffe" }
+      ]
+    },
+    {
+      "id": "birds",
+      "icon": "🐦",
+      "label": { "en": "Birds", "kn": "ಪಕ್ಷಿಗಳು" },
+      "cards": [
+        { "en": "Parrot",  "kn": "ಗಿಳಿ",       "emoji": "🦜" },
+        { "en": "Peacock", "kn": "ನವಿಲು",      "emoji": "🦚" },
+        { "en": "Crow",    "kn": "ಕಾಗೆ",       "emoji": "🐦‍⬛" },
+        { "en": "Sparrow", "kn": "ಗುಬ್ಬಿ",     "emoji": "🐦" },
+        { "en": "Eagle",   "kn": "ಹದ್ದು",      "emoji": "🦅" },
+        { "en": "Owl",     "kn": "ಗೂಬೆ",       "emoji": "🦉" },
+        { "en": "Duck",    "kn": "ಬಾತುಕೋಳಿ",   "emoji": "🦆" },
+        { "en": "Hen",     "kn": "ಕೋಳಿ",       "emoji": "🐓" },
+        { "en": "Pigeon",  "kn": "ಪಾರಿವಾಳ",    "emoji": "🕊️" },
+        { "en": "Swan",    "kn": "ಹಂಸ",        "emoji": "🦢" },
+        { "en": "Flamingo","kn": "ಫ್ಲೆಮಿಂಗೊ",  "emoji": "🦩" },
+        { "en": "Penguin", "kn": "ಪೆಂಗ್ವಿನ್",  "emoji": "🐧" }
+      ]
+    },
+    {
+      "id": "fruits",
+      "icon": "🍎",
+      "label": { "en": "Fruits", "kn": "ಹಣ್ಣುಗಳು" },
+      "cards": [
+        { "en": "Apple",      "kn": "ಸೇಬು",       "emoji": "🍎" },
+        { "en": "Mango",      "kn": "ಮಾವಿನ ಹಣ್ಣು","emoji": "🥭" },
+        { "en": "Banana",     "kn": "ಬಾಳೆಹಣ್ಣು",  "emoji": "🍌" },
+        { "en": "Grapes",     "kn": "ದ್ರಾಕ್ಷಿ",   "emoji": "🍇" },
+        { "en": "Orange",     "kn": "ಕಿತ್ತಳೆ",    "emoji": "🍊" },
+        { "en": "Watermelon", "kn": "ಕಲ್ಲಂಗಡಿ",   "emoji": "🍉" },
+        { "en": "Pineapple",  "kn": "ಅನಾನಸ",      "emoji": "🍍" },
+        { "en": "Coconut",    "kn": "ತೆಂಗಿನಕಾಯಿ", "emoji": "🥥" },
+        { "en": "Papaya",     "kn": "ಪಪ್ಪಾಯಿ",    "emoji": "🧡" },
+        { "en": "Guava",      "kn": "ಸೀಬೆ",       "emoji": "🍈" },
+        { "en": "Pomegranate","kn": "ದಾಳಿಂಬೆ",    "emoji": "🍑" },
+        { "en": "Strawberry", "kn": "ಸ್ಟ್ರಾಬೆರಿ", "emoji": "🍓" },
+        { "en": "Lemon",      "kn": "ನಿಂಬೆ",      "emoji": "🍋" },
+        { "en": "Cherry",     "kn": "ಚೆರ್ರಿ",     "emoji": "🍒" }
+      ]
+    },
+    {
+      "id": "vegetables",
+      "icon": "🥦",
+      "label": { "en": "Vegetables", "kn": "ತರಕಾರಿಗಳು" },
+      "cards": [
+        { "en": "Tomato",   "kn": "ಟೊಮಾಟೊ",    "emoji": "🍅" },
+        { "en": "Potato",   "kn": "ಆಲೂಗಡ್ಡೆ",  "emoji": "🥔" },
+        { "en": "Carrot",   "kn": "ಕ್ಯಾರೆಟ್",  "emoji": "🥕" },
+        { "en": "Onion",    "kn": "ಈರುಳ್ಳಿ",   "emoji": "🧅" },
+        { "en": "Brinjal",  "kn": "ಬದನೆಕಾಯಿ",  "emoji": "🍆" },
+        { "en": "Pumpkin",  "kn": "ಕುಂಬಳಕಾಯಿ", "emoji": "🎃" },
+        { "en": "Cabbage",  "kn": "ಎಲೆಕೋಸು",   "emoji": "🥬" },
+        { "en": "Spinach",  "kn": "ಪಾಲಕ್",     "emoji": "🌿" },
+        { "en": "Cucumber", "kn": "ಸೌತೆಕಾಯಿ",  "emoji": "🥒" },
+        { "en": "Corn",     "kn": "ಜೋಳ",       "emoji": "🌽" },
+        { "en": "Garlic",   "kn": "ಬೆಳ್ಳುಳ್ಳಿ","emoji": "🧄" },
+        { "en": "Ginger",   "kn": "ಶುಂಠಿ",     "emoji": "🫚" }
+      ]
+    },
+    {
+      "id": "numbers",
+      "icon": "🔢",
+      "label": { "en": "Numbers", "kn": "ಸಂಖ್ಯೆಗಳು" },
+      "cards": [
+        { "en": "One",   "kn": "ಒಂದು",  "emoji": "1️⃣", "num": 1  },
+        { "en": "Two",   "kn": "ಎರಡು",  "emoji": "2️⃣", "num": 2  },
+        { "en": "Three", "kn": "ಮೂರು",  "emoji": "3️⃣", "num": 3  },
+        { "en": "Four",  "kn": "ನಾಲ್ಕು","emoji": "4️⃣", "num": 4  },
+        { "en": "Five",  "kn": "ಐದು",   "emoji": "5️⃣", "num": 5  },
+        { "en": "Six",   "kn": "ಆರು",   "emoji": "6️⃣", "num": 6  },
+        { "en": "Seven", "kn": "ಏಳು",   "emoji": "7️⃣", "num": 7  },
+        { "en": "Eight", "kn": "ಎಂಟು",  "emoji": "8️⃣", "num": 8  },
+        { "en": "Nine",  "kn": "ಒಂಬತ್ತು","emoji":"9️⃣", "num": 9  },
+        { "en": "Ten",   "kn": "ಹತ್ತು", "emoji": "🔟", "num": 10 },
+        { "en": "Twenty","kn": "ಇಪ್ಪತ್ತು","emoji":"2️⃣0️⃣","num": 20 },
+        { "en": "Fifty", "kn": "ಐವತ್ತು","emoji": "5️⃣0️⃣","num":50 },
+        { "en": "Hundred","kn": "ನೂರು", "emoji": "💯", "num": 100 }
+      ]
+    },
+    {
+      "id": "colors",
+      "icon": "🎨",
+      "label": { "en": "Colors", "kn": "ಬಣ್ಣಗಳು" },
+      "cards": [
+        { "en": "Red",    "kn": "ಕೆಂಪು",   "emoji": "🔴", "color": "#ef4444" },
+        { "en": "Blue",   "kn": "ನೀಲಿ",    "emoji": "🔵", "color": "#3b82f6" },
+        { "en": "Green",  "kn": "ಹಸಿರು",   "emoji": "🟢", "color": "#22c55e" },
+        { "en": "Yellow", "kn": "ಹಳದಿ",    "emoji": "🟡", "color": "#eab308" },
+        { "en": "Orange", "kn": "ಕಿತ್ತಳೆ", "emoji": "🟠", "color": "#f97316" },
+        { "en": "Purple", "kn": "ನೇರಳೆ",   "emoji": "🟣", "color": "#a855f7" },
+        { "en": "Pink",   "kn": "ಗುಲಾಬಿ",  "emoji": "🌸", "color": "#ec4899" },
+        { "en": "White",  "kn": "ಬಿಳಿ",    "emoji": "⚪", "color": "#f8fafc" },
+        { "en": "Black",  "kn": "ಕಪ್ಪು",   "emoji": "⚫", "color": "#1e293b" },
+        { "en": "Brown",  "kn": "ಕಂದು",    "emoji": "🟤", "color": "#92400e" }
+      ]
+    },
+    {
+      "id": "body",
+      "icon": "🫀",
+      "label": { "en": "Body Parts", "kn": "ದೇಹದ ಭಾಗಗಳು" },
+      "cards": [
+        { "en": "Eye",    "kn": "ಕಣ್ಣು",   "emoji": "👁️" },
+        { "en": "Ear",    "kn": "ಕಿವಿ",    "emoji": "👂" },
+        { "en": "Nose",   "kn": "ಮೂಗು",    "emoji": "👃" },
+        { "en": "Mouth",  "kn": "ಬಾಯಿ",    "emoji": "👄" },
+        { "en": "Teeth",  "kn": "ಹಲ್ಲು",   "emoji": "🦷" },
+        { "en": "Hand",   "kn": "ಕೈ",      "emoji": "🖐️" },
+        { "en": "Finger", "kn": "ಬೆರಳು",   "emoji": "☝️" },
+        { "en": "Leg",    "kn": "ಕಾಲು",    "emoji": "🦵" },
+        { "en": "Head",   "kn": "ತಲೆ",     "emoji": "🗣️" },
+        { "en": "Hair",   "kn": "ಕೂದಲು",   "emoji": "💇" },
+        { "en": "Heart",  "kn": "ಹೃದಯ",    "emoji": "❤️" },
+        { "en": "Stomach","kn": "ಹೊಟ್ಟೆ",  "emoji": "🫁" }
+      ]
+    },
+    {
+      "id": "transport",
+      "icon": "🚗",
+      "label": { "en": "Transport", "kn": "ಸಾರಿಗೆ" },
+      "cards": [
+        { "en": "Car",        "kn": "ಕಾರು",       "emoji": "🚗" },
+        { "en": "Bus",        "kn": "ಬಸ್ಸು",      "emoji": "🚌" },
+        { "en": "Train",      "kn": "ರೈಲು",       "emoji": "🚂" },
+        { "en": "Aeroplane",  "kn": "ವಿಮಾನ",      "emoji": "✈️" },
+        { "en": "Bicycle",    "kn": "ಸೈಕಲ್",      "emoji": "🚲" },
+        { "en": "Boat",       "kn": "ದೋಣಿ",       "emoji": "⛵" },
+        { "en": "Truck",      "kn": "ಲಾರಿ",       "emoji": "🚚" },
+        { "en": "Auto",       "kn": "ಆಟೋ",        "emoji": "🛺" },
+        { "en": "Scooter",    "kn": "ಸ್ಕೂಟರ್",    "emoji": "🛵" },
+        { "en": "Helicopter", "kn": "ಹೆಲಿಕಾಪ್ಟರ್","emoji": "🚁" }
+      ]
+    },
+    {
+      "id": "shapes",
+      "icon": "🔷",
+      "label": { "en": "Shapes", "kn": "ಆಕಾರಗಳು" },
+      "cards": [
+        { "en": "Circle",    "kn": "ವೃತ್ತ",     "emoji": "⭕" },
+        { "en": "Square",    "kn": "ಚೌಕ",        "emoji": "🟦" },
+        { "en": "Triangle",  "kn": "ತ್ರಿಕೋಣ",   "emoji": "🔺" },
+        { "en": "Rectangle", "kn": "ಆಯತ",        "emoji": "▬" },
+        { "en": "Star",      "kn": "ನಕ್ಷತ್ರ",   "emoji": "⭐" },
+        { "en": "Heart",     "kn": "ಹೃದಯ",       "emoji": "❤️" },
+        { "en": "Diamond",   "kn": "ವಜ್ರ",       "emoji": "💎" },
+        { "en": "Oval",      "kn": "ದೀರ್ಘವೃತ್ತ","emoji": "🥚" }
+      ]
+    },
+    {
+      "id": "food",
+      "icon": "🍽️",
+      "label": { "en": "Food", "kn": "ಆಹಾರ" },
+      "cards": [
+        { "en": "Rice",    "kn": "ಅನ್ನ",     "emoji": "🍚" },
+        { "en": "Roti",    "kn": "ರೊಟ್ಟಿ",   "emoji": "🫓" },
+        { "en": "Dal",     "kn": "ಬೇಳೆ",     "emoji": "🫘" },
+        { "en": "Milk",    "kn": "ಹಾಲು",     "emoji": "🥛" },
+        { "en": "Egg",     "kn": "ಮೊಟ್ಟೆ",   "emoji": "🥚" },
+        { "en": "Bread",   "kn": "ಬ್ರೆಡ್",   "emoji": "🍞" },
+        { "en": "Idli",    "kn": "ಇಡ್ಲಿ",    "emoji": "🥟" },
+        { "en": "Dosa",    "kn": "ದೋಸೆ",     "emoji": "🥞" },
+        { "en": "Sambar",  "kn": "ಸಾಂಬಾರ್",  "emoji": "🍲" },
+        { "en": "Water",   "kn": "ನೀರು",     "emoji": "💧" },
+        { "en": "Juice",   "kn": "ರಸ",       "emoji": "🧃" },
+        { "en": "Sweet",   "kn": "ಮಿಠಾಯಿ",   "emoji": "🍬" }
+      ]
+    }
+  ]
+}

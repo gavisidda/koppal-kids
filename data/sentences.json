@@ -1,0 +1,71 @@
+{
+  "categories": [
+    {
+      "id": "greetings",
+      "icon": "👋",
+      "label": { "en": "Greetings", "kn": "ಶುಭಾಶಯಗಳು" },
+      "sentences": [
+        { "en": "Good morning!",      "kn": "ಶುಭ ಪ್ರಭಾತ!",       "pronounce": "Shubha prabhata!" },
+        { "en": "Good night!",        "kn": "ಶುಭ ರಾತ್ರಿ!",       "pronounce": "Shubha raatri!" },
+        { "en": "How are you?",       "kn": "ನೀವು ಹೇಗಿದ್ದೀರಿ?",  "pronounce": "Neevu heegiddeeri?" },
+        { "en": "I am fine.",         "kn": "ನಾನು ಚೆನ್ನಾಗಿದ್ದೇನೆ.","pronounce": "Naanu chennaagiddene." },
+        { "en": "What is your name?", "kn": "ನಿಮ್ಮ ಹೆಸರೇನು?",    "pronounce": "Nimma hesarenu?" },
+        { "en": "My name is Ramu.",   "kn": "ನನ್ನ ಹೆಸರು ರಾಮು.",  "pronounce": "Nanna hesaru Raamu." },
+        { "en": "Thank you!",         "kn": "ಧನ್ಯವಾದಗಳು!",       "pronounce": "Dhanyavaadagalu!" },
+        { "en": "Welcome!",           "kn": "ಸ್ವಾಗತ!",            "pronounce": "Svaagata!" }
+      ]
+    },
+    {
+      "id": "school",
+      "icon": "🏫",
+      "label": { "en": "At School", "kn": "ಶಾಲೆಯಲ್ಲಿ" },
+      "sentences": [
+        { "en": "Open your book.",    "kn": "ನಿಮ್ಮ ಪುಸ್ತಕ ತೆರೆಯಿರಿ.",   "pronounce": "Nimma pustaka tereyiri." },
+        { "en": "Write your name.",   "kn": "ನಿಮ್ಮ ಹೆಸರು ಬರೆಯಿರಿ.",    "pronounce": "Nimma hesaru bareyiri." },
+        { "en": "Stand up, please.",  "kn": "ದಯವಿಟ್ಟು ನಿಲ್ಲಿರಿ.",        "pronounce": "Dayaviṭṭu nilliri." },
+        { "en": "Sit down, please.",  "kn": "ದಯವಿಟ್ಟು ಕೂತಿರಿ.",          "pronounce": "Dayaviṭṭu kuutiri." },
+        { "en": "I love my school.",  "kn": "ನಾನು ನನ್ನ ಶಾಲೆಯನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.", "pronounce": "Naanu nanna shaleyanu priitisuttene." },
+        { "en": "Listen carefully.",  "kn": "ಎಚ್ಚರಿಕೆಯಿಂದ ಕೇಳಿರಿ.",      "pronounce": "Eccharikeyinda keliri." }
+      ]
+    },
+    {
+      "id": "home",
+      "icon": "🏠",
+      "label": { "en": "At Home", "kn": "ಮನೆಯಲ್ಲಿ" },
+      "sentences": [
+        { "en": "I am hungry.",          "kn": "ನನಗೆ ಹಸಿವಾಗಿದೆ.",         "pronounce": "Nanage hasivaagide." },
+        { "en": "Give me water.",        "kn": "ನನಗೆ ನೀರು ಕೊಡಿ.",          "pronounce": "Nanage neeru kodi." },
+        { "en": "I will sleep now.",     "kn": "ನಾನು ಈಗ ಮಲಗುತ್ತೇನೆ.",     "pronounce": "Naanu eega malaguttene." },
+        { "en": "I love my mother.",     "kn": "ನಾನು ನನ್ನ ಅಮ್ಮನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.","pronounce": "Naanu nanna ammananu priitisuttene." },
+        { "en": "I love my father.",     "kn": "ನಾನು ನನ್ನ ಅಪ್ಪನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ.","pronounce": "Naanu nanna appananu priitisuttene." },
+        { "en": "Let us eat together.",  "kn": "ನಾವು ಒಟ್ಟಿಗೆ ತಿನ್ನೋಣ.",    "pronounce": "Naavu oṭṭige tinnoṇa." }
+      ]
+    },
+    {
+      "id": "nature",
+      "icon": "🌿",
+      "label": { "en": "Nature", "kn": "ಪ್ರಕೃತಿ" },
+      "sentences": [
+        { "en": "The sun is shining.",    "kn": "ಸೂರ್ಯ ಹೊಳೆಯುತ್ತಿದ್ದಾನೆ.",    "pronounce": "Soorya holayuttiddaane." },
+        { "en": "It is raining today.",   "kn": "ಇಂದು ಮಳೆಯಾಗುತ್ತಿದೆ.",        "pronounce": "Indu maleyaaguttide." },
+        { "en": "The sky is blue.",       "kn": "ಆಕಾಶ ನೀಲಿ ಬಣ್ಣದ್ದಾಗಿದೆ.",    "pronounce": "Aakaasha neeli bannaddaagide." },
+        { "en": "The flower is pretty.",  "kn": "ಹೂವು ಸುಂದರವಾಗಿದೆ.",          "pronounce": "Hoofu sundaravaagide." },
+        { "en": "Trees give us shade.",   "kn": "ಮರಗಳು ನಮಗೆ ನೆರಳು ಕೊಡುತ್ತವೆ.","pronounce": "Maragalu namage neralu koduttave." },
+        { "en": "Birds are singing.",     "kn": "ಪಕ್ಷಿಗಳು ಹಾಡುತ್ತಿವೆ.",        "pronounce": "Pakshigalu haaduttive." }
+      ]
+    },
+    {
+      "id": "action",
+      "icon": "🏃",
+      "label": { "en": "Actions", "kn": "ಕ್ರಿಯೆಗಳು" },
+      "sentences": [
+        { "en": "I can run fast.",     "kn": "ನಾನು ವೇಗವಾಗಿ ಓಡಬಲ್ಲೆ.",     "pronounce": "Naanu vegavaagi odaballe." },
+        { "en": "I like to dance.",    "kn": "ನನಗೆ ನೃತ್ಯ ಮಾಡಲು ಇಷ್ಟ.",    "pronounce": "Nanage nrutya maadalu ishta." },
+        { "en": "I can swim.",         "kn": "ನಾನು ಈಜಬಲ್ಲೆ.",             "pronounce": "Naanu eejaballe." },
+        { "en": "I will jump high.",   "kn": "ನಾನು ಎತ್ತರ ಜಿಗಿಯುತ್ತೇನೆ.", "pronounce": "Naanu ettara jigiyuttene." },
+        { "en": "I love to read.",     "kn": "ನನಗೆ ಓದಲು ಇಷ್ಟ.",           "pronounce": "Nanage odalu ishta." },
+        { "en": "Let us play!",        "kn": "ನಾವು ಆಡೋಣ!",               "pronounce": "Naavu aadona!" }
+      ]
+    }
+  ]
+}
