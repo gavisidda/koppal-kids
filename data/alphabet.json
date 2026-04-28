@@ -420,21 +420,41 @@
       "label": {"en": "Missing Letters", "kn": "ಕಾಣೆಯಾದ ಅಕ್ಷರ"},
       "type": "activity-missing", "desc": "Fill in the missing letter! Tap the correct answer.",
       "questions": [
-        {"word":"C_T", "answer":"A","options":["A","E","I","O"],"full":"CAT", "kn":"ಬೆಕ್ಕು",  "emoji":"🐈"},
-        {"word":"D_G", "answer":"O","options":["A","O","U","I"],"full":"DOG", "kn":"ನಾಯಿ",    "emoji":"🐕"},
-        {"word":"S_N", "answer":"U","options":["A","E","U","O"],"full":"SUN", "kn":"ಸೂರ್ಯ",   "emoji":"☀️"},
-        {"word":"H_T", "answer":"A","options":["A","E","I","O"],"full":"HAT", "kn":"ಟೋಪಿ",    "emoji":"🎩"},
-        {"word":"B_G", "answer":"A","options":["A","E","I","O"],"full":"BAG", "kn":"ಚೀಲ",     "emoji":"👜"},
-        {"word":"F_SH","answer":"I","options":["A","E","I","U"],"full":"FISH","kn":"ಮೀನು",    "emoji":"🐟"},
-        {"word":"L_ON","answer":"I","options":["A","E","I","O"],"full":"LION","kn":"ಸಿಂಹ",    "emoji":"🦁"},
-        {"word":"B_LL","answer":"A","options":["A","E","I","O"],"full":"BALL","kn":"ಚೆಂಡು",   "emoji":"⚽"},
-        {"word":"C_W", "answer":"O","options":["A","O","U","I"],"full":"COW", "kn":"ಹಸು",     "emoji":"🐄"},
-        {"word":"FR_G","answer":"O","options":["A","E","O","U"],"full":"FROG","kn":"ಕಪ್ಪೆ",   "emoji":"🐸"},
-        {"word":"ST_R","answer":"A","options":["A","E","I","O"],"full":"STAR","kn":"ನಕ್ಷತ್ರ", "emoji":"⭐"},
-        {"word":"K_TE","answer":"I","options":["A","E","I","O"],"full":"KITE","kn":"ಗಾಳಿಪಟ",  "emoji":"🪁"},
-        {"word":"_NT", "answer":"A","options":["A","E","I","O"],"full":"ANT", "kn":"ಇರುವೆ",   "emoji":"🐜"},
-        {"word":"_GG", "answer":"E","options":["A","E","I","O"],"full":"EGG", "kn":"ಮೊಟ್ಟೆ",  "emoji":"🥚"},
-        {"word":"_WL", "answer":"O","options":["A","E","O","U"],"full":"OWL", "kn":"ಗೂಬೆ",    "emoji":"🦉"}
+        { "word":"C_T", "answer":"A","options":["A","E","I","O"],"full":"CAT","kn":"ಬೆಕ್ಕು","emoji":"🐈" },
+        { "word":"D_G", "answer":"O","options":["A","O","U","I"],"full":"DOG","kn":"ನಾಯಿ","emoji":"🐕" },
+        { "word":"S_N", "answer":"U","options":["A","E","U","O"],"full":"SUN","kn":"ಸೂರ್ಯ","emoji":"☀️" },
+        { "word":"H_T", "answer":"A","options":["A","E","I","O"],"full":"HAT","kn":"ಟೋಪಿ","emoji":"🎩" },
+        { "word":"B_G", "answer":"A","options":["A","E","I","O"],"full":"BAG","kn":"ಚೀಲ","emoji":"👜" },
+
+        { "word":"F_SH", "answer":"I","options":["A","E","I","U"],"full":"FISH","kn":"ಮೀನು","emoji":"🐟" },
+        { "word":"L_ON", "answer":"I","options":["A","E","I","O"],"full":"LION","kn":"ಸಿಂಹ","emoji":"🦁" },
+        { "word":"C_W", "answer":"O","options":["A","O","U","I"],"full":"COW","kn":"ಹಸು","emoji":"🐄" },
+        { "word":"FR_G", "answer":"O","options":["A","E","O","U"],"full":"FROG","kn":"ಕಪ್ಪೆ","emoji":"🐸" },
+        { "word":"ST_R", "answer":"A","options":["A","E","I","O"],"full":"STAR","kn":"ನಕ್ಷತ್ರ","emoji":"⭐" },
+
+        { "word":"K_TE", "answer":"I","options":["A","E","I","O"],"full":"KITE","kn":"ಗಾಳಿಪಟ","emoji":"🪁" },
+        { "word":"_NT", "answer":"A","options":["A","E","I","O"],"full":"ANT","kn":"ಇರುವೆ","emoji":"🐜" },
+        { "word":"_GG", "answer":"E","options":["A","E","I","O"],"full":"EGG","kn":"ಮೊಟ್ಟೆ","emoji":"🥚" },
+        { "word":"_WL", "answer":"O","options":["A","E","O","U"],"full":"OWL","kn":"ಗೂಬೆ","emoji":"🦉" },
+        { "word":"R_BBIT", "answer":"A","options":["A","E","I","O"],"full":"RABBIT","kn":"ಮೊಲ","emoji":"🐇" },
+
+        { "word":"M_NKEY", "answer":"O","options":["A","E","I","O"],"full":"MONKEY","kn":"ಕೋತಿ","emoji":"🐒" },
+        { "word":"P_N", "answer":"E","options":["A","E","I","O"],"full":"PEN","kn":"ಪೆನ್","emoji":"🖊️" },
+        { "word":"B_LL", "answer":"A","options":["A","E","I","O"],"full":"BALL","kn":"ಚೆಂಡು","emoji":"⚽" },
+        { "word":"D_LL", "answer":"O","options":["A","E","I","O"],"full":"DOLL","kn":"ಗೊಂಬೆ","emoji":"🪆" },
+        { "word":"C_P", "answer":"U","options":["A","E","U","O"],"full":"CUP","kn":"ಕಪ್","emoji":"☕" },
+
+        { "word":"S_N", "answer":"U","options":["A","E","I","U"],"full":"SUN","kn":"ಸೂರ್ಯ","emoji":"☀️" },
+        { "word":"T_P", "answer":"O","options":["A","O","U","I"],"full":"TOP","kn":"ಟಾಪ್","emoji":"🪀" },
+        { "word":"B_D", "answer":"E","options":["A","E","I","O"],"full":"BED","kn":"ಹಾಸಿಗೆ","emoji":"🛏️" },
+        { "word":"F_N", "answer":"A","options":["A","E","I","O"],"full":"FAN","kn":"ಫ್ಯಾನ್","emoji":"🌀" },
+        { "word":"J_M", "answer":"A","options":["A","E","I","O"],"full":"JAM","kn":"ಜಾಮ್","emoji":"🍓" },
+
+        { "word":"H_N", "answer":"E","options":["A","E","I","O"],"full":"HEN","kn":"ಕೋಳಿ","emoji":"🐔" },
+        { "word":"P_G", "answer":"I","options":["A","E","I","O"],"full":"PIG","kn":"ಹಂದಿ","emoji":"🐷" },
+        { "word":"D_G", "answer":"O","options":["A","O","U","I"],"full":"DOG","kn":"ನಾಯಿ","emoji":"🐕" },
+        { "word":"C_T", "answer":"A","options":["A","E","I","O"],"full":"CAT","kn":"ಬೆಕ್ಕು","emoji":"🐈" },
+        { "word":"B_RD", "answer":"I","options":["A","E","I","O"],"full":"BIRD","kn":"ಪಕ್ಷಿ","emoji":"🐦" }
       ]
     },
     {
