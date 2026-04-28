@@ -40,18 +40,29 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 /* ── hero strip: kid1 | TITLE | kid2 ── */
 .hdr-hero{
   display:grid;
-  grid-template-columns:64px 1fr 64px;
+  grid-template-columns:100px 1fr 100px;
   align-items:end;
   padding:4px 8px 0;
   gap:4px;
 }
 
 /* MASCOT IMAGES */
-.hdr-kid{
+/*.hdr-kid{
   width:64px;height:68px;
   object-fit:contain;object-position:bottom;
   filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));
   display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}*/
+.hdr-kid{
+  width:100px;
+  height:100px;              /* 👈 make equal */
+  object-fit:cover;         /* 👈 fill circle */
+  object-position:center;   /* 👈 center image */
+  border-radius:50%;        /* 👈 makes it round */
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));
+  display:block;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  border:3px solid #fff;
 }
 .hdr-kid:hover{transform:scale(1.1) rotate(-5deg)}
 /* kid2 is mirrored (facing inward toward title) */
@@ -469,22 +480,22 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 <main id="main-content">
   <section id="sec-alphabet" class="section active">
-    <div class="sec-head"><h2>🔤 Alphabet</h2><p id="alpha-desc">Choose a category</p></div>
+    <div class="sec-head"><h2><p id="alpha-desc">Choose a category</p></div>
     <div class="cat-scroll" id="alpha-cats"></div>
     <div id="alpha-content"><div class="loading"><div class="spinner"></div><br>Loading…</div></div>
   </section>
   <section id="sec-words" class="section">
-    <div class="sec-head"><h2>📖 Words</h2><p>Choose a category and tap any card!</p></div>
+    <div class="sec-head"><p>Choose a category and tap any card!</p></div>
     <div class="cat-scroll" id="words-cats"></div>
     <div class="cards-grid" id="words-grid"><div class="loading"><div class="spinner"></div><br>Loading…</div></div>
   </section>
   <section id="sec-sentences" class="section">
-    <div class="sec-head"><h2>💬 Sentences</h2><p>Tap 🔊 to hear the sentence!</p></div>
+    <div class="sec-head"><p>Tap 🔊 to hear the sentence!</p></div>
     <div class="cat-scroll" id="sent-cats"></div>
     <div class="sentence-list" id="sent-list"><div class="loading"><div class="spinner"></div><br>Loading…</div></div>
   </section>
   <section id="sec-quiz" class="section">
-    <div class="sec-head"><h2>🎯 Quiz</h2><p>Match the English word to its Kannada meaning!</p></div>
+    <div class="sec-head"><p>Match the English word to its Kannada meaning!</p></div>
     <div class="quiz-wrap">
       <div class="quiz-score-bar">
         <span class="q-stars" id="quiz-stars">⭐ 0</span>
@@ -504,7 +515,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
         <div class="res-emoji" id="res-emoji">🎉</div>
         <h3 id="res-title">Great Job!</h3>
         <p  id="res-desc"></p>
-        <button class="retry-btn" onclick="startQuiz()">Try Again 🔄</button>
+        <button class="retry-btn" onclick="startQuiz()">NEXT 🔄</button>
       </div>
     </div>
   </section>
@@ -514,12 +525,12 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 <div class="popup-overlay" id="popup" onclick="closePopupOutside(event)">
   <div class="popup-box">
-    <button class="popup-close" onclick="closePopup()">✕</button>
+    <button class="popup-close" onclick="closePopup()">OK</button>
     <div class="popup-emoji" id="pop-emoji"></div>
     <div class="popup-en"    id="pop-en"></div>
     <div class="popup-kn"    id="pop-kn"></div>
     <div class="popup-pro"   id="pop-pro"></div>
-    <button class="popup-speak" onclick="speakCurrent()">🔊 Hear It!</button>
+    <button class="popup-speak" onclick="speakCurrent()">🔊 Hear It - Again!</button>
   </div>
 </div>
 <div class="toast" id="toast"></div>
