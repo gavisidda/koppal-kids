@@ -1,0 +1,170 @@
+{
+  "categories": [
+    {
+      "id": "numbers", "icon": "🔢",
+      "label": {"en": "Numbers 1–20", "kn": "ಸಂಖ್ಯೆಗಳು 1–20"},
+      "desc": "Count from 1 to 20!",
+      "cards": [
+        {"en":"One",    "kn":"ಒಂದು",    "num":1,  "emoji":"1️⃣"},
+        {"en":"Two",    "kn":"ಎರಡು",    "num":2,  "emoji":"2️⃣"},
+        {"en":"Three",  "kn":"ಮೂರು",    "num":3,  "emoji":"3️⃣"},
+        {"en":"Four",   "kn":"ನಾಲ್ಕು",  "num":4,  "emoji":"4️⃣"},
+        {"en":"Five",   "kn":"ಐದು",     "num":5,  "emoji":"5️⃣"},
+        {"en":"Six",    "kn":"ಆರು",     "num":6,  "emoji":"6️⃣"},
+        {"en":"Seven",  "kn":"ಏಳು",     "num":7,  "emoji":"7️⃣"},
+        {"en":"Eight",  "kn":"ಎಂಟು",    "num":8,  "emoji":"8️⃣"},
+        {"en":"Nine",   "kn":"ಒಂಬತ್ತು","num":9,  "emoji":"9️⃣"},
+        {"en":"Ten",    "kn":"ಹತ್ತು",   "num":10, "emoji":"🔟"},
+        {"en":"Eleven", "kn":"ಹನ್ನೊಂದು","num":11,"emoji":"1️⃣1️⃣"},
+        {"en":"Twelve", "kn":"ಹನ್ನೆರಡು","num":12,"emoji":"1️⃣2️⃣"},
+        {"en":"Thirteen","kn":"ಹದಿಮೂರು","num":13,"emoji":"1️⃣3️⃣"},
+        {"en":"Fourteen","kn":"ಹದಿನಾಲ್ಕು","num":14,"emoji":"1️⃣4️⃣"},
+        {"en":"Fifteen","kn":"ಹದಿನೈದು", "num":15,"emoji":"1️⃣5️⃣"},
+        {"en":"Sixteen","kn":"ಹದಿನಾರು",  "num":16,"emoji":"1️⃣6️⃣"},
+        {"en":"Seventeen","kn":"ಹದಿನೇಳು","num":17,"emoji":"1️⃣7️⃣"},
+        {"en":"Eighteen","kn":"ಹದಿನೆಂಟು","num":18,"emoji":"1️⃣8️⃣"},
+        {"en":"Nineteen","kn":"ಹತ್ತೊಂಬತ್ತು","num":19,"emoji":"1️⃣9️⃣"},
+        {"en":"Twenty", "kn":"ಇಪ್ಪತ್ತು","num":20,"emoji":"2️⃣0️⃣"}
+      ]
+    },
+    {
+      "id": "shapes", "icon": "🔷",
+      "label": {"en": "Shapes", "kn": "ಆಕಾರಗಳು"},
+      "desc": "Recognize and name shapes!",
+      "cards": [
+        {"en":"Circle",   "kn":"ವೃತ್ತ",    "emoji":"⭕","sides":0},
+        {"en":"Square",   "kn":"ಚೌಕ",      "emoji":"🟦","sides":4},
+        {"en":"Triangle", "kn":"ತ್ರಿಕೋಣ",  "emoji":"🔺","sides":3},
+        {"en":"Rectangle","kn":"ಆಯತ",      "emoji":"▬", "sides":4},
+        {"en":"Oval",     "kn":"ದೀರ್ಘವೃತ್ತ","emoji":"🥚","sides":0},
+        {"en":"Star",     "kn":"ನಕ್ಷತ್ರ",  "emoji":"⭐","sides":5},
+        {"en":"Heart",    "kn":"ಹೃದಯ",     "emoji":"❤️","sides":0},
+        {"en":"Diamond",  "kn":"ವಜ್ರ",     "emoji":"💎","sides":4},
+        {"en":"Pentagon", "kn":"ಪಂಚಭುಜ",  "emoji":"⬠", "sides":5},
+        {"en":"Hexagon",  "kn":"ಷಡ್ಭುಜ",  "emoji":"⬡", "sides":6}
+      ]
+    },
+    {
+      "id": "colors", "icon": "🎨",
+      "label": {"en": "Colours", "kn": "ಬಣ್ಣಗಳು"},
+      "desc": "Learn the colours of the rainbow!",
+      "cards": [
+        {"en":"Red",    "kn":"ಕೆಂಪು",  "emoji":"🔴","color":"#ef4444"},
+        {"en":"Blue",   "kn":"ನೀಲಿ",   "emoji":"🔵","color":"#3b82f6"},
+        {"en":"Green",  "kn":"ಹಸಿರು",  "emoji":"🟢","color":"#22c55e"},
+        {"en":"Yellow", "kn":"ಹಳದಿ",   "emoji":"🟡","color":"#eab308"},
+        {"en":"Orange", "kn":"ಕಿತ್ತಳೆ","emoji":"🟠","color":"#f97316"},
+        {"en":"Purple", "kn":"ನೇರಳೆ",  "emoji":"🟣","color":"#a855f7"},
+        {"en":"Pink",   "kn":"ಗುಲಾಬಿ", "emoji":"🌸","color":"#ec4899"},
+        {"en":"White",  "kn":"ಬಿಳಿ",   "emoji":"⚪","color":"#f1f5f9"},
+        {"en":"Black",  "kn":"ಕಪ್ಪು",  "emoji":"⚫","color":"#1e293b"},
+        {"en":"Brown",  "kn":"ಕಂದು",   "emoji":"🟤","color":"#92400e"}
+      ]
+    },
+    {
+      "id": "addition", "icon": "➕",
+      "label": {"en": "Addition", "kn": "ಕೂಡಿಕೆ"},
+      "desc": "Add numbers together!",
+      "type": "maths-quiz",
+      "questions": [
+        {"q":"1 + 1 = ?","a":2,"opts":[2,3,4,1],"emoji":"🍎🍎"},
+        {"q":"2 + 1 = ?","a":3,"opts":[3,4,2,5],"emoji":"⚽⚽⚽"},
+        {"q":"2 + 2 = ?","a":4,"opts":[4,3,5,6],"emoji":"🌟🌟🌟🌟"},
+        {"q":"3 + 1 = ?","a":4,"opts":[4,5,3,2],"emoji":"🐕🐕🐕🐕"},
+        {"q":"3 + 2 = ?","a":5,"opts":[5,4,6,7],"emoji":"🍌🍌🍌🍌🍌"},
+        {"q":"4 + 1 = ?","a":5,"opts":[5,6,4,3],"emoji":"🌸🌸🌸🌸🌸"},
+        {"q":"3 + 3 = ?","a":6,"opts":[6,5,7,4],"emoji":"🔵🔵🔵🔵🔵🔵"},
+        {"q":"4 + 2 = ?","a":6,"opts":[6,7,5,8],"emoji":"⭐⭐⭐⭐⭐⭐"},
+        {"q":"5 + 2 = ?","a":7,"opts":[7,6,8,5],"emoji":"🎈🎈🎈🎈🎈🎈🎈"},
+        {"q":"4 + 4 = ?","a":8,"opts":[8,7,9,6],"emoji":"🐝🐝🐝🐝🐝🐝🐝🐝"},
+        {"q":"5 + 4 = ?","a":9,"opts":[9,8,10,7],"emoji":"🍎🍎🍎🍎🍎🍎🍎🍎🍎"},
+        {"q":"5 + 5 = ?","a":10,"opts":[10,9,11,8],"emoji":"🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟"}
+      ]
+    },
+    {
+      "id": "subtraction", "icon": "➖",
+      "label": {"en": "Subtraction", "kn": "ಕಳೆಯುವಿಕೆ"},
+      "desc": "Take away numbers!",
+      "type": "maths-quiz",
+      "questions": [
+        {"q":"2 − 1 = ?","a":1,"opts":[1,2,0,3],"emoji":"🍎🍎 take away 🍎"},
+        {"q":"3 − 1 = ?","a":2,"opts":[2,1,3,4],"emoji":"🐕🐕🐕 take away 🐕"},
+        {"q":"4 − 2 = ?","a":2,"opts":[2,3,1,4],"emoji":"⭐⭐⭐⭐ take away ⭐⭐"},
+        {"q":"5 − 1 = ?","a":4,"opts":[4,5,3,6],"emoji":"🌸🌸🌸🌸🌸 take away 🌸"},
+        {"q":"5 − 2 = ?","a":3,"opts":[3,2,4,5],"emoji":"🎈🎈🎈🎈🎈 take away 🎈🎈"},
+        {"q":"5 − 3 = ?","a":2,"opts":[2,1,3,4],"emoji":"🍌🍌🍌🍌🍌 take away 🍌🍌🍌"},
+        {"q":"6 − 3 = ?","a":3,"opts":[3,2,4,5],"emoji":"⚽⚽⚽⚽⚽⚽ take away ⚽⚽⚽"},
+        {"q":"8 − 4 = ?","a":4,"opts":[4,3,5,6],"emoji":"🐝🐝🐝🐝🐝🐝🐝🐝 take away 🐝🐝🐝🐝"},
+        {"q":"10 − 5 = ?","a":5,"opts":[5,4,6,7],"emoji":"🔟 take away 5️⃣"},
+        {"q":"9 − 3 = ?","a":6,"opts":[6,5,7,8],"emoji":"9️⃣ take away 3️⃣"}
+      ]
+    },
+    {
+      "id": "comparison", "icon": "⚖️",
+      "label": {"en": "More, Less, Equal", "kn": "ಹೆಚ್ಚು, ಕಡಿಮೆ, ಸಮಾನ"},
+      "desc": "Compare numbers using >, <, =",
+      "cards": [
+        {"en":"5 > 3  (Greater)",  "kn":"5 > 3 (ದೊಡ್ಡದು)","emoji":"5️⃣➡️3️⃣"},
+        {"en":"2 < 7  (Smaller)",  "kn":"2 < 7 (ಚಿಕ್ಕದು)", "emoji":"2️⃣⬅️7️⃣"},
+        {"en":"4 = 4  (Equal)",    "kn":"4 = 4 (ಸಮಾನ)",    "emoji":"4️⃣🟰4️⃣"},
+        {"en":"10 > 6",            "kn":"10 > 6",           "emoji":"🔟➡️6️⃣"},
+        {"en":"1 < 9",             "kn":"1 < 9",            "emoji":"1️⃣⬅️9️⃣"},
+        {"en":"3 = 3",             "kn":"3 = 3",            "emoji":"3️⃣🟰3️⃣"},
+        {"en":"8 > 5",             "kn":"8 > 5",            "emoji":"8️⃣➡️5️⃣"},
+        {"en":"2 < 10",            "kn":"2 < 10",           "emoji":"2️⃣⬅️🔟"}
+      ]
+    },
+    {
+      "id": "ordinals", "icon": "🥇",
+      "label": {"en": "Ordinal Numbers", "kn": "ಕ್ರಮ ಸಂಖ್ಯೆಗಳು"},
+      "desc": "First, second, third — position numbers!",
+      "cards": [
+        {"en":"1st — First",   "kn":"1ನೇ — ಮೊದಲ",   "emoji":"🥇"},
+        {"en":"2nd — Second",  "kn":"2ನೇ — ಎರಡನೇ",  "emoji":"🥈"},
+        {"en":"3rd — Third",   "kn":"3ನೇ — ಮೂರನೇ",  "emoji":"🥉"},
+        {"en":"4th — Fourth",  "kn":"4ನೇ — ನಾಲ್ಕನೇ","emoji":"4️⃣"},
+        {"en":"5th — Fifth",   "kn":"5ನೇ — ಐದನೇ",   "emoji":"5️⃣"},
+        {"en":"6th — Sixth",   "kn":"6ನೇ — ಆರನೇ",   "emoji":"6️⃣"},
+        {"en":"7th — Seventh", "kn":"7ನೇ — ಏಳನೇ",   "emoji":"7️⃣"},
+        {"en":"8th — Eighth",  "kn":"8ನೈ — ಎಂಟನೇ",  "emoji":"8️⃣"},
+        {"en":"9th — Ninth",   "kn":"9ನೇ — ಒಂಬತ್ತನೇ","emoji":"9️⃣"},
+        {"en":"10th — Tenth",  "kn":"10ನೈ — ಹತ್ತನೈ","emoji":"🔟"}
+      ]
+    },
+    {
+      "id": "time", "icon": "🕐",
+      "label": {"en": "Time & Calendar", "kn": "ಸಮಯ ಮತ್ತು ಕ್ಯಾಲೆಂಡರ್"},
+      "desc": "Days, months and telling the time!",
+      "cards": [
+        {"en":"Monday",   "kn":"ಸೋಮವಾರ",   "emoji":"1️⃣"},
+        {"en":"Tuesday",  "kn":"ಮಂಗಳವಾರ",  "emoji":"2️⃣"},
+        {"en":"Wednesday","kn":"ಬುಧವಾರ",    "emoji":"3️⃣"},
+        {"en":"Thursday", "kn":"ಗುರುವಾರ",   "emoji":"4️⃣"},
+        {"en":"Friday",   "kn":"ಶುಕ್ರವಾರ",  "emoji":"5️⃣"},
+        {"en":"Saturday", "kn":"ಶನಿವಾರ",    "emoji":"6️⃣"},
+        {"en":"Sunday",   "kn":"ಭಾನುವಾರ",   "emoji":"7️⃣"},
+        {"en":"Morning",  "kn":"ಬೆಳಿಗ್ಗೆ",  "emoji":"🌅"},
+        {"en":"Afternoon","kn":"ಮಧ್ಯಾಹ್ನ",  "emoji":"☀️"},
+        {"en":"Evening",  "kn":"ಸಂಜೆ",      "emoji":"🌇"},
+        {"en":"Night",    "kn":"ರಾತ್ರಿ",    "emoji":"🌙"}
+      ]
+    },
+    {
+      "id": "measurement", "icon": "📏",
+      "label": {"en": "Measurement", "kn": "ಅಳತೆ"},
+      "desc": "Long, short, heavy, light — learn measurement words!",
+      "cards": [
+        {"en":"Long",   "kn":"ಉದ್ದ",    "emoji":"📏"},
+        {"en":"Short",  "kn":"ಗಿಡ್ಡ",   "emoji":"📌"},
+        {"en":"Tall",   "kn":"ಎತ್ತರ",   "emoji":"🦒"},
+        {"en":"Heavy",  "kn":"ಭಾರ",     "emoji":"⚖️"},
+        {"en":"Light",  "kn":"ಹಗುರ",    "emoji":"🪶"},
+        {"en":"Full",   "kn":"ತುಂಬಿದ",  "emoji":"🪣"},
+        {"en":"Empty",  "kn":"ಖಾಲಿ",    "emoji":"🕳️"},
+        {"en":"More",   "kn":"ಹೆಚ್ಚು",  "emoji":"➕"},
+        {"en":"Less",   "kn":"ಕಡಿಮೆ",   "emoji":"➖"},
+        {"en":"Equal",  "kn":"ಸಮಾನ",    "emoji":"🟰"}
+      ]
+    }
+  ]
+}

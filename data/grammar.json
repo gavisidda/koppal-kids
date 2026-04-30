@@ -1,0 +1,165 @@
+{
+  "categories": [
+    {
+      "id": "nouns", "icon": "🏷️",
+      "label": {"en": "Nouns", "kn": "ನಾಮಪದಗಳು"},
+      "desc": "A noun is a name of a person, place, or thing!",
+      "cards": [
+        {"en": "Dog",     "kn": "ನಾಯಿ",   "emoji": "🐕", "note": "Thing"},
+        {"en": "Ramu",    "kn": "ರಾಮು",   "emoji": "👦", "note": "Person"},
+        {"en": "School",  "kn": "ಶಾಲೆ",   "emoji": "🏫", "note": "Place"},
+        {"en": "Apple",   "kn": "ಸೇಬು",   "emoji": "🍎", "note": "Thing"},
+        {"en": "India",   "kn": "ಭಾರತ",   "emoji": "🇮🇳","note": "Place"},
+        {"en": "Mother",  "kn": "ಅಮ್ಮ",   "emoji": "👩", "note": "Person"},
+        {"en": "Book",    "kn": "ಪುಸ್ತಕ", "emoji": "📚", "note": "Thing"},
+        {"en": "City",    "kn": "ನಗರ",    "emoji": "🌆", "note": "Place"}
+      ]
+    },
+    {
+      "id": "pronouns", "icon": "🫵",
+      "label": {"en": "Pronouns", "kn": "ಸರ್ವನಾಮಗಳು"},
+      "desc": "Words we use instead of names!",
+      "cards": [
+        {"en": "I",    "kn": "ನಾನು",    "emoji": "☝️"},
+        {"en": "You",  "kn": "ನೀನು/ನೀವು","emoji": "🫵"},
+        {"en": "He",   "kn": "ಅವನು",    "emoji": "👦"},
+        {"en": "She",  "kn": "ಅವಳು",    "emoji": "👧"},
+        {"en": "We",   "kn": "ನಾವು",    "emoji": "👫"},
+        {"en": "They", "kn": "ಅವರು",    "emoji": "👨‍👩‍👧"},
+        {"en": "It",   "kn": "ಅದು",     "emoji": "📦"},
+        {"en": "This", "kn": "ಇದು",     "emoji": "👈"},
+        {"en": "That", "kn": "ಅದು",     "emoji": "👉"}
+      ]
+    },
+    {
+      "id": "verbs", "icon": "🏃",
+      "label": {"en": "Action Words (Verbs)", "kn": "ಕ್ರಿಯಾಪದಗಳು"},
+      "desc": "Verbs are action words — what we DO!",
+      "cards": [
+        {"en": "Run",   "kn": "ಓಡು",    "emoji": "🏃"},
+        {"en": "Jump",  "kn": "ಜಿಗಿ",   "emoji": "🤸"},
+        {"en": "Eat",   "kn": "ತಿನ್ನು", "emoji": "🍽️"},
+        {"en": "Drink", "kn": "ಕುಡಿ",   "emoji": "🥤"},
+        {"en": "Sleep", "kn": "ಮಲಗು",   "emoji": "😴"},
+        {"en": "Play",  "kn": "ಆಡು",    "emoji": "⚽"},
+        {"en": "Read",  "kn": "ಓದು",    "emoji": "📖"},
+        {"en": "Write", "kn": "ಬರೆ",    "emoji": "✏️"},
+        {"en": "Sing",  "kn": "ಹಾಡು",   "emoji": "🎵"},
+        {"en": "Dance", "kn": "ನೃತ್ಯ",  "emoji": "💃"},
+        {"en": "Swim",  "kn": "ಈಜು",    "emoji": "🏊"},
+        {"en": "Fly",   "kn": "ಹಾರು",   "emoji": "✈️"}
+      ]
+    },
+    {
+      "id": "adjectives", "icon": "🌈",
+      "label": {"en": "Describing Words", "kn": "ವಿಶೇಷಣಗಳು"},
+      "desc": "Words that describe how things look or feel!",
+      "cards": [
+        {"en": "Big",    "kn": "ದೊಡ್ಡ",  "emoji": "🐘"},
+        {"en": "Small",  "kn": "ಚಿಕ್ಕ",  "emoji": "🐁"},
+        {"en": "Hot",    "kn": "ಬಿಸಿ",   "emoji": "🔥"},
+        {"en": "Cold",   "kn": "ತಣ್ಣ",   "emoji": "❄️"},
+        {"en": "Happy",  "kn": "ಸಂತಸ",  "emoji": "😊"},
+        {"en": "Sad",    "kn": "ದುಃಖ",   "emoji": "😢"},
+        {"en": "Fast",   "kn": "ವೇಗ",    "emoji": "🏎️"},
+        {"en": "Slow",   "kn": "ನಿಧಾನ",  "emoji": "🐢"},
+        {"en": "Tall",   "kn": "ಎತ್ತರ",  "emoji": "🦒"},
+        {"en": "Short",  "kn": "ಗಿಡ್ಡ",  "emoji": "🐧"},
+        {"en": "Sweet",  "kn": "ಸಿಹಿ",   "emoji": "🍬"},
+        {"en": "Sour",   "kn": "ಹುಳಿ",   "emoji": "🍋"}
+      ]
+    },
+    {
+      "id": "opposites", "icon": "↔️",
+      "label": {"en": "Opposites", "kn": "ವಿರುದ್ಧ ಪದಗಳು"},
+      "desc": "Words that mean the opposite!",
+      "cards": [
+        {"en": "Big ↔ Small",   "kn": "ದೊಡ್ಡ ↔ ಚಿಕ್ಕ",   "emoji": "🐘🐁"},
+        {"en": "Hot ↔ Cold",    "kn": "ಬಿಸಿ ↔ ತಣ್ಣ",    "emoji": "🔥❄️"},
+        {"en": "Day ↔ Night",   "kn": "ಹಗಲು ↔ ರಾತ್ರಿ",  "emoji": "☀️🌙"},
+        {"en": "Up ↔ Down",     "kn": "ಮೇಲೆ ↔ ಕೆಳಗೆ",  "emoji": "⬆️⬇️"},
+        {"en": "Fast ↔ Slow",   "kn": "ವೇಗ ↔ ನಿಧಾನ",   "emoji": "🏎️🐢"},
+        {"en": "Hard ↔ Soft",   "kn": "ಗಟ್ಟಿ ↔ ಮೃದು",  "emoji": "🪨🧸"},
+        {"en": "Open ↔ Close",  "kn": "ತೆರೆ ↔ ಮುಚ್ಚು",  "emoji": "🔓🔒"},
+        {"en": "Happy ↔ Sad",   "kn": "ಸಂತಸ ↔ ದುಃಖ",  "emoji": "😊😢"},
+        {"en": "Near ↔ Far",    "kn": "ಹತ್ತಿರ ↔ ದೂರ",  "emoji": "📍🗺️"},
+        {"en": "Old ↔ New",     "kn": "ಹಳೆ ↔ ಹೊಸ",     "emoji": "📜✨"}
+      ]
+    },
+    {
+      "id": "articles", "icon": "📝",
+      "label": {"en": "Articles — A, An, The", "kn": "ಲೇಖನಗಳು"},
+      "desc": "Use A, An, The before nouns!",
+      "cards": [
+        {"en": "A dog",     "kn": "ಒಂದು ನಾಯಿ",    "emoji": "🐕", "note": "A → before consonant"},
+        {"en": "An apple",  "kn": "ಒಂದು ಸೇಬು",    "emoji": "🍎", "note": "An → before vowel"},
+        {"en": "A cat",     "kn": "ಒಂದು ಬೆಕ್ಕು",  "emoji": "🐈", "note": "A"},
+        {"en": "An egg",    "kn": "ಒಂದು ಮೊಟ್ಟೆ",  "emoji": "🥚", "note": "An"},
+        {"en": "The sun",   "kn": "ಸೂರ್ಯ",        "emoji": "☀️", "note": "The → specific"},
+        {"en": "The moon",  "kn": "ಚಂದ್ರ",        "emoji": "🌙", "note": "The"},
+        {"en": "An orange", "kn": "ಒಂದು ಕಿತ್ತಳೆ", "emoji": "🍊", "note": "An"},
+        {"en": "A tree",    "kn": "ಒಂದು ಮರ",      "emoji": "🌳", "note": "A"}
+      ]
+    },
+    {
+      "id": "singular-plural", "icon": "1️⃣2️⃣",
+      "label": {"en": "Singular & Plural", "kn": "ಏಕವಚನ ಮತ್ತು ಬಹುವಚನ"},
+      "desc": "One or many — learn the difference!",
+      "cards": [
+        {"en": "Cat → Cats",     "kn": "ಬೆಕ್ಕು → ಬೆಕ್ಕುಗಳು", "emoji": "🐈"},
+        {"en": "Dog → Dogs",     "kn": "ನಾಯಿ → ನಾಯಿಗಳು",    "emoji": "🐕"},
+        {"en": "Book → Books",   "kn": "ಪುಸ್ತಕ → ಪುಸ್ತಕಗಳು","emoji": "📚"},
+        {"en": "Mango → Mangoes","kn": "ಮಾವು → ಮಾವುಗಳು",    "emoji": "🥭"},
+        {"en": "Boy → Boys",     "kn": "ಹುಡುಗ → ಹುಡುಗರು",  "emoji": "👦"},
+        {"en": "Ball → Balls",   "kn": "ಚೆಂಡು → ಚೆಂಡುಗಳು", "emoji": "⚽"},
+        {"en": "Tree → Trees",   "kn": "ಮರ → ಮರಗಳು",        "emoji": "🌳"},
+        {"en": "Star → Stars",   "kn": "ನಕ್ಷತ್ರ → ನಕ್ಷತ್ರಗಳು","emoji": "⭐"}
+      ]
+    },
+    {
+      "id": "sentences", "icon": "💬",
+      "label": {"en": "Simple Sentences", "kn": "ಸರಳ ವಾಕ್ಯಗಳು"},
+      "desc": "Build simple sentences with Subject + Verb!",
+      "cards": [
+        {"en": "I run.",       "kn": "ನಾನು ಓಡುತ್ತೇನೆ.",    "emoji": "🏃"},
+        {"en": "She eats.",    "kn": "ಅವಳು ತಿನ್ನುತ್ತಾಳೆ.",  "emoji": "🍽️"},
+        {"en": "He plays.",    "kn": "ಅವನು ಆಡುತ್ತಾನೆ.",    "emoji": "⚽"},
+        {"en": "We sing.",     "kn": "ನಾವು ಹಾಡುತ್ತೇವೆ.",    "emoji": "🎵"},
+        {"en": "The dog barks.","kn":"ನಾಯಿ ಬೊಗಳುತ್ತದೆ.",   "emoji": "🐕"},
+        {"en": "Birds fly.",   "kn": "ಪಕ್ಷಿಗಳು ಹಾರುತ್ತವೆ.", "emoji": "🐦"},
+        {"en": "I love mango.","kn": "ನನಗೆ ಮಾವು ಇಷ್ಟ.",     "emoji": "🥭"},
+        {"en": "Sun is hot.",  "kn": "ಸೂರ್ಯ ಬಿಸಿ.",         "emoji": "☀️"}
+      ]
+    },
+    {
+      "id": "questions", "icon": "❓",
+      "label": {"en": "Question Words", "kn": "ಪ್ರಶ್ನಾ ಪದಗಳು"},
+      "desc": "Words we use to ask questions!",
+      "cards": [
+        {"en": "What?",  "kn": "ಏನು?",    "emoji": "❓"},
+        {"en": "Who?",   "kn": "ಯಾರು?",   "emoji": "🧑"},
+        {"en": "Where?", "kn": "ಎಲ್ಲಿ?",  "emoji": "📍"},
+        {"en": "When?",  "kn": "ಯಾವಾಗ?", "emoji": "🕐"},
+        {"en": "Why?",   "kn": "ಏಕೆ?",    "emoji": "🤔"},
+        {"en": "How?",   "kn": "ಹೇಗೆ?",   "emoji": "💡"},
+        {"en": "Which?", "kn": "ಯಾವ?",    "emoji": "☝️"},
+        {"en": "How many?","kn":"ಎಷ್ಟು?",  "emoji": "🔢"}
+      ]
+    },
+    {
+      "id": "prepositions", "icon": "📦",
+      "label": {"en": "Prepositions", "kn": "ವಿಭಕ್ತಿ ಪದಗಳು"},
+      "desc": "Words that show where things are!",
+      "cards": [
+        {"en": "In",     "kn": "ಒಳಗೆ",   "emoji": "📦"},
+        {"en": "On",     "kn": "ಮೇಲೆ",   "emoji": "🔝"},
+        {"en": "Under",  "kn": "ಕೆಳಗೆ",  "emoji": "⬇️"},
+        {"en": "Near",   "kn": "ಹತ್ತಿರ", "emoji": "📍"},
+        {"en": "Far",    "kn": "ದೂರ",    "emoji": "🗺️"},
+        {"en": "Between","kn": "ನಡುವೆ",  "emoji": "↔️"},
+        {"en": "Behind", "kn": "ಹಿಂದೆ",  "emoji": "🔙"},
+        {"en": "In front","kn": "ಮುಂದೆ", "emoji": "🔜"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "categories": [
+    {
+      "id": "body", "icon": "🫀",
+      "label": {"en": "My Body Parts", "kn": "ನನ್ನ ದೇಹದ ಭಾಗಗಳು"},
+      "desc": "Learn the parts of your body!",
+      "cards": [
+        {"en": "Head",    "kn": "ತಲೆ",      "emoji": "🗣️"},
+        {"en": "Eye",     "kn": "ಕಣ್ಣು",    "emoji": "👁️"},
+        {"en": "Ear",     "kn": "ಕಿವಿ",     "emoji": "👂"},
+        {"en": "Nose",    "kn": "ಮೂಗು",     "emoji": "👃"},
+        {"en": "Mouth",   "kn": "ಬಾಯಿ",     "emoji": "👄"},
+        {"en": "Teeth",   "kn": "ಹಲ್ಲು",    "emoji": "🦷"},
+        {"en": "Tongue",  "kn": "ನಾಲಿಗೆ",   "emoji": "👅"},
+        {"en": "Neck",    "kn": "ಕತ್ತು",    "emoji": "🫙"},
+        {"en": "Shoulder","kn": "ಹೆಗಲು",    "emoji": "💪"},
+        {"en": "Hand",    "kn": "ಕೈ",       "emoji": "🖐️"},
+        {"en": "Finger",  "kn": "ಬೆರಳು",    "emoji": "☝️"},
+        {"en": "Stomach", "kn": "ಹೊಟ್ಟೆ",   "emoji": "🫁"},
+        {"en": "Leg",     "kn": "ಕಾಲು",     "emoji": "🦵"},
+        {"en": "Knee",    "kn": "ಮೊಣಕಾಲು",  "emoji": "🦴"},
+        {"en": "Foot",    "kn": "ಪಾದ",      "emoji": "🦶"},
+        {"en": "Hair",    "kn": "ಕೂದಲು",    "emoji": "💇"},
+        {"en": "Heart",   "kn": "ಹೃದಯ",     "emoji": "❤️"},
+        {"en": "Back",    "kn": "ಬೆನ್ನು",   "emoji": "🔙"}
+      ]
+    },
+    {
+      "id": "senses", "icon": "👁️",
+      "label": {"en": "Five Sense Organs", "kn": "ಪಂಚೇಂದ್ರಿಯಗಳು"},
+      "desc": "We use 5 sense organs to understand the world!",
+      "cards": [
+        {"en": "Eyes — See",   "kn": "ಕಣ್ಣು — ನೋಡು",   "emoji": "👁️"},
+        {"en": "Ears — Hear",  "kn": "ಕಿವಿ — ಕೇಳು",    "emoji": "👂"},
+        {"en": "Nose — Smell", "kn": "ಮೂಗು — ವಾಸನೆ",   "emoji": "👃"},
+        {"en": "Tongue — Taste","kn": "ನಾಲಿಗೆ — ರುಚಿ",  "emoji": "👅"},
+        {"en": "Skin — Touch", "kn": "ಚರ್ಮ — ಸ್ಪರ್ಶ",  "emoji": "🤚"}
+      ]
+    },
+    {
+      "id": "family", "icon": "👨‍👩‍👧‍👦",
+      "label": {"en": "My Family", "kn": "ನನ್ನ ಕುಟುಂಬ"},
+      "desc": "Meet your family members!",
+      "cards": [
+        {"en": "Father",       "kn": "ಅಪ್ಪ",          "emoji": "👨"},
+        {"en": "Mother",       "kn": "ಅಮ್ಮ",          "emoji": "👩"},
+        {"en": "Brother",      "kn": "ಅಣ್ಣ / ತಮ್ಮ",   "emoji": "👦"},
+        {"en": "Sister",       "kn": "ಅಕ್ಕ / ತಂಗಿ",   "emoji": "👧"},
+        {"en": "Grandfather",  "kn": "ತಾತ",            "emoji": "👴"},
+        {"en": "Grandmother",  "kn": "ಅಜ್ಜಿ",         "emoji": "👵"},
+        {"en": "Uncle",        "kn": "ಚಿಕ್ಕಪ್ಪ",      "emoji": "🧔"},
+        {"en": "Aunt",         "kn": "ಚಿಕ್ಕಮ್ಮ",      "emoji": "👩‍🦱"},
+        {"en": "Baby",         "kn": "ಮಗು",            "emoji": "👶"}
+      ]
+    },
+    {
+      "id": "home", "icon": "🏠",
+      "label": {"en": "My Home", "kn": "ನನ್ನ ಮನೆ"},
+      "desc": "Rooms and things in your home!",
+      "cards": [
+        {"en": "House",    "kn": "ಮನೆ",       "emoji": "🏠"},
+        {"en": "Door",     "kn": "ಬಾಗಿಲು",   "emoji": "🚪"},
+        {"en": "Window",   "kn": "ಕಿಟಕಿ",    "emoji": "🪟"},
+        {"en": "Bedroom",  "kn": "ಮಲಗುವ ಕೋಣೆ","emoji": "🛏️"},
+        {"en": "Kitchen",  "kn": "ಅಡಿಗೆ ಕೋಣೆ","emoji": "🍳"},
+        {"en": "Bathroom", "kn": "ಸ್ನಾನ ಕೋಣೆ","emoji": "🛁"},
+        {"en": "Chair",    "kn": "ಕುರ್ಚಿ",   "emoji": "🪑"},
+        {"en": "Table",    "kn": "ಮೇಜು",      "emoji": "🪞"},
+        {"en": "Bed",      "kn": "ಮಂಚ",       "emoji": "🛏️"},
+        {"en": "Fan",      "kn": "ಪಂಖ",       "emoji": "🌀"},
+        {"en": "Light",    "kn": "ದೀಪ",       "emoji": "💡"},
+        {"en": "Stairs",   "kn": "ಮೆಟ್ಟಿಲು",  "emoji": "🪜"}
+      ]
+    },
+    {
+      "id": "school", "icon": "🏫",
+      "label": {"en": "My School", "kn": "ನನ್ನ ಶಾಲೆ"},
+      "desc": "Things you find at school!",
+      "cards": [
+        {"en": "School",   "kn": "ಶಾಲೆ",      "emoji": "🏫"},
+        {"en": "Teacher",  "kn": "ಶಿಕ್ಷಕರು",  "emoji": "👩‍🏫"},
+        {"en": "Student",  "kn": "ವಿದ್ಯಾರ್ಥಿ","emoji": "🧑‍🎓"},
+        {"en": "Book",     "kn": "ಪುಸ್ತಕ",    "emoji": "📚"},
+        {"en": "Bag",      "kn": "ಚೀಲ",       "emoji": "🎒"},
+        {"en": "Pencil",   "kn": "ಪೆನ್ಸಿಲ್",  "emoji": "✏️"},
+        {"en": "Pen",      "kn": "ಪೆನ್",      "emoji": "🖊️"},
+        {"en": "Eraser",   "kn": "ರಬ್ಬರ್",    "emoji": "🧹"},
+        {"en": "Ruler",    "kn": "ಅಳತೆಗೋಲು",  "emoji": "📏"},
+        {"en": "Board",    "kn": "ಕಪ್ಪು ಹಲಗೆ","emoji": "🖥️"},
+        {"en": "Chalk",    "kn": "ಸೀಮೆ ಸುಣ್ಣ","emoji": "⬜"},
+        {"en": "Classroom","kn": "ತರಗತಿ",     "emoji": "🏛️"}
+      ]
+    },
+    {
+      "id": "helpers", "icon": "👨‍⚕️",
+      "label": {"en": "Community Helpers", "kn": "ಸಮಾಜದ ಸೇವಕರು"},
+      "desc": "People who help us every day!",
+      "cards": [
+        {"en": "Doctor",    "kn": "ವೈದ್ಯರು",    "emoji": "👨‍⚕️"},
+        {"en": "Teacher",   "kn": "ಶಿಕ್ಷಕರು",   "emoji": "👩‍🏫"},
+        {"en": "Farmer",    "kn": "ರೈತ",         "emoji": "👨‍🌾"},
+        {"en": "Police",    "kn": "ಪೊಲೀಸ್",     "emoji": "👮"},
+        {"en": "Fireman",   "kn": "ಅಗ್ನಿಶಾಮಕ",  "emoji": "🧑‍🚒"},
+        {"en": "Postman",   "kn": "ಅಂಚೆಯವ",     "emoji": "📬"},
+        {"en": "Driver",    "kn": "ಚಾಲಕ",        "emoji": "🚌"},
+        {"en": "Cook",      "kn": "ಅಡಿಗೆಯವ",    "emoji": "👨‍🍳"},
+        {"en": "Nurse",     "kn": "ದಾದಿ",        "emoji": "👩‍⚕️"},
+        {"en": "Carpenter", "kn": "ಬಡಿಗ",        "emoji": "🪚"},
+        {"en": "Tailor",    "kn": "ಹೊಲಿಗೆಯವ",  "emoji": "🧵"},
+        {"en": "Sweeper",   "kn": "ಗುಡಿಸುವವ",   "emoji": "🧹"}
+      ]
+    },
+    {
+      "id": "manners", "icon": "🙏",
+      "label": {"en": "Good Manners", "kn": "ಒಳ್ಳೆಯ ನಡತೆ"},
+      "desc": "Kind words make the world better!",
+      "cards": [
+        {"en": "Please",       "kn": "ದಯವಿಟ್ಟು",       "emoji": "🙏"},
+        {"en": "Thank You",    "kn": "ಧನ್ಯವಾದ",        "emoji": "😊"},
+        {"en": "Sorry",        "kn": "ಕ್ಷಮಿಸಿ",        "emoji": "😔"},
+        {"en": "Welcome",      "kn": "ಸ್ವಾಗತ",         "emoji": "🤗"},
+        {"en": "Good Morning", "kn": "ಶುಭ ಪ್ರಭಾತ",    "emoji": "🌅"},
+        {"en": "Good Night",   "kn": "ಶುಭ ರಾತ್ರಿ",    "emoji": "🌙"},
+        {"en": "Excuse Me",    "kn": "ಕ್ಷಮಿಸಿ",        "emoji": "✋"},
+        {"en": "Help",         "kn": "ಸಹಾಯ ಮಾಡಿ",     "emoji": "🆘"}
+      ]
+    },
+    {
+      "id": "domestic-animals", "icon": "🐄",
+      "label": {"en": "Domestic Animals", "kn": "ಸಾಕು ಪ್ರಾಣಿಗಳು"},
+      "desc": "Animals that live with us!",
+      "cards": [
+        {"en": "Cow",    "kn": "ಹಸು",    "emoji": "🐄"},
+        {"en": "Dog",    "kn": "ನಾಯಿ",   "emoji": "🐕"},
+        {"en": "Cat",    "kn": "ಬೆಕ್ಕು", "emoji": "🐈"},
+        {"en": "Goat",   "kn": "ಮೇಕೆ",   "emoji": "🐐"},
+        {"en": "Sheep",  "kn": "ಕುರಿ",   "emoji": "🐑"},
+        {"en": "Horse",  "kn": "ಕುದುರೆ", "emoji": "🐎"},
+        {"en": "Hen",    "kn": "ಕೋಳಿ",   "emoji": "🐓"},
+        {"en": "Duck",   "kn": "ಬಾತು",   "emoji": "🦆"},
+        {"en": "Rabbit", "kn": "ಮೊಲ",    "emoji": "🐇"},
+        {"en": "Pig",    "kn": "ಹಂದಿ",   "emoji": "🐷"},
+        {"en": "Buffalo","kn": "ಎಮ್ಮೆ",  "emoji": "🐃"},
+        {"en": "Donkey", "kn": "ಕತ್ತೆ",  "emoji": "🫏"}
+      ]
+    },
+    {
+      "id": "wild-animals", "icon": "🦁",
+      "label": {"en": "Wild Animals", "kn": "ಕಾಡು ಪ್ರಾಣಿಗಳು"},
+      "desc": "Animals that live in the forest!",
+      "cards": [
+        {"en": "Lion",    "kn": "ಸಿಂಹ",   "emoji": "🦁"},
+        {"en": "Tiger",   "kn": "ಹುಲಿ",   "emoji": "🐯"},
+        {"en": "Elephant","kn": "ಆನೆ",    "emoji": "🐘"},
+        {"en": "Bear",    "kn": "ಕರಡಿ",   "emoji": "🐻"},
+        {"en": "Deer",    "kn": "ಜಿಂಕೆ",  "emoji": "🦌"},
+        {"en": "Fox",     "kn": "ನರಿ",    "emoji": "🦊"},
+        {"en": "Wolf",    "kn": "ತೋಳ",    "emoji": "🐺"},
+        {"en": "Monkey",  "kn": "ಕೋತಿ",   "emoji": "🐒"},
+        {"en": "Zebra",   "kn": "ಜೀಬ್ರಾ", "emoji": "🦓"},
+        {"en": "Giraffe", "kn": "ಜಿರಾಫೆ", "emoji": "🦒"},
+        {"en": "Camel",   "kn": "ಒಂಟೆ",   "emoji": "🐪"},
+        {"en": "Rhino",   "kn": "ಘೇಂಡಾಮೃಗ","emoji": "🦏"}
+      ]
+    },
+    {
+      "id": "water-animals", "icon": "🐟",
+      "label": {"en": "Water Animals", "kn": "ಜಲಚರ ಪ್ರಾಣಿಗಳು"},
+      "desc": "Animals that live in water!",
+      "cards": [
+        {"en": "Fish",     "kn": "ಮೀನು",      "emoji": "🐟"},
+        {"en": "Frog",     "kn": "ಕಪ್ಪೆ",     "emoji": "🐸"},
+        {"en": "Crocodile","kn": "ಮೊಸಳೆ",     "emoji": "🐊"},
+        {"en": "Turtle",   "kn": "ಆಮೆ",       "emoji": "🐢"},
+        {"en": "Whale",    "kn": "ತಿಮಿಂಗಿಲ",  "emoji": "🐋"},
+        {"en": "Shark",    "kn": "ಶಾರ್ಕ್",    "emoji": "🦈"},
+        {"en": "Crab",     "kn": "ಏಡಿ",       "emoji": "🦀"},
+        {"en": "Octopus",  "kn": "ಆಕ್ಟೋಪಸ್", "emoji": "🐙"},
+        {"en": "Duck",     "kn": "ಬಾತುಕೋಳಿ",  "emoji": "🦆"},
+        {"en": "Dolphin",  "kn": "ಡಾಲ್ಫಿನ್",  "emoji": "🐬"}
+      ]
+    },
+    {
+      "id": "birds", "icon": "🦜",
+      "label": {"en": "Birds", "kn": "ಪಕ್ಷಿಗಳು"},
+      "desc": "Beautiful birds that fly!",
+      "cards": [
+        {"en": "Parrot",  "kn": "ಗಿಳಿ",       "emoji": "🦜"},
+        {"en": "Peacock", "kn": "ನವಿಲು",      "emoji": "🦚"},
+        {"en": "Crow",    "kn": "ಕಾಗೆ",       "emoji": "🐦‍⬛"},
+        {"en": "Sparrow", "kn": "ಗುಬ್ಬಿ",     "emoji": "🐦"},
+        {"en": "Eagle",   "kn": "ಹದ್ದು",      "emoji": "🦅"},
+        {"en": "Owl",     "kn": "ಗೂಬೆ",       "emoji": "🦉"},
+        {"en": "Pigeon",  "kn": "ಪಾರಿವಾಳ",    "emoji": "🕊️"},
+        {"en": "Swan",    "kn": "ಹಂಸ",        "emoji": "🦢"},
+        {"en": "Hen",     "kn": "ಕೋಳಿ",       "emoji": "🐓"},
+        {"en": "Duck",    "kn": "ಬಾತುಕೋಳಿ",   "emoji": "🦆"},
+        {"en": "Flamingo","kn": "ಫ್ಲೆಮಿಂಗೊ",  "emoji": "🦩"},
+        {"en": "Penguin", "kn": "ಪೆಂಗ್ವಿನ್",  "emoji": "🐧"}
+      ]
+    },
+    {
+      "id": "insects", "icon": "🐛",
+      "label": {"en": "Insects", "kn": "ಕೀಟಗಳು"},
+      "desc": "Tiny creatures around us!",
+      "cards": [
+        {"en": "Butterfly","kn": "ಚಿಟ್ಟೆ",    "emoji": "🦋"},
+        {"en": "Bee",      "kn": "ಜೇನ್ನೊಣ",   "emoji": "🐝"},
+        {"en": "Ant",      "kn": "ಇರುವೆ",     "emoji": "🐜"},
+        {"en": "Mosquito", "kn": "ಸೊಳ್ಳೆ",    "emoji": "🦟"},
+        {"en": "Cockroach","kn": "ಜಿರಳೆ",     "emoji": "🪳"},
+        {"en": "Ladybug",  "kn": "ಲೇಡಿಬಗ್",  "emoji": "🐞"},
+        {"en": "Spider",   "kn": "ಜೇಡ",       "emoji": "🕷️"},
+        {"en": "Worm",     "kn": "ಹುಳ",       "emoji": "🪱"},
+        {"en": "Grasshopper","kn":"ಮಿಡತೆ",    "emoji": "🦗"},
+        {"en": "Dragonfly","kn": "ಡ್ರಾಗನ್‌ಫ್ಲೈ","emoji": "🪲"}
+      ]
+    },
+    {
+      "id": "plant-parts", "icon": "🌱",
+      "label": {"en": "Parts of a Plant", "kn": "ಸಸ್ಯದ ಭಾಗಗಳು"},
+      "desc": "Every plant has these parts!",
+      "cards": [
+        {"en": "Root",   "kn": "ಬೇರು",   "emoji": "🌱"},
+        {"en": "Stem",   "kn": "ಕಾಂಡ",   "emoji": "🌿"},
+        {"en": "Leaf",   "kn": "ಎಲೆ",    "emoji": "🍃"},
+        {"en": "Flower", "kn": "ಹೂವು",   "emoji": "🌸"},
+        {"en": "Fruit",  "kn": "ಹಣ್ಣು",  "emoji": "🍎"},
+        {"en": "Seed",   "kn": "ಬೀಜ",    "emoji": "🫘"},
+        {"en": "Branch", "kn": "ಕೊಂಬೆ",  "emoji": "🪵"},
+        {"en": "Trunk",  "kn": "ಮರದ ದಿಮ್ಮಿ","emoji": "🌳"}
+      ]
+    },
+    {
+      "id": "flowers", "icon": "🌸",
+      "label": {"en": "Flowers", "kn": "ಹೂವುಗಳು"},
+      "desc": "Beautiful flowers from nature!",
+      "cards": [
+        {"en": "Rose",       "kn": "ಗುಲಾಬಿ",     "emoji": "🌹"},
+        {"en": "Sunflower",  "kn": "ಸೂರ್ಯಕಾಂತಿ","emoji": "🌻"},
+        {"en": "Lotus",      "kn": "ತಾವರೆ",      "emoji": "🪷"},
+        {"en": "Jasmine",    "kn": "ಮಲ್ಲಿಗೆ",    "emoji": "🌼"},
+        {"en": "Marigold",   "kn": "ಚೆಂಡು ಹೂವು", "emoji": "🌺"},
+        {"en": "Tulip",      "kn": "ಟ್ಯೂಲಿಪ್",  "emoji": "🌷"},
+        {"en": "Lily",       "kn": "ಲಿಲ್ಲಿ",     "emoji": "💐"},
+        {"en": "Hibiscus",   "kn": "ದಾಸವಾಳ",     "emoji": "🌺"}
+      ]
+    },
+    {
+      "id": "living-nonliving", "icon": "🌍",
+      "label": {"en": "Living & Non-Living", "kn": "ಜೈವಿಕ ಮತ್ತು ಅಜೈವಿಕ"},
+      "desc": "What is alive and what is not?",
+      "cards": [
+        {"en": "Tree (Living)",   "kn": "ಮರ (ಜೀವಿ)",    "emoji": "🌳"},
+        {"en": "Dog (Living)",    "kn": "ನಾಯಿ (ಜೀವಿ)",  "emoji": "🐕"},
+        {"en": "Bird (Living)",   "kn": "ಪಕ್ಷಿ (ಜೀವಿ)", "emoji": "🐦"},
+        {"en": "Stone (Non-Living)","kn":"ಕಲ್ಲು (ಅಜೀವಿ)","emoji": "🪨"},
+        {"en": "Chair (Non-Living)","kn":"ಕುರ್ಚಿ (ಅಜೀವಿ)","emoji":"🪑"},
+        {"en": "Water (Non-Living)","kn":"ನೀರು (ಅಜೀವಿ)", "emoji": "💧"},
+        {"en": "Sun (Non-Living)", "kn": "ಸೂರ್ಯ (ಅಜೀವಿ)","emoji": "☀️"},
+        {"en": "Fish (Living)",   "kn": "ಮೀನು (ಜೀವಿ)",  "emoji": "🐟"}
+      ]
+    },
+    {
+      "id": "seasons", "icon": "🌦️",
+      "label": {"en": "Seasons & Weather", "kn": "ಋತುಗಳು ಮತ್ತು ಹವಾಮಾನ"},
+      "desc": "How the weather changes around the year!",
+      "cards": [
+        {"en": "Summer",  "kn": "ಬೇಸಿಗೆ",   "emoji": "☀️"},
+        {"en": "Winter",  "kn": "ಚಳಿಗಾಲ",   "emoji": "❄️"},
+        {"en": "Monsoon", "kn": "ಮಳೆಗಾಲ",   "emoji": "🌧️"},
+        {"en": "Spring",  "kn": "ವಸಂತ",     "emoji": "🌸"},
+        {"en": "Sunny",   "kn": "ಬಿಸಿಲು",   "emoji": "🌤️"},
+        {"en": "Rainy",   "kn": "ಮಳೆ",      "emoji": "🌧️"},
+        {"en": "Cloudy",  "kn": "ಮೋಡ",      "emoji": "☁️"},
+        {"en": "Windy",   "kn": "ಗಾಳಿ",     "emoji": "💨"},
+        {"en": "Rainbow", "kn": "ಕಾಮನಬಿಲ್ಲು","emoji": "🌈"}
+      ]
+    },
+    {
+      "id": "sky", "icon": "🌙",
+      "label": {"en": "Day, Night & Sky", "kn": "ಹಗಲು, ರಾತ್ರಿ ಮತ್ತು ಆಕಾಶ"},
+      "desc": "What we see in the sky!",
+      "cards": [
+        {"en": "Sun",      "kn": "ಸೂರ್ಯ",     "emoji": "☀️"},
+        {"en": "Moon",     "kn": "ಚಂದ್ರ",     "emoji": "🌙"},
+        {"en": "Stars",    "kn": "ನಕ್ಷತ್ರಗಳು","emoji": "⭐"},
+        {"en": "Cloud",    "kn": "ಮೋಡ",       "emoji": "☁️"},
+        {"en": "Rain",     "kn": "ಮಳೆ",       "emoji": "🌧️"},
+        {"en": "Lightning","kn": "ಮಿಂಚು",     "emoji": "⚡"},
+        {"en": "Day",      "kn": "ಹಗಲು",      "emoji": "🌅"},
+        {"en": "Night",    "kn": "ರಾತ್ರಿ",    "emoji": "🌃"},
+        {"en": "Sky",      "kn": "ಆಕಾಶ",      "emoji": "🌌"}
+      ]
+    },
+    {
+      "id": "transport", "icon": "🚗",
+      "label": {"en": "Transport", "kn": "ಸಾರಿಗೆ"},
+      "desc": "How we travel from place to place!",
+      "cards": [
+        {"en": "Car",        "kn": "ಕಾರು",         "emoji": "🚗", "type": "land"},
+        {"en": "Bus",        "kn": "ಬಸ್ಸು",        "emoji": "🚌", "type": "land"},
+        {"en": "Train",      "kn": "ರೈಲು",         "emoji": "🚂", "type": "land"},
+        {"en": "Bicycle",    "kn": "ಸೈಕಲ್",        "emoji": "🚲", "type": "land"},
+        {"en": "Auto",       "kn": "ಆಟೋ",          "emoji": "🛺", "type": "land"},
+        {"en": "Truck",      "kn": "ಲಾರಿ",         "emoji": "🚚", "type": "land"},
+        {"en": "Aeroplane",  "kn": "ವಿಮಾನ",        "emoji": "✈️", "type": "air"},
+        {"en": "Helicopter", "kn": "ಹೆಲಿಕಾಪ್ಟರ್", "emoji": "🚁", "type": "air"},
+        {"en": "Rocket",     "kn": "ರಾಕೆಟ್",       "emoji": "🚀", "type": "air"},
+        {"en": "Boat",       "kn": "ದೋಣಿ",         "emoji": "⛵", "type": "water"},
+        {"en": "Ship",       "kn": "ಹಡಗು",         "emoji": "🚢", "type": "water"},
+        {"en": "Submarine",  "kn": "ಜಲಾಂತರ್ಗಾಮಿ", "emoji": "🤿", "type": "water"}
+      ]
+    },
+    {
+      "id": "safety", "icon": "🚦",
+      "label": {"en": "Traffic & Safety", "kn": "ಸಂಚಾರ ನಿಯಮಗಳು"},
+      "desc": "Stay safe on the road!",
+      "cards": [
+        {"en": "Red Light — Stop",   "kn": "ಕೆಂಪು — ನಿಲ್ಲು",    "emoji": "🔴"},
+        {"en": "Green Light — Go",   "kn": "ಹಸಿರು — ಹೋಗು",     "emoji": "🟢"},
+        {"en": "Yellow — Wait",      "kn": "ಹಳದಿ — ಕಾಯಿ",      "emoji": "🟡"},
+        {"en": "Zebra Crossing",     "kn": "ಜೀಬ್ರಾ ಕ್ರಾಸಿಂಗ್",  "emoji": "🦓"},
+        {"en": "Wear Helmet",        "kn": "ಹೆಲ್ಮೆಟ್ ಧರಿಸಿ",   "emoji": "⛑️"},
+        {"en": "Walk on Footpath",   "kn": "ಪಾದಚಾರಿ ಮಾರ್ಗದಲ್ಲಿ ನಡೆ","emoji": "🚶"},
+        {"en": "Don't Run on Road",  "kn": "ರಸ್ತೆಯಲ್ಲಿ ಓಡಬೇಡ", "emoji": "🛑"},
+        {"en": "Traffic Police",     "kn": "ಸಂಚಾರ ಪೊಲೀಸ್",     "emoji": "👮"}
+      ]
+    },
+    {
+      "id": "healthy-food", "icon": "🥗",
+      "label": {"en": "Healthy vs Junk Food", "kn": "ಆರೋಗ್ಯಕರ vs ಜಂಕ್ ಆಹಾರ"},
+      "desc": "Choose healthy food to stay strong!",
+      "cards": [
+        {"en": "Vegetables ✅", "kn": "ತರಕಾರಿ ✅",    "emoji": "🥦"},
+        {"en": "Fruits ✅",     "kn": "ಹಣ್ಣುಗಳು ✅",  "emoji": "🍎"},
+        {"en": "Milk ✅",       "kn": "ಹಾಲು ✅",       "emoji": "🥛"},
+        {"en": "Dal ✅",        "kn": "ಬೇಳೆ ✅",       "emoji": "🫘"},
+        {"en": "Pizza ❌",      "kn": "ಪಿಝ್ಝಾ ❌",     "emoji": "🍕"},
+        {"en": "Chips ❌",      "kn": "ಚಿಪ್ಸ್ ❌",     "emoji": "🍟"},
+        {"en": "Candy ❌",      "kn": "ಮಿಠಾಯಿ ❌",     "emoji": "🍬"},
+        {"en": "Cold Drink ❌", "kn": "ತಂಪು ಪಾನೀಯ ❌", "emoji": "🥤"}
+      ]
+    },
+    {
+      "id": "good-habits", "icon": "🪥",
+      "label": {"en": "Good Habits", "kn": "ಒಳ್ಳೆಯ ಅಭ್ಯಾಸಗಳು"},
+      "desc": "Good habits keep us healthy and happy!",
+      "cards": [
+        {"en": "Brush Teeth",    "kn": "ಹಲ್ಲು ಉಜ್ಜು",    "emoji": "🪥"},
+        {"en": "Take Bath",      "kn": "ಸ್ನಾನ ಮಾಡು",     "emoji": "🛁"},
+        {"en": "Wash Hands",     "kn": "ಕೈ ತೊಳೆ",        "emoji": "🧼"},
+        {"en": "Exercise",       "kn": "ವ್ಯಾಯಾಮ",        "emoji": "🤸"},
+        {"en": "Sleep Early",    "kn": "ಬೇಗ ಮಲಗು",      "emoji": "😴"},
+        {"en": "Wake Early",     "kn": "ಬೇಗ ಎದ್ದೇಳು",   "emoji": "🌅"},
+        {"en": "Read Books",     "kn": "ಪುಸ್ತಕ ಓದು",    "emoji": "📚"},
+        {"en": "Drink Water",    "kn": "ನೀರು ಕುಡಿ",     "emoji": "💧"},
+        {"en": "Eat Vegetables", "kn": "ತರಕಾರಿ ತಿನ್ನು", "emoji": "🥦"},
+        {"en": "Yoga",           "kn": "ಯೋಗ",            "emoji": "🧘"}
+      ]
+    }
+  ]
+}
