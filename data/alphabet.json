@@ -1,1079 +1,1019 @@
 {
   "categories": [
     {
-      "id": "az",
-      "icon": "🔤",
-      "label": {
-        "en": "A – Z Letters",
-        "kn": "ಅಕ್ಷರಗಳು A-Z"
-      },
-      "type": "letter-cards",
-      "desc": "All 26 letters! Tap a card to hear it.",
       "cards": [
         {
-          "letter": "A",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
           "emoji": "🍎",
-          "kn_letter": "ಎ"
-        },
-        {
-          "letter": "B",
-          "word": "Ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽",
-          "kn_letter": "ಬಿ"
-        },
-        {
-          "letter": "C",
-          "word": "Cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈",
-          "kn_letter": "ಸಿ"
-        },
-        {
-          "letter": "D",
-          "word": "Dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕",
-          "kn_letter": "ಡಿ"
-        },
-        {
-          "letter": "E",
-          "word": "Elephant",
-          "kn": "ಆನೆ",
-          "emoji": "🐘",
-          "kn_letter": "ಇ"
-        },
-        {
-          "letter": "F",
-          "word": "Fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟",
-          "kn_letter": "ಎಫ್"
-        },
-        {
-          "letter": "G",
-          "word": "Goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐",
-          "kn_letter": "ಜಿ"
-        },
-        {
-          "letter": "H",
-          "word": "Horse",
-          "kn": "ಕುದುರೆ",
-          "emoji": "🐎",
-          "kn_letter": "ಎಚ್"
-        },
-        {
-          "letter": "I",
-          "word": "Ice cream",
-          "kn": "ಐಸ್‌ಕ್ರೀಮ್",
-          "emoji": "🍦",
-          "kn_letter": "ಐ"
-        },
-        {
-          "letter": "J",
-          "word": "Jug",
-          "kn": "ಮಡಕೆ",
-          "emoji": "🫙",
-          "kn_letter": "ಜೆ"
-        },
-        {
-          "letter": "K",
-          "word": "Kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁",
-          "kn_letter": "ಕೆ"
-        },
-        {
-          "letter": "L",
-          "word": "Lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁",
-          "kn_letter": "ಎಲ್"
-        },
-        {
-          "letter": "M",
-          "word": "Mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭",
-          "kn_letter": "ಎಂ"
-        },
-        {
-          "letter": "N",
-          "word": "Nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺",
-          "kn_letter": "ಎನ್"
-        },
-        {
-          "letter": "O",
-          "word": "Orange",
-          "kn": "ಕಿತ್ತಳೆ",
-          "emoji": "🍊",
-          "kn_letter": "ಓ"
-        },
-        {
-          "letter": "P",
-          "word": "Parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜",
-          "kn_letter": "ಪಿ"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👑",
-          "kn_letter": "ಕ್ಯೂ"
-        },
-        {
-          "letter": "R",
-          "word": "Rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇",
-          "kn_letter": "ಆರ್"
-        },
-        {
-          "letter": "S",
-          "word": "Sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️",
-          "kn_letter": "ಎಸ್"
-        },
-        {
-          "letter": "T",
-          "word": "Tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯",
-          "kn_letter": "ಟಿ"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️",
-          "kn_letter": "ಯು"
-        },
-        {
-          "letter": "V",
-          "word": "Van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐",
-          "kn_letter": "ವಿ"
-        },
-        {
-          "letter": "W",
-          "word": "Whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋",
-          "kn_letter": "ಡಬ್ಲ್ಯೂ"
-        },
-        {
-          "letter": "X",
-          "word": "Xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵",
-          "kn_letter": "ಎಕ್ಸ್"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃",
-          "kn_letter": "ವೈ"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓",
-          "kn_letter": "ಝಡ್"
-        }
-      ]
-    },
-    {
-      "id": "vowels",
-      "icon": "🅐",
-      "label": {
-        "en": "Vowels",
-        "kn": "ಸ್ವರಗಳು"
-      },
-      "type": "letter-cards",
-      "desc": "5 vowels — A E I O U — the singing letters!",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Ant",
-          "kn": "ಇರುವೆ",
-          "emoji": "🐜",
+          "kn": "ಸೇಬು",
           "kn_letter": "ಎ",
-          "fact": "Says 'Aaa' like in Apple!"
+          "letter": "A",
+          "word": "Apple"
         },
         {
-          "letter": "E",
-          "word": "Eagle",
-          "kn": "ಹದ್ದು",
-          "emoji": "🦅",
-          "kn_letter": "ಇ",
-          "fact": "Says 'Eee' like in Egg!"
-        },
-        {
-          "letter": "I",
-          "word": "Ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️",
-          "kn_letter": "ಐ",
-          "fact": "Says 'Iii' like in Itch!"
-        },
-        {
-          "letter": "O",
-          "word": "Owl",
-          "kn": "ಗೂಬೆ",
-          "emoji": "🦉",
-          "kn_letter": "ಓ",
-          "fact": "Says 'Ooo' like in Octopus!"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️",
-          "kn_letter": "ಯು",
-          "fact": "Says 'Uuu' like in Under!"
-        }
-      ]
-    },
-    {
-      "id": "consonants",
-      "icon": "🔡",
-      "label": {
-        "en": "Consonants",
-        "kn": "ವ್ಯಂಜನಗಳು"
-      },
-      "type": "letter-cards",
-      "desc": "21 consonants — all except A E I O U",
-      "cards": [
-        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "kn_letter": "ಬಿ",
           "letter": "B",
-          "word": "Butterfly",
-          "kn": "ಚಿಟ್ಟೆ",
-          "emoji": "🦋",
-          "kn_letter": "ಬಿ"
+          "word": "Ball"
         },
         {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "kn_letter": "ಸಿ",
           "letter": "C",
-          "word": "Cow",
-          "kn": "ಹಸು",
-          "emoji": "🐄",
-          "kn_letter": "ಸಿ"
+          "word": "Cat"
         },
         {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "kn_letter": "ಡಿ",
           "letter": "D",
-          "word": "Drum",
-          "kn": "ಡ್ರಮ್",
-          "emoji": "🥁",
-          "kn_letter": "ಡಿ"
+          "word": "Dog"
         },
         {
+          "emoji": "🐘",
+          "kn": "ಆನೆ",
+          "kn_letter": "ಇ",
+          "letter": "E",
+          "word": "Elephant"
+        },
+        {
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "kn_letter": "ಎಫ್",
           "letter": "F",
-          "word": "Frog",
-          "kn": "ಕಪ್ಪೆ",
-          "emoji": "🐸",
-          "kn_letter": "ಎಫ್"
+          "word": "Fish"
         },
         {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "kn_letter": "ಜಿ",
           "letter": "G",
-          "word": "Grapes",
-          "kn": "ದ್ರಾಕ್ಷಿ",
-          "emoji": "🍇",
-          "kn_letter": "ಜಿ"
+          "word": "Goat"
         },
         {
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "kn_letter": "ಎಚ್",
           "letter": "H",
-          "word": "Hat",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩",
-          "kn_letter": "ಎಚ್"
+          "word": "Horse"
         },
         {
-          "letter": "J",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
+          "emoji": "🍦",
+          "kn": "ಐಸ್‌ಕ್ರೀಮ್",
+          "kn_letter": "ಐ",
+          "letter": "I",
+          "word": "Ice cream"
+        },
+        {
           "emoji": "🫙",
-          "kn_letter": "ಜೆ"
+          "kn": "ಮಡಕೆ",
+          "kn_letter": "ಜೆ",
+          "letter": "J",
+          "word": "Jug"
         },
         {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "kn_letter": "ಕೆ",
           "letter": "K",
-          "word": "King",
-          "kn": "ರಾಜ",
-          "emoji": "👑",
-          "kn_letter": "ಕೆ"
+          "word": "Kite"
         },
         {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "kn_letter": "ಎಲ್",
           "letter": "L",
-          "word": "Lemon",
-          "kn": "ನಿಂಬೆ",
-          "emoji": "🍋",
-          "kn_letter": "ಎಲ್"
+          "word": "Lion"
         },
         {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "kn_letter": "ಎಂ",
           "letter": "M",
-          "word": "Moon",
-          "kn": "ಚಂದ್ರ",
-          "emoji": "🌙",
-          "kn_letter": "ಎಂ"
+          "word": "Mango"
         },
         {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "kn_letter": "ಎನ್",
           "letter": "N",
-          "word": "Nose",
-          "kn": "ಮೂಗು",
-          "emoji": "👃",
-          "kn_letter": "ಎನ್"
+          "word": "Nest"
         },
         {
+          "emoji": "🍊",
+          "kn": "ಕಿತ್ತಳೆ",
+          "kn_letter": "ಓ",
+          "letter": "O",
+          "word": "Orange"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "kn_letter": "ಪಿ",
           "letter": "P",
-          "word": "Pencil",
-          "kn": "ಪೆನ್ಸಿಲ್",
-          "emoji": "✏️",
-          "kn_letter": "ಪಿ"
+          "word": "Parrot"
         },
         {
+          "emoji": "👑",
+          "kn": "ರಾಣಿ",
+          "kn_letter": "ಕ್ಯೂ",
           "letter": "Q",
-          "word": "Quail",
-          "kn": "ಕವಿಳೆ",
-          "emoji": "🐦",
-          "kn_letter": "ಕ್ಯೂ"
+          "word": "Queen"
         },
         {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "kn_letter": "ಆರ್",
           "letter": "R",
-          "word": "Rose",
-          "kn": "ಗುಲಾಬಿ",
-          "emoji": "🌹",
-          "kn_letter": "ಆರ್"
+          "word": "Rabbit"
         },
         {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "kn_letter": "ಎಸ್",
           "letter": "S",
-          "word": "Star",
-          "kn": "ನಕ್ಷತ್ರ",
-          "emoji": "⭐",
-          "kn_letter": "ಎಸ್"
+          "word": "Sun"
         },
         {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "kn_letter": "ಟಿ",
           "letter": "T",
-          "word": "Train",
-          "kn": "ರೈಲು",
-          "emoji": "🚂",
-          "kn_letter": "ಟಿ"
+          "word": "Tiger"
         },
         {
-          "letter": "V",
-          "word": "Van",
-          "kn": "ವ್ಯಾನ್",
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "kn_letter": "ಯು",
+          "letter": "U",
+          "word": "Umbrella"
+        },
+        {
           "emoji": "🚐",
-          "kn_letter": "ವಿ"
+          "kn": "ವ್ಯಾನ್",
+          "kn_letter": "ವಿ",
+          "letter": "V",
+          "word": "Van"
         },
         {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "kn_letter": "ಡಬ್ಲ್ಯೂ",
           "letter": "W",
-          "word": "Watch",
-          "kn": "ಗಡಿಯಾರ",
-          "emoji": "⌚",
-          "kn_letter": "ಡಬ್ಲ್ಯೂ"
+          "word": "Whale"
         },
         {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "kn_letter": "ಎಕ್ಸ್",
           "letter": "X",
-          "word": "X-Ray",
-          "kn": "ಎಕ್ಸ್-ರೇ",
-          "emoji": "🩻",
-          "kn_letter": "ಎಕ್ಸ್"
+          "word": "Xylophone"
         },
         {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "kn_letter": "ವೈ",
           "letter": "Y",
-          "word": "Yo-yo",
-          "kn": "ಯೋ-ಯೋ",
-          "emoji": "🪀",
-          "kn_letter": "ವೈ"
+          "word": "Yak"
         },
         {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "kn_letter": "ಝಡ್",
           "letter": "Z",
-          "word": "Zip",
-          "kn": "ಜಿಪ್",
-          "emoji": "🤐",
-          "kn_letter": "ಝಡ್"
+          "word": "Zebra"
         }
-      ]
-    },
-    {
-      "id": "capital",
+      ],
+      "desc": "All 26 letters! Tap a card to hear it.",
       "icon": "🔠",
+      "id": "az",
       "label": {
         "en": "Capital Letters",
-        "kn": "ದೊಡ್ಡ ಅಕ್ಷರಗಳು"
+        "kn": "ಅಕ್ಷರಗಳು A-Z"
       },
-      "type": "letter-cards",
-      "desc": "ABCDEF… Big letters used to start a sentence or name.",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎",
-          "kn_letter": "ಎ",
-          "style": "capital"
-        },
-        {
-          "letter": "B",
-          "word": "Bat",
-          "kn": "ಬ್ಯಾಟ್",
-          "emoji": "🏏",
-          "kn_letter": "ಬಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "C",
-          "word": "Camel",
-          "kn": "ಒಂಟೆ",
-          "emoji": "🐪",
-          "kn_letter": "ಸಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "D",
-          "word": "Duck",
-          "kn": "ಬಾತುಕೋಳಿ",
-          "emoji": "🦆",
-          "kn_letter": "ಡಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "E",
-          "word": "Egg",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚",
-          "kn_letter": "ಇ",
-          "style": "capital"
-        },
-        {
-          "letter": "F",
-          "word": "Flower",
-          "kn": "ಹೂವು",
-          "emoji": "🌸",
-          "kn_letter": "ಎಫ್",
-          "style": "capital"
-        },
-        {
-          "letter": "G",
-          "word": "Grapes",
-          "kn": "ದ್ರಾಕ್ಷಿ",
-          "emoji": "🍇",
-          "kn_letter": "ಜಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "H",
-          "word": "Hat",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩",
-          "kn_letter": "ಎಚ್",
-          "style": "capital"
-        },
-        {
-          "letter": "I",
-          "word": "Igloo",
-          "kn": "ಐಗ್ಲೂ",
-          "emoji": "🏔️",
-          "kn_letter": "ಐ",
-          "style": "capital"
-        },
-        {
-          "letter": "J",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙",
-          "kn_letter": "ಜೆ",
-          "style": "capital"
-        },
-        {
-          "letter": "K",
-          "word": "King",
-          "kn": "ರಾಜ",
-          "emoji": "👑",
-          "kn_letter": "ಕೆ",
-          "style": "capital"
-        },
-        {
-          "letter": "L",
-          "word": "Lemon",
-          "kn": "ನಿಂಬೆ",
-          "emoji": "🍋",
-          "kn_letter": "ಎಲ್",
-          "style": "capital"
-        },
-        {
-          "letter": "M",
-          "word": "Moon",
-          "kn": "ಚಂದ್ರ",
-          "emoji": "🌙",
-          "kn_letter": "ಎಂ",
-          "style": "capital"
-        },
-        {
-          "letter": "N",
-          "word": "Net",
-          "kn": "ಬಲೆ",
-          "emoji": "🕸️",
-          "kn_letter": "ಎನ್",
-          "style": "capital"
-        },
-        {
-          "letter": "O",
-          "word": "Octopus",
-          "kn": "ಆಕ್ಟೋಪಸ್",
-          "emoji": "🐙",
-          "kn_letter": "ಓ",
-          "style": "capital"
-        },
-        {
-          "letter": "P",
-          "word": "Peacock",
-          "kn": "ನವಿಲು",
-          "emoji": "🦚",
-          "kn_letter": "ಪಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸",
-          "kn_letter": "ಕ್ಯೂ",
-          "style": "capital"
-        },
-        {
-          "letter": "R",
-          "word": "Rainbow",
-          "kn": "ಕಾಮನಬಿಲ್ಲು",
-          "emoji": "🌈",
-          "kn_letter": "ಆರ್",
-          "style": "capital"
-        },
-        {
-          "letter": "S",
-          "word": "Star",
-          "kn": "ನಕ್ಷತ್ರ",
-          "emoji": "⭐",
-          "kn_letter": "ಎಸ್",
-          "style": "capital"
-        },
-        {
-          "letter": "T",
-          "word": "Turtle",
-          "kn": "ಆಮೆ",
-          "emoji": "🐢",
-          "kn_letter": "ಟಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️",
-          "kn_letter": "ಯು",
-          "style": "capital"
-        },
-        {
-          "letter": "V",
-          "word": "Violin",
-          "kn": "ವಯೊಲಿನ್",
-          "emoji": "🎻",
-          "kn_letter": "ವಿ",
-          "style": "capital"
-        },
-        {
-          "letter": "W",
-          "word": "Watermelon",
-          "kn": "ಕಲ್ಲಂಗಡಿ",
-          "emoji": "🍉",
-          "kn_letter": "ಡಬ್ಲ್ಯೂ",
-          "style": "capital"
-        },
-        {
-          "letter": "X",
-          "word": "X-Ray",
-          "kn": "ಎಕ್ಸ್-ರೇ",
-          "emoji": "🩻",
-          "kn_letter": "ಎಕ್ಸ್",
-          "style": "capital"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃",
-          "kn_letter": "ವೈ",
-          "style": "capital"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓",
-          "kn_letter": "ಝಡ್",
-          "style": "capital"
-        }
-      ]
+      "type": "letter-cards"
     },
     {
-      "id": "small",
+      "cards": [
+        {
+          "emoji": "🐜",
+          "kn": "ಇರುವೆ",
+          "kn_letter": "ಎ",
+          "letter": "a",
+          "style": "small",
+          "word": "ant"
+        },
+        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "kn_letter": "ಬಿ",
+          "letter": "b",
+          "style": "small",
+          "word": "ball"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "kn_letter": "ಸಿ",
+          "letter": "c",
+          "style": "small",
+          "word": "cat"
+        },
+        {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "kn_letter": "ಡಿ",
+          "letter": "d",
+          "style": "small",
+          "word": "dog"
+        },
+        {
+          "emoji": "🥚",
+          "kn": "ಮೊಟ್ಟೆ",
+          "kn_letter": "ಇ",
+          "letter": "e",
+          "style": "small",
+          "word": "egg"
+        },
+        {
+          "emoji": "🐸",
+          "kn": "ಕಪ್ಪೆ",
+          "kn_letter": "ಎಫ್",
+          "letter": "f",
+          "style": "small",
+          "word": "frog"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "kn_letter": "ಜಿ",
+          "letter": "g",
+          "style": "small",
+          "word": "goat"
+        },
+        {
+          "emoji": "🎩",
+          "kn": "ಟೋಪಿ",
+          "kn_letter": "ಎಚ್",
+          "letter": "h",
+          "style": "small",
+          "word": "hat"
+        },
+        {
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "kn_letter": "ಐ",
+          "letter": "i",
+          "style": "small",
+          "word": "ink"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "kn_letter": "ಜೆ",
+          "letter": "j",
+          "style": "small",
+          "word": "jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "kn_letter": "ಕೆ",
+          "letter": "k",
+          "style": "small",
+          "word": "kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "kn_letter": "ಎಲ್",
+          "letter": "l",
+          "style": "small",
+          "word": "lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "kn_letter": "ಎಂ",
+          "letter": "m",
+          "style": "small",
+          "word": "mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "kn_letter": "ಎನ್",
+          "letter": "n",
+          "style": "small",
+          "word": "nest"
+        },
+        {
+          "emoji": "🦉",
+          "kn": "ಗೂಬೆ",
+          "kn_letter": "ಓ",
+          "letter": "o",
+          "style": "small",
+          "word": "owl"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "kn_letter": "ಪಿ",
+          "letter": "p",
+          "style": "small",
+          "word": "parrot"
+        },
+        {
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "kn_letter": "ಕ್ಯೂ",
+          "letter": "q",
+          "style": "small",
+          "word": "queen"
+        },
+        {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "kn_letter": "ಆರ್",
+          "letter": "r",
+          "style": "small",
+          "word": "rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "kn_letter": "ಎಸ್",
+          "letter": "s",
+          "style": "small",
+          "word": "sun"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "kn_letter": "ಟಿ",
+          "letter": "t",
+          "style": "small",
+          "word": "tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "kn_letter": "ಯು",
+          "letter": "u",
+          "style": "small",
+          "word": "umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "kn_letter": "ವಿ",
+          "letter": "v",
+          "style": "small",
+          "word": "van"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "kn_letter": "ಡಬ್ಲ್ಯೂ",
+          "letter": "w",
+          "style": "small",
+          "word": "whale"
+        },
+        {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "kn_letter": "ಎಕ್ಸ್",
+          "letter": "x",
+          "style": "small",
+          "word": "xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "kn_letter": "ವೈ",
+          "letter": "y",
+          "style": "small",
+          "word": "yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "kn_letter": "ಝಡ್",
+          "letter": "z",
+          "style": "small",
+          "word": "zebra"
+        }
+      ],
+      "desc": "abcdef… Small letters used inside sentences.",
       "icon": "🔡",
+      "id": "small",
       "label": {
         "en": "Small Letters",
         "kn": "ಚಿಕ್ಕ ಅಕ್ಷರಗಳು"
       },
-      "type": "letter-cards",
-      "desc": "abcdef… Small letters used inside sentences.",
-      "cards": [
-        {
-          "letter": "a",
-          "word": "ant",
-          "kn": "ಇರುವೆ",
-          "emoji": "🐜",
-          "kn_letter": "ಎ",
-          "style": "small"
-        },
-        {
-          "letter": "b",
-          "word": "ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽",
-          "kn_letter": "ಬಿ",
-          "style": "small"
-        },
-        {
-          "letter": "c",
-          "word": "cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈",
-          "kn_letter": "ಸಿ",
-          "style": "small"
-        },
-        {
-          "letter": "d",
-          "word": "dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕",
-          "kn_letter": "ಡಿ",
-          "style": "small"
-        },
-        {
-          "letter": "e",
-          "word": "egg",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚",
-          "kn_letter": "ಇ",
-          "style": "small"
-        },
-        {
-          "letter": "f",
-          "word": "frog",
-          "kn": "ಕಪ್ಪೆ",
-          "emoji": "🐸",
-          "kn_letter": "ಎಫ್",
-          "style": "small"
-        },
-        {
-          "letter": "g",
-          "word": "goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐",
-          "kn_letter": "ಜಿ",
-          "style": "small"
-        },
-        {
-          "letter": "h",
-          "word": "hat",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩",
-          "kn_letter": "ಎಚ್",
-          "style": "small"
-        },
-        {
-          "letter": "i",
-          "word": "ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️",
-          "kn_letter": "ಐ",
-          "style": "small"
-        },
-        {
-          "letter": "j",
-          "word": "jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙",
-          "kn_letter": "ಜೆ",
-          "style": "small"
-        },
-        {
-          "letter": "k",
-          "word": "kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁",
-          "kn_letter": "ಕೆ",
-          "style": "small"
-        },
-        {
-          "letter": "l",
-          "word": "lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁",
-          "kn_letter": "ಎಲ್",
-          "style": "small"
-        },
-        {
-          "letter": "m",
-          "word": "mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭",
-          "kn_letter": "ಎಂ",
-          "style": "small"
-        },
-        {
-          "letter": "n",
-          "word": "nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺",
-          "kn_letter": "ಎನ್",
-          "style": "small"
-        },
-        {
-          "letter": "o",
-          "word": "owl",
-          "kn": "ಗೂಬೆ",
-          "emoji": "🦉",
-          "kn_letter": "ಓ",
-          "style": "small"
-        },
-        {
-          "letter": "p",
-          "word": "parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜",
-          "kn_letter": "ಪಿ",
-          "style": "small"
-        },
-        {
-          "letter": "q",
-          "word": "queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸",
-          "kn_letter": "ಕ್ಯೂ",
-          "style": "small"
-        },
-        {
-          "letter": "r",
-          "word": "rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇",
-          "kn_letter": "ಆರ್",
-          "style": "small"
-        },
-        {
-          "letter": "s",
-          "word": "sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️",
-          "kn_letter": "ಎಸ್",
-          "style": "small"
-        },
-        {
-          "letter": "t",
-          "word": "tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯",
-          "kn_letter": "ಟಿ",
-          "style": "small"
-        },
-        {
-          "letter": "u",
-          "word": "umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️",
-          "kn_letter": "ಯು",
-          "style": "small"
-        },
-        {
-          "letter": "v",
-          "word": "van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐",
-          "kn_letter": "ವಿ",
-          "style": "small"
-        },
-        {
-          "letter": "w",
-          "word": "whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋",
-          "kn_letter": "ಡಬ್ಲ್ಯೂ",
-          "style": "small"
-        },
-        {
-          "letter": "x",
-          "word": "xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵",
-          "kn_letter": "ಎಕ್ಸ್",
-          "style": "small"
-        },
-        {
-          "letter": "y",
-          "word": "yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃",
-          "kn_letter": "ವೈ",
-          "style": "small"
-        },
-        {
-          "letter": "z",
-          "word": "zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓",
-          "kn_letter": "ಝಡ್",
-          "style": "small"
-        }
-      ]
+      "type": "letter-cards"
     },
     {
-      "id": "cursive",
-      "icon": "✍️",
-      "label": {
-        "en": "Cursive Letters",
-        "kn": "ಕರ್ಸಿವ್ ಅಕ್ಷರಗಳು"
-      },
-      "type": "letter-cards",
-      "desc": "Flowing joined-up writing. Capital + small cursive forms!",
       "cards": [
         {
-          "letter": "A",
           "cursive": "𝒜",
-          "cursive_small": "𝒶",
-          "word": "Apple",
+          "emoji": "🍎",
           "kn": "ಸೇಬು",
-          "emoji": "🍎"
+          "letter": "A",
+          "word": "Apple"
         },
         {
-          "letter": "B",
           "cursive": "ℬ",
-          "cursive_small": "𝒷",
-          "word": "Ball",
+          "emoji": "⚽",
           "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
+          "letter": "B",
+          "word": "Ball"
         },
         {
-          "letter": "C",
           "cursive": "𝒞",
-          "cursive_small": "𝒸",
-          "word": "Cat",
+          "emoji": "🐈",
           "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
+          "letter": "C",
+          "word": "Cat"
         },
         {
-          "letter": "D",
           "cursive": "𝒟",
-          "cursive_small": "𝒹",
-          "word": "Dog",
+          "emoji": "🐕",
           "kn": "ನಾಯಿ",
-          "emoji": "🐕"
+          "letter": "D",
+          "word": "Dog"
         },
         {
-          "letter": "E",
           "cursive": "ℰ",
-          "cursive_small": "ℯ",
-          "word": "Elephant",
+          "emoji": "🐘",
           "kn": "ಆನೆ",
-          "emoji": "🐘"
+          "letter": "E",
+          "word": "Elephant"
         },
         {
-          "letter": "F",
           "cursive": "ℱ",
-          "cursive_small": "𝒻",
-          "word": "Fish",
+          "emoji": "🐟",
           "kn": "ಮೀನು",
-          "emoji": "🐟"
+          "letter": "F",
+          "word": "Fish"
         },
         {
-          "letter": "G",
           "cursive": "𝒢",
-          "cursive_small": "ℊ",
-          "word": "Goat",
+          "emoji": "🐐",
           "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
+          "letter": "G",
+          "word": "Goat"
         },
         {
-          "letter": "H",
           "cursive": "ℋ",
-          "cursive_small": "𝒽",
-          "word": "Horse",
+          "emoji": "🐎",
           "kn": "ಕುದುರೆ",
-          "emoji": "🐎"
+          "letter": "H",
+          "word": "Horse"
         },
         {
-          "letter": "I",
           "cursive": "ℐ",
-          "cursive_small": "𝒾",
-          "word": "Ink",
+          "emoji": "🖊️",
           "kn": "ಶಾಯಿ",
-          "emoji": "🖊️"
+          "letter": "I",
+          "word": "Ink"
         },
         {
-          "letter": "J",
           "cursive": "𝒥",
-          "cursive_small": "𝒿",
-          "word": "Jar",
+          "emoji": "🫙",
           "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
+          "letter": "J",
+          "word": "Jar"
         },
         {
-          "letter": "K",
           "cursive": "𝒦",
-          "cursive_small": "𝓀",
-          "word": "Kite",
+          "emoji": "🪁",
           "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
+          "letter": "K",
+          "word": "Kite"
         },
         {
-          "letter": "L",
           "cursive": "ℒ",
-          "cursive_small": "𝓁",
-          "word": "Lion",
+          "emoji": "🦁",
           "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
+          "letter": "L",
+          "word": "Lion"
         },
         {
-          "letter": "M",
           "cursive": "ℳ",
-          "cursive_small": "𝓂",
-          "word": "Mango",
+          "emoji": "🥭",
           "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
+          "letter": "M",
+          "word": "Mango"
         },
         {
-          "letter": "N",
           "cursive": "𝒩",
-          "cursive_small": "𝓃",
-          "word": "Nest",
+          "emoji": "🪺",
           "kn": "ಗೂಡು",
-          "emoji": "🪺"
+          "letter": "N",
+          "word": "Nest"
         },
         {
-          "letter": "O",
           "cursive": "𝒪",
-          "cursive_small": "ℴ",
-          "word": "Orange",
+          "emoji": "🍊",
           "kn": "ಕಿತ್ತಳೆ",
-          "emoji": "🍊"
+          "letter": "O",
+          "word": "Orange"
         },
         {
-          "letter": "P",
           "cursive": "𝒫",
-          "cursive_small": "𝓅",
-          "word": "Parrot",
+          "emoji": "🦜",
           "kn": "ಗಿಳಿ",
-          "emoji": "🦜"
+          "letter": "P",
+          "word": "Parrot"
         },
         {
-          "letter": "Q",
           "cursive": "𝒬",
-          "cursive_small": "𝓆",
-          "word": "Queen",
+          "emoji": "👸",
           "kn": "ರಾಣಿ",
-          "emoji": "👸"
+          "letter": "Q",
+          "word": "Queen"
         },
         {
-          "letter": "R",
           "cursive": "ℛ",
-          "cursive_small": "𝓇",
-          "word": "Rabbit",
+          "emoji": "🐇",
           "kn": "ಮೊಲ",
-          "emoji": "🐇"
+          "letter": "R",
+          "word": "Rabbit"
         },
         {
-          "letter": "S",
           "cursive": "𝒮",
-          "cursive_small": "𝓈",
-          "word": "Sun",
+          "emoji": "☀️",
           "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
+          "letter": "S",
+          "word": "Sun"
         },
         {
-          "letter": "T",
           "cursive": "𝒯",
-          "cursive_small": "𝓉",
-          "word": "Tiger",
+          "emoji": "🐯",
           "kn": "ಹುಲಿ",
-          "emoji": "🐯"
+          "letter": "T",
+          "word": "Tiger"
         },
         {
-          "letter": "U",
           "cursive": "𝒰",
-          "cursive_small": "𝓊",
-          "word": "Umbrella",
+          "emoji": "☂️",
           "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
+          "letter": "U",
+          "word": "Umbrella"
         },
         {
-          "letter": "V",
           "cursive": "𝒱",
-          "cursive_small": "𝓋",
-          "word": "Van",
+          "emoji": "🚐",
           "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐"
+          "letter": "V",
+          "word": "Van"
         },
         {
-          "letter": "W",
           "cursive": "𝒲",
-          "cursive_small": "𝓌",
-          "word": "Whale",
+          "emoji": "🐋",
           "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
+          "letter": "W",
+          "word": "Whale"
         },
         {
-          "letter": "X",
           "cursive": "𝒳",
-          "cursive_small": "𝓍",
-          "word": "Xylophone",
+          "emoji": "🎵",
           "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵"
+          "letter": "X",
+          "word": "Xylophone"
         },
         {
-          "letter": "Y",
           "cursive": "𝒴",
-          "cursive_small": "𝓎",
-          "word": "Yak",
+          "emoji": "🐃",
           "kn": "ಯಾಕ್",
-          "emoji": "🐃"
+          "letter": "Y",
+          "word": "Yak"
         },
         {
-          "letter": "Z",
           "cursive": "𝒵",
-          "cursive_small": "𝓏",
-          "word": "Zebra",
+          "emoji": "🦓",
           "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
+          "letter": "Z",
+          "word": "Zebra"
         }
-      ]
+      ],
+      "desc": "Flowing joined-up writing (Capital letters)",
+      "icon": "✍️",
+      "id": "cursive",
+      "label": {
+        "en": "Cursive Letters (Capital)",
+        "kn": "ಕರ್ಸಿವ್ ಅಕ್ಷರಗಳು (ದೊಡ್ಡ)"
+      },
+      "type": "letter-cards"
     },
     {
-      "id": "arrows",
-      "icon": "↗️",
+      "cards": [
+        {
+          "cursive": "𝒶",
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "a",
+          "word": "Apple"
+        },
+        {
+          "cursive": "𝒷",
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "b",
+          "word": "Ball"
+        },
+        {
+          "cursive": "𝒸",
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "c",
+          "word": "Cat"
+        },
+        {
+          "cursive": "𝒹",
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "d",
+          "word": "Dog"
+        },
+        {
+          "cursive": "ℯ",
+          "emoji": "🐘",
+          "kn": "ಆನೆ",
+          "letter": "e",
+          "word": "Elephant"
+        },
+        {
+          "cursive": "𝒻",
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "f",
+          "word": "Fish"
+        },
+        {
+          "cursive": "ℊ",
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "g",
+          "word": "Goat"
+        },
+        {
+          "cursive": "𝒽",
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "letter": "h",
+          "word": "Horse"
+        },
+        {
+          "cursive": "𝒾",
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "letter": "i",
+          "word": "Ink"
+        },
+        {
+          "cursive": "𝒿",
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "j",
+          "word": "Jar"
+        },
+        {
+          "cursive": "𝓀",
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "k",
+          "word": "Kite"
+        },
+        {
+          "cursive": "𝓁",
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "l",
+          "word": "Lion"
+        },
+        {
+          "cursive": "𝓂",
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "m",
+          "word": "Mango"
+        },
+        {
+          "cursive": "𝓃",
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "n",
+          "word": "Nest"
+        },
+        {
+          "cursive": "ℴ",
+          "emoji": "🍊",
+          "kn": "ಕಿತ್ತಳೆ",
+          "letter": "o",
+          "word": "Orange"
+        },
+        {
+          "cursive": "𝓅",
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "p",
+          "word": "Parrot"
+        },
+        {
+          "cursive": "𝓆",
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "letter": "q",
+          "word": "Queen"
+        },
+        {
+          "cursive": "𝓇",
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "r",
+          "word": "Rabbit"
+        },
+        {
+          "cursive": "𝓈",
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "letter": "s",
+          "word": "Sun"
+        },
+        {
+          "cursive": "𝓉",
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "t",
+          "word": "Tiger"
+        },
+        {
+          "cursive": "𝓊",
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "u",
+          "word": "Umbrella"
+        },
+        {
+          "cursive": "𝓋",
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "v",
+          "word": "Van"
+        },
+        {
+          "cursive": "𝓌",
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "w",
+          "word": "Whale"
+        },
+        {
+          "cursive": "𝓍",
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "x",
+          "word": "Xylophone"
+        },
+        {
+          "cursive": "𝓎",
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "y",
+          "word": "Yak"
+        },
+        {
+          "cursive": "𝓏",
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "z",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "Flowing joined-up writing (Small letters)",
+      "icon": "✍️",
+      "id": "cursive",
       "label": {
-        "en": "Letter Strokes",
-        "kn": "ಅಕ್ಷರ ಗೆರೆಗಳು"
+        "en": "Cursive Letters (Small)",
+        "kn": "ಕರ್ಸಿವ್ ಅಕ್ಷರಗಳು (ಸಣ್ಣ)"
       },
-      "type": "arrows",
-      "desc": "See how each letter is drawn step by step! Tap to hear.",
+      "type": "letter-cards"
+    },
+    {
+      "cards": [
+        {
+          "emoji": "🐜",
+          "fact": "Says 'Aaa' like in Apple!",
+          "kn": "ಇರುವೆ",
+          "kn_letter": "ಎ",
+          "letter": "A",
+          "word": "Ant"
+        },
+        {
+          "emoji": "🦅",
+          "fact": "Says 'Eee' like in Egg!",
+          "kn": "ಹದ್ದು",
+          "kn_letter": "ಇ",
+          "letter": "E",
+          "word": "Eagle"
+        },
+        {
+          "emoji": "🖊️",
+          "fact": "Says 'Iii' like in Itch!",
+          "kn": "ಶಾಯಿ",
+          "kn_letter": "ಐ",
+          "letter": "I",
+          "word": "Ink"
+        },
+        {
+          "emoji": "🦉",
+          "fact": "Says 'Ooo' like in Octopus!",
+          "kn": "ಗೂಬೆ",
+          "kn_letter": "ಓ",
+          "letter": "O",
+          "word": "Owl"
+        },
+        {
+          "emoji": "☂️",
+          "fact": "Says 'Uuu' like in Under!",
+          "kn": "ಛತ್ರಿ",
+          "kn_letter": "ಯು",
+          "letter": "U",
+          "word": "Umbrella"
+        }
+      ],
+      "desc": "5 vowels — A E I O U — the singing letters!",
+      "icon": "🅐",
+      "id": "vowels",
+      "label": {
+        "en": "Vowels",
+        "kn": "ಸ್ವರಗಳು"
+      },
+      "type": "letter-cards"
+    },
+    {
+      "cards": [
+        {
+          "emoji": "🦋",
+          "kn": "ಚಿಟ್ಟೆ",
+          "kn_letter": "ಬಿ",
+          "letter": "B",
+          "word": "Butterfly"
+        },
+        {
+          "emoji": "🐄",
+          "kn": "ಹಸು",
+          "kn_letter": "ಸಿ",
+          "letter": "C",
+          "word": "Cow"
+        },
+        {
+          "emoji": "🥁",
+          "kn": "ಡ್ರಮ್",
+          "kn_letter": "ಡಿ",
+          "letter": "D",
+          "word": "Drum"
+        },
+        {
+          "emoji": "🐸",
+          "kn": "ಕಪ್ಪೆ",
+          "kn_letter": "ಎಫ್",
+          "letter": "F",
+          "word": "Frog"
+        },
+        {
+          "emoji": "🍇",
+          "kn": "ದ್ರಾಕ್ಷಿ",
+          "kn_letter": "ಜಿ",
+          "letter": "G",
+          "word": "Grapes"
+        },
+        {
+          "emoji": "🎩",
+          "kn": "ಟೋಪಿ",
+          "kn_letter": "ಎಚ್",
+          "letter": "H",
+          "word": "Hat"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "kn_letter": "ಜೆ",
+          "letter": "J",
+          "word": "Jar"
+        },
+        {
+          "emoji": "👑",
+          "kn": "ರಾಜ",
+          "kn_letter": "ಕೆ",
+          "letter": "K",
+          "word": "King"
+        },
+        {
+          "emoji": "🍋",
+          "kn": "ನಿಂಬೆ",
+          "kn_letter": "ಎಲ್",
+          "letter": "L",
+          "word": "Lemon"
+        },
+        {
+          "emoji": "🌙",
+          "kn": "ಚಂದ್ರ",
+          "kn_letter": "ಎಂ",
+          "letter": "M",
+          "word": "Moon"
+        },
+        {
+          "emoji": "👃",
+          "kn": "ಮೂಗು",
+          "kn_letter": "ಎನ್",
+          "letter": "N",
+          "word": "Nose"
+        },
+        {
+          "emoji": "✏️",
+          "kn": "ಪೆನ್ಸಿಲ್",
+          "kn_letter": "ಪಿ",
+          "letter": "P",
+          "word": "Pencil"
+        },
+        {
+          "emoji": "🐦",
+          "kn": "ಕವಿಳೆ",
+          "kn_letter": "ಕ್ಯೂ",
+          "letter": "Q",
+          "word": "Quail"
+        },
+        {
+          "emoji": "🌹",
+          "kn": "ಗುಲಾಬಿ",
+          "kn_letter": "ಆರ್",
+          "letter": "R",
+          "word": "Rose"
+        },
+        {
+          "emoji": "⭐",
+          "kn": "ನಕ್ಷತ್ರ",
+          "kn_letter": "ಎಸ್",
+          "letter": "S",
+          "word": "Star"
+        },
+        {
+          "emoji": "🚂",
+          "kn": "ರೈಲು",
+          "kn_letter": "ಟಿ",
+          "letter": "T",
+          "word": "Train"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "kn_letter": "ವಿ",
+          "letter": "V",
+          "word": "Van"
+        },
+        {
+          "emoji": "⌚",
+          "kn": "ಗಡಿಯಾರ",
+          "kn_letter": "ಡಬ್ಲ್ಯೂ",
+          "letter": "W",
+          "word": "Watch"
+        },
+        {
+          "emoji": "🩻",
+          "kn": "ಎಕ್ಸ್-ರೇ",
+          "kn_letter": "ಎಕ್ಸ್",
+          "letter": "X",
+          "word": "X-Ray"
+        },
+        {
+          "emoji": "🪀",
+          "kn": "ಯೋ-ಯೋ",
+          "kn_letter": "ವೈ",
+          "letter": "Y",
+          "word": "Yo-yo"
+        },
+        {
+          "emoji": "🤐",
+          "kn": "ಜಿಪ್",
+          "kn_letter": "ಝಡ್",
+          "letter": "Z",
+          "word": "Zip"
+        }
+      ],
+      "desc": "21 consonants — all except A E I O U",
+      "icon": "🔡",
+      "id": "consonants",
+      "label": {
+        "en": "Consonants",
+        "kn": "ವ್ಯಂಜನಗಳು"
+      },
+      "type": "letter-cards"
+    },
+    {
       "cards": [
         {
           "letter": "A",
@@ -1179,211 +1119,218 @@
           "letter": "Z",
           "word": "Zebra"
         }
-      ]
+      ],
+      "desc": "See how each letter is drawn step by step! Tap to hear.",
+      "icon": "↗️",
+      "id": "arrows",
+      "label": {
+        "en": "Letter Strokes",
+        "kn": "ಅಕ್ಷರ ಗೆರೆಗಳು"
+      },
+      "type": "arrows"
     },
     {
-      "id": "phonics",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "example": "Apple · Ant · Axe",
+          "letter": "A",
+          "sound_hint": "/æ/",
+          "sound_word": "Apple"
+        },
+        {
+          "emoji": "⚽",
+          "example": "Ball · Bat · Bus",
+          "letter": "B",
+          "sound_hint": "/b/",
+          "sound_word": "Ball"
+        },
+        {
+          "emoji": "🐈",
+          "example": "Cat · Cup · Car",
+          "letter": "C",
+          "sound_hint": "/k/",
+          "sound_word": "Cat"
+        },
+        {
+          "emoji": "🐕",
+          "example": "Dog · Dot · Den",
+          "letter": "D",
+          "sound_hint": "/d/",
+          "sound_word": "Dog"
+        },
+        {
+          "emoji": "🥚",
+          "example": "Egg · End · Elk",
+          "letter": "E",
+          "sound_hint": "/ɛ/",
+          "sound_word": "Egg"
+        },
+        {
+          "emoji": "🐟",
+          "example": "Fish · Fan · Fog",
+          "letter": "F",
+          "sound_hint": "/f/",
+          "sound_word": "Fish"
+        },
+        {
+          "emoji": "🐐",
+          "example": "Goat · Gap · Gun",
+          "letter": "G",
+          "sound_hint": "/ɡ/",
+          "sound_word": "Goat"
+        },
+        {
+          "emoji": "🎩",
+          "example": "Hat · Hen · Hip",
+          "letter": "H",
+          "sound_hint": "/h/",
+          "sound_word": "Hat"
+        },
+        {
+          "emoji": "🖊️",
+          "example": "Ink · Itch · Ill",
+          "letter": "I",
+          "sound_hint": "/ɪ/",
+          "sound_word": "Ink"
+        },
+        {
+          "emoji": "🍓",
+          "example": "Jam · Jet · Jog",
+          "letter": "J",
+          "sound_hint": "/dʒ/",
+          "sound_word": "Jam"
+        },
+        {
+          "emoji": "🪁",
+          "example": "Kite · Kid · King",
+          "letter": "K",
+          "sound_hint": "/k/",
+          "sound_word": "Kite"
+        },
+        {
+          "emoji": "🦁",
+          "example": "Lip · Log · Lid",
+          "letter": "L",
+          "sound_hint": "/l/",
+          "sound_word": "Lion"
+        },
+        {
+          "emoji": "🥭",
+          "example": "Map · Mud · Man",
+          "letter": "M",
+          "sound_hint": "/m/",
+          "sound_word": "Mango"
+        },
+        {
+          "emoji": "🪺",
+          "example": "Net · Nod · Nap",
+          "letter": "N",
+          "sound_hint": "/n/",
+          "sound_word": "Nest"
+        },
+        {
+          "emoji": "🐙",
+          "example": "Ox · Off · Odd",
+          "letter": "O",
+          "sound_hint": "/ɒ/",
+          "sound_word": "Octopus"
+        },
+        {
+          "emoji": "🦜",
+          "example": "Pot · Pin · Pug",
+          "letter": "P",
+          "sound_hint": "/p/",
+          "sound_word": "Parrot"
+        },
+        {
+          "emoji": "👑",
+          "example": "Quiz · Quick · Queen",
+          "letter": "Q",
+          "sound_hint": "/kw/",
+          "sound_word": "Queen"
+        },
+        {
+          "emoji": "🐇",
+          "example": "Rat · Run · Rip",
+          "letter": "R",
+          "sound_hint": "/r/",
+          "sound_word": "Rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "example": "Sun · Sit · Sap",
+          "letter": "S",
+          "sound_hint": "/s/",
+          "sound_word": "Sun"
+        },
+        {
+          "emoji": "🐯",
+          "example": "Top · Tap · Tin",
+          "letter": "T",
+          "sound_hint": "/t/",
+          "sound_word": "Tiger"
+        },
+        {
+          "emoji": "☂️",
+          "example": "Up · Us · Under",
+          "letter": "U",
+          "sound_hint": "/ʌ/",
+          "sound_word": "Umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "example": "Van · Vet · Vim",
+          "letter": "V",
+          "sound_hint": "/v/",
+          "sound_word": "Van"
+        },
+        {
+          "emoji": "🐋",
+          "example": "Wet · Win · Web",
+          "letter": "W",
+          "sound_hint": "/w/",
+          "sound_word": "Whale"
+        },
+        {
+          "emoji": "🎵",
+          "example": "Box · Fox · Mix",
+          "letter": "X",
+          "sound_hint": "/ks/",
+          "sound_word": "Xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "example": "Yes · Yam · Yell",
+          "letter": "Y",
+          "sound_hint": "/j/",
+          "sound_word": "Yak"
+        },
+        {
+          "emoji": "🦓",
+          "example": "Zip · Zoo · Zero",
+          "letter": "Z",
+          "sound_hint": "/z/",
+          "sound_word": "Zebra"
+        }
+      ],
+      "desc": "Tap each card to hear the letter sound!",
       "icon": "🔊",
+      "id": "phonics",
       "label": {
         "en": "Phonics Sounds",
         "kn": "ಫೋನಿಕ್ಸ್ ಶಬ್ದಗಳು"
       },
-      "type": "phonics",
-      "desc": "Tap each card to hear the letter sound!",
-      "cards": [
-        {
-          "letter": "A",
-          "sound_hint": "/æ/",
-          "example": "Apple · Ant · Axe",
-          "emoji": "🍎",
-          "sound_word": "Apple"
-        },
-        {
-          "letter": "B",
-          "sound_hint": "/b/",
-          "example": "Ball · Bat · Bus",
-          "emoji": "⚽",
-          "sound_word": "Ball"
-        },
-        {
-          "letter": "C",
-          "sound_hint": "/k/",
-          "example": "Cat · Cup · Car",
-          "emoji": "🐈",
-          "sound_word": "Cat"
-        },
-        {
-          "letter": "D",
-          "sound_hint": "/d/",
-          "example": "Dog · Dot · Den",
-          "emoji": "🐕",
-          "sound_word": "Dog"
-        },
-        {
-          "letter": "E",
-          "sound_hint": "/ɛ/",
-          "example": "Egg · End · Elk",
-          "emoji": "🥚",
-          "sound_word": "Egg"
-        },
-        {
-          "letter": "F",
-          "sound_hint": "/f/",
-          "example": "Fish · Fan · Fog",
-          "emoji": "🐟",
-          "sound_word": "Fish"
-        },
-        {
-          "letter": "G",
-          "sound_hint": "/ɡ/",
-          "example": "Goat · Gap · Gun",
-          "emoji": "🐐",
-          "sound_word": "Goat"
-        },
-        {
-          "letter": "H",
-          "sound_hint": "/h/",
-          "example": "Hat · Hen · Hip",
-          "emoji": "🎩",
-          "sound_word": "Hat"
-        },
-        {
-          "letter": "I",
-          "sound_hint": "/ɪ/",
-          "example": "Ink · Itch · Ill",
-          "emoji": "🖊️",
-          "sound_word": "Ink"
-        },
-        {
-          "letter": "J",
-          "sound_hint": "/dʒ/",
-          "example": "Jam · Jet · Jog",
-          "emoji": "🍓",
-          "sound_word": "Jam"
-        },
-        {
-          "letter": "K",
-          "sound_hint": "/k/",
-          "example": "Kite · Kid · King",
-          "emoji": "🪁",
-          "sound_word": "Kite"
-        },
-        {
-          "letter": "L",
-          "sound_hint": "/l/",
-          "example": "Lip · Log · Lid",
-          "emoji": "🦁",
-          "sound_word": "Lion"
-        },
-        {
-          "letter": "M",
-          "sound_hint": "/m/",
-          "example": "Map · Mud · Man",
-          "emoji": "🥭",
-          "sound_word": "Mango"
-        },
-        {
-          "letter": "N",
-          "sound_hint": "/n/",
-          "example": "Net · Nod · Nap",
-          "emoji": "🪺",
-          "sound_word": "Nest"
-        },
-        {
-          "letter": "O",
-          "sound_hint": "/ɒ/",
-          "example": "Ox · Off · Odd",
-          "emoji": "🐙",
-          "sound_word": "Octopus"
-        },
-        {
-          "letter": "P",
-          "sound_hint": "/p/",
-          "example": "Pot · Pin · Pug",
-          "emoji": "🦜",
-          "sound_word": "Parrot"
-        },
-        {
-          "letter": "Q",
-          "sound_hint": "/kw/",
-          "example": "Quiz · Quick · Queen",
-          "emoji": "👑",
-          "sound_word": "Queen"
-        },
-        {
-          "letter": "R",
-          "sound_hint": "/r/",
-          "example": "Rat · Run · Rip",
-          "emoji": "🐇",
-          "sound_word": "Rabbit"
-        },
-        {
-          "letter": "S",
-          "sound_hint": "/s/",
-          "example": "Sun · Sit · Sap",
-          "emoji": "☀️",
-          "sound_word": "Sun"
-        },
-        {
-          "letter": "T",
-          "sound_hint": "/t/",
-          "example": "Top · Tap · Tin",
-          "emoji": "🐯",
-          "sound_word": "Tiger"
-        },
-        {
-          "letter": "U",
-          "sound_hint": "/ʌ/",
-          "example": "Up · Us · Under",
-          "emoji": "☂️",
-          "sound_word": "Umbrella"
-        },
-        {
-          "letter": "V",
-          "sound_hint": "/v/",
-          "example": "Van · Vet · Vim",
-          "emoji": "🚐",
-          "sound_word": "Van"
-        },
-        {
-          "letter": "W",
-          "sound_hint": "/w/",
-          "example": "Wet · Win · Web",
-          "emoji": "🐋",
-          "sound_word": "Whale"
-        },
-        {
-          "letter": "X",
-          "sound_hint": "/ks/",
-          "example": "Box · Fox · Mix",
-          "emoji": "🎵",
-          "sound_word": "Xylophone"
-        },
-        {
-          "letter": "Y",
-          "sound_hint": "/j/",
-          "example": "Yes · Yam · Yell",
-          "emoji": "🐃",
-          "sound_word": "Yak"
-        },
-        {
-          "letter": "Z",
-          "sound_hint": "/z/",
-          "example": "Zip · Zoo · Zero",
-          "emoji": "🦓",
-          "sound_word": "Zebra"
-        }
-      ]
+      "type": "phonics"
     },
     {
-      "id": "balloon",
+      "desc": "Pop the balloon with the correct letter! 3 misses = game over.",
       "icon": "🎈",
+      "id": "balloon",
       "label": {
         "en": "Balloon Blast",
         "kn": "ಬಲೂನ್ ಒಡೆ"
       },
-      "type": "balloon",
-      "desc": "Pop the balloon with the correct letter! 3 misses = game over.",
       "letters": [
         "A",
         "B",
@@ -1411,17 +1358,17 @@
         "X",
         "Y",
         "Z"
-      ]
+      ],
+      "type": "balloon"
     },
     {
-      "id": "moving",
+      "desc": "Tap the moving letter shown at the top! You have 30 seconds.",
       "icon": "🌀",
+      "id": "moving",
       "label": {
         "en": "Catch the Letter",
         "kn": "ಅಕ್ಷರ ಹಿಡಿ"
       },
-      "type": "moving",
-      "desc": "Tap the moving letter shown at the top! You have 30 seconds.",
       "letters": [
         "A",
         "B",
@@ -1449,287 +1396,736 @@
         "X",
         "Y",
         "Z"
-      ]
+      ],
+      "type": "moving"
     },
     {
-      "id": "puzzle",
-      "icon": "🧩",
-      "label": {
-        "en": "Word Puzzle",
-        "kn": "ಪದ ಒಗಟು"
-      },
-      "type": "puzzle",
       "desc": "Unscramble the letters to form the correct word!",
+      "icon": "🧩",
+      "id": "puzzle",
+      "label": {
+        "en": "Word Puzzle (Tough)",
+        "kn": "ಪದ ಒಗಟು (ಕಷ್ಟ)"
+      },
       "questions": [
         {
-          "answer": "CAT",
-          "emoji": "🐈",
-          "kn": "ಬೆಕ್ಕು",
-          "hint": "meow!"
+          "answer": "INK",
+          "emoji": "🖊️",
+          "hint": "used for writing",
+          "kn": "ಶಾಯಿ",
+          "scrambled": "KNI",
+          "tup": [
+            "K",
+            "N",
+            "I"
+          ]
         },
         {
-          "answer": "DOG",
-          "emoji": "🐕",
-          "kn": "ನಾಯಿ",
-          "hint": "woof!"
+          "answer": "MAP",
+          "emoji": "🗺️",
+          "hint": "shows places",
+          "kn": "ನಕ್ಷೆ",
+          "scrambled": "PAM",
+          "tup": [
+            "P",
+            "A",
+            "M"
+          ]
         },
         {
-          "answer": "SUN",
-          "emoji": "☀️",
-          "kn": "ಸೂರ್ಯ",
-          "hint": "shines!"
+          "answer": "KEY",
+          "emoji": "🔑",
+          "hint": "opens lock",
+          "kn": "ಚಾವಿ",
+          "scrambled": "EKY",
+          "tup": [
+            "E",
+            "K",
+            "Y"
+          ]
         },
         {
-          "answer": "HEN",
-          "emoji": "🐓",
-          "kn": "ಕೋಳಿ",
-          "hint": "lays eggs"
+          "answer": "LOG",
+          "emoji": "🪵",
+          "hint": "wood piece",
+          "kn": "ಮರದ ತುಂಡು",
+          "scrambled": "OLG",
+          "tup": [
+            "O",
+            "L",
+            "G"
+          ]
         },
         {
-          "answer": "COW",
-          "emoji": "🐄",
-          "kn": "ಹಸು",
-          "hint": "moo!"
+          "answer": "NET",
+          "emoji": "🥅",
+          "hint": "used to catch",
+          "kn": "ಜಾಲ",
+          "scrambled": "ENT",
+          "tup": [
+            "E",
+            "N",
+            "T"
+          ]
         },
         {
-          "answer": "ANT",
-          "emoji": "🐜",
-          "kn": "ಇರುವೆ",
-          "hint": "tiny!"
+          "answer": "LAMP",
+          "emoji": "💡",
+          "hint": "gives light",
+          "kn": "ದೀಪ",
+          "scrambled": "PAML",
+          "tup": [
+            "P",
+            "A",
+            "M",
+            "L"
+          ]
         },
         {
-          "answer": "OWL",
-          "emoji": "🦉",
-          "kn": "ಗೂಬೆ",
-          "hint": "hoot!"
+          "answer": "BOOK",
+          "emoji": "📘",
+          "hint": "you read it",
+          "kn": "ಪುಸ್ತಕ",
+          "scrambled": "KOOB",
+          "tup": [
+            "K",
+            "O",
+            "O",
+            "B"
+          ]
         },
         {
-          "answer": "BEE",
-          "emoji": "🐝",
-          "kn": "ಜೇನ್ನೊಣ",
-          "hint": "buzz!"
+          "answer": "FORK",
+          "emoji": "🍴",
+          "hint": "used to eat",
+          "kn": "ಫೋರ್ಕ್",
+          "scrambled": "KROF",
+          "tup": [
+            "K",
+            "R",
+            "O",
+            "F"
+          ]
         },
         {
-          "answer": "FOX",
-          "emoji": "🦊",
-          "kn": "ನರಿ",
-          "hint": "clever!"
+          "answer": "SHIP",
+          "emoji": "🚢",
+          "hint": "sails water",
+          "kn": "ಹಡಗು",
+          "scrambled": "HPSI",
+          "tup": [
+            "H",
+            "P",
+            "S",
+            "I"
+          ]
         },
         {
-          "answer": "PIG",
-          "emoji": "🐷",
-          "kn": "ಹಂದಿ",
-          "hint": "oink!"
+          "answer": "RAIN",
+          "emoji": "🌧️",
+          "hint": "falls from sky",
+          "kn": "ಮಳೆ",
+          "scrambled": "NARI",
+          "tup": [
+            "N",
+            "A",
+            "R",
+            "I"
+          ]
         },
         {
-          "answer": "BUS",
-          "emoji": "🚌",
-          "kn": "ಬಸ್ಸು",
-          "hint": "transport"
+          "answer": "TREE",
+          "emoji": "🌳",
+          "hint": "has leaves",
+          "kn": "ಮರ",
+          "scrambled": "ERTE",
+          "tup": [
+            "E",
+            "R",
+            "T",
+            "E"
+          ]
         },
         {
-          "answer": "CUP",
-          "emoji": "☕",
-          "kn": "ಕಪ್",
-          "hint": "drink from"
+          "answer": "MOON",
+          "emoji": "🌙",
+          "hint": "night light",
+          "kn": "ಚಂದ್ರ",
+          "scrambled": "ONMO",
+          "tup": [
+            "O",
+            "N",
+            "M",
+            "O"
+          ]
         },
         {
-          "answer": "BAG",
-          "emoji": "👜",
-          "kn": "ಚೀಲ",
-          "hint": "carry it"
+          "answer": "STAR",
+          "emoji": "⭐",
+          "hint": "twinkles",
+          "kn": "ನಕ್ಷತ್ರ",
+          "scrambled": "RTSA",
+          "tup": [
+            "R",
+            "T",
+            "S",
+            "A"
+          ]
         },
         {
-          "answer": "HUT",
-          "emoji": "🛖",
-          "kn": "ಗುಡಿಸಲ",
-          "hint": "small home"
+          "answer": "WIND",
+          "emoji": "💨",
+          "hint": "moving air",
+          "kn": "ಗಾಳಿ",
+          "scrambled": "DIWN",
+          "tup": [
+            "D",
+            "I",
+            "W",
+            "N"
+          ]
         },
         {
-          "answer": "JAM",
-          "emoji": "🫙",
-          "kn": "ಜಾಮ್",
-          "hint": "sweet spread"
+          "answer": "FIRE",
+          "emoji": "🔥",
+          "hint": "hot flames",
+          "kn": "ಬೆಂಕಿ",
+          "scrambled": "RIEF",
+          "tup": [
+            "R",
+            "I",
+            "E",
+            "F"
+          ]
+        },
+        {
+          "answer": "PLANT",
+          "emoji": "🪴",
+          "hint": "grows in soil",
+          "kn": "ಸಸಿ",
+          "scrambled": "TLNAP",
+          "tup": [
+            "T",
+            "L",
+            "N",
+            "A",
+            "P"
+          ]
+        },
+        {
+          "answer": "BRICK",
+          "emoji": "🧱",
+          "hint": "used to build",
+          "kn": "ಇಟ್ಟಿಗೆ",
+          "scrambled": "KRCBI",
+          "tup": [
+            "K",
+            "R",
+            "C",
+            "B",
+            "I"
+          ]
+        },
+        {
+          "answer": "CHAIR",
+          "emoji": "🪑",
+          "hint": "you sit",
+          "kn": "ಕುರ್ಚಿ",
+          "scrambled": "RCAHI",
+          "tup": [
+            "R",
+            "C",
+            "A",
+            "H",
+            "I"
+          ]
+        },
+        {
+          "answer": "TABLE",
+          "emoji": "🪵",
+          "hint": "flat surface",
+          "kn": "ಮೇಜು",
+          "scrambled": "BTLAE",
+          "tup": [
+            "B",
+            "T",
+            "L",
+            "A",
+            "E"
+          ]
+        },
+        {
+          "answer": "SNAKE",
+          "emoji": "🐍",
+          "hint": "slithers",
+          "kn": "ಹಾವು",
+          "scrambled": "KESAN",
+          "tup": [
+            "K",
+            "E",
+            "S",
+            "A",
+            "N"
+          ]
+        },
+        {
+          "answer": "HORSE",
+          "emoji": "🐎",
+          "hint": "runs fast",
+          "kn": "ಕುದುರೆ",
+          "scrambled": "SOHER",
+          "tup": [
+            "S",
+            "O",
+            "H",
+            "E",
+            "R"
+          ]
+        },
+        {
+          "answer": "MOUSE",
+          "emoji": "🐁",
+          "hint": "small rodent",
+          "kn": "ಇಲಿ",
+          "scrambled": "EUOMS",
+          "tup": [
+            "E",
+            "U",
+            "O",
+            "M",
+            "S"
+          ]
+        },
+        {
+          "answer": "BREAD",
+          "emoji": "🍞",
+          "hint": "you eat it",
+          "kn": "ರೊಟ್ಟಿ",
+          "scrambled": "DEARB",
+          "tup": [
+            "D",
+            "E",
+            "A",
+            "R",
+            "B"
+          ]
+        },
+        {
+          "answer": "FRUIT",
+          "emoji": "🍎",
+          "hint": "healthy food",
+          "kn": "ಹಣ್ಣು",
+          "scrambled": "TIRUF",
+          "tup": [
+            "T",
+            "I",
+            "R",
+            "U",
+            "F"
+          ]
+        },
+        {
+          "answer": "WATER",
+          "emoji": "💧",
+          "hint": "you drink",
+          "kn": "ನೀರು",
+          "scrambled": "RETWA",
+          "tup": [
+            "R",
+            "E",
+            "T",
+            "W",
+            "A"
+          ]
+        },
+        {
+          "answer": "SWEET",
+          "emoji": "🍬",
+          "hint": "tastes sugar",
+          "kn": "ಸಿಹಿ",
+          "scrambled": "TEWES",
+          "tup": [
+            "T",
+            "E",
+            "W",
+            "E",
+            "S"
+          ]
+        },
+        {
+          "answer": "SALTY",
+          "emoji": "🧂",
+          "hint": "salt taste",
+          "kn": "ಉಪ್ಪು",
+          "scrambled": "TYALS",
+          "tup": [
+            "T",
+            "Y",
+            "A",
+            "L",
+            "S"
+          ]
+        },
+        {
+          "answer": "SPICE",
+          "emoji": "🌶️",
+          "hint": "adds flavor",
+          "kn": "ಮಸಾಲೆ",
+          "scrambled": "CIPES",
+          "tup": [
+            "C",
+            "I",
+            "P",
+            "E",
+            "S"
+          ]
+        },
+        {
+          "answer": "SMOKE",
+          "emoji": "💨",
+          "hint": "from fire",
+          "kn": "ಹೊಗೆ",
+          "scrambled": "KSMOE",
+          "tup": [
+            "K",
+            "S",
+            "M",
+            "O",
+            "E"
+          ]
+        },
+        {
+          "answer": "CLOUD",
+          "emoji": "☁️",
+          "hint": "in sky",
+          "kn": "ಮೋಡ",
+          "scrambled": "DUOLC",
+          "tup": [
+            "D",
+            "U",
+            "O",
+            "L",
+            "C"
+          ]
+        },
+        {
+          "answer": "STONE",
+          "emoji": "🪨",
+          "hint": "hard rock",
+          "kn": "ಕಲ್ಲು",
+          "scrambled": "NOTSE",
+          "tup": [
+            "N",
+            "O",
+            "T",
+            "S",
+            "E"
+          ]
+        },
+        {
+          "answer": "METAL",
+          "emoji": "🔩",
+          "hint": "strong material",
+          "kn": "ಲೋಹ",
+          "scrambled": "TMAEL",
+          "tup": [
+            "T",
+            "M",
+            "A",
+            "E",
+            "L"
+          ]
+        },
+        {
+          "answer": "GLASS",
+          "emoji": "🥛",
+          "hint": "see through",
+          "kn": "ಗಾಜು",
+          "scrambled": "LSSAG",
+          "tup": [
+            "L",
+            "S",
+            "S",
+            "A",
+            "G"
+          ]
+        },
+        {
+          "answer": "PAPER",
+          "emoji": "📄",
+          "hint": "write on it",
+          "kn": "ಕಾಗದ",
+          "scrambled": "RPAEP",
+          "tup": [
+            "R",
+            "P",
+            "A",
+            "E",
+            "P"
+          ]
+        },
+        {
+          "answer": "MUSIC",
+          "emoji": "🎵",
+          "hint": "you hear it",
+          "kn": "ಸಂಗೀತ",
+          "scrambled": "CSUMI",
+          "tup": [
+            "C",
+            "S",
+            "U",
+            "M",
+            "I"
+          ]
+        },
+        {
+          "answer": "DANCE",
+          "emoji": "💃",
+          "hint": "move to music",
+          "kn": "ನೃತ್ಯ",
+          "scrambled": "CEDAN",
+          "tup": [
+            "C",
+            "E",
+            "D",
+            "A",
+            "N"
+          ]
+        },
+        {
+          "answer": "LAUGH",
+          "emoji": "😂",
+          "hint": "happy sound",
+          "kn": "ನಗು",
+          "scrambled": "GHALU",
+          "tup": [
+            "G",
+            "H",
+            "A",
+            "L",
+            "U"
+          ]
+        },
+        {
+          "answer": "THINK",
+          "emoji": "🤔",
+          "hint": "use brain",
+          "kn": "ಯೋಚನೆ",
+          "scrambled": "KTHNI",
+          "tup": [
+            "K",
+            "T",
+            "H",
+            "N",
+            "I"
+          ]
+        },
+        {
+          "answer": "WRITE",
+          "emoji": "✍️",
+          "hint": "use pen",
+          "kn": "ಬರೆಯು",
+          "scrambled": "ETRWI",
+          "tup": [
+            "E",
+            "T",
+            "R",
+            "W",
+            "I"
+          ]
+        },
+        {
+          "answer": "READ",
+          "emoji": "📖",
+          "hint": "see words",
+          "kn": "ಓದು",
+          "scrambled": "DAER",
+          "tup": [
+            "D",
+            "A",
+            "E",
+            "R"
+          ]
         }
-      ]
+      ],
+      "type": "puzzle"
     },
     {
-      "id": "flipcard",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "A",
+          "word": "Apple"
+        },
+        {
+          "emoji": "🦋",
+          "kn": "ಚಿಟ್ಟೆ",
+          "letter": "B",
+          "word": "Butterfly"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "C",
+          "word": "Cat"
+        },
+        {
+          "emoji": "🦆",
+          "kn": "ಬಾತುಕೋಳಿ",
+          "letter": "D",
+          "word": "Duck"
+        },
+        {
+          "emoji": "🥚",
+          "kn": "ಮೊಟ್ಟೆ",
+          "letter": "E",
+          "word": "Egg"
+        },
+        {
+          "emoji": "🐸",
+          "kn": "ಕಪ್ಪೆ",
+          "letter": "F",
+          "word": "Frog"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "G",
+          "word": "Goat"
+        },
+        {
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "letter": "H",
+          "word": "Horse"
+        },
+        {
+          "emoji": "🏔️",
+          "kn": "ಐಗ್ಲೂ",
+          "letter": "I",
+          "word": "Igloo"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "J",
+          "word": "Jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "K",
+          "word": "Kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "L",
+          "word": "Lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "M",
+          "word": "Mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "N",
+          "word": "Nest"
+        },
+        {
+          "emoji": "🦉",
+          "kn": "ಗೂಬೆ",
+          "letter": "O",
+          "word": "Owl"
+        },
+        {
+          "emoji": "🦚",
+          "kn": "ನವಿಲು",
+          "letter": "P",
+          "word": "Peacock"
+        },
+        {
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "letter": "Q",
+          "word": "Queen"
+        },
+        {
+          "emoji": "🌈",
+          "kn": "ಕಾಮನಬಿಲ್ಲು",
+          "letter": "R",
+          "word": "Rainbow"
+        },
+        {
+          "emoji": "⭐",
+          "kn": "ನಕ್ಷತ್ರ",
+          "letter": "S",
+          "word": "Star"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "T",
+          "word": "Tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "U",
+          "word": "Umbrella"
+        },
+        {
+          "emoji": "🎻",
+          "kn": "ವಯೊಲಿನ್",
+          "letter": "V",
+          "word": "Violin"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "W",
+          "word": "Whale"
+        },
+        {
+          "emoji": "🩻",
+          "kn": "ಎಕ್ಸ್-ರೇ",
+          "letter": "X",
+          "word": "X-Ray"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "Y",
+          "word": "Yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "Z",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "Tap a card to flip it! Match the letter to the picture.",
       "icon": "🃏",
+      "id": "flipcard",
       "label": {
         "en": "Flip Cards",
         "kn": "ಫ್ಲಿಪ್ ಕಾರ್ಡ್"
       },
-      "type": "flipcard",
-      "desc": "Tap a card to flip it! Match the letter to the picture.",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "B",
-          "word": "Butterfly",
-          "kn": "ಚಿಟ್ಟೆ",
-          "emoji": "🦋"
-        },
-        {
-          "letter": "C",
-          "word": "Cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "D",
-          "word": "Duck",
-          "kn": "ಬಾತುಕೋಳಿ",
-          "emoji": "🦆"
-        },
-        {
-          "letter": "E",
-          "word": "Egg",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚"
-        },
-        {
-          "letter": "F",
-          "word": "Frog",
-          "kn": "ಕಪ್ಪೆ",
-          "emoji": "🐸"
-        },
-        {
-          "letter": "G",
-          "word": "Goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "H",
-          "word": "Horse",
-          "kn": "ಕುದುರೆ",
-          "emoji": "🐎"
-        },
-        {
-          "letter": "I",
-          "word": "Igloo",
-          "kn": "ಐಗ್ಲೂ",
-          "emoji": "🏔️"
-        },
-        {
-          "letter": "J",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "K",
-          "word": "Kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "L",
-          "word": "Lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "M",
-          "word": "Mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "N",
-          "word": "Nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "O",
-          "word": "Owl",
-          "kn": "ಗೂಬೆ",
-          "emoji": "🦉"
-        },
-        {
-          "letter": "P",
-          "word": "Peacock",
-          "kn": "ನವಿಲು",
-          "emoji": "🦚"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸"
-        },
-        {
-          "letter": "R",
-          "word": "Rainbow",
-          "kn": "ಕಾಮನಬಿಲ್ಲು",
-          "emoji": "🌈"
-        },
-        {
-          "letter": "S",
-          "word": "Star",
-          "kn": "ನಕ್ಷತ್ರ",
-          "emoji": "⭐"
-        },
-        {
-          "letter": "T",
-          "word": "Tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "V",
-          "word": "Violin",
-          "kn": "ವಯೊಲಿನ್",
-          "emoji": "🎻"
-        },
-        {
-          "letter": "W",
-          "word": "Whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "X",
-          "word": "X-Ray",
-          "kn": "ಎಕ್ಸ್-ರೇ",
-          "emoji": "🩻"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "flipcard"
     },
     {
-      "id": "speedtap",
+      "desc": "A letter flashes — tap it before time runs out! Get faster each round.",
       "icon": "⚡",
+      "id": "speedtap",
       "label": {
         "en": "Speed Tap",
         "kn": "ವೇಗ ಟ್ಯಾಪ್"
       },
-      "type": "speedtap",
-      "desc": "A letter flashes — tap it before time runs out! Get faster each round.",
       "letters": [
         "A",
         "B",
@@ -1757,17 +2153,17 @@
         "X",
         "Y",
         "Z"
-      ]
+      ],
+      "type": "speedtap"
     },
     {
-      "id": "bingo",
+      "desc": "Mark letters as they are called! Get 3 in a row to win BINGO!",
       "icon": "🎱",
+      "id": "bingo",
       "label": {
         "en": "Letter Bingo",
         "kn": "ಅಕ್ಷರ ಬಿಂಗೋ"
       },
-      "type": "bingo",
-      "desc": "Mark letters as they are called! Get 3 in a row to win BINGO!",
       "letters": [
         "A",
         "B",
@@ -1795,237 +2191,237 @@
         "X",
         "Y",
         "Z"
-      ]
+      ],
+      "type": "bingo"
     },
     {
-      "id": "spinwheel",
+      "cards": [
+        {
+          "answer": "Apple",
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "A",
+          "question": "A is for ___?",
+          "word": "Apple"
+        },
+        {
+          "answer": "Ball",
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "B",
+          "question": "B is for ___?",
+          "word": "Ball"
+        },
+        {
+          "answer": "Cat",
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "C",
+          "question": "C is for ___?",
+          "word": "Cat"
+        },
+        {
+          "answer": "Dog",
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "D",
+          "question": "D is for ___?",
+          "word": "Dog"
+        },
+        {
+          "answer": "Elephant",
+          "emoji": "🐘",
+          "kn": "ಆನೆ",
+          "letter": "E",
+          "question": "E is for ___?",
+          "word": "Elephant"
+        },
+        {
+          "answer": "Fish",
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "F",
+          "question": "F is for ___?",
+          "word": "Fish"
+        },
+        {
+          "answer": "Goat",
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "G",
+          "question": "G is for ___?",
+          "word": "Goat"
+        },
+        {
+          "answer": "Horse",
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "letter": "H",
+          "question": "H is for ___?",
+          "word": "Horse"
+        },
+        {
+          "answer": "Ice cream",
+          "emoji": "🍦",
+          "kn": "ಐಸ್‌ಕ್ರೀಮ್",
+          "letter": "I",
+          "question": "I is for ___?",
+          "word": "Ice cream"
+        },
+        {
+          "answer": "Jar",
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "J",
+          "question": "J is for ___?",
+          "word": "Jar"
+        },
+        {
+          "answer": "Kite",
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "K",
+          "question": "K is for ___?",
+          "word": "Kite"
+        },
+        {
+          "answer": "Lion",
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "L",
+          "question": "L is for ___?",
+          "word": "Lion"
+        },
+        {
+          "answer": "Mango",
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "M",
+          "question": "M is for ___?",
+          "word": "Mango"
+        },
+        {
+          "answer": "Nest",
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "N",
+          "question": "N is for ___?",
+          "word": "Nest"
+        },
+        {
+          "answer": "Orange",
+          "emoji": "🍊",
+          "kn": "ಕಿತ್ತಳೆ",
+          "letter": "O",
+          "question": "O is for ___?",
+          "word": "Orange"
+        },
+        {
+          "answer": "Parrot",
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "P",
+          "question": "P is for ___?",
+          "word": "Parrot"
+        },
+        {
+          "answer": "Queen",
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "letter": "Q",
+          "question": "Q is for ___?",
+          "word": "Queen"
+        },
+        {
+          "answer": "Rabbit",
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "R",
+          "question": "R is for ___?",
+          "word": "Rabbit"
+        },
+        {
+          "answer": "Star",
+          "emoji": "⭐",
+          "kn": "ನಕ್ಷತ್ರ",
+          "letter": "S",
+          "question": "S is for ___?",
+          "word": "Star"
+        },
+        {
+          "answer": "Tiger",
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "T",
+          "question": "T is for ___?",
+          "word": "Tiger"
+        },
+        {
+          "answer": "Umbrella",
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "U",
+          "question": "U is for ___?",
+          "word": "Umbrella"
+        },
+        {
+          "answer": "Van",
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "V",
+          "question": "V is for ___?",
+          "word": "Van"
+        },
+        {
+          "answer": "Whale",
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "W",
+          "question": "W is for ___?",
+          "word": "Whale"
+        },
+        {
+          "answer": "Xylophone",
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "X",
+          "question": "X is for ___?",
+          "word": "Xylophone"
+        },
+        {
+          "answer": "Yak",
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "Y",
+          "question": "Y is for ___?",
+          "word": "Yak"
+        },
+        {
+          "answer": "Zebra",
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "Z",
+          "question": "Z is for ___?",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "Spin the wheel and learn the letter that lands! Then answer a quick question.",
       "icon": "🎡",
+      "id": "spinwheel",
       "label": {
         "en": "Spin & Learn",
         "kn": "ಸ್ಪಿನ್ & ಕಲಿ"
       },
-      "type": "spinwheel",
-      "desc": "Spin the wheel and learn the letter that lands! Then answer a quick question.",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎",
-          "question": "A is for ___?",
-          "answer": "Apple"
-        },
-        {
-          "letter": "B",
-          "word": "Ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽",
-          "question": "B is for ___?",
-          "answer": "Ball"
-        },
-        {
-          "letter": "C",
-          "word": "Cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈",
-          "question": "C is for ___?",
-          "answer": "Cat"
-        },
-        {
-          "letter": "D",
-          "word": "Dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕",
-          "question": "D is for ___?",
-          "answer": "Dog"
-        },
-        {
-          "letter": "E",
-          "word": "Elephant",
-          "kn": "ಆನೆ",
-          "emoji": "🐘",
-          "question": "E is for ___?",
-          "answer": "Elephant"
-        },
-        {
-          "letter": "F",
-          "word": "Fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟",
-          "question": "F is for ___?",
-          "answer": "Fish"
-        },
-        {
-          "letter": "G",
-          "word": "Goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐",
-          "question": "G is for ___?",
-          "answer": "Goat"
-        },
-        {
-          "letter": "H",
-          "word": "Horse",
-          "kn": "ಕುದುರೆ",
-          "emoji": "🐎",
-          "question": "H is for ___?",
-          "answer": "Horse"
-        },
-        {
-          "letter": "I",
-          "word": "Ice cream",
-          "kn": "ಐಸ್‌ಕ್ರೀಮ್",
-          "emoji": "🍦",
-          "question": "I is for ___?",
-          "answer": "Ice cream"
-        },
-        {
-          "letter": "J",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙",
-          "question": "J is for ___?",
-          "answer": "Jar"
-        },
-        {
-          "letter": "K",
-          "word": "Kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁",
-          "question": "K is for ___?",
-          "answer": "Kite"
-        },
-        {
-          "letter": "L",
-          "word": "Lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁",
-          "question": "L is for ___?",
-          "answer": "Lion"
-        },
-        {
-          "letter": "M",
-          "word": "Mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭",
-          "question": "M is for ___?",
-          "answer": "Mango"
-        },
-        {
-          "letter": "N",
-          "word": "Nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺",
-          "question": "N is for ___?",
-          "answer": "Nest"
-        },
-        {
-          "letter": "O",
-          "word": "Orange",
-          "kn": "ಕಿತ್ತಳೆ",
-          "emoji": "🍊",
-          "question": "O is for ___?",
-          "answer": "Orange"
-        },
-        {
-          "letter": "P",
-          "word": "Parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜",
-          "question": "P is for ___?",
-          "answer": "Parrot"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸",
-          "question": "Q is for ___?",
-          "answer": "Queen"
-        },
-        {
-          "letter": "R",
-          "word": "Rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇",
-          "question": "R is for ___?",
-          "answer": "Rabbit"
-        },
-        {
-          "letter": "S",
-          "word": "Star",
-          "kn": "ನಕ್ಷತ್ರ",
-          "emoji": "⭐",
-          "question": "S is for ___?",
-          "answer": "Star"
-        },
-        {
-          "letter": "T",
-          "word": "Tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯",
-          "question": "T is for ___?",
-          "answer": "Tiger"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️",
-          "question": "U is for ___?",
-          "answer": "Umbrella"
-        },
-        {
-          "letter": "V",
-          "word": "Van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐",
-          "question": "V is for ___?",
-          "answer": "Van"
-        },
-        {
-          "letter": "W",
-          "word": "Whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋",
-          "question": "W is for ___?",
-          "answer": "Whale"
-        },
-        {
-          "letter": "X",
-          "word": "Xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵",
-          "question": "X is for ___?",
-          "answer": "Xylophone"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃",
-          "question": "Y is for ___?",
-          "answer": "Yak"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓",
-          "question": "Z is for ___?",
-          "answer": "Zebra"
-        }
-      ]
+      "type": "spinwheel"
     },
     {
-      "id": "match",
+      "desc": "Match each CAPITAL letter to its small letter!",
       "icon": "🎯",
+      "id": "match",
       "label": {
         "en": "Match Letters",
         "kn": "ಅಕ್ಷರ ಜೋಡಿ"
       },
-      "type": "activity-match",
-      "desc": "Match each CAPITAL letter to its small letter!",
       "pairs": [
         {
           "cap": "A",
@@ -2131,271 +2527,272 @@
           "cap": "Z",
           "small": "z"
         }
-      ]
+      ],
+      "type": "activity-match"
     },
     {
-      "id": "missing",
+      "desc": "Fill in the missing letter! Tap the correct answer.",
       "icon": "❓",
+      "id": "missing",
       "label": {
         "en": "Missing Letters",
         "kn": "ಕಾಣೆಯಾದ ಅಕ್ಷರ"
       },
-      "type": "activity-missing",
-      "desc": "Fill in the missing letter! Tap the correct answer.",
       "questions": [
         {
-          "word": "C_T",
           "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
+          "emoji": "🐈",
           "full": "CAT",
           "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "word": "D_G",
-          "answer": "O",
           "options": [
             "A",
-            "O",
-            "U",
-            "I"
+            "E",
+            "I",
+            "O"
           ],
+          "word": "C_T"
+        },
+        {
+          "answer": "O",
+          "emoji": "🐕",
           "full": "DOG",
           "kn": "ನಾಯಿ",
-          "emoji": "🐕"
-        },
-        {
-          "word": "S_N",
-          "answer": "U",
-          "options": [
-            "A",
-            "E",
-            "U",
-            "O"
-          ],
-          "full": "SUN",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
-        },
-        {
-          "word": "H_T",
-          "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "HAT",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩"
-        },
-        {
-          "word": "B_G",
-          "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "BAG",
-          "kn": "ಚೀಲ",
-          "emoji": "👜"
-        },
-        {
-          "word": "F_SH",
-          "answer": "I",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "U"
-          ],
-          "full": "FISH",
-          "kn": "ಮೀನು",
-          "emoji": "🐟"
-        },
-        {
-          "word": "L_ON",
-          "answer": "I",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "LION",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "word": "B_LL",
-          "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "BALL",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
-        },
-        {
-          "word": "C_W",
-          "answer": "O",
           "options": [
             "A",
             "O",
             "U",
             "I"
           ],
+          "word": "D_G"
+        },
+        {
+          "answer": "U",
+          "emoji": "☀️",
+          "full": "SUN",
+          "kn": "ಸೂರ್ಯ",
+          "options": [
+            "A",
+            "E",
+            "U",
+            "O"
+          ],
+          "word": "S_N"
+        },
+        {
+          "answer": "A",
+          "emoji": "🎩",
+          "full": "HAT",
+          "kn": "ಟೋಪಿ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "H_T"
+        },
+        {
+          "answer": "A",
+          "emoji": "👜",
+          "full": "BAG",
+          "kn": "ಚೀಲ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "B_G"
+        },
+        {
+          "answer": "I",
+          "emoji": "🐟",
+          "full": "FISH",
+          "kn": "ಮೀನು",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "U"
+          ],
+          "word": "F_SH"
+        },
+        {
+          "answer": "I",
+          "emoji": "🦁",
+          "full": "LION",
+          "kn": "ಸಿಂಹ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "L_ON"
+        },
+        {
+          "answer": "A",
+          "emoji": "⚽",
+          "full": "BALL",
+          "kn": "ಚೆಂಡು",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "B_LL"
+        },
+        {
+          "answer": "O",
+          "emoji": "🐄",
           "full": "COW",
           "kn": "ಹಸು",
-          "emoji": "🐄"
-        },
-        {
-          "word": "FR_G",
-          "answer": "O",
           "options": [
             "A",
-            "E",
             "O",
-            "U"
+            "U",
+            "I"
           ],
+          "word": "C_W"
+        },
+        {
+          "answer": "O",
+          "emoji": "🐸",
           "full": "FROG",
           "kn": "ಕಪ್ಪೆ",
-          "emoji": "🐸"
-        },
-        {
-          "word": "ST_R",
-          "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "STAR",
-          "kn": "ನಕ್ಷತ್ರ",
-          "emoji": "⭐"
-        },
-        {
-          "word": "K_TE",
-          "answer": "I",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "KITE",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "word": "_NT",
-          "answer": "A",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "ANT",
-          "kn": "ಇರುವೆ",
-          "emoji": "🐜"
-        },
-        {
-          "word": "_GG",
-          "answer": "E",
-          "options": [
-            "A",
-            "E",
-            "I",
-            "O"
-          ],
-          "full": "EGG",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚"
-        },
-        {
-          "word": "_WL",
-          "answer": "O",
           "options": [
             "A",
             "E",
             "O",
             "U"
           ],
+          "word": "FR_G"
+        },
+        {
+          "answer": "A",
+          "emoji": "⭐",
+          "full": "STAR",
+          "kn": "ನಕ್ಷತ್ರ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "ST_R"
+        },
+        {
+          "answer": "I",
+          "emoji": "🪁",
+          "full": "KITE",
+          "kn": "ಗಾಳಿಪಟ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "K_TE"
+        },
+        {
+          "answer": "A",
+          "emoji": "🐜",
+          "full": "ANT",
+          "kn": "ಇರುವೆ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "_NT"
+        },
+        {
+          "answer": "E",
+          "emoji": "🥚",
+          "full": "EGG",
+          "kn": "ಮೊಟ್ಟೆ",
+          "options": [
+            "A",
+            "E",
+            "I",
+            "O"
+          ],
+          "word": "_GG"
+        },
+        {
+          "answer": "O",
+          "emoji": "🦉",
           "full": "OWL",
           "kn": "ಗೂಬೆ",
-          "emoji": "🦉"
+          "options": [
+            "A",
+            "E",
+            "O",
+            "U"
+          ],
+          "word": "_WL"
         }
-      ]
+      ],
+      "type": "activity-missing"
     },
     {
-      "id": "order",
+      "desc": "Tap letters in A to Z order!",
       "icon": "📋",
+      "id": "order",
       "label": {
         "en": "Alphabet Order",
         "kn": "ಅಕ್ಷರ ಕ್ರಮ"
       },
-      "type": "activity-order",
-      "desc": "Tap letters in A to Z order!",
       "rounds": [
         {
+          "label": "Round 1 · A B C D",
           "letters": [
             "D",
             "B",
             "A",
             "C"
-          ],
-          "label": "Round 1 · A B C D"
+          ]
         },
         {
+          "label": "Round 2 · E F G H",
           "letters": [
             "H",
             "E",
             "G",
             "F"
-          ],
-          "label": "Round 2 · E F G H"
+          ]
         },
         {
+          "label": "Round 3 · I J K L",
           "letters": [
             "L",
             "J",
             "K",
             "I"
-          ],
-          "label": "Round 3 · I J K L"
+          ]
         },
         {
+          "label": "Round 4 · M N O P",
           "letters": [
             "P",
             "M",
             "O",
             "N"
-          ],
-          "label": "Round 4 · M N O P"
+          ]
         },
         {
+          "label": "Round 5 · Q R S T",
           "letters": [
             "T",
             "R",
             "Q",
             "S"
-          ],
-          "label": "Round 5 · Q R S T"
+          ]
         },
         {
+          "label": "Round 6 · U V W X Y Z",
           "letters": [
             "Z",
             "V",
@@ -2403,20 +2800,20 @@
             "U",
             "W",
             "Y"
-          ],
-          "label": "Round 6 · U V W X Y Z"
+          ]
         }
-      ]
+      ],
+      "type": "activity-order"
     },
     {
-      "id": "connect-caps",
+      "case": "upper",
+      "desc": "Connect the dots in A to Z order — Capital letters!",
       "icon": "🔵",
+      "id": "connect-caps",
       "label": {
         "en": "Connect Dots A–Z",
         "kn": "ಚುಕ್ಕೆ ಜೋಡಿ A-Z"
       },
-      "type": "connect-dots",
-      "desc": "Connect the dots in A to Z order — Capital letters!",
       "letters": [
         "A",
         "B",
@@ -2445,17 +2842,17 @@
         "Y",
         "Z"
       ],
-      "case": "upper"
+      "type": "connect-dots"
     },
     {
-      "id": "connect-small",
+      "case": "lower",
+      "desc": "Connect the dots in a to z order — small letters!",
       "icon": "⚪",
+      "id": "connect-small",
       "label": {
         "en": "Connect Dots a–z",
         "kn": "ಚುಕ್ಕೆ ಜೋಡಿ a-z"
       },
-      "type": "connect-dots",
-      "desc": "Connect the dots in a to z order — small letters!",
       "letters": [
         "a",
         "b",
@@ -2484,689 +2881,681 @@
         "y",
         "z"
       ],
-      "case": "lower"
+      "type": "connect-dots"
     },
     {
-      "id": "trace-caps",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "A",
+          "word": "Apple"
+        },
+        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "B",
+          "word": "Ball"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "C",
+          "word": "Cat"
+        },
+        {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "D",
+          "word": "Dog"
+        },
+        {
+          "emoji": "🐘",
+          "kn": "ಆನೆ",
+          "letter": "E",
+          "word": "Elephant"
+        },
+        {
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "F",
+          "word": "Fish"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "G",
+          "word": "Goat"
+        },
+        {
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "letter": "H",
+          "word": "Horse"
+        },
+        {
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "letter": "I",
+          "word": "Ink"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "J",
+          "word": "Jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "K",
+          "word": "Kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "L",
+          "word": "Lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "M",
+          "word": "Mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "N",
+          "word": "Nest"
+        },
+        {
+          "emoji": "🍊",
+          "kn": "ಕಿತ್ತಳೆ",
+          "letter": "O",
+          "word": "Orange"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "P",
+          "word": "Parrot"
+        },
+        {
+          "emoji": "👑",
+          "kn": "ರಾಣಿ",
+          "letter": "Q",
+          "word": "Queen"
+        },
+        {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "R",
+          "word": "Rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "letter": "S",
+          "word": "Sun"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "T",
+          "word": "Tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "U",
+          "word": "Umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "V",
+          "word": "Van"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "W",
+          "word": "Whale"
+        },
+        {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "X",
+          "word": "Xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "Y",
+          "word": "Yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "Z",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "Trace each capital letter with your finger!",
       "icon": "✏️",
+      "id": "trace-caps",
       "label": {
         "en": "Trace A–Z (Capital)",
         "kn": "ಬರೆ A-Z (ದೊಡ್ಡ)"
       },
-      "type": "practice",
-      "desc": "Trace each capital letter with your finger!",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "B",
-          "word": "Ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
-        },
-        {
-          "letter": "C",
-          "word": "Cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "D",
-          "word": "Dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕"
-        },
-        {
-          "letter": "E",
-          "word": "Elephant",
-          "kn": "ಆನೆ",
-          "emoji": "🐘"
-        },
-        {
-          "letter": "F",
-          "word": "Fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟"
-        },
-        {
-          "letter": "G",
-          "word": "Goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "H",
-          "word": "Horse",
-          "kn": "ಕುದುರೆ",
-          "emoji": "🐎"
-        },
-        {
-          "letter": "I",
-          "word": "Ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️"
-        },
-        {
-          "letter": "J",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "K",
-          "word": "Kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "L",
-          "word": "Lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "M",
-          "word": "Mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "N",
-          "word": "Nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "O",
-          "word": "Orange",
-          "kn": "ಕಿತ್ತಳೆ",
-          "emoji": "🍊"
-        },
-        {
-          "letter": "P",
-          "word": "Parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👑"
-        },
-        {
-          "letter": "R",
-          "word": "Rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇"
-        },
-        {
-          "letter": "S",
-          "word": "Sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
-        },
-        {
-          "letter": "T",
-          "word": "Tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "V",
-          "word": "Van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐"
-        },
-        {
-          "letter": "W",
-          "word": "Whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "X",
-          "word": "Xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "practice"
     },
     {
-      "id": "trace-small",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "a",
+          "word": "apple"
+        },
+        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "b",
+          "word": "ball"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "c",
+          "word": "cat"
+        },
+        {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "d",
+          "word": "dog"
+        },
+        {
+          "emoji": "🥚",
+          "kn": "ಮೊಟ್ಟೆ",
+          "letter": "e",
+          "word": "egg"
+        },
+        {
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "f",
+          "word": "fish"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "g",
+          "word": "goat"
+        },
+        {
+          "emoji": "🎩",
+          "kn": "ಟೋಪಿ",
+          "letter": "h",
+          "word": "hat"
+        },
+        {
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "letter": "i",
+          "word": "ink"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "j",
+          "word": "jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "k",
+          "word": "kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "l",
+          "word": "lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "m",
+          "word": "mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "n",
+          "word": "nest"
+        },
+        {
+          "emoji": "🦉",
+          "kn": "ಗೂಬೆ",
+          "letter": "o",
+          "word": "owl"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "p",
+          "word": "parrot"
+        },
+        {
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "letter": "q",
+          "word": "queen"
+        },
+        {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "r",
+          "word": "rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "letter": "s",
+          "word": "sun"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "t",
+          "word": "tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "u",
+          "word": "umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "v",
+          "word": "van"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "w",
+          "word": "whale"
+        },
+        {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "x",
+          "word": "xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "y",
+          "word": "yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "z",
+          "word": "zebra"
+        }
+      ],
+      "desc": "Trace each small letter with your finger!",
       "icon": "✒️",
+      "id": "trace-small",
       "label": {
         "en": "Trace a–z (Small)",
         "kn": "ಬರೆ a-z (ಚಿಕ್ಕ)"
       },
-      "type": "practice",
-      "desc": "Trace each small letter with your finger!",
-      "cards": [
-        {
-          "letter": "a",
-          "word": "apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "b",
-          "word": "ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
-        },
-        {
-          "letter": "c",
-          "word": "cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "d",
-          "word": "dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕"
-        },
-        {
-          "letter": "e",
-          "word": "egg",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚"
-        },
-        {
-          "letter": "f",
-          "word": "fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟"
-        },
-        {
-          "letter": "g",
-          "word": "goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "h",
-          "word": "hat",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩"
-        },
-        {
-          "letter": "i",
-          "word": "ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️"
-        },
-        {
-          "letter": "j",
-          "word": "jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "k",
-          "word": "kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "l",
-          "word": "lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "m",
-          "word": "mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "n",
-          "word": "nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "o",
-          "word": "owl",
-          "kn": "ಗೂಬೆ",
-          "emoji": "🦉"
-        },
-        {
-          "letter": "p",
-          "word": "parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜"
-        },
-        {
-          "letter": "q",
-          "word": "queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸"
-        },
-        {
-          "letter": "r",
-          "word": "rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇"
-        },
-        {
-          "letter": "s",
-          "word": "sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
-        },
-        {
-          "letter": "t",
-          "word": "tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "u",
-          "word": "umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "v",
-          "word": "van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐"
-        },
-        {
-          "letter": "w",
-          "word": "whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "x",
-          "word": "xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵"
-        },
-        {
-          "letter": "y",
-          "word": "yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "z",
-          "word": "zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "practice"
     },
     {
-      "id": "trace-cursive-caps",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "𝒜",
+          "word": "Apple"
+        },
+        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "ℬ",
+          "word": "Ball"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "𝒞",
+          "word": "Cat"
+        },
+        {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "𝒟",
+          "word": "Dog"
+        },
+        {
+          "emoji": "🐘",
+          "kn": "ಆನೆ",
+          "letter": "ℰ",
+          "word": "Elephant"
+        },
+        {
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "ℱ",
+          "word": "Fish"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "𝒢",
+          "word": "Goat"
+        },
+        {
+          "emoji": "🐎",
+          "kn": "ಕುದುರೆ",
+          "letter": "ℋ",
+          "word": "Horse"
+        },
+        {
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "letter": "ℐ",
+          "word": "Ink"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "𝒥",
+          "word": "Jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "𝒦",
+          "word": "Kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "ℒ",
+          "word": "Lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "ℳ",
+          "word": "Mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "𝒩",
+          "word": "Nest"
+        },
+        {
+          "emoji": "🍊",
+          "kn": "ಕಿತ್ತಳೆ",
+          "letter": "𝒪",
+          "word": "Orange"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "𝒫",
+          "word": "Parrot"
+        },
+        {
+          "emoji": "👑",
+          "kn": "ರಾಣಿ",
+          "letter": "𝒬",
+          "word": "Queen"
+        },
+        {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "ℛ",
+          "word": "Rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "letter": "𝒮",
+          "word": "Sun"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "𝒯",
+          "word": "Tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "𝒰",
+          "word": "Umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "𝒱",
+          "word": "Van"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "𝒲",
+          "word": "Whale"
+        },
+        {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "𝒳",
+          "word": "Xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "𝒴",
+          "word": "Yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "𝒵",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "Trace each cursive capital letter with your finger!",
       "icon": "🖋️",
+      "id": "trace-cursive-caps",
       "label": {
         "en": "Trace Cursive A–Z",
         "kn": "ಕರ್ಸಿವ್ ಬರೆ A-Z"
       },
-      "type": "cursive-practice",
-      "desc": "Trace each cursive capital letter with your finger!",
-      "cards": [
-        {
-          "letter": "𝒜",
-          "word": "Apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "ℬ",
-          "word": "Ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
-        },
-        {
-          "letter": "𝒞",
-          "word": "Cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "𝒟",
-          "word": "Dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕"
-        },
-        {
-          "letter": "ℰ",
-          "word": "Elephant",
-          "kn": "ಆನೆ",
-          "emoji": "🐘"
-        },
-        {
-          "letter": "ℱ",
-          "word": "Fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟"
-        },
-        {
-          "letter": "𝒢",
-          "word": "Goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "ℋ",
-          "word": "Horse",
-          "kn": "ಕುದುರೆ",
-          "emoji": "🐎"
-        },
-        {
-          "letter": "ℐ",
-          "word": "Ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️"
-        },
-        {
-          "letter": "𝒥",
-          "word": "Jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "𝒦",
-          "word": "Kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "ℒ",
-          "word": "Lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "ℳ",
-          "word": "Mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "𝒩",
-          "word": "Nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "𝒪",
-          "word": "Orange",
-          "kn": "ಕಿತ್ತಳೆ",
-          "emoji": "🍊"
-        },
-        {
-          "letter": "𝒫",
-          "word": "Parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜"
-        },
-        {
-          "letter": "𝒬",
-          "word": "Queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👑"
-        },
-        {
-          "letter": "ℛ",
-          "word": "Rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇"
-        },
-        {
-          "letter": "𝒮",
-          "word": "Sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
-        },
-        {
-          "letter": "𝒯",
-          "word": "Tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "𝒰",
-          "word": "Umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "𝒱",
-          "word": "Van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐"
-        },
-        {
-          "letter": "𝒲",
-          "word": "Whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "𝒳",
-          "word": "Xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵"
-        },
-        {
-          "letter": "𝒴",
-          "word": "Yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "𝒵",
-          "word": "Zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "cursive-practice"
     },
     {
-      "id": "trace-cursive-small",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "kn": "ಸೇಬು",
+          "letter": "𝒶",
+          "word": "apple"
+        },
+        {
+          "emoji": "⚽",
+          "kn": "ಚೆಂಡು",
+          "letter": "𝒷",
+          "word": "ball"
+        },
+        {
+          "emoji": "🐈",
+          "kn": "ಬೆಕ್ಕು",
+          "letter": "𝒸",
+          "word": "cat"
+        },
+        {
+          "emoji": "🐕",
+          "kn": "ನಾಯಿ",
+          "letter": "𝒹",
+          "word": "dog"
+        },
+        {
+          "emoji": "🥚",
+          "kn": "ಮೊಟ್ಟೆ",
+          "letter": "ℯ",
+          "word": "egg"
+        },
+        {
+          "emoji": "🐟",
+          "kn": "ಮೀನು",
+          "letter": "𝒻",
+          "word": "fish"
+        },
+        {
+          "emoji": "🐐",
+          "kn": "ಮೇಕೆ",
+          "letter": "ℊ",
+          "word": "goat"
+        },
+        {
+          "emoji": "🎩",
+          "kn": "ಟೋಪಿ",
+          "letter": "𝒽",
+          "word": "hat"
+        },
+        {
+          "emoji": "🖊️",
+          "kn": "ಶಾಯಿ",
+          "letter": "𝒾",
+          "word": "ink"
+        },
+        {
+          "emoji": "🫙",
+          "kn": "ಜಾಡಿ",
+          "letter": "𝒿",
+          "word": "jar"
+        },
+        {
+          "emoji": "🪁",
+          "kn": "ಗಾಳಿಪಟ",
+          "letter": "𝓀",
+          "word": "kite"
+        },
+        {
+          "emoji": "🦁",
+          "kn": "ಸಿಂಹ",
+          "letter": "𝓁",
+          "word": "lion"
+        },
+        {
+          "emoji": "🥭",
+          "kn": "ಮಾವಿನ ಹಣ್ಣು",
+          "letter": "𝓂",
+          "word": "mango"
+        },
+        {
+          "emoji": "🪺",
+          "kn": "ಗೂಡು",
+          "letter": "𝓃",
+          "word": "nest"
+        },
+        {
+          "emoji": "🦉",
+          "kn": "ಗೂಬೆ",
+          "letter": "ℴ",
+          "word": "owl"
+        },
+        {
+          "emoji": "🦜",
+          "kn": "ಗಿಳಿ",
+          "letter": "𝓅",
+          "word": "parrot"
+        },
+        {
+          "emoji": "👸",
+          "kn": "ರಾಣಿ",
+          "letter": "𝓆",
+          "word": "queen"
+        },
+        {
+          "emoji": "🐇",
+          "kn": "ಮೊಲ",
+          "letter": "𝓇",
+          "word": "rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "kn": "ಸೂರ್ಯ",
+          "letter": "𝓈",
+          "word": "sun"
+        },
+        {
+          "emoji": "🐯",
+          "kn": "ಹುಲಿ",
+          "letter": "𝓉",
+          "word": "tiger"
+        },
+        {
+          "emoji": "☂️",
+          "kn": "ಛತ್ರಿ",
+          "letter": "𝓊",
+          "word": "umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "kn": "ವ್ಯಾನ್",
+          "letter": "𝓋",
+          "word": "van"
+        },
+        {
+          "emoji": "🐋",
+          "kn": "ತಿಮಿಂಗಿಲ",
+          "letter": "𝓌",
+          "word": "whale"
+        },
+        {
+          "emoji": "🎵",
+          "kn": "ಸೈಲೋಫೋನ್",
+          "letter": "𝓍",
+          "word": "xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "kn": "ಯಾಕ್",
+          "letter": "𝓎",
+          "word": "yak"
+        },
+        {
+          "emoji": "🦓",
+          "kn": "ಜೀಬ್ರಾ",
+          "letter": "𝓏",
+          "word": "zebra"
+        }
+      ],
+      "desc": "Trace each cursive small letter with your finger!",
       "icon": "🪶",
+      "id": "trace-cursive-small",
       "label": {
         "en": "Trace Cursive a–z",
         "kn": "ಕರ್ಸಿವ್ ಬರೆ a-z"
       },
-      "type": "cursive-practice",
-      "desc": "Trace each cursive small letter with your finger!",
-      "cards": [
-        {
-          "letter": "𝒶",
-          "word": "apple",
-          "kn": "ಸೇಬು",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "𝒷",
-          "word": "ball",
-          "kn": "ಚೆಂಡು",
-          "emoji": "⚽"
-        },
-        {
-          "letter": "𝒸",
-          "word": "cat",
-          "kn": "ಬೆಕ್ಕು",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "𝒹",
-          "word": "dog",
-          "kn": "ನಾಯಿ",
-          "emoji": "🐕"
-        },
-        {
-          "letter": "ℯ",
-          "word": "egg",
-          "kn": "ಮೊಟ್ಟೆ",
-          "emoji": "🥚"
-        },
-        {
-          "letter": "𝒻",
-          "word": "fish",
-          "kn": "ಮೀನು",
-          "emoji": "🐟"
-        },
-        {
-          "letter": "ℊ",
-          "word": "goat",
-          "kn": "ಮೇಕೆ",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "𝒽",
-          "word": "hat",
-          "kn": "ಟೋಪಿ",
-          "emoji": "🎩"
-        },
-        {
-          "letter": "𝒾",
-          "word": "ink",
-          "kn": "ಶಾಯಿ",
-          "emoji": "🖊️"
-        },
-        {
-          "letter": "𝒿",
-          "word": "jar",
-          "kn": "ಜಾಡಿ",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "𝓀",
-          "word": "kite",
-          "kn": "ಗಾಳಿಪಟ",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "𝓁",
-          "word": "lion",
-          "kn": "ಸಿಂಹ",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "𝓂",
-          "word": "mango",
-          "kn": "ಮಾವಿನ ಹಣ್ಣು",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "𝓃",
-          "word": "nest",
-          "kn": "ಗೂಡು",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "ℴ",
-          "word": "owl",
-          "kn": "ಗೂಬೆ",
-          "emoji": "🦉"
-        },
-        {
-          "letter": "𝓅",
-          "word": "parrot",
-          "kn": "ಗಿಳಿ",
-          "emoji": "🦜"
-        },
-        {
-          "letter": "𝓆",
-          "word": "queen",
-          "kn": "ರಾಣಿ",
-          "emoji": "👸"
-        },
-        {
-          "letter": "𝓇",
-          "word": "rabbit",
-          "kn": "ಮೊಲ",
-          "emoji": "🐇"
-        },
-        {
-          "letter": "𝓈",
-          "word": "sun",
-          "kn": "ಸೂರ್ಯ",
-          "emoji": "☀️"
-        },
-        {
-          "letter": "𝓉",
-          "word": "tiger",
-          "kn": "ಹುಲಿ",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "𝓊",
-          "word": "umbrella",
-          "kn": "ಛತ್ರಿ",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "𝓋",
-          "word": "van",
-          "kn": "ವ್ಯಾನ್",
-          "emoji": "🚐"
-        },
-        {
-          "letter": "𝓌",
-          "word": "whale",
-          "kn": "ತಿಮಿಂಗಿಲ",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "𝓍",
-          "word": "xylophone",
-          "kn": "ಸೈಲೋಫೋನ್",
-          "emoji": "🎵"
-        },
-        {
-          "letter": "𝓎",
-          "word": "yak",
-          "kn": "ಯಾಕ್",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "𝓏",
-          "word": "zebra",
-          "kn": "ಜೀಬ್ರಾ",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "cursive-practice"
     },
     {
-      "id": "sound-matcher",
-      "icon": "🎵",
-      "label": {
-        "en": "Sound Matcher",
-        "kn": "ಶಬ್ದ ಹೊಂದಿಸು"
-      },
-      "type": "sound-matcher",
-      "desc": "Hear the letter sound and tap the matching letter!",
       "cards": [
         {
           "letter": "A",
@@ -3272,149 +3661,157 @@
           "letter": "Z",
           "sound_word": "Zebra"
         }
-      ]
+      ],
+      "desc": "Hear the letter sound and tap the matching letter!",
+      "icon": "🎵",
+      "id": "sound-matcher",
+      "label": {
+        "en": "Sound Matcher",
+        "kn": "ಶಬ್ದ ಹೊಂದಿಸು"
+      },
+      "type": "sound-matcher"
     },
     {
-      "id": "flashcard-race",
+      "cards": [
+        {
+          "emoji": "🍎",
+          "letter": "A",
+          "word": "Apple"
+        },
+        {
+          "emoji": "⚽",
+          "letter": "B",
+          "word": "Ball"
+        },
+        {
+          "emoji": "🐈",
+          "letter": "C",
+          "word": "Cat"
+        },
+        {
+          "emoji": "🐕",
+          "letter": "D",
+          "word": "Dog"
+        },
+        {
+          "emoji": "🥚",
+          "letter": "E",
+          "word": "Egg"
+        },
+        {
+          "emoji": "🐟",
+          "letter": "F",
+          "word": "Fish"
+        },
+        {
+          "emoji": "🐐",
+          "letter": "G",
+          "word": "Goat"
+        },
+        {
+          "emoji": "🎩",
+          "letter": "H",
+          "word": "Hat"
+        },
+        {
+          "emoji": "🖊️",
+          "letter": "I",
+          "word": "Ink"
+        },
+        {
+          "emoji": "🫙",
+          "letter": "J",
+          "word": "Jar"
+        },
+        {
+          "emoji": "🪁",
+          "letter": "K",
+          "word": "Kite"
+        },
+        {
+          "emoji": "🦁",
+          "letter": "L",
+          "word": "Lion"
+        },
+        {
+          "emoji": "🥭",
+          "letter": "M",
+          "word": "Mango"
+        },
+        {
+          "emoji": "🪺",
+          "letter": "N",
+          "word": "Nest"
+        },
+        {
+          "emoji": "🦉",
+          "letter": "O",
+          "word": "Owl"
+        },
+        {
+          "emoji": "🦜",
+          "letter": "P",
+          "word": "Parrot"
+        },
+        {
+          "emoji": "👑",
+          "letter": "Q",
+          "word": "Queen"
+        },
+        {
+          "emoji": "🐇",
+          "letter": "R",
+          "word": "Rabbit"
+        },
+        {
+          "emoji": "☀️",
+          "letter": "S",
+          "word": "Sun"
+        },
+        {
+          "emoji": "🐯",
+          "letter": "T",
+          "word": "Tiger"
+        },
+        {
+          "emoji": "☂️",
+          "letter": "U",
+          "word": "Umbrella"
+        },
+        {
+          "emoji": "🚐",
+          "letter": "V",
+          "word": "Van"
+        },
+        {
+          "emoji": "🐋",
+          "letter": "W",
+          "word": "Whale"
+        },
+        {
+          "emoji": "🎵",
+          "letter": "X",
+          "word": "Xylophone"
+        },
+        {
+          "emoji": "🐃",
+          "letter": "Y",
+          "word": "Yak"
+        },
+        {
+          "emoji": "🦓",
+          "letter": "Z",
+          "word": "Zebra"
+        }
+      ],
+      "desc": "A letter flashes — type or tap what you see as fast as you can! Beat your best time.",
       "icon": "🏁",
+      "id": "flashcard-race",
       "label": {
         "en": "Flashcard Race",
         "kn": "ಫ್ಲ್ಯಾಶ್‌ಕಾರ್ಡ್ ರೇಸ್"
       },
-      "type": "flashcard-race",
-      "desc": "A letter flashes — type or tap what you see as fast as you can! Beat your best time.",
-      "cards": [
-        {
-          "letter": "A",
-          "word": "Apple",
-          "emoji": "🍎"
-        },
-        {
-          "letter": "B",
-          "word": "Ball",
-          "emoji": "⚽"
-        },
-        {
-          "letter": "C",
-          "word": "Cat",
-          "emoji": "🐈"
-        },
-        {
-          "letter": "D",
-          "word": "Dog",
-          "emoji": "🐕"
-        },
-        {
-          "letter": "E",
-          "word": "Egg",
-          "emoji": "🥚"
-        },
-        {
-          "letter": "F",
-          "word": "Fish",
-          "emoji": "🐟"
-        },
-        {
-          "letter": "G",
-          "word": "Goat",
-          "emoji": "🐐"
-        },
-        {
-          "letter": "H",
-          "word": "Hat",
-          "emoji": "🎩"
-        },
-        {
-          "letter": "I",
-          "word": "Ink",
-          "emoji": "🖊️"
-        },
-        {
-          "letter": "J",
-          "word": "Jar",
-          "emoji": "🫙"
-        },
-        {
-          "letter": "K",
-          "word": "Kite",
-          "emoji": "🪁"
-        },
-        {
-          "letter": "L",
-          "word": "Lion",
-          "emoji": "🦁"
-        },
-        {
-          "letter": "M",
-          "word": "Mango",
-          "emoji": "🥭"
-        },
-        {
-          "letter": "N",
-          "word": "Nest",
-          "emoji": "🪺"
-        },
-        {
-          "letter": "O",
-          "word": "Owl",
-          "emoji": "🦉"
-        },
-        {
-          "letter": "P",
-          "word": "Parrot",
-          "emoji": "🦜"
-        },
-        {
-          "letter": "Q",
-          "word": "Queen",
-          "emoji": "👑"
-        },
-        {
-          "letter": "R",
-          "word": "Rabbit",
-          "emoji": "🐇"
-        },
-        {
-          "letter": "S",
-          "word": "Sun",
-          "emoji": "☀️"
-        },
-        {
-          "letter": "T",
-          "word": "Tiger",
-          "emoji": "🐯"
-        },
-        {
-          "letter": "U",
-          "word": "Umbrella",
-          "emoji": "☂️"
-        },
-        {
-          "letter": "V",
-          "word": "Van",
-          "emoji": "🚐"
-        },
-        {
-          "letter": "W",
-          "word": "Whale",
-          "emoji": "🐋"
-        },
-        {
-          "letter": "X",
-          "word": "Xylophone",
-          "emoji": "🎵"
-        },
-        {
-          "letter": "Y",
-          "word": "Yak",
-          "emoji": "🐃"
-        },
-        {
-          "letter": "Z",
-          "word": "Zebra",
-          "emoji": "🦓"
-        }
-      ]
+      "type": "flashcard-race"
     }
   ]
 }
