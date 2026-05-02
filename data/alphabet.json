@@ -3673,136 +3673,84 @@
     },
     {
       "cards": [
-        {
-          "emoji": "🍎",
-          "letter": "A",
-          "word": "Apple"
-        },
-        {
-          "emoji": "⚽",
-          "letter": "B",
-          "word": "Ball"
-        },
-        {
-          "emoji": "🐈",
-          "letter": "C",
-          "word": "Cat"
-        },
-        {
-          "emoji": "🐕",
-          "letter": "D",
-          "word": "Dog"
-        },
-        {
-          "emoji": "🥚",
-          "letter": "E",
-          "word": "Egg"
-        },
-        {
-          "emoji": "🐟",
-          "letter": "F",
-          "word": "Fish"
-        },
-        {
-          "emoji": "🐐",
-          "letter": "G",
-          "word": "Goat"
-        },
-        {
-          "emoji": "🎩",
-          "letter": "H",
-          "word": "Hat"
-        },
-        {
-          "emoji": "🖊️",
-          "letter": "I",
-          "word": "Ink"
-        },
-        {
-          "emoji": "🫙",
-          "letter": "J",
-          "word": "Jar"
-        },
-        {
-          "emoji": "🪁",
-          "letter": "K",
-          "word": "Kite"
-        },
-        {
-          "emoji": "🦁",
-          "letter": "L",
-          "word": "Lion"
-        },
-        {
-          "emoji": "🥭",
-          "letter": "M",
-          "word": "Mango"
-        },
-        {
-          "emoji": "🪺",
-          "letter": "N",
-          "word": "Nest"
-        },
-        {
-          "emoji": "🦉",
-          "letter": "O",
-          "word": "Owl"
-        },
-        {
-          "emoji": "🦜",
-          "letter": "P",
-          "word": "Parrot"
-        },
-        {
-          "emoji": "👑",
-          "letter": "Q",
-          "word": "Queen"
-        },
-        {
-          "emoji": "🐇",
-          "letter": "R",
-          "word": "Rabbit"
-        },
-        {
-          "emoji": "☀️",
-          "letter": "S",
-          "word": "Sun"
-        },
-        {
-          "emoji": "🐯",
-          "letter": "T",
-          "word": "Tiger"
-        },
-        {
-          "emoji": "☂️",
-          "letter": "U",
-          "word": "Umbrella"
-        },
-        {
-          "emoji": "🚐",
-          "letter": "V",
-          "word": "Van"
-        },
-        {
-          "emoji": "🐋",
-          "letter": "W",
-          "word": "Whale"
-        },
-        {
-          "emoji": "🎵",
-          "letter": "X",
-          "word": "Xylophone"
-        },
-        {
-          "emoji": "🐃",
-          "letter": "Y",
-          "word": "Yak"
-        },
-        {
-          "emoji": "🦓",
-          "letter": "Z",
-          "word": "Zebra"
-        }
+      { "emoji": "🍎", "letter": "A", "word": "Apple" },
+      { "emoji": "⚽", "letter": "B", "word": "Ball" },
+      { "emoji": "🐈", "letter": "C", "word": "Cat" },
+      { "emoji": "🐕", "letter": "D", "word": "Dog" },
+      { "emoji": "🥚", "letter": "E", "word": "Egg" },
+      { "emoji": "🐟", "letter": "F", "word": "Fish" },
+      { "emoji": "🐐", "letter": "G", "word": "Goat" },
+      { "emoji": "🎩", "letter": "H", "word": "Hat" },
+      { "emoji": "🖊️", "letter": "I", "word": "Ink" },
+      { "emoji": "🫙", "letter": "J", "word": "Jar" },
+      { "emoji": "🪁", "letter": "K", "word": "Kite" },
+      { "emoji": "🦁", "letter": "L", "word": "Lion" },
+      { "emoji": "🥭", "letter": "M", "word": "Mango" },
+      { "emoji": "🪺", "letter": "N", "word": "Nest" },
+      { "emoji": "🦉", "letter": "O", "word": "Owl" },
+      { "emoji": "🦜", "letter": "P", "word": "Parrot" },
+      { "emoji": "👑", "letter": "Q", "word": "Queen" },
+      { "emoji": "🐇", "letter": "R", "word": "Rabbit" },
+      { "emoji": "☀️", "letter": "S", "word": "Sun" },
+      { "emoji": "🐯", "letter": "T", "word": "Tiger" },
+      { "emoji": "☂️", "letter": "U", "word": "Umbrella" },
+      { "emoji": "🚐", "letter": "V", "word": "Van" },
+      { "emoji": "🐋", "letter": "W", "word": "Whale" },
+      { "emoji": "🎵", "letter": "X", "word": "Xylophone" },
+      { "emoji": "🐃", "letter": "Y", "word": "Yak" },
+      { "emoji": "🦓", "letter": "Z", "word": "Zebra" },
+      { "emoji": "🐜", "letter": "A", "word": "Ant" },
+      { "emoji": "🦇", "letter": "B", "word": "Bat" },
+      { "emoji": "🚗", "letter": "C", "word": "Car" },
+      { "emoji": "🥁", "letter": "D", "word": "Drum" },
+      { "emoji": "🐘", "letter": "E", "word": "Elephant" },
+      { "emoji": "🪭", "letter": "F", "word": "Fan" },
+      { "emoji": "🍇", "letter": "G", "word": "Grapes" },
+      { "emoji": "🏠", "letter": "H", "word": "House" },
+      { "emoji": "🧊", "letter": "I", "word": "Ice" },
+      { "emoji": "🧃", "letter": "J", "word": "Juice" },
+      { "emoji": "🔑", "letter": "K", "word": "Key" },
+      { "emoji": "🍃", "letter": "L", "word": "Leaf" },
+      { "emoji": "🌙", "letter": "M", "word": "Moon" },
+      { "emoji": "👃", "letter": "N", "word": "Nose" },
+      { "emoji": "🍊", "letter": "O", "word": "Orange" },
+      { "emoji": "🖊️", "letter": "P", "word": "Pen" },
+      { "emoji": "🪶", "letter": "Q", "word": "Quill" },
+      { "emoji": "🌹", "letter": "R", "word": "Rose" },
+      { "emoji": "⭐", "letter": "S", "word": "Star" },
+      { "emoji": "🪑", "letter": "T", "word": "Table" },
+      { "emoji": "🦄", "letter": "U", "word": "Unicorn" },
+      { "emoji": "🎻", "letter": "V", "word": "Violin" },
+      { "emoji": "⌚", "letter": "W", "word": "Watch" },
+      { "emoji": "🩻", "letter": "X", "word": "X-ray" },
+      { "emoji": "🧶", "letter": "Y", "word": "Yarn" },
+      { "emoji": "🦁", "letter": "Z", "word": "Zoo" },
+      { "emoji": "🛫", "letter": "A", "word": "Airplane" },
+      { "emoji": "🍞", "letter": "B", "word": "Bread" },
+      { "emoji": "🕯️", "letter": "C", "word": "Candle" },
+      { "emoji": "🦌", "letter": "D", "word": "Deer" },
+      { "emoji": "🦅", "letter": "E", "word": "Eagle" },
+      { "emoji": "🦊", "letter": "F", "word": "Fox" },
+      { "emoji": "🧄", "letter": "G", "word": "Garlic" },
+      { "emoji": "🚁", "letter": "H", "word": "Helicopter" },
+      { "emoji": "🏝️", "letter": "I", "word": "Island" },
+      { "emoji": "🕹️", "letter": "J", "word": "Joystick" },
+      { "emoji": "🧥", "letter": "K", "word": "Jacket" },
+      { "emoji": "🪜", "letter": "L", "word": "Ladder" },
+      { "emoji": "🎤", "letter": "M", "word": "Microphone" },
+      { "emoji": "📰", "letter": "N", "word": "Newspaper" },
+      { "emoji": "🧅", "letter": "O", "word": "Onion" },
+      { "emoji": "🍍", "letter": "P", "word": "Pineapple" },
+      { "emoji": "❓", "letter": "Q", "word": "Question" },
+      { "emoji": "🛣️", "letter": "R", "word": "Road" },
+      { "emoji": "🚢", "letter": "S", "word": "Ship" },
+      { "emoji": "🚜", "letter": "T", "word": "Tractor" },
+      { "emoji": "🧑‍🚀", "letter": "U", "word": "Astronaut" },
+      { "emoji": "🎮", "letter": "V", "word": "Video" },
+      { "emoji": "🪵", "letter": "W", "word": "Wood" },
+      { "emoji": "❌", "letter": "X", "word": "Cross" },
+      { "emoji": "🪀", "letter": "Y", "word": "Yo-yo" },
+      { "emoji": "⚡", "letter": "Z", "word": "Zap" }
       ],
       "desc": "A letter flashes — type or tap what you see as fast as you can! Beat your best time.",
       "icon": "🏁",
