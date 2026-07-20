@@ -16,6 +16,23 @@
 ================================================================ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#6c3fc5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Koppal Kids">
+<meta name="application-name" content="Koppal Kids">
+<meta name="msapplication-TileColor" content="#6c3fc5">
+<meta name="msapplication-TileImage" content="icons/icon-144.png">
+<meta name="description" content="Learn English with Kannada — Alphabet, Words, EVS, Grammar, Maths for UKG children. Works offline!">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="144x144" href="icons/icon-144.png">
+<link rel="apple-touch-icon" sizes="128x128" href="icons/icon-128.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="96x96"   href="icons/icon-96.png">
+
 <title>Koppal - Kids | Learn English with Kannada 🌟</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -37,8 +54,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 /* ══ §2 FIXED HEADER ══ */
 #app-header{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(135deg,var(--primary) 0%,var(--pri2) 60%,#c084fc 100%);box-shadow:0 4px 24px rgba(108,63,197,.5)}
 .hdr-hero{display:grid;grid-template-columns:64px 1fr 64px;align-items:end;padding:4px 8px 0;gap:4px}
-/*.hdr-kid{width:64px;height:68px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}*/
-.hdr-kid{width:64px;height:64px;object-fit:cover;object-position:center;border-radius:50%;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.hdr-kid{width:64px;height:68px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
 .hdr-kid:hover{transform:scale(1.1) rotate(-5deg)}
 #img-kid2{transform:scaleX(-1)}
 #img-kid2:hover{transform:scaleX(-1) scale(1.1) rotate(5deg)}
@@ -410,8 +426,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
     <span id="emo1" class="hdr-kid-emoji">👦</span>
     <div class="hdr-center">
       <div class="hdr-title">🌟 Koppal - Kids 🌟</div>
-      <div class="hdr-sub">ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! </div>
-      <div class="hdr-deco">Fun · Games · Activities · Quiz</div>
+      <div class="hdr-sub">ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! · Learn English · ಕಲಿ · ಆಡು · ಬೆಳೆ</div>
       <div class="hdr-badges">
         <div class="hdr-badge gold">⭐ <span id="star-count">0</span></div>
         <div class="hdr-badge" id="lvl-badge">🏅 Beginner</div>
@@ -423,11 +438,11 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   </div>
   <div class="tab-bar">
     <button class="tab-btn active"   data-tab="alphabet"  onclick="switchTab('alphabet')">🔤 Alphabet</button>
+    <button class="tab-btn"          data-tab="words"     onclick="switchTab('words')">📖 Words</button>
+    <button class="tab-btn"          data-tab="sentences" onclick="switchTab('sentences')">💬 Sentences</button>
     <button class="tab-btn tab-evs"  data-tab="evs"       onclick="switchTab('evs')">🌍 EVS</button>
     <button class="tab-btn tab-gram" data-tab="grammar"   onclick="switchTab('grammar')">📝 Grammar</button>
     <button class="tab-btn tab-math" data-tab="maths"     onclick="switchTab('maths')">🔢 Maths</button>
-    <button class="tab-btn"          data-tab="words"     onclick="switchTab('words')">📖 Words</button>
-    <button class="tab-btn"          data-tab="sentences" onclick="switchTab('sentences')">💬 Sentences</button>
     <button class="tab-btn"          data-tab="quiz"      onclick="switchTab('quiz')">🎯 Quiz</button>
   </div>
 </header>
@@ -500,12 +515,12 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 <div class="popup-overlay" id="popup" onclick="closePopupOutside(event)">
   <div class="popup-box">
-    <button class="popup-close" onclick="closePopup()">OK</button>
+    <button class="popup-close" onclick="closePopup()">✕</button>
     <div class="popup-emoji" id="pop-emoji"></div>
     <div class="popup-en" id="pop-en"></div>
     <div class="popup-kn" id="pop-kn"></div>
     <div class="popup-pro" id="pop-pro"></div>
-    <button class="popup-speak" onclick="speakCurrent()">🔊 Hear Again!</button>
+    <button class="popup-speak" onclick="speakCurrent()">🔊 Hear It!</button>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -1120,303 +1135,71 @@ function landSpin(){
 }
 function chkSpin(btn,chosen,correct){document.querySelectorAll('.spin-q-opt').forEach(b=>{b.disabled=true;if(b.textContent===correct)b.classList.add('correct')});if(chosen===correct){btn.classList.add('correct');addStar(2);showToast('🎉 +2 ⭐')}else{btn.classList.add('wrong');showToast('❌ '+correct)}}
 
-/* ─── D13 Sound Matcher (FIXED) ─── */
-/* ─── D13 Sound Matcher (FINAL CLEAN + CORRECT ANSWER AUDIO) ─── */
-let currentTarget;
-
-function renderSoundMatcher(area, cat) {
-  smQ = 0;
-  smScore = 0;
-  smAnswered = false;
-
-  const cards = [...cat.cards].sort(() => Math.random() - 0.5);
-
-  const wrap = document.createElement('div');
-  wrap.className = 'soundmatch-wrap';
-
-  wrap.innerHTML = `
-    <div class="sm-score-bar">
-      <span class="sm-score">⭐<span id="sm-sc">0</span></span>
-      <span class="sm-q">Q<span id="sm-q">1</span>/${cards.length}</span>
-    </div>
-    <div id="sm-body"></div>
-  `;
-
+/* ─── D13 Sound Matcher ─── */
+function renderSoundMatcher(area,cat){
+  smQ=0; smScore=0; smAnswered=false;
+  const cards=[...cat.cards].sort(()=>Math.random()-.5);
+  const wrap=document.createElement('div'); wrap.className='soundmatch-wrap';
+  wrap.innerHTML=`<div class="sm-score-bar"><span class="sm-score">⭐<span id="sm-sc">0</span></span><span class="sm-q">Q<span id="sm-q">1</span>/${cards.length}</span></div><div id="sm-body"></div>`;
   area.appendChild(wrap);
-
-  function loadSM() {
-    smAnswered = false;
-
-    if (smQ >= cards.length) {
-      document.getElementById('sm-body').innerHTML = `
-        <div style="text-align:center;padding:20px;font-weight:800;color:var(--primary);font-size:1.1rem">
-          🏆 Done! Score: ${smScore}/${cards.length}
-        </div>`;
-      return;
-    }
-
-    document.getElementById('sm-q').textContent = smQ + 1;
-
-    currentTarget = cards[smQ];
-    const target = currentTarget;
-
-    const others = cards
-      .filter((_, i) => i !== smQ)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 7);
-
-    const pool = [target, ...others].sort(() => Math.random() - 0.5);
-
-    document.getElementById('sm-body').innerHTML = `
-      <button class="sm-play-btn" onclick="speak(\`${target.sound_word}\`)">
-        🔊 Tap to Hear!
-      </button>
-
+  function loadSM(){
+    smAnswered=false; document.getElementById('sm-q').textContent=smQ+1;
+    if(smQ>=cards.length){document.getElementById('sm-body').innerHTML=`<div style="text-align:center;padding:20px;font-weight:800;color:var(--primary);font-size:1.1rem">🏆 Done! Score: ${smScore}/${cards.length}</div>`;return}
+    const target=cards[smQ];
+    const others=cards.filter((_,i)=>i!==smQ).sort(()=>Math.random()-.5).slice(0,7);
+    const pool=[target,...others].sort(()=>Math.random()-.5);
+    document.getElementById('sm-body').innerHTML=`
+      <button class="sm-play-btn" onclick="speak('${target.sound_word}');showToast('🔊 Listen!')">🔊 Tap to Hear!</button>
       <div class="sm-hint">Which letter makes this sound?</div>
-
-      <div class="sm-options">
-        ${pool.map(c => `
-          <button class="sm-opt"
-            onclick="chkSM(this,'${c.letter}','${target.letter}', \`${target.sound_word}\`)">
-            ${c.letter}
-          </button>
-        `).join('')}
-      </div>
-
-      <button class="sm-next-btn" id="sm-next"
-        style="opacity:0.5;pointer-events:none;"
-        onclick="nextSM()">
-        Next ➡️
-      </button>
-    `;
-
-    // ✅ Auto play only once
-    setTimeout(() => speak(target.sound_word), 400);
+      <div class="sm-options">${pool.map(c=>`<button class="sm-opt" onclick="chkSM(this,'${c.letter}','${target.letter}','${target.sound_word}')">${c.letter}</button>`).join('')}</div>
+      <button class="sm-next-btn" id="sm-next" onclick="smQ++;loadSM()">Next ➡️</button>`;
+    speak(target.sound_word);
   }
-
-  // ✅ CHECK ANSWER
-  window.chkSM = (btn, chosen, correct, word) => {
-    if (smAnswered) return;
-    smAnswered = true;
-
-    document.querySelectorAll('.sm-opt').forEach(b => {
-      b.disabled = true;
-      if (b.textContent === correct) b.classList.add('correct');
-    });
-
-    if (chosen === correct) {
-      btn.classList.add('correct');
-      smScore++;
-      document.getElementById('sm-sc').textContent = smScore;
-
-      addStar(1);
-      showToast('✅ Correct! ' + correct + ' for ' + word);
-
-      // 🔊 simple positive feedback
-      speak("Good job!");
-
-    } else {
-      btn.classList.add('wrong');
-
-      showToast('❌ The correct answer is: ' + correct + ' for ' + word);
-
-      // 🔊 speak correct answer clearly
-      setTimeout(() => {
-        speak("The correct answer is " + correct + " for " + word);
-      }, 300);
-
-      // 🎯 repeat question later
-      cards.push(currentTarget);
-    }
-
-    // enable next button
-    const next = document.getElementById('sm-next');
-    next.classList.add('show');
-    next.style.opacity = "1";
-    next.style.pointerEvents = "auto";
+  window.chkSM=(btn,chosen,correct,word)=>{
+    if(smAnswered) return; smAnswered=true;
+    document.querySelectorAll('.sm-opt').forEach(b=>{b.disabled=true;if(b.textContent===correct)b.classList.add('correct')});
+    if(chosen===correct){btn.classList.add('correct');smScore++;document.getElementById('sm-sc').textContent=smScore;speak(word);addStar(1);showToast('✅ Correct! '+correct+' for '+word)}
+    else{btn.classList.add('wrong');showToast('❌ It was: '+correct+' for '+word)}
+    document.getElementById('sm-next').classList.add('show');
   };
-
-  // ✅ NEXT
-  window.nextSM = () => {
-    smQ++;
-    loadSM();
-  };
-
   loadSM();
 }
-/* ==================================14===============*/
-/* ─── D14 Flashcard Race (FINAL CLEAN + PERFECT AUDIO FLOW) ─── */
 
-window.fcrTimer;
-
-function renderFlashcardRace(area, cat){
-  fcrScore = 0;
-  fcrStreak = 0;
-  fcrAnswered = false;
-
-  const cards = [...cat.cards];
-
-  area.innerHTML = `
-    <div class="fcrace-wrap">
-      <div class="fcr-score-bar">
-        <span class="fcr-score">⭐<span id="fcr-sc">0</span></span>
-        <span class="fcr-streak">🔥<span id="fcr-str">0</span></span>
-        <span class="fcr-best">🏆<span id="fcr-best">${fcrBest}</span></span>
-      </div>
-      <div id="fcr-main">
-        <button class="fcr-start-btn" onclick="startFCR()">🏁 Start Race!</button>
-      </div>
-    </div>`;
-    
-  window._fcrCards = cards;
+/* ─── D14 Flashcard Race ─── */
+function renderFlashcardRace(area,cat){
+  fcrScore=0; fcrStreak=0; fcrAnswered=false;
+  const cards=[...cat.cards];
+  area.innerHTML=`<div class="fcrace-wrap"><div class="fcr-score-bar"><span class="fcr-score">⭐<span id="fcr-sc">0</span></span><span class="fcr-streak">🔥<span id="fcr-str">0</span></span><span class="fcr-best">🏆<span id="fcr-best">${fcrBest}</span></span></div><div id="fcr-main"><button class="fcr-start-btn" onclick="startFCR()">🏁 Start Race!</button></div></div>`;
+  window._fcrCards=cards;
 }
-
-function startFCR(){
-  fcrScore = 0;
-  fcrStreak = 0;
-  document.getElementById('fcr-sc').textContent = '0';
-  document.getElementById('fcr-str').textContent = '0';
-  loadFCR();
-}
-
-function stopSpeech(){
-  if (window.speechSynthesis) speechSynthesis.cancel();
-}
-
+function startFCR(){ fcrScore=0; fcrStreak=0; document.getElementById('fcr-sc').textContent='0'; document.getElementById('fcr-str').textContent='0'; loadFCR(); }
 function loadFCR(){
-  fcrAnswered = false;
-  stopSpeech();
-
-  const cards = window._fcrCards;
-  const target = cards[Math.floor(Math.random() * cards.length)];
-
-  const others = cards
-    .filter(c => c.letter !== target.letter)
-    .sort(() => Math.random() - .5)
-    .slice(0, 3);
-
-  const opts = [target, ...others].sort(() => Math.random() - .5);
-
-  // ⏱ Increased & balanced time
-  const tl = Math.max(2000, 5000 - fcrStreak * 120);
-
-  document.getElementById('fcr-main').innerHTML = `
+  fcrAnswered=false;
+  const cards=window._fcrCards;
+  const target=cards[Math.floor(Math.random()*cards.length)];
+  const others=cards.filter(c=>c.letter!==target.letter).sort(()=>Math.random()-.5).slice(0,3);
+  const opts=[target,...others].sort(()=>Math.random()-.5);
+  const tl=Math.max(1000,3500-fcrStreak*150);
+  document.getElementById('fcr-main').innerHTML=`
     <div class="fcrace-card">
-      <div class="fcr-letter">${target.letter}</div>
+      <div class="fcr-letter" id="fcr-letter">${target.letter}</div>
       <div class="fcr-emoji">${target.emoji}</div>
-      <div class="fcr-countdown">
-        <div class="fcr-countdown-fill" id="fcr-fill"
-          style="width:100%;transition:width ${tl}ms linear"></div>
-      </div>
+      <div class="fcr-countdown"><div class="fcr-countdown-fill" id="fcr-fill" style="width:100%;transition:width ${tl}ms linear"></div></div>
     </div>
-
-    <div class="fcr-opts">
-      ${opts.map(c => `
-        <button class="fcr-opt"
-          onclick="chkFCR(this,'${c.letter}','${target.letter}','${target.word}')">
-          ${c.word}
-        </button>`).join('')}
-    </div>
-  `;
-
-  // 🔊 Speak once clearly
-  setTimeout(() => {
-    speak(target.letter + " for " + target.word);
-  }, 300);
-
-  requestAnimationFrame(() => {
-    const f = document.getElementById('fcr-fill');
-    if (f) f.style.width = '0%';
-  });
-
+    <div class="fcr-opts">${opts.map(c=>`<button class="fcr-opt" onclick="chkFCR(this,'${c.letter}','${target.letter}','${target.word}')">${c.word}</button>`).join('')}</div>`;
+  speak(target.letter+'... '+target.word);
+  requestAnimationFrame(()=>{const f=document.getElementById('fcr-fill');if(f)f.style.width='0%'});
   clearTimeout(fcrTimer);
-
-  // ⏱ TIMEOUT
-  fcrTimer = setTimeout(() => {
-    if (!fcrAnswered) {
-      fcrAnswered = true;
-      fcrStreak = 0;
-      document.getElementById('fcr-str').textContent = '0';
-
-      document.querySelectorAll('.fcr-opt').forEach(b => {
-        b.disabled = true;
-        if (b.textContent === target.word) b.classList.add('correct');
-      });
-
-      showToast('⏱ Time up!');
-
-      const utter = new SpeechSynthesisUtterance("Time up! " + target.letter + " for " + target.word);
-      utter.onend = () => loadFCR();
-
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utter);
-    }
-  }, tl);
+  fcrTimer=setTimeout(()=>{
+    if(!fcrAnswered){fcrAnswered=true;fcrStreak=0;document.getElementById('fcr-str').textContent='0';document.querySelectorAll('.fcr-opt').forEach(b=>{b.disabled=true;if(b.textContent===target.word)b.classList.add('correct')});showToast('⏱ Too slow! It was '+target.word);setTimeout(()=>loadFCR(),1400)}
+  },tl);
 }
-
-function chkFCR(btn, chosen, correct, word){
-  if (fcrAnswered) return;
-
-  fcrAnswered = true;
-  clearTimeout(fcrTimer);
-  stopSpeech();
-
-  document.querySelectorAll('.fcr-opt').forEach(b => {
-    b.disabled = true;
-    if (b.textContent === word) b.classList.add('correct');
-  });
-
-  if (chosen === correct) {
-    btn.classList.add('correct');
-
-    fcrScore++;
-    fcrStreak++;
-
-    if (fcrScore > fcrBest) {
-      fcrBest = fcrScore;
-      localStorage.setItem('kk_fcrbest', fcrBest);
-      document.getElementById('fcr-best').textContent = fcrBest;
-    }
-
-    document.getElementById('fcr-sc').textContent = fcrScore;
-    document.getElementById('fcr-str').textContent = fcrStreak;
-
-    addStar(1);
-    showToast('✅ Correct!');
-
-    // 🔊 wait till speech ends
-    const utter = new SpeechSynthesisUtterance("Good job!");
-    utter.onend = () => loadFCR();
-
-    speechSynthesis.cancel();
-    speechSynthesis.speak(utter);
-
-  } else {
-    btn.classList.add('wrong');
-
-    fcrStreak = 0;
-    document.getElementById('fcr-str').textContent = '0';
-
-    showToast('❌ Wrong');
-
-    // 🔊 WRONG → then correct answer → then next
-    const u1 = new SpeechSynthesisUtterance("WRONG!");
-    const u2 = new SpeechSynthesisUtterance(correct + " for " + word);
-
-    u1.onend = () => {
-      speechSynthesis.speak(u2);
-    };
-
-    u2.onend = () => {
-      loadFCR();
-    };
-
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u1);
-  }
+function chkFCR(btn,chosen,correct,word){
+  if(fcrAnswered) return; fcrAnswered=true; clearTimeout(fcrTimer);
+  document.querySelectorAll('.fcr-opt').forEach(b=>{b.disabled=true;if(b.textContent===word)b.classList.add('correct')});
+  if(chosen===correct){btn.classList.add('correct');fcrScore++;fcrStreak++;if(fcrScore>fcrBest){fcrBest=fcrScore;localStorage.setItem('kk_fcrbest',fcrBest);document.getElementById('fcr-best').textContent=fcrBest}document.getElementById('fcr-sc').textContent=fcrScore;document.getElementById('fcr-str').textContent=fcrStreak;addStar(1);speak(word);showToast('🏁 +1 Streak '+fcrStreak+'!');setTimeout(()=>loadFCR(),700)}
+  else{btn.classList.add('wrong');fcrStreak=0;document.getElementById('fcr-str').textContent='0';showToast('❌ '+word);setTimeout(()=>loadFCR(),1100)}
 }
-
-
 
 /* ─── D15 Match Letters ─── */
 function renderMatchActivity(area,cat){
@@ -1722,5 +1505,153 @@ const MATH_FB={categories:[{id:'numbers',icon:'🔢',label:{en:'Numbers',kn:'ಸ
 ═══════════════════════════════════════════════════ */
 boot();
 </script>
+
+<!-- ═══════════════════════════════════════════════════
+     PWA INSTALL BANNER & SERVICE WORKER REGISTRATION
+═══════════════════════════════════════════════════ -->
+
+<!-- Install Banner (shown when browser fires beforeinstallprompt) -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;
+     background:linear-gradient(135deg,#6c3fc5,#9d59f5);color:#fff;
+     padding:14px 16px 18px;box-shadow:0 -4px 24px rgba(108,63,197,.5);
+     font-family:'Nunito',sans-serif;">
+  <div style="max-width:500px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <img src="icons/icon-72.png" style="width:48px;height:48px;border-radius:12px;flex-shrink:0"
+         onerror="this.style.display='none'">
+    <div style="flex:1;min-width:160px">
+      <div style="font-weight:800;font-size:.95rem">📲 Install Koppal Kids App!</div>
+      <div style="font-size:.75rem;opacity:.88;margin-top:2px">
+        Works offline · No internet needed · Free forever
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0">
+      <button id="pwa-install-btn" onclick="installPWA()"
+        style="padding:10px 20px;border:none;border-radius:50px;
+               background:#fff;color:#6c3fc5;font-weight:800;font-size:.88rem;cursor:pointer">
+        📥 Install
+      </button>
+      <button onclick="document.getElementById('pwa-banner').style.display='none'"
+        style="padding:10px 14px;border:2px solid rgba(255,255,255,.4);border-radius:50px;
+               background:transparent;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer">
+        ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Update Ready Banner -->
+<div id="pwa-update-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:700;
+     background:#10b981;color:#fff;padding:12px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
+     box-shadow:0 2px 12px rgba(16,185,129,.4)">
+  ✅ New version ready!
+  <button onclick="applyUpdate()"
+    style="margin-left:12px;padding:6px 16px;border:none;border-radius:50px;
+           background:#fff;color:#10b981;font-weight:800;cursor:pointer;font-size:.82rem">
+    Update Now 🔄
+  </button>
+  <button onclick="document.getElementById('pwa-update-banner').style.display='none'"
+    style="margin-left:6px;padding:6px 12px;border:2px solid rgba(255,255,255,.5);border-radius:50px;
+           background:transparent;color:#fff;font-weight:700;cursor:pointer;font-size:.82rem">✕</button>
+</div>
+
+<!-- Offline Indicator -->
+<div id="offline-bar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:650;
+     background:#f59e0b;color:#fff;padding:8px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem">
+  📴 You are offline — App is working from saved data
+</div>
+
+<script>
+/* ─── SERVICE WORKER REGISTRATION ─── */
+let swReg = null;
+let deferredPrompt = null;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
+      .then(reg => {
+        swReg = reg;
+        console.log('[PWA] Service Worker registered, scope:', reg.scope);
+
+        /* Check for updates every 60 seconds while page is open */
+        setInterval(() => reg.update(), 60000);
+
+        /* When a new SW is waiting → show update banner */
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              document.getElementById('pwa-update-banner').style.display = 'block';
+            }
+          });
+        });
+      })
+      .catch(err => console.warn('[PWA] SW registration failed:', err));
+
+    /* Refresh page after new SW takes control */
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
+    });
+  });
+}
+
+/* ─── INSTALL PROMPT ─── */
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  /* Show banner after 3 seconds so user sees the app first */
+  setTimeout(() => {
+    if (!localStorage.getItem('kk_pwa_installed')) {
+      document.getElementById('pwa-banner').style.display = 'block';
+    }
+  }, 3000);
+});
+
+function installPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(choice => {
+    if (choice.outcome === 'accepted') {
+      localStorage.setItem('kk_pwa_installed', '1');
+      document.getElementById('pwa-banner').style.display = 'none';
+      showKKToast('🎉 App installed! Works offline now!');
+    }
+    deferredPrompt = null;
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  localStorage.setItem('kk_pwa_installed', '1');
+  document.getElementById('pwa-banner').style.display = 'none';
+  showKKToast('✅ Koppal Kids installed successfully!');
+});
+
+function applyUpdate() {
+  if (swReg && swReg.waiting) {
+    swReg.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+}
+
+/* ─── OFFLINE / ONLINE DETECTION ─── */
+function updateOnlineStatus() {
+  const bar = document.getElementById('offline-bar');
+  if (!navigator.onLine) {
+    bar.style.display = 'block';
+  } else {
+    bar.style.display = 'none';
+  }
+}
+window.addEventListener('online',  updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+updateOnlineStatus(); /* check immediately on load */
+
+/* Helper — toast may not be defined yet if called very early */
+function showKKToast(msg) {
+  const t = document.getElementById('toast');
+  if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
+}
+</script>
+
 </body>
 </html>
