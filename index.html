@@ -415,6 +415,137 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   :root{--hdr-h:148px}
   .hdr-hero{grid-template-columns:72px 1fr 72px}
 }
+
+/* ══════════════════════════════════════════════
+   ENHANCEMENTS v7.0
+══════════════════════════════════════════════ */
+
+/* ── HOME DASHBOARD ── */
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.home-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .2s,box-shadow .2s;border:2.5px solid transparent;position:relative;overflow:hidden;text-align:center}
+.home-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.home-card:active,.home-card:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,.15)}
+.hc-alpha::before{background:linear-gradient(90deg,#6c3fc5,#45aaf2)}
+.hc-words::before{background:linear-gradient(90deg,#f97316,#eab308)}
+.hc-evs::before{background:linear-gradient(90deg,#10b981,#14b8a6)}
+.hc-gram::before{background:linear-gradient(90deg,#f59e0b,#ef4444)}
+.hc-math::before{background:linear-gradient(90deg,#3b82f6,#8b5cf6)}
+.hc-quiz::before{background:linear-gradient(90deg,#ec4899,#f97316)}
+.hc-story::before{background:linear-gradient(90deg,#8b5cf6,#ec4899)}
+.hc-rhymes::before{background:linear-gradient(90deg,#14b8a6,#3b82f6)}
+.hc-challenge::before{background:linear-gradient(90deg,#f7b731,#26de81)}
+.hc-progress::before{background:linear-gradient(90deg,#6c3fc5,#ff6b9d)}
+.home-card-icon{font-size:2.4rem;line-height:1}
+.home-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:var(--text)}
+.home-card-sub{font-size:.68rem;color:var(--muted);font-weight:600}
+.home-card-badge{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:50px}
+
+/* Welcome strip */
+.welcome-strip{background:linear-gradient(135deg,var(--primary),var(--pri2));border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.ws-text h3{font-family:'Baloo 2',cursive;font-size:1.1rem;color:#fff;font-weight:800}
+.ws-text p{font-size:.75rem;color:rgba(255,255,255,.82);font-weight:600;margin-top:2px}
+.ws-avatar{font-size:2.6rem;flex-shrink:0}
+
+/* Daily challenge strip */
+.daily-strip{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(245,158,11,.35);cursor:pointer;transition:transform .15s}
+.daily-strip:active{transform:scale(.98)}
+.ds-icon{font-size:2rem;flex-shrink:0}
+.ds-text h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:#fff;font-weight:800}
+.ds-text p{font-size:.72rem;color:rgba(255,255,255,.9);font-weight:600}
+.ds-badge{margin-left:auto;background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.5);border-radius:50px;padding:5px 11px;color:#fff;font-size:.75rem;font-weight:800;flex-shrink:0}
+
+/* Progress summary */
+.prog-strip{background:var(--white);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.prog-strip h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:var(--primary);font-weight:800;margin-bottom:10px}
+.prog-bars{display:flex;flex-direction:column;gap:8px}
+.prog-row{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700}
+.prog-label{width:72px;color:var(--muted);flex-shrink:0}
+.prog-bar-wrap{flex:1;height:9px;background:#f0eaff;border-radius:5px;overflow:hidden}
+.prog-bar-fill{height:100%;border-radius:5px;transition:width .8s ease;background:linear-gradient(90deg,var(--primary),var(--pink))}
+.prog-val{width:28px;text-align:right;color:var(--primary)}
+
+/* ── PROGRESS / TROPHY SECTION ── */
+.progress-section{}
+.trophies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-bottom:16px}
+.trophy-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 8px;text-align:center;transition:transform .18s;border:2.5px solid transparent}
+.trophy-card.earned{border-color:var(--accent);background:linear-gradient(135deg,#fffbeb,#fef3c7)}
+.trophy-card.earned:hover{transform:scale(1.05)}
+.trophy-card.locked{opacity:.45;filter:grayscale(1)}
+.tc-icon{font-size:2rem;margin-bottom:5px}
+.tc-name{font-size:.7rem;font-weight:800;color:var(--text)}
+.tc-req{font-size:.62rem;color:var(--muted);margin-top:2px}
+
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.stat-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 12px;text-align:center}
+.stat-num{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:900;color:var(--primary)}
+.stat-label{font-size:.72rem;color:var(--muted);font-weight:700}
+.streak-fire{font-size:1.4rem}
+
+/* ── DAILY CHALLENGE ── */
+.challenge-card{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:14px;color:#fff;box-shadow:0 6px 24px rgba(245,158,11,.4)}
+.chall-icon{font-size:3rem;margin-bottom:8px}
+.chall-title{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:900;margin-bottom:4px}
+.chall-desc{font-size:.82rem;opacity:.92;font-weight:600;margin-bottom:14px}
+.chall-timer{font-size:.78rem;background:rgba(255,255,255,.2);padding:5px 14px;border-radius:50px;display:inline-block;font-weight:700;margin-bottom:12px}
+.chall-start-btn{width:100%;padding:14px;border:none;border-radius:50px;background:#fff;color:#f97316;font-size:1rem;font-weight:900;box-shadow:0 4px 12px rgba(0,0,0,.2);margin-bottom:8px}
+.chall-done-badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.6);border-radius:50px;padding:10px 20px;font-size:.9rem;font-weight:800}
+
+/* ── STORY MODE ── */
+.story-list{display:flex;flex-direction:column;gap:12px}
+.story-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:transform .15s,box-shadow .15s;border-left:5px solid var(--pri2)}
+.story-card:active,.story-card:hover{transform:translateX(4px);box-shadow:0 6px 22px rgba(108,63,197,.2)}
+.story-icon{font-size:2.2rem;flex-shrink:0}
+.story-title{font-weight:800;font-size:.92rem;color:var(--text)}
+.story-preview{font-size:.74rem;color:var(--muted);margin-top:2px}
+.story-level{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:50px;background:#f3eeff;color:var(--primary);display:inline-block;margin-top:3px}
+.story-reader{background:var(--white);border-radius:22px;box-shadow:0 6px 24px rgba(108,63,197,.18);padding:22px 18px;text-align:center;max-width:480px;margin:0 auto}
+.story-reader-icon{font-size:4rem;margin-bottom:10px}
+.story-sentence{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.5}
+.story-kn{font-size:.88rem;color:var(--primary);font-weight:700;margin-bottom:12px}
+.story-nav{display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:10px}
+.story-nav-btn{padding:10px 20px;border:none;border-radius:50px;background:var(--primary);color:#fff;font-weight:800;font-size:.88rem;transition:transform .15s}
+.story-nav-btn:active{transform:scale(.96)}
+.story-nav-btn.sec{background:#f3eeff;color:var(--primary)}
+.story-progress-dots{display:flex;gap:5px;justify-content:center;margin-top:12px}
+.s-dot{width:8px;height:8px;border-radius:50%;background:#e0d6f5;transition:background .2s}
+.s-dot.active{background:var(--primary);width:20px;border-radius:4px}
+
+/* ── RHYMES ── */
+.rhyme-list{display:flex;flex-direction:column;gap:12px}
+.rhyme-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;cursor:pointer;transition:transform .15s;border-left:5px solid var(--accent)}
+.rhyme-card:active,.rhyme-card:hover{transform:translateX(4px)}
+.rhyme-card-head{display:flex;align-items:center;gap:10px}
+.rhyme-icon{font-size:2rem;flex-shrink:0}
+.rhyme-title{font-weight:800;font-size:.92rem;color:var(--text)}
+.rhyme-sub{font-size:.72rem;color:var(--muted);margin-top:1px}
+.rhyme-player{background:linear-gradient(135deg,#8b5cf6,#ec4899);border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:14px;color:#fff;box-shadow:0 6px 24px rgba(139,92,246,.35)}
+.rhyme-player-icon{font-size:3.5rem;margin-bottom:8px}
+.rhyme-player-title{font-family:'Baloo 2',cursive;font-size:1.25rem;font-weight:900;margin-bottom:12px}
+.rhyme-lines{text-align:left;margin-bottom:14px}
+.rhyme-line{font-size:.9rem;font-weight:700;margin-bottom:6px;opacity:.92;padding:6px 12px;border-radius:10px;cursor:pointer;transition:background .15s}
+.rhyme-line:hover{background:rgba(255,255,255,.15)}
+.rhyme-line.rl-active{background:rgba(255,255,255,.25);border-left:3px solid rgba(255,255,255,.8)}
+.rhyme-play-btn{width:100%;padding:14px;border:none;border-radius:50px;background:#fff;color:#8b5cf6;font-size:1rem;font-weight:900;box-shadow:0 3px 10px rgba(0,0,0,.15)}
+
+/* ── REWARD POPUP ── */
+.reward-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:800;align-items:center;justify-content:center;padding:20px}
+.reward-overlay.show{display:flex}
+.reward-box{background:var(--white);border-radius:28px;padding:32px 24px;max-width:320px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.3);animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+.reward-icon{font-size:5rem;margin-bottom:10px;animation:bounce 1s ease infinite alternate}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+.reward-title{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:900;color:var(--primary);margin-bottom:6px}
+.reward-desc{font-size:.88rem;color:var(--muted);font-weight:600;margin-bottom:16px}
+.reward-close-btn{padding:12px 32px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--primary),var(--pink));color:#fff;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(108,63,197,.32)}
+
+/* ── CONFETTI CANVAS ── */
+#confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:750;display:none}
+
+@media(max-width:400px){
+  .home-grid{grid-template-columns:1fr 1fr}
+  .home-card-icon{font-size:2rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+
 </style>
 </head>
 <body>
@@ -437,12 +568,17 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
     <span id="emo2" class="hdr-kid-emoji">👧</span>
   </div>
   <div class="tab-bar">
+        <button class="tab-btn" data-tab="home" onclick="switchTab('home')" id="tab-home">🏠 Home</button>
     <button class="tab-btn active"   data-tab="alphabet"  onclick="switchTab('alphabet')">🔤 Alphabet</button>
     <button class="tab-btn"          data-tab="words"     onclick="switchTab('words')">📖 Words</button>
     <button class="tab-btn"          data-tab="sentences" onclick="switchTab('sentences')">💬 Sentences</button>
     <button class="tab-btn tab-evs"  data-tab="evs"       onclick="switchTab('evs')">🌍 EVS</button>
     <button class="tab-btn tab-gram" data-tab="grammar"   onclick="switchTab('grammar')">📝 Grammar</button>
     <button class="tab-btn tab-math" data-tab="maths"     onclick="switchTab('maths')">🔢 Maths</button>
+    <button class="tab-btn" data-tab="story"     onclick="switchTab('story')">📖 Stories</button>
+    <button class="tab-btn" data-tab="rhymes"    onclick="switchTab('rhymes')">🎵 Rhymes</button>
+    <button class="tab-btn" data-tab="progress"  onclick="switchTab('progress')">🏆 Progress</button>
+    <button class="tab-btn" data-tab="challenge" onclick="switchTab('challenge')">⚡ Challenge</button>
     <button class="tab-btn"          data-tab="quiz"      onclick="switchTab('quiz')">🎯 Quiz</button>
   </div>
 </header>
@@ -509,9 +645,74 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
       </div>
     </div>
   </section>
+
+  <!-- ══ HOME DASHBOARD ══ -->
+  <section id="sec-home" class="section">
+    <div class="welcome-strip">
+      <div class="ws-avatar" id="ws-avatar">🌟</div>
+      <div class="ws-text">
+        <h3 id="ws-greeting">Good day, Learner!</h3>
+        <p id="ws-sub">Keep learning, keep growing! 🚀</p>
+      </div>
+    </div>
+    <div class="daily-strip" onclick="switchTab('challenge')">
+      <div class="ds-icon">⚡</div>
+      <div class="ds-text">
+        <h4>Daily Challenge</h4>
+        <p>Complete today's special activity!</p>
+      </div>
+      <div class="ds-badge" id="ds-status">Start!</div>
+    </div>
+    <div class="prog-strip" id="home-prog">
+      <h4>📊 Your Progress</h4>
+      <div class="prog-bars" id="home-prog-bars"></div>
+    </div>
+    <div class="home-grid" id="home-grid"></div>
+  </section>
+
+  <!-- ══ STORY MODE ══ -->
+  <section id="sec-story" class="section">
+    <div class="sec-head"><h2 style="color:#8b5cf6">📖 Stories</h2><p>Fun stories to read and listen!</p></div>
+    <div id="story-content"></div>
+  </section>
+
+  <!-- ══ RHYMES ══ -->
+  <section id="sec-rhymes" class="section">
+    <div class="sec-head"><h2 style="color:#14b8a6">🎵 Rhymes & Songs</h2><p>Sing along and have fun!</p></div>
+    <div id="rhymes-content"></div>
+  </section>
+
+  <!-- ══ PROGRESS / TROPHIES ══ -->
+  <section id="sec-progress" class="section">
+    <div class="sec-head"><h2 style="color:#f59e0b">🏆 My Progress</h2><p>See your achievements!</p></div>
+    <div class="stats-grid" id="stats-grid"></div>
+    <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
+    <div class="trophies-grid" id="trophies-grid"></div>
+  </section>
+
+  <!-- ══ DAILY CHALLENGE ══ -->
+  <section id="sec-challenge" class="section">
+    <div class="sec-head"><h2 style="color:#f97316">⚡ Daily Challenge</h2><p>A new challenge every day!</p></div>
+    <div id="challenge-content"></div>
+  </section>
+
 </main>
 
 <footer class="app-footer">Made with ❤️ for little learners · <strong>Gavisiddappa HATTI</strong> · Koppal, Karnataka · with <strong>Claude 🤖</strong></footer>
+
+
+<!-- REWARD POPUP -->
+<div class="reward-overlay" id="reward-overlay">
+  <div class="reward-box">
+    <div class="reward-icon" id="reward-icon">🏆</div>
+    <div class="reward-title" id="reward-title">Achievement Unlocked!</div>
+    <div class="reward-desc" id="reward-desc">You earned a new trophy!</div>
+    <button class="reward-close-btn" onclick="document.getElementById('reward-overlay').classList.remove('show')">
+      Awesome! 🎉
+    </button>
+  </div>
+</div>
+<canvas id="confetti-canvas"></canvas>
 
 <div class="popup-overlay" id="popup" onclick="closePopupOutside(event)">
   <div class="popup-box">
@@ -1655,3 +1856,630 @@ function showKKToast(msg) {
 
 </body>
 </html>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   KOPPAL KIDS  v7.0 — ENHANCEMENT SCRIPT
+   All new features injected here; existing functions unchanged.
+══════════════════════════════════════════════════════════════ */
+
+/* ─── OVERRIDE switchTab to include new tabs ─── */
+const _origSwitchTab = switchTab;
+switchTab = function(tab) {
+  _origSwitchTab(tab);
+  // also handle new tabs
+  if (tab === 'home')      renderHome();
+  if (tab === 'story')     renderStories();
+  if (tab === 'rhymes')    renderRhymes();
+  if (tab === 'progress')  renderProgress();
+  if (tab === 'challenge') renderChallenge();
+};
+
+/* ─── PERSISTENCE HELPERS ─── */
+function saveKK(key, val) { try { localStorage.setItem('kk_' + key, JSON.stringify(val)); } catch(e){} }
+function loadKK(key, def) { try { const v = localStorage.getItem('kk_' + key); return v ? JSON.parse(v) : def; } catch(e){ return def; } }
+
+/* ─── PROGRESS TRACKING ─── */
+const SUBJECTS = ['alphabet','words','sentences','evs','grammar','maths'];
+function trackVisit(tab) {
+  const v = loadKK('visits', {});
+  v[tab] = (v[tab] || 0) + 1;
+  saveKK('visits', v);
+}
+// Wrap addStar to also track
+const _origAddStar = addStar;
+addStar = function(n) {
+  _origAddStar(n);
+  checkTrophies();
+  checkDailyChallenge(n);
+  updateHomeIfVisible();
+};
+
+/* ─── STREAK TRACKING ─── */
+function getTodayStr() { return new Date().toISOString().slice(0,10); }
+function updateStreak() {
+  const today  = getTodayStr();
+  const last   = loadKK('last_day', '');
+  let streak   = loadKK('streak', 0);
+  const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+  const yStr = yesterday.toISOString().slice(0,10);
+  if (last === today) return streak;
+  if (last === yStr)  streak++;
+  else if (last !== today) streak = 1;
+  saveKK('streak', streak);
+  saveKK('last_day', today);
+  return streak;
+}
+
+/* ─── TROPHY DEFINITIONS ─── */
+const TROPHIES = [
+  { id:'first_star',  icon:'⭐', name:'First Star',     req:'Earn your first star',          check: s => s >= 1 },
+  { id:'ten_stars',   icon:'🌟', name:'10 Stars',        req:'Earn 10 stars',                 check: s => s >= 10 },
+  { id:'star_50',     icon:'💫', name:'Star Collector',  req:'Earn 50 stars',                 check: s => s >= 50 },
+  { id:'star_100',    icon:'🥈', name:'Silver Star',     req:'Earn 100 stars',                check: s => s >= 100 },
+  { id:'star_200',    icon:'🥇', name:'Gold Star',       req:'Earn 200 stars',                check: s => s >= 200 },
+  { id:'star_500',    icon:'🏆', name:'Trophy Champion', req:'Earn 500 stars',                check: s => s >= 500 },
+  { id:'star_1000',   icon:'👑', name:'Learning King',   req:'Earn 1000 stars',               check: s => s >= 1000 },
+  { id:'daily_1',     icon:'🔥', name:'Day 1 Streak',    req:'Learn 1 day in a row',          check: (s,st) => st >= 1 },
+  { id:'daily_3',     icon:'🔥🔥','name':'3-Day Streak', req:'Learn 3 days in a row',         check: (s,st) => st >= 3 },
+  { id:'daily_7',     icon:'🗓️', name:'Week Warrior',   req:'Learn 7 days in a row',         check: (s,st) => st >= 7 },
+  { id:'quiz_10',     icon:'🎯', name:'Quiz Master',     req:'Score 10 in a quiz',            check: s => loadKK('quiz_best',0) >= 10 },
+  { id:'chall_1',     icon:'⚡', name:'Challenger',      req:'Complete 1 daily challenge',    check: s => loadKK('chall_count',0) >= 1 },
+  { id:'chall_7',     icon:'🏅', name:'Challenge Hero',  req:'Complete 7 daily challenges',   check: s => loadKK('chall_count',0) >= 7 },
+  { id:'stories_1',   icon:'📖', name:'Story Lover',     req:'Read your first story',         check: s => loadKK('stories_read',0) >= 1 },
+  { id:'rhymes_1',    icon:'🎵', name:'Singer',          req:'Sing your first rhyme',         check: s => loadKK('rhymes_sung',0) >= 1 },
+  { id:'evs_star',    icon:'🌍', name:'Nature Explorer', req:'Earn 20 stars in EVS',          check: s => loadKK('evs_stars',0) >= 20 },
+];
+
+function checkTrophies() {
+  const s      = parseInt(localStorage.getItem('kk_stars') || 0);
+  const streak = loadKK('streak', 0);
+  const earned = loadKK('trophies_earned', []);
+  TROPHIES.forEach(t => {
+    if (!earned.includes(t.id) && t.check(s, streak)) {
+      earned.push(t.id);
+      saveKK('trophies_earned', earned);
+      showReward(t.icon, t.name, t.req);
+    }
+  });
+}
+
+function showReward(icon, title, desc) {
+  document.getElementById('reward-icon').textContent  = icon;
+  document.getElementById('reward-title').textContent = '🎖️ ' + title + ' Unlocked!';
+  document.getElementById('reward-desc').textContent  = desc;
+  document.getElementById('reward-overlay').classList.add('show');
+  launchConfetti();
+}
+
+/* ─── CONFETTI ─── */
+function launchConfetti() {
+  const cv = document.getElementById('confetti-canvas');
+  cv.style.display = 'block';
+  cv.width  = window.innerWidth;
+  cv.height = window.innerHeight;
+  const ctx = cv.getContext('2d');
+  const pieces = Array.from({length: 90}, () => ({
+    x: Math.random() * cv.width, y: -20,
+    vx: (Math.random() - .5) * 6, vy: Math.random() * 4 + 2,
+    color: ['#6c3fc5','#ff6b9d','#f7b731','#26de81','#45aaf2','#f97316'][Math.floor(Math.random()*6)],
+    size: Math.random() * 9 + 5,
+    rot: Math.random() * 360, rotV: (Math.random()-.5)*8
+  }));
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0,0,cv.width,cv.height);
+    let alive = false;
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+      if (p.y < cv.height + 20) alive = true;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.size/2,-p.size/4,p.size,p.size/2);
+      ctx.restore();
+    });
+    if (alive && frame < 150) { frame++; requestAnimationFrame(draw); }
+    else { cv.style.display = 'none'; ctx.clearRect(0,0,cv.width,cv.height); }
+  }
+  requestAnimationFrame(draw);
+}
+
+/* ─── HOME DASHBOARD ─── */
+const HOME_CARDS = [
+  { id:'alphabet',  icon:'🔤', title:'Alphabet',    sub:'28 fun activities',  cls:'hc-alpha',     badge:'' },
+  { id:'words',     icon:'📖', title:'Words',        sub:'120+ vocabulary',    cls:'hc-words',     badge:'' },
+  { id:'evs',       icon:'🌍', title:'EVS',          sub:'21 topics',          cls:'hc-evs',       badge:'' },
+  { id:'grammar',   icon:'📝', title:'Grammar',      sub:'10 lessons',         cls:'hc-gram',      badge:'' },
+  { id:'maths',     icon:'🔢', title:'Maths',        sub:'Numbers & shapes',   cls:'hc-math',      badge:'' },
+  { id:'quiz',      icon:'🎯', title:'Quiz',          sub:'Test your skills',   cls:'hc-quiz',      badge:'' },
+  { id:'story',     icon:'📚', title:'Stories',      sub:'6 fun stories',      cls:'hc-story',     badge:'NEW' },
+  { id:'rhymes',    icon:'🎵', title:'Rhymes',       sub:'8 songs & rhymes',   cls:'hc-rhymes',    badge:'NEW' },
+  { id:'challenge', icon:'⚡', title:'Challenge',    sub:'Daily special task',  cls:'hc-challenge', badge:'NEW' },
+  { id:'progress',  icon:'🏆', title:'My Progress',  sub:'Trophies & badges',  cls:'hc-progress',  badge:'' },
+];
+
+function getGreeting() {
+  const h = new Date().getHours();
+  if (h < 12) return { text:'Good Morning!', sub:'Rise and shine — let\'s learn! ☀️', avatar:'🌅' };
+  if (h < 17) return { text:'Good Afternoon!', sub:'Keep up the great work! 🌟', avatar:'☀️' };
+  return { text:'Good Evening!', sub:'Great learning today! 🌙', avatar:'🌙' };
+}
+
+function renderHome() {
+  const g = getGreeting();
+  const el = id => document.getElementById(id);
+  if (el('ws-greeting')) el('ws-greeting').textContent = g.text;
+  if (el('ws-sub'))      el('ws-sub').textContent      = g.sub;
+  if (el('ws-avatar'))   el('ws-avatar').textContent   = g.avatar;
+
+  // Daily challenge status
+  const chalDone = loadKK('chall_today', '') === getTodayStr();
+  if (el('ds-status')) el('ds-status').textContent = chalDone ? '✅ Done!' : 'Start!';
+
+  // Progress bars
+  const progBar = el('home-prog-bars');
+  if (progBar) {
+    const stars = parseInt(localStorage.getItem('kk_stars')||0);
+    const cap = 200;
+    const items = [
+      { label:'⭐ Stars',   val: Math.min(stars, cap),    max: cap,    color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)' },
+      { label:'🔥 Streak',  val: loadKK('streak',0),       max: 7,      color:'linear-gradient(90deg,#f97316,#eab308)' },
+      { label:'🏆 Trophies',val: loadKK('trophies_earned',[]).length, max: TROPHIES.length, color:'linear-gradient(90deg,#f59e0b,#26de81)' },
+      { label:'📖 Stories', val: loadKK('stories_read',0), max: 6,      color:'linear-gradient(90deg,#8b5cf6,#ec4899)' },
+    ];
+    progBar.innerHTML = items.map(it => {
+      const pct = Math.round(it.val / it.max * 100);
+      return `<div class="prog-row">
+        <span class="prog-label">${it.label}</span>
+        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
+        <span class="prog-val">${it.val}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Cards grid
+  const grid = el('home-grid');
+  if (!grid) return;
+  grid.innerHTML = HOME_CARDS.map(c => `
+    <div class="home-card ${c.cls}" onclick="switchTab('${c.id}')">
+      ${c.badge ? `<div class="home-card-badge">${c.badge}</div>` : ''}
+      <div class="home-card-icon">${c.icon}</div>
+      <div class="home-card-title">${c.title}</div>
+      <div class="home-card-sub">${c.sub}</div>
+    </div>`).join('');
+}
+
+function updateHomeIfVisible() {
+  if (document.getElementById('sec-home')?.classList.contains('active')) renderHome();
+}
+
+/* ─── STORIES ─── */
+const STORIES = [
+  {
+    id:'s1', icon:'🦁', title:'The Brave Lion', level:'Easy', kn_title:'ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ',
+    pages:[
+      {en:'Once upon a time, there was a brave lion.', kn:'ಒಮ್ಮೆ ಒಂದು ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ ಇತ್ತು.', emoji:'🦁'},
+      {en:'The lion lived in a big forest.', kn:'ಸಿಂಹ ದೊಡ್ಡ ಕಾಡಿನಲ್ಲಿ ವಾಸಿಸುತ್ತಿತ್ತು.', emoji:'🌳'},
+      {en:'One day, a little mouse got stuck in a trap.', kn:'ಒಂದು ದಿನ ಒಂದು ಚಿಕ್ಕ ಇಲಿ ಬಲೆಯಲ್ಲಿ ಸಿಲುಕಿತು.', emoji:'🐭'},
+      {en:'The brave lion saved the little mouse.', kn:'ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ ಆ ಚಿಕ್ಕ ಇಲಿಯನ್ನು ಉಳಿಸಿತು.', emoji:'🙌'},
+      {en:'The mouse said: "Thank you, dear lion!"', kn:'ಇಲಿ ಹೇಳಿತು: "ಧನ್ಯವಾದ, ಪ್ರಿಯ ಸಿಂಹ!"', emoji:'😊'},
+      {en:'They became the best of friends forever.', kn:'ಅವರು ಶಾಶ್ವತ ಉತ್ತಮ ಮಿತ್ರರಾದರು.', emoji:'🤝'},
+    ]
+  },
+  {
+    id:'s2', icon:'🌱', title:'The Magic Seed', level:'Easy', kn_title:'ಮಾಯಾ ಬೀಜ',
+    pages:[
+      {en:'Ramu found a tiny seed in the garden.', kn:'ರಾಮು ತೋಟದಲ್ಲಿ ಒಂದು ಚಿಕ್ಕ ಬೀಜ ಕಂಡನು.', emoji:'🌱'},
+      {en:'He planted the seed in soft, wet soil.', kn:'ಅವನು ಆ ಬೀಜವನ್ನು ಮೃದು ತೇವ ಮಣ್ಣಿನಲ್ಲಿ ನೆಟ್ಟನು.', emoji:'🪴'},
+      {en:'He watered it every single day.', kn:'ಅವನು ಪ್ರತಿ ದಿನ ನೀರು ಹಾಕಿದನು.', emoji:'💧'},
+      {en:'Slowly, a green shoot came out!', kn:'ನಿಧಾನವಾಗಿ ಹಸಿರು ಚಿಗುರು ಹೊರ ಬಂತು!', emoji:'🌿'},
+      {en:'It grew into a big, beautiful tree.', kn:'ಅದು ದೊಡ್ಡ ಸುಂದರ ಮರವಾಯಿತು.', emoji:'🌳'},
+      {en:'Birds came and made nests on it!', kn:'ಪಕ್ಷಿಗಳು ಬಂದು ಗೂಡು ಕಟ್ಟಿದವು!', emoji:'🐦'},
+    ]
+  },
+  {
+    id:'s3', icon:'☔', title:'The Rain Adventure', level:'Easy', kn_title:'ಮಳೆಯ ಸ冒険',
+    pages:[
+      {en:'Priya woke up and saw dark clouds outside.', kn:'ಪ್ರಿಯ ಎದ್ದು ಹೊರಗೆ ಕಪ್ಪು ಮೋಡ ನೋಡಿದಳು.', emoji:'☁️'},
+      {en:'It started raining heavily!', kn:'ಭಾರಿ ಮಳೆ ಪ್ರಾರಂಭವಾಯಿತು!', emoji:'🌧️'},
+      {en:'She took her red umbrella and went out.', kn:'ಅವಳು ಕೆಂಪು ಛತ್ರಿ ತೆಗೆದುಕೊಂಡು ಹೊರ ಹೋದಳು.', emoji:'☔'},
+      {en:'She jumped in big muddy puddles!', kn:'ಅವಳು ದೊಡ್ಡ ಕೆಸರು ಗುಂಡಿಗಳಲ್ಲಿ ಜಿಗಿದಳು!', emoji:'💦'},
+      {en:'Then she saw a beautiful rainbow!', kn:'ನಂತರ ಅವಳು ಸುಂದರ ಕಾಮನಬಿಲ್ಲು ನೋಡಿದಳು!', emoji:'🌈'},
+      {en:'What a wonderful rainy day it was!', kn:'ಎಷ್ಟು ಸುಂದರ ಮಳೆಯ ದಿನ!', emoji:'😃'},
+    ]
+  },
+  {
+    id:'s4', icon:'🐝', title:'The Busy Bee', level:'Medium', kn_title:'ಕಷ್ಟಪಡುವ ಜೇನ್ನೊಣ',
+    pages:[
+      {en:'A little bee woke up early every morning.', kn:'ಒಂದು ಚಿಕ್ಕ ಜೇನ್ನೊಣ ಪ್ರತಿ ಬೆಳಿಗ್ಗೆ ಬೇಗ ಎದ್ದೇಳುತ್ತಿತ್ತು.', emoji:'🐝'},
+      {en:'It flew from flower to flower.', kn:'ಅದು ಹೂವಿನಿಂದ ಹೂವಿಗೆ ಹಾರಿತು.', emoji:'🌸'},
+      {en:'It collected sweet nectar for honey.', kn:'ಅದು ಜೇನುತುಪ್ಪಕ್ಕಾಗಿ ಸಿಹಿ ಮಕರಂದ ಸಂಗ್ರಹಿಸಿತು.', emoji:'🍯'},
+      {en:'Hard work makes sweet honey!', kn:'ಕಠಿಣ ಪರಿಶ್ರಮ ಸಿಹಿ ಜೇನು ತಯಾರಿಸುತ್ತದೆ!', emoji:'💪'},
+      {en:'All the bees worked together happily.', kn:'ಎಲ್ಲ ಜೇನ್ನೊಣಗಳು ಒಟ್ಟಾಗಿ ಸಂತೋಷದಿಂದ ಕೆಲಸ ಮಾಡಿದವು.', emoji:'🤝'},
+      {en:'Lesson: Work hard and help each other!', kn:'ಪಾಠ: ಕಠಿಣ ಪರಿಶ್ರಮ ಮಾಡಿ ಮತ್ತು ಪರಸ್ಪರ ಸಹಾಯ ಮಾಡಿ!', emoji:'⭐'},
+    ]
+  },
+  {
+    id:'s5', icon:'🐢', title:'Tortoise and Hare', level:'Medium', kn_title:'ಆಮೆ ಮತ್ತು ಮೊಲ',
+    pages:[
+      {en:'A hare and a tortoise decided to race.', kn:'ಒಂದು ಮೊಲ ಮತ್ತು ಆಮೆ ಓಟದ ಸ್ಪರ್ಧೆ ನಡೆಸಲು ನಿರ್ಧರಿಸಿದವು.', emoji:'🐇🐢'},
+      {en:'The hare ran very fast and took a nap.', kn:'ಮೊಲ ತುಂಬಾ ವೇಗವಾಗಿ ಓಡಿ ನಿದ್ದೆ ಮಾಡಿತು.', emoji:'😴'},
+      {en:'The tortoise walked slowly but steadily.', kn:'ಆಮೆ ನಿಧಾನವಾಗಿ ಆದರೆ ಸ್ಥಿರವಾಗಿ ನಡೆಯಿತು.', emoji:'🐢'},
+      {en:'The tortoise crossed the finish line first!', kn:'ಆಮೆ ಮೊದಲು ಗೆರೆ ದಾಟಿತು!', emoji:'🏁'},
+      {en:'The hare woke up and saw he had lost!', kn:'ಮೊಲ ಎದ್ದು ತಾನು ಸೋತಿದ್ದೇನೆ ಎಂದು ತಿಳಿಯಿತು!', emoji:'😮'},
+      {en:'Lesson: Slow and steady wins the race!', kn:'ಪಾಠ: ನಿಧಾನ ಮತ್ತು ಸ್ಥಿರ ಓಟದಲ್ಲಿ ಗೆಲ್ಲುತ್ತದೆ!', emoji:'🏆'},
+    ]
+  },
+  {
+    id:'s6', icon:'👩‍🌾', title:'The Helpful Farmer', level:'Hard', kn_title:'ಸಹಾಯಕಾರಿ ರೈತ',
+    pages:[
+      {en:'Farmer Siddappa woke up at sunrise every day.', kn:'ರೈತ ಸಿದ್ದಪ್ಪ ಪ್ರತಿದಿನ ಸೂರ್ಯೋದಯದಲ್ಲಿ ಎದ್ದೇಳುತ್ತಿದ್ದರು.', emoji:'🌅'},
+      {en:'He watered his crops of rice and wheat.', kn:'ಅವರು ತಮ್ಮ ಭತ್ತ ಮತ್ತು ಗೋಧಿ ಬೆಳೆಗಳಿಗೆ ನೀರು ಹಾಕಿದರು.', emoji:'🌾'},
+      {en:'His neighbour was sick and could not work.', kn:'ಅವರ ನೆರೆಯವರು ಅನಾರೋಗ್ಯದಿಂದ ಕೆಲಸ ಮಾಡಲಾರರಾದರು.', emoji:'🤒'},
+      {en:'Siddappa helped his neighbour with farming.', kn:'ಸಿದ್ದಪ್ಪ ನೆರೆಯವರ ಹೊಲದ ಕೆಲಸದಲ್ಲಿ ಸಹಾಯ ಮಾಡಿದರು.', emoji:'🤝'},
+      {en:'Together they had a wonderful harvest!', kn:'ಒಟ್ಟಾಗಿ ಅವರು ಅದ್ಭುತ ಫಸಲು ಪಡೆದರು!', emoji:'🎉'},
+      {en:'Lesson: Help others — goodness comes back to you!', kn:'ಪಾಠ: ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡಿ — ಒಳ್ಳೆಯದು ನಿಮ್ಮ ಬಳಿ ಮರಳುತ್ತದೆ!', emoji:'❤️'},
+    ]
+  },
+];
+
+let storyPage = 0;
+let storyIdx  = -1;
+
+function renderStories() {
+  const area = document.getElementById('story-content');
+  if (!area) return;
+  if (storyIdx >= 0) return; // already in reader
+  area.innerHTML = '<div class="story-list">' +
+    STORIES.map((s,i) => `
+      <div class="story-card" onclick="openStory(${i})">
+        <div class="story-icon">${s.icon}</div>
+        <div>
+          <div class="story-title">${s.title}</div>
+          <div class="story-preview">${s.kn_title}</div>
+          <span class="story-level">${s.level} · ${s.pages.length} pages</span>
+        </div>
+      </div>`).join('') + '</div>';
+}
+
+function openStory(idx) {
+  storyIdx  = idx;
+  storyPage = 0;
+  const count = loadKK('stories_read', 0);
+  saveKK('stories_read', count + 1);
+  addStar(2);
+  renderStoryPage();
+}
+
+function renderStoryPage() {
+  const story = STORIES[storyIdx];
+  const page  = story.pages[storyPage];
+  const area  = document.getElementById('story-content');
+  if (!area) return;
+  const dots = story.pages.map((_,i) =>
+    `<div class="s-dot${i===storyPage?' active':''}"></div>`).join('');
+  area.innerHTML = `
+    <div class="story-reader">
+      <div class="story-reader-icon">${page.emoji}</div>
+      <div class="story-sentence">${page.en}</div>
+      <div class="story-kn">${page.kn}</div>
+      <div class="story-progress-dots">${dots}</div>
+      <div class="story-nav">
+        <button class="story-nav-btn sec" onclick="${storyPage>0?'prevStoryPage()':'closeStory()'}">
+          ${storyPage>0?'◀ Back':'✕ Close'}
+        </button>
+        <button class="story-nav-btn" onclick="speakStoryPage()">🔊 Hear</button>
+        <button class="story-nav-btn" onclick="${storyPage<story.pages.length-1?'nextStoryPage()':'closeStory()'}">
+          ${storyPage<story.pages.length-1?'Next ▶':'🏠 Done!'}
+        </button>
+      </div>
+    </div>`;
+  speak(page.en);
+}
+
+function nextStoryPage() {
+  if (storyPage < STORIES[storyIdx].pages.length - 1) { storyPage++; renderStoryPage(); addStar(1); }
+  else closeStory();
+}
+function prevStoryPage() { if (storyPage > 0) { storyPage--; renderStoryPage(); } }
+function speakStoryPage() { speak(STORIES[storyIdx].pages[storyPage].en); }
+function closeStory() {
+  storyIdx = -1; storyPage = 0;
+  renderStories();
+  showKKToast('📖 Story complete! +2 ⭐');
+}
+
+/* ─── RHYMES ─── */
+const RHYMES = [
+  {
+    id:'r1', icon:'🍎', title:'A for Apple', sub:'Alphabet Song',
+    lines:[
+      {text:'A for Apple, B for Ball,',     kn:'A ಅಂದರೆ Apple, B ಅಂದರೆ Ball,'},
+      {text:'C for Cat that runs down the hall,', kn:'C ಅಂದರೆ Cat ಕಾರಿಡಾರ್‌ನಲ್ಲಿ ಓಡುತ್ತದೆ,'},
+      {text:'D for Dog and E for Egg,',    kn:'D ಅಂದರೆ Dog, E ಅಂದರೆ Egg,'},
+      {text:'F for Fish upon a leg!',      kn:'F ಅಂದರೆ Fish!'},
+      {text:'G for Goat and H for Hat,',  kn:'G ಅಂದರೆ Goat, H ಅಂದರೆ Hat,'},
+      {text:'I for Ink and J for that!',  kn:'I ಅಂದರೆ Ink, J ಅಂದರೆ Jar!'},
+    ]
+  },
+  {
+    id:'r2', icon:'⭐', title:'Twinkle Twinkle', sub:'Classic Nursery Rhyme',
+    lines:[
+      {text:'Twinkle, twinkle, little star,',       kn:'ಮಿನುಗು ಮಿನುಗು ಚಿಕ್ಕ ನಕ್ಷತ್ರ,'},
+      {text:'How I wonder what you are!',           kn:'ನೀನೆಂಥ ಎಂದು ಆಶ್ಚರ್ಯ ಪಡುತ್ತೇನೆ!'},
+      {text:'Up above the world so high,',          kn:'ಜಗತ್ತಿನ ಮೇಲೆ ಎತ್ತರದಲ್ಲಿ,'},
+      {text:'Like a diamond in the sky.',           kn:'ಆಕಾಶದಲ್ಲಿ ವಜ್ರದಂತೆ.'},
+      {text:'Twinkle, twinkle, little star,',       kn:'ಮಿನುಗು ಮಿನುಗು ಚಿಕ್ಕ ನಕ್ಷತ್ರ,'},
+      {text:'How I wonder what you are!',           kn:'ನೀನೆಂಥ ಎಂದು ಆಶ್ಚರ್ಯ ಪಡುತ್ತೇನೆ!'},
+    ]
+  },
+  {
+    id:'r3', icon:'🦆', title:'Old MacDonald', sub:'Animals Song',
+    lines:[
+      {text:'Old MacDonald had a farm, E-I-E-I-O!',     kn:'Old MacDonald ಗೆ ಒಂದು ಫಾರ್ಮ್ ಇತ್ತು!'},
+      {text:'And on that farm he had a cow, E-I-E-I-O!', kn:'ಆ ಫಾರ್ಮ್‌ನಲ್ಲಿ ಹಸು ಇತ್ತು!'},
+      {text:'With a moo moo here, moo moo there,',      kn:'ಇಲ್ಲೂ ಅಂಬಾ ಅಲ್ಲೂ ಅಂಬಾ,'},
+      {text:'Here a moo, there a moo, everywhere moo!', kn:'ಎಲ್ಲೆಡೆ ಅಂಬಾ ಅಂಬಾ!'},
+      {text:'Old MacDonald had a farm, E-I-E-I-O!',     kn:'Old MacDonald ಗೆ ಒಂದು ಫಾರ್ಮ್ ಇತ್ತು!'},
+    ]
+  },
+  {
+    id:'r4', icon:'☀️', title:'Good Morning Sun', sub:'Morning Song',
+    lines:[
+      {text:'Good morning, Mr Sun!',           kn:'ಶುಭ ಪ್ರಭಾತ, ಸೂರ್ಯ ದೇವ!'},
+      {text:'You shine so bright and fun!',    kn:'ನೀನು ತುಂಬಾ ಪ್ರಕಾಶಮಾನ!'},
+      {text:'You wake the birds to sing,',     kn:'ನೀನು ಪಕ್ಷಿಗಳನ್ನು ಎಬ್ಬಿಸಿ ಹಾಡಿಸುತ್ತೀಯ,'},
+      {text:'And make the flowers ring!',      kn:'ಮತ್ತು ಹೂವುಗಳನ್ನು ಅರಳಿಸುತ್ತೀಯ!'},
+      {text:'Good morning to this beautiful day,', kn:'ಈ ಸುಂದರ ದಿನಕ್ಕೆ ಶುಭ ಪ್ರಭಾತ,'},
+      {text:'Hip hip hooray! Hip hip hooray!',  kn:'ಜಯ ಜಯ! ಜಯ ಜಯ!'},
+    ]
+  },
+  {
+    id:'r5', icon:'🌈', title:'Rainbow Colors', sub:'Colors Song',
+    lines:[
+      {text:'Red and yellow, pink and green,',    kn:'ಕೆಂಪು ಹಳದಿ ಗುಲಾಬಿ ಹಸಿರು,'},
+      {text:'Purple and orange and blue!',        kn:'ನೇರಳೆ ಕಿತ್ತಳೆ ನೀಲಿ!'},
+      {text:'I can sing a rainbow,',              kn:'ನಾನು ಕಾಮನಬಿಲ್ಲು ಹಾಡಬಲ್ಲೆ,'},
+      {text:'Sing a rainbow, sing a rainbow too!',kn:'ಕಾಮನಬಿಲ್ಲು ಹಾಡಬಲ್ಲೆ!'},
+      {text:'Listen with your eyes,',             kn:'ನಿಮ್ಮ ಕಣ್ಣುಗಳಿಂದ ಕೇಳಿ,'},
+      {text:'Listen with your ears too!',         kn:'ನಿಮ್ಮ ಕಿವಿಗಳಿಂದಲೂ ಕೇಳಿ!'},
+    ]
+  },
+  {
+    id:'r6', icon:'🐑', title:'Baa Baa Black Sheep', sub:'Classic Rhyme',
+    lines:[
+      {text:'Baa baa black sheep, have you any wool?',   kn:'ಕಪ್ಪು ಕುರಿ, ನಿನ್ನ ಬಳಿ ಉಣ್ಣೆ ಇದೆಯೇ?'},
+      {text:'Yes sir, yes sir, three bags full!',        kn:'ಹೌದು ಸ್ವಾಮಿ, ಮೂರು ಚೀಲ ತುಂಬಾ!'},
+      {text:'One for the master, one for the dame,',    kn:'ಒಂದು ಒಡೆಯನಿಗೆ, ಒಂದು ಒಡತಿಗೆ,'},
+      {text:'And one for the little boy who lives down the lane!', kn:'ಮತ್ತು ಒಂದು ಮಾರ್ಗದ ಬಾಲಕನಿಗೆ!'},
+    ]
+  },
+  {
+    id:'r7', icon:'🎃', title:'Head Shoulders', sub:'Body Parts Song',
+    lines:[
+      {text:'Head, shoulders, knees and toes,', kn:'ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು,'},
+      {text:'Knees and toes!',                  kn:'ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!'},
+      {text:'Head, shoulders, knees and toes,', kn:'ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು,'},
+      {text:'Knees and toes!',                  kn:'ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!'},
+      {text:'Eyes and ears and mouth and nose,', kn:'ಕಣ್ಣು ಕಿವಿ ಬಾಯಿ ಮತ್ತು ಮೂಗು,'},
+      {text:'Head, shoulders, knees and toes!', kn:'ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!'},
+    ]
+  },
+  {
+    id:'r8', icon:'🚌', title:'Wheels on the Bus', sub:'Transport Song',
+    lines:[
+      {text:'The wheels on the bus go round and round,', kn:'ಬಸ್ಸಿನ ಚಕ್ರ ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ,'},
+      {text:'Round and round, round and round!',         kn:'ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ!'},
+      {text:'The wheels on the bus go round and round,', kn:'ಬಸ್ಸಿನ ಚಕ್ರ ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ,'},
+      {text:'All through the town!',                     kn:'ಊರಿನ ತುಂಬ!'},
+      {text:'The horn on the bus goes beep beep beep!',  kn:'ಬಸ್ಸಿನ ಕೊಂಬು ಬೀಪ್ ಬೀಪ್ ಬಿನ್ನಿಸುತ್ತದೆ!'},
+    ]
+  },
+];
+
+let rhymeActive = -1;
+let rhymeLine   = -1;
+let rhymeReadInterval = null;
+
+function renderRhymes() {
+  const area = document.getElementById('rhymes-content');
+  if (!area) return;
+  if (rhymeActive >= 0) return;
+  area.innerHTML = '<div class="rhyme-list">' +
+    RHYMES.map((r,i) => `
+      <div class="rhyme-card" onclick="openRhyme(${i})">
+        <div class="rhyme-card-head">
+          <div class="rhyme-icon">${r.icon}</div>
+          <div>
+            <div class="rhyme-title">${r.title}</div>
+            <div class="rhyme-sub">${r.sub} · ${r.lines.length} lines</div>
+          </div>
+        </div>
+      </div>`).join('') + '</div>';
+}
+
+function openRhyme(idx) {
+  rhymeActive = idx;
+  rhymeLine   = -1;
+  const count = loadKK('rhymes_sung', 0);
+  saveKK('rhymes_sung', count + 1);
+  addStar(1);
+  renderRhymePlayer();
+}
+
+function renderRhymePlayer() {
+  const r    = RHYMES[rhymeActive];
+  const area = document.getElementById('rhymes-content');
+  if (!area) return;
+  const linesHTML = r.lines.map((l,i) => `
+    <div class="rhyme-line${i===rhymeLine?' rl-active':''}" onclick="speakLine(${i})" id="rl-${i}">
+      ${l.text}<br><small style="opacity:.7">${l.kn}</small>
+    </div>`).join('');
+  area.innerHTML = `
+    <div class="rhyme-player">
+      <div class="rhyme-player-icon">${r.icon}</div>
+      <div class="rhyme-player-title">${r.title}</div>
+      <div class="rhyme-lines">${linesHTML}</div>
+      <button class="rhyme-play-btn" onclick="readRhyme()">▶ Read All Lines!</button>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button style="flex:1;padding:10px;border:2px solid rgba(255,255,255,.4);border-radius:50px;background:transparent;color:#fff;font-weight:700;cursor:pointer" onclick="closeRhyme()">✕ Close</button>
+      </div>
+    </div>`;
+}
+
+function speakLine(i) {
+  rhymeLine = i;
+  document.querySelectorAll('.rhyme-line').forEach((el,j) => el.classList.toggle('rl-active', j===i));
+  speak(RHYMES[rhymeActive].lines[i].text);
+}
+
+function readRhyme() {
+  clearInterval(rhymeReadInterval);
+  let i = 0;
+  const lines = RHYMES[rhymeActive].lines;
+  const doLine = () => {
+    if (i >= lines.length) { clearInterval(rhymeReadInterval); addStar(2); showKKToast('🎵 Great singing! +2 ⭐'); return; }
+    speakLine(i); i++;
+  };
+  doLine();
+  rhymeReadInterval = setInterval(doLine, 2800);
+}
+
+function closeRhyme() {
+  clearInterval(rhymeReadInterval);
+  rhymeActive = -1; rhymeLine = -1;
+  renderRhymes();
+}
+
+/* ─── PROGRESS PAGE ─── */
+function renderProgress() {
+  const stars   = parseInt(localStorage.getItem('kk_stars') || 0);
+  const streak  = loadKK('streak', 0);
+  const earned  = loadKK('trophies_earned', []);
+  const days    = loadKK('chall_count', 0);
+  const stories = loadKK('stories_read', 0);
+
+  // Stats
+  const sg = document.getElementById('stats-grid');
+  if (sg) {
+    sg.innerHTML = [
+      { label:'⭐ Total Stars',    val: stars },
+      { label:'🔥 Day Streak',     val: streak },
+      { label:'🏅 Trophies Earned',val: earned.length + ' / ' + TROPHIES.length },
+      { label:'⚡ Challenges Done',val: days },
+      { label:'📖 Stories Read',   val: stories },
+      { label:'🎵 Rhymes Sung',    val: loadKK('rhymes_sung',0) },
+    ].map(s => `
+      <div class="stat-card">
+        <div class="stat-num">${s.val}</div>
+        <div class="stat-label">${s.label}</div>
+      </div>`).join('');
+  }
+
+  // Trophies
+  const tg = document.getElementById('trophies-grid');
+  if (tg) {
+    tg.innerHTML = TROPHIES.map(t => {
+      const ok = earned.includes(t.id);
+      return `<div class="trophy-card ${ok?'earned':'locked'}">
+        <div class="tc-icon">${t.icon}</div>
+        <div class="tc-name">${t.name}</div>
+        <div class="tc-req">${ok?'✅ Earned':t.req}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+/* ─── DAILY CHALLENGE ─── */
+const DAILY_CHALLENGES = [
+  { icon:'🎯', title:'Quiz Champion',      desc:'Answer 5 Quiz questions correctly!',  action:'quiz',     target:5, key:'quiz_correct' },
+  { icon:'🔤', title:'Alphabet Explorer',  desc:'Learn 5 letters from any Alphabet category!', action:'alphabet', target:5, key:'alpha_taps' },
+  { icon:'🌍', title:'EVS Explorer',       desc:'Tap 8 cards in any EVS category!',   action:'evs',      target:8, key:'evs_taps' },
+  { icon:'📖', title:'Story Reader',       desc:'Read one complete story today!',      action:'story',    target:1, key:'stories_today' },
+  { icon:'🎵', title:'Rhyme Singer',       desc:'Sing one complete rhyme today!',      action:'rhymes',   target:1, key:'rhymes_today' },
+  { icon:'🔢', title:'Maths Star',         desc:'Answer 3 Maths questions correctly!', action:'maths',    target:3, key:'math_correct' },
+  { icon:'📝', title:'Grammar Guru',       desc:'Tap 6 Grammar cards!',               action:'grammar',  target:6, key:'gram_taps' },
+];
+
+function getDailyChallenge() {
+  const dayNum = Math.floor(Date.now() / 86400000); // changes daily
+  return DAILY_CHALLENGES[dayNum % DAILY_CHALLENGES.length];
+}
+
+function checkDailyChallenge(starsAdded) {
+  const today   = getTodayStr();
+  const done    = loadKK('chall_today', '') === today;
+  if (done) return;
+  const ch      = getDailyChallenge();
+  const prog    = loadKK('chall_prog', {date:'', val:0});
+  const val     = (prog.date === today ? prog.val : 0) + starsAdded;
+  saveKK('chall_prog', {date:today, val});
+  if (val >= ch.target) {
+    saveKK('chall_today', today);
+    saveKK('chall_count', loadKK('chall_count',0) + 1);
+    addStar(15); // bonus
+    showReward('⚡', 'Daily Challenge Complete!', 'You earned +15 bonus stars!');
+    renderChallenge();
+  }
+}
+
+function renderChallenge() {
+  const area  = document.getElementById('challenge-content');
+  if (!area) return;
+  const ch    = getDailyChallenge();
+  const today = getTodayStr();
+  const done  = loadKK('chall_today','') === today;
+  const prog  = loadKK('chall_prog',{date:'',val:0});
+  const val   = prog.date === today ? prog.val : 0;
+  const pct   = Math.min(100, Math.round(val / ch.target * 100));
+
+  // countdown to midnight
+  const now    = new Date();
+  const msLeft = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1) - now;
+  const hrs    = String(Math.floor(msLeft/3600000)).padStart(2,'0');
+  const mins   = String(Math.floor(msLeft%3600000/60000)).padStart(2,'0');
+
+  area.innerHTML = `
+    <div class="challenge-card">
+      <div class="chall-icon">${ch.icon}</div>
+      <div class="chall-title">${ch.title}</div>
+      <div class="chall-desc">${ch.desc}</div>
+      <div class="chall-timer">⏰ Resets in ${hrs}h ${mins}m</div>
+      ${done
+        ? `<div class="chall-done-badge">✅ Challenge Complete! +15 ⭐ Bonus Earned!</div>`
+        : `<div style="background:rgba(255,255,255,.2);border-radius:50px;height:10px;margin:8px 0;overflow:hidden">
+             <div style="height:100%;width:${pct}%;background:#fff;border-radius:50px;transition:width .5s"></div>
+           </div>
+           <div style="font-size:.78rem;opacity:.9;margin-bottom:10px">${val} / ${ch.target} — ${pct}%</div>
+           <button class="chall-start-btn" onclick="switchTab('${ch.action}')">
+             🚀 Start Challenge — Go to ${ch.action.charAt(0).toUpperCase()+ch.action.slice(1)}!
+           </button>`
+      }
+    </div>
+    <div style="background:var(--white);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)">
+      <div style="font-family:'Baloo 2',cursive;font-size:.95rem;color:var(--primary);font-weight:800;margin-bottom:8px">📅 Your Challenge Streak</div>
+      <div style="font-size:.82rem;color:var(--muted);font-weight:600">
+        Challenges Completed: <strong style="color:var(--primary)">${loadKK('chall_count',0)}</strong> 🏅<br>
+        Current Star Streak: <strong style="color:var(--orange)">${loadKK('streak',0)} days</strong> 🔥
+      </div>
+    </div>`;
+}
+
+/* ─── BOOT ENHANCEMENTS ─── */
+const _origBoot = boot;
+boot = async function() {
+  await _origBoot();
+  updateStreak();
+  checkTrophies();
+  // Switch to Home as default tab
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-home')?.classList.add('active');
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-home')?.classList.add('active');
+  renderHome();
+};
+
+function showKKToast(msg) {
+  const t = document.getElementById('toast');
+  if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
+}
+</script>
