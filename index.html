@@ -731,6 +731,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
    §A  STATE
 ═══════════════════════════════════════════════════ */
 let WORDS_DATA=null, ALPHA_DATA=null, SENTENCES_DATA=null;
+let STORIES_DATA=null, RHYMES_DATA=null;
 let EVS_DATA=null, GRAM_DATA=null, MATH_DATA=null;
 
 let stars = parseInt(localStorage.getItem('kk_stars')||'0');
@@ -787,13 +788,15 @@ async function loadJSON(url){
 }
 async function boot(){
   try{
-    [ALPHA_DATA,WORDS_DATA,SENTENCES_DATA,EVS_DATA,GRAM_DATA,MATH_DATA]=await Promise.all([
+    [ALPHA_DATA,WORDS_DATA,SENTENCES_DATA,EVS_DATA,GRAM_DATA,MATH_DATA,STORIES_DATA,RHYMES_DATA]=await Promise.all([
       loadJSON('data/alphabet.json'),
       loadJSON('data/words.json'),
       loadJSON('data/sentences.json'),
       loadJSON('data/evs.json'),
       loadJSON('data/grammar.json'),
-      loadJSON('data/maths.json')
+      loadJSON('data/maths.json'),
+      loadJSON('data/stories.json'),
+      loadJSON('data/rhymes.json')
     ]);
   }catch(e){
     console.warn('JSON load failed, using fallback:',e.message);
@@ -1852,6 +1855,38 @@ function showKKToast(msg) {
   const t = document.getElementById('toast');
   if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
 }
+
+/* ─── SW AUTO-UPDATE: listen for new SW taking control ─── */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SW_UPDATED') {
+      console.log('[App] SW_UPDATED to', event.data.version);
+      setTimeout(() => {
+        if (document.visibilityState === 'hidden') {
+          window.location.reload();
+        } else {
+          showKKToast('✨ App updated to latest version!');
+        }
+      }, 1500);
+    }
+  });
+
+  navigator.serviceWorker.ready.then(reg => {
+    /* Periodic background sync — re-checks every 6 hours */
+    if ('periodicSync' in reg) {
+      reg.periodicSync.register('koppal-kids-update-check', {
+        minInterval: 6 * 60 * 60 * 1000
+      }).catch(() => {});
+    }
+    /* Trigger SW update check when device comes back online */
+    window.addEventListener('online', () => reg.update());
+    /* Trigger SW update check when user switches back to the app */
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') reg.update();
+    });
+  });
+}
+
 </script>
 
 </body>
@@ -1991,8 +2026,8 @@ const HOME_CARDS = [
   { id:'grammar',   icon:'📝', title:'Grammar',      sub:'10 lessons',         cls:'hc-gram',      badge:'' },
   { id:'maths',     icon:'🔢', title:'Maths',        sub:'Numbers & shapes',   cls:'hc-math',      badge:'' },
   { id:'quiz',      icon:'🎯', title:'Quiz',          sub:'Test your skills',   cls:'hc-quiz',      badge:'' },
-  { id:'story',     icon:'📚', title:'Stories',      sub:'6 fun stories',      cls:'hc-story',     badge:'NEW' },
-  { id:'rhymes',    icon:'🎵', title:'Rhymes',       sub:'8 songs & rhymes',   cls:'hc-rhymes',    badge:'NEW' },
+  { id:'story',     icon:'📚', title:'Stories',      sub:'10 bilingual stories',cls:'hc-story',     badge:'NEW' },
+  { id:'rhymes',    icon:'🎵', title:'Rhymes',       sub:'15 songs & rhymes',  cls:'hc-rhymes',    badge:'NEW' },
   { id:'challenge', icon:'⚡', title:'Challenge',    sub:'Daily special task',  cls:'hc-challenge', badge:'NEW' },
   { id:'progress',  icon:'🏆', title:'My Progress',  sub:'Trophies & badges',  cls:'hc-progress',  badge:'' },
 ];
@@ -2128,9 +2163,26 @@ let storyIdx  = -1;
 function renderStories() {
   const area = document.getElementById('story-content');
   if (!area) return;
-  if (storyIdx >= 0) return; // already in reader
-  area.innerHTML = '<div class="story-list">' +
-    STORIES.map((s,i) => `
+  if (storyIdx >= 0) return;
+  // Build flat list from JSON categories OR fallback to hardcoded STORIES
+  const allStories = STORIES_DATA
+    ? STORIES_DATA.categories.flatMap(cat => cat.stories.map(s => ({...s, catIcon: cat.icon, catLabel: cat.label.en})))
+    : STORIES;
+
+  // Category pills
+  let pillsHTML = '';
+  if (STORIES_DATA) {
+    pillsHTML = '<div class="cat-scroll" id="story-cat-pills" style="margin-bottom:10px">' +
+      ['All', ...STORIES_DATA.categories.map(c => c.icon + ' ' + c.label.en)].map((lbl, i) =>
+        `<button class="cat-pill${i===0?' active':''}" onclick="filterStories(${i-1})">${lbl}</button>`
+      ).join('') + '</div>';
+  }
+
+  window._allStories = allStories;
+  window._storyCatFilter = -1;
+
+  area.innerHTML = pillsHTML + '<div class="story-list" id="story-list-inner">' +
+    allStories.map((s,i) => `
       <div class="story-card" onclick="openStory(${i})">
         <div class="story-icon">${s.icon}</div>
         <div>
@@ -2141,9 +2193,37 @@ function renderStories() {
       </div>`).join('') + '</div>';
 }
 
+function filterStories(catIdx) {
+  document.querySelectorAll('#story-cat-pills .cat-pill').forEach((p,i) => p.classList.toggle('active', i === catIdx+1 || (catIdx===-1 && i===0)));
+  window._storyCatFilter = catIdx;
+  const all = window._allStories || [];
+  const filtered = catIdx === -1 ? all : all.filter(s => {
+    const cat = STORIES_DATA.categories[catIdx];
+    return cat && cat.stories.some(x => x.id === s.id);
+  });
+  const inner = document.getElementById('story-list-inner');
+  if (inner) inner.innerHTML = filtered.map((s,i) => {
+    const realIdx = all.indexOf(s);
+    return `<div class="story-card" onclick="openStory(${realIdx})">
+      <div class="story-icon">${s.icon}</div>
+      <div>
+        <div class="story-title">${s.title}</div>
+        <div class="story-preview">${s.kn_title}</div>
+        <span class="story-level">${s.level} · ${s.pages.length} pages</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function openStory(idx) {
   storyIdx  = idx;
   storyPage = 0;
+  // merge JSON stories into global STORIES array if available
+  if (STORIES_DATA && window._allStories) {
+    window._activeStoryList = window._allStories;
+  } else {
+    window._activeStoryList = STORIES;
+  }
   const count = loadKK('stories_read', 0);
   saveKK('stories_read', count + 1);
   addStar(2);
@@ -2151,7 +2231,7 @@ function openStory(idx) {
 }
 
 function renderStoryPage() {
-  const story = STORIES[storyIdx];
+  const story = (window._activeStoryList || STORIES)[storyIdx];
   const page  = story.pages[storyPage];
   const area  = document.getElementById('story-content');
   if (!area) return;
@@ -2183,7 +2263,7 @@ function nextStoryPage() {
 function prevStoryPage() { if (storyPage > 0) { storyPage--; renderStoryPage(); } }
 function speakStoryPage() { speak(STORIES[storyIdx].pages[storyPage].en); }
 function closeStory() {
-  storyIdx = -1; storyPage = 0;
+  storyIdx = -1; storyPage = 0; window._activeStoryList = null;
   renderStories();
   showKKToast('📖 Story complete! +2 ⭐');
 }
@@ -2284,22 +2364,60 @@ function renderRhymes() {
   const area = document.getElementById('rhymes-content');
   if (!area) return;
   if (rhymeActive >= 0) return;
-  area.innerHTML = '<div class="rhyme-list">' +
-    RHYMES.map((r,i) => `
+  // Build flat list from JSON OR fallback
+  const allRhymes = RHYMES_DATA
+    ? RHYMES_DATA.categories.flatMap(cat => cat.rhymes.map(r => ({...r, catLabel: cat.label.en})))
+    : RHYMES;
+  window._allRhymes = allRhymes;
+
+  // Category pills from JSON
+  let pillsHTML = '';
+  if (RHYMES_DATA) {
+    pillsHTML = '<div class="cat-scroll" id="rhyme-cat-pills" style="margin-bottom:10px">' +
+      ['All', ...RHYMES_DATA.categories.map(c => c.icon + ' ' + c.label.en)].map((lbl, i) =>
+        `<button class="cat-pill${i===0?' active':''}" onclick="filterRhymes(${i-1})">${lbl}</button>`
+      ).join('') + '</div>';
+  }
+
+  area.innerHTML = pillsHTML + '<div class="rhyme-list" id="rhyme-list-inner">' +
+    allRhymes.map((r,i) => `
       <div class="rhyme-card" onclick="openRhyme(${i})">
         <div class="rhyme-card-head">
           <div class="rhyme-icon">${r.icon}</div>
           <div>
             <div class="rhyme-title">${r.title}</div>
-            <div class="rhyme-sub">${r.sub} · ${r.lines.length} lines</div>
+            <div class="rhyme-sub">${r.sub||r.catLabel||''} · ${r.lines.length} lines</div>
           </div>
         </div>
       </div>`).join('') + '</div>';
 }
 
+function filterRhymes(catIdx) {
+  document.querySelectorAll('#rhyme-cat-pills .cat-pill').forEach((p,i) => p.classList.toggle('active', i === catIdx+1 || (catIdx===-1 && i===0)));
+  const all = window._allRhymes || [];
+  const filtered = catIdx === -1 ? all : all.filter(r => {
+    const cat = RHYMES_DATA.categories[catIdx];
+    return cat && cat.rhymes.some(x => x.id === r.id);
+  });
+  const inner = document.getElementById('rhyme-list-inner');
+  if (inner) inner.innerHTML = filtered.map(r => {
+    const realIdx = all.indexOf(r);
+    return `<div class="rhyme-card" onclick="openRhyme(${realIdx})">
+      <div class="rhyme-card-head">
+        <div class="rhyme-icon">${r.icon}</div>
+        <div>
+          <div class="rhyme-title">${r.title}</div>
+          <div class="rhyme-sub">${r.sub||r.catLabel||''} · ${r.lines.length} lines</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function openRhyme(idx) {
   rhymeActive = idx;
   rhymeLine   = -1;
+  window._activeRhymeList = window._allRhymes || RHYMES;
   const count = loadKK('rhymes_sung', 0);
   saveKK('rhymes_sung', count + 1);
   addStar(1);
@@ -2307,7 +2425,7 @@ function openRhyme(idx) {
 }
 
 function renderRhymePlayer() {
-  const r    = RHYMES[rhymeActive];
+  const r    = (window._activeRhymeList || RHYMES)[rhymeActive];
   const area = document.getElementById('rhymes-content');
   if (!area) return;
   const linesHTML = r.lines.map((l,i) => `
@@ -2335,7 +2453,7 @@ function speakLine(i) {
 function readRhyme() {
   clearInterval(rhymeReadInterval);
   let i = 0;
-  const lines = RHYMES[rhymeActive].lines;
+  const lines = (window._activeRhymeList || RHYMES)[rhymeActive].lines;
   const doLine = () => {
     if (i >= lines.length) { clearInterval(rhymeReadInterval); addStar(2); showKKToast('🎵 Great singing! +2 ⭐'); return; }
     speakLine(i); i++;
@@ -2346,7 +2464,7 @@ function readRhyme() {
 
 function closeRhyme() {
   clearInterval(rhymeReadInterval);
-  rhymeActive = -1; rhymeLine = -1;
+  rhymeActive = -1; rhymeLine = -1; window._activeRhymeList = null;
   renderRhymes();
 }
 
