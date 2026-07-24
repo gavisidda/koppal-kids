@@ -546,6 +546,368 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   .stats-grid{grid-template-columns:1fr 1fr}
 }
 
+
+/* ══════════════════════════════════════════
+   BOTTOM NAV
+══════════════════════════════════════════ */
+#bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 300;
+  background: #fff;
+  border-top: 1.5px solid #e0d6f5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(108,63,197,.12);
+}
+.bn-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s;
+  border-radius: 12px;
+  margin: 0 4px;
+}
+.bn-btn:active { transform: scale(.9); }
+.bn-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform .2s;
+}
+.bn-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--muted);
+  transition: color .2s;
+}
+.bn-btn.active .bn-icon  { transform: scale(1.15); }
+.bn-btn.active .bn-label { color: var(--primary); font-weight: 800; }
+.bn-btn.active {
+  background: #f3eeff;
+}
+
+/* Adjust body padding — header + bottom nav */
+body {
+  padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important;
+}
+
+/* ══════════════════════════════════════════
+   HEADER — compact (no tab bar inside)
+══════════════════════════════════════════ */
+:root { --hdr-h: 90px; }
+@media(max-width:400px)  { :root { --hdr-h: 84px; } }
+@media(min-width:600px)  { :root { --hdr-h: 96px; } }
+
+/* ══════════════════════════════════════════
+   HOME WELCOME BANNER
+══════════════════════════════════════════ */
+.home-welcome-banner {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--pri2));
+  border-radius: var(--radius);
+  padding: 12px 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 18px rgba(108,63,197,.35);
+}
+.hw-kid {
+  width: 60px; height: 64px;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+.hw-kid-flip { transform: scaleX(-1); }
+.hw-center   { text-align: center; }
+.hw-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+.hw-sub {
+  font-size: .65rem;
+  color: rgba(255,255,255,.82);
+  font-weight: 600;
+  margin-top: 2px;
+}
+.hw-badges {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+.hw-badge {
+  background: rgba(255,255,255,.2);
+  border: 1.5px solid rgba(255,255,255,.35);
+  border-radius: 50px;
+  padding: 3px 10px;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.hw-badge.fire { background: rgba(249,115,22,.3); border-color: rgba(249,115,22,.6); }
+
+.home-section-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+/* ══════════════════════════════════════════
+   MY PROGRESS TAB — welcome/daily/progress cards
+══════════════════════════════════════════ */
+.prog-tab-welcome {
+  background: linear-gradient(135deg, var(--primary), var(--pri2));
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+.ptw-avatar { font-size: 2.4rem; flex-shrink: 0; }
+.ptw-text h3 { font-family:'Baloo 2',cursive; font-size:1.05rem; color:#fff; font-weight:800; }
+.ptw-text p  { font-size:.72rem; color:rgba(255,255,255,.82); font-weight:600; margin-top:2px; }
+
+.prog-tab-daily {
+  background: linear-gradient(135deg,#f59e0b,#f97316);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 14px rgba(245,158,11,.3);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.prog-tab-daily:active { transform: scale(.98); }
+.ptd-icon  { font-size: 1.8rem; flex-shrink: 0; }
+.ptd-text h4 { font-family:'Baloo 2',cursive; font-size:.9rem; color:#fff; font-weight:800; }
+.ptd-text p  { font-size:.7rem; color:rgba(255,255,255,.9); font-weight:600; }
+.ptd-badge {
+  margin-left: auto;
+  background: rgba(255,255,255,.25);
+  border: 1.5px solid rgba(255,255,255,.5);
+  border-radius: 50px;
+  padding: 4px 12px;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.prog-tab-bars {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+.prog-tab-bars h4 {
+  font-family:'Baloo 2',cursive;
+  font-size:.95rem;
+  color:var(--primary);
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+/* ══════════════════════════════════════════
+   DESIGNED BY / ABOUT TAB
+══════════════════════════════════════════ */
+.about-card {
+  background: linear-gradient(135deg, var(--primary), var(--pri2));
+  border-radius: var(--radius);
+  padding: 24px 20px 20px;
+  text-align: center;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 24px rgba(108,63,197,.35);
+}
+.about-avatar-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.about-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.5);
+  overflow: hidden;
+  background: rgba(255,255,255,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.about-avatar img  { width:100%; height:100%; object-fit:cover; }
+.about-avatar-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  width: 100%; height: 100%;
+}
+.about-verified {
+  background: rgba(255,255,255,.25);
+  border: 1.5px solid rgba(255,255,255,.5);
+  border-radius: 50px;
+  padding: 3px 12px;
+  font-size: .68rem;
+  font-weight: 800;
+  color: #fff;
+}
+.about-name  { font-family:'Baloo 2',cursive; font-size:1.4rem; font-weight:900; color:#fff; margin-bottom:4px; }
+.about-role  { font-size:.78rem; color:rgba(255,255,255,.88); font-weight:700; margin-bottom:4px; }
+.about-location { font-size:.75rem; color:rgba(255,255,255,.78); font-weight:600; }
+
+.about-bio-card, .about-skills-card, .about-app-card, .about-contact-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+.about-section-title {
+  font-family:'Baloo 2',cursive;
+  font-size:.95rem;
+  color:var(--primary);
+  font-weight:800;
+  margin-bottom:10px;
+}
+.about-bio {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 600;
+}
+.about-skills { display:flex; flex-wrap:wrap; gap:7px; }
+.skill-tag {
+  background: #f3eeff;
+  border: 1.5px solid #e0d6f5;
+  border-radius: 50px;
+  padding: 5px 13px;
+  font-size: .74rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.about-app-stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.app-stat { text-align:center; }
+.app-stat-num {
+  font-family:'Baloo 2',cursive;
+  font-size:1.4rem;
+  font-weight:900;
+  color:var(--primary);
+  line-height:1;
+}
+.app-stat-lbl { font-size:.66rem; color:var(--muted); font-weight:700; margin-top:2px; }
+.about-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 50px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 800;
+  font-size: .95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37,211,102,.35);
+  transition: transform .15s;
+}
+.about-whatsapp-btn:active { transform: scale(.97); }
+.about-credit {
+  text-align: center;
+  padding: 12px 8px 4px;
+  font-size: .7rem;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   LEARNING TABS SCROLL STRIP (inside home cards)
+══════════════════════════════════════════ */
+.learn-tabs-strip {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 7px;
+  padding: 2px 0 12px;
+  margin-bottom: 2px;
+}
+.learn-tabs-strip::-webkit-scrollbar { display: none; }
+.learn-tab-pill {
+  flex: 0 0 auto;
+  padding: 7px 16px;
+  border-radius: 50px;
+  border: 2.5px solid #e0d6f5;
+  background: #fff;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .18s;
+  -webkit-tap-highlight-color: transparent;
+}
+.learn-tab-pill.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(108,63,197,.28);
+}
+
+/* ══════════════════════════════════════════
+   SECTION TRANSITION
+══════════════════════════════════════════ */
+.section {
+  animation: fadeIn .2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(min-width:600px) {
+  #bottom-nav { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 20px 20px 0 0; }
+  .about-app-stats { grid-template-columns: repeat(4,1fr); }
+}
+@media(max-width:360px) {
+  .bn-label { font-size: .58rem; }
+  .hw-title { font-size: .88rem; }
+}
+
 </style>
 </head>
 <body>
@@ -567,20 +929,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
          onerror="this.style.display='none';document.getElementById('emo2').classList.add('show')">
     <span id="emo2" class="hdr-kid-emoji">👧</span>
   </div>
-  <div class="tab-bar">
-        <button class="tab-btn" data-tab="home" onclick="switchTab('home')" id="tab-home">🏠 Home</button>
-    <button class="tab-btn active"   data-tab="alphabet"  onclick="switchTab('alphabet')">🔤 Alphabet</button>
-    <button class="tab-btn"          data-tab="words"     onclick="switchTab('words')">📖 Words</button>
-    <button class="tab-btn"          data-tab="sentences" onclick="switchTab('sentences')">💬 Sentences</button>
-    <button class="tab-btn tab-evs"  data-tab="evs"       onclick="switchTab('evs')">🌍 EVS</button>
-    <button class="tab-btn tab-gram" data-tab="grammar"   onclick="switchTab('grammar')">📝 Grammar</button>
-    <button class="tab-btn tab-math" data-tab="maths"     onclick="switchTab('maths')">🔢 Maths</button>
-    <button class="tab-btn" data-tab="story"     onclick="switchTab('story')">📖 Stories</button>
-    <button class="tab-btn" data-tab="rhymes"    onclick="switchTab('rhymes')">🎵 Rhymes</button>
-    <button class="tab-btn" data-tab="progress"  onclick="switchTab('progress')">🏆 Progress</button>
-    <button class="tab-btn" data-tab="challenge" onclick="switchTab('challenge')">⚡ Challenge</button>
-    <button class="tab-btn"          data-tab="quiz"      onclick="switchTab('quiz')">🎯 Quiz</button>
-  </div>
+
 </header>
 
 <main id="main-content">
@@ -647,26 +996,20 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   </section>
 
   <!-- ══ HOME DASHBOARD ══ -->
-  <section id="sec-home" class="section">
-    <div class="welcome-strip">
-      <div class="ws-avatar" id="ws-avatar">🌟</div>
-      <div class="ws-text">
-        <h3 id="ws-greeting">Good day, Learner!</h3>
-        <p id="ws-sub">Keep learning, keep growing! 🚀</p>
+  <section id="sec-home" class="section active">
+    <div class="home-welcome-banner">
+      <img id="hw-kid1" src="images/kid1.png" class="hw-kid" onerror="this.style.display='none'">
+      <div class="hw-center">
+        <div class="hw-title" id="hw-greeting">Good Morning! 🌟</div>
+        <div class="hw-sub">ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! Let's learn today!</div>
+        <div class="hw-badges">
+          <span class="hw-badge">⭐ <span id="hw-stars">0</span> Stars</span>
+          <span class="hw-badge fire">🔥 <span id="hw-streak">0</span> Streak</span>
+        </div>
       </div>
+      <img id="hw-kid2" src="images/kid2.png" class="hw-kid hw-kid-flip" onerror="this.style.display='none'">
     </div>
-    <div class="daily-strip" onclick="switchTab('challenge')">
-      <div class="ds-icon">⚡</div>
-      <div class="ds-text">
-        <h4>Daily Challenge</h4>
-        <p>Complete today's special activity!</p>
-      </div>
-      <div class="ds-badge" id="ds-status">Start!</div>
-    </div>
-    <div class="prog-strip" id="home-prog">
-      <h4>📊 Your Progress</h4>
-      <div class="prog-bars" id="home-prog-bars"></div>
-    </div>
+    <div class="home-section-title">📚 Choose What to Learn</div>
     <div class="home-grid" id="home-grid"></div>
   </section>
 
@@ -684,7 +1027,34 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
   <!-- ══ PROGRESS / TROPHIES ══ -->
   <section id="sec-progress" class="section">
-    <div class="sec-head"><h2 style="color:#f59e0b">🏆 My Progress</h2><p>See your achievements!</p></div>
+    <div class="sec-head"><h2 style="color:#f59e0b">📈 My Progress</h2><p>Your learning journey!</p></div>
+
+    <!-- Welcome greeting (moved from home) -->
+    <div class="prog-tab-welcome">
+      <div class="ptw-avatar" id="ptw-avatar">🌟</div>
+      <div class="ptw-text">
+        <h3 id="ptw-greeting">Good day, Learner!</h3>
+        <p id="ptw-sub">Keep learning, keep growing! 🚀</p>
+      </div>
+    </div>
+
+    <!-- Daily challenge strip (moved from home) -->
+    <div class="prog-tab-daily" onclick="goToChallenge()">
+      <div class="ptd-icon">⚡</div>
+      <div class="ptd-text">
+        <h4>Daily Challenge</h4>
+        <p>Complete today's special activity!</p>
+      </div>
+      <div class="ptd-badge" id="ptd-status">Start!</div>
+    </div>
+
+    <!-- Progress bars (moved from home) -->
+    <div class="prog-tab-bars" id="prog-tab-bars-wrap">
+      <h4>📊 Your Progress</h4>
+      <div class="prog-bars" id="prog-tab-bars"></div>
+    </div>
+
+    <!-- Stats -->
     <div class="stats-grid" id="stats-grid"></div>
     <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
     <div class="trophies-grid" id="trophies-grid"></div>
@@ -696,9 +1066,81 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
     <div id="challenge-content"></div>
   </section>
 
+  <!-- ══ DESIGNED BY ══ -->
+  <section id="sec-designedby" class="section">
+    <div class="about-card">
+      <div class="about-avatar-wrap">
+        <div class="about-avatar">
+          <img src="images/profile.jpg" alt="Gavisiddappa HATTI"
+               onerror="this.style.display='none';document.getElementById('about-avatar-emoji').style.display='flex'">
+          <div id="about-avatar-emoji" class="about-avatar-fallback">👨‍💻</div>
+        </div>
+        <div class="about-verified">✓ Designer</div>
+      </div>
+      <h2 class="about-name">Gavisiddappa HATTI</h2>
+      <div class="about-role">IT Administrator · App Designer · Developer</div>
+      <div class="about-location">📍 Koppal, Karnataka, India</div>
+    </div>
+
+    <div class="about-bio-card">
+      <h3 class="about-section-title">👋 About</h3>
+      <p class="about-bio">
+        I am an IT Administrator working in Active Directory and PowerShell automation.
+        I love building educational apps for children in my village and district.
+        <em>Koppal - Kids</em> was built with love for the children of Karnataka —
+        to make learning English fun, easy, and accessible even without internet.
+      </p>
+    </div>
+
+    <div class="about-skills-card">
+      <h3 class="about-section-title">🛠️ Skills</h3>
+      <div class="about-skills">
+        <span class="skill-tag">Active Directory</span>
+        <span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">HTML &amp; CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PWA</span>
+        <span class="skill-tag">Firebase</span>
+        <span class="skill-tag">App Design</span>
+        <span class="skill-tag">Education Tech</span>
+        <span class="skill-tag">Kannada</span>
+      </div>
+    </div>
+
+    <div class="about-app-card">
+      <h3 class="about-section-title">📱 About This App</h3>
+      <div class="about-app-stats">
+        <div class="app-stat"><div class="app-stat-num">7</div><div class="app-stat-lbl">Tabs</div></div>
+        <div class="app-stat"><div class="app-stat-num">80+</div><div class="app-stat-lbl">Categories</div></div>
+        <div class="app-stat"><div class="app-stat-num">600+</div><div class="app-stat-lbl">Cards</div></div>
+        <div class="app-stat"><div class="app-stat-num">100%</div><div class="app-stat-lbl">Free</div></div>
+      </div>
+      <p class="about-bio" style="margin-top:12px">
+        Built with ❤️ for village students of Karnataka.
+        Works completely offline after first install.
+        No ads. No cost. No internet needed.
+      </p>
+    </div>
+
+    <div class="about-contact-card">
+      <h3 class="about-section-title">📞 Feedback &amp; Contact</h3>
+      <a href="https://wa.me/919XXXXXXXXX?text=Hello%20Gavisiddappa%2C%20feedback%20on%20Koppal%20Kids%20app%3A"
+         class="about-whatsapp-btn" target="_blank">
+        <span>💬</span> Send WhatsApp Feedback
+      </a>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px;text-align:center">
+        Replace the phone number in index.html with your actual WhatsApp number.
+      </p>
+    </div>
+
+    <div class="about-credit">
+      Built with ❤️ using <strong>HTML · CSS · JavaScript · PWA</strong><br>
+      Assisted by <strong>Claude AI 🤖</strong> · Hosted on <strong>GitHub Pages</strong>
+    </div>
+  </section>
 </main>
 
-<footer class="app-footer">Made with ❤️ for little learners · <strong>Gavisiddappa HATTI</strong> · Koppal, Karnataka · with <strong>Claude 🤖</strong></footer>
+
 
 
 <!-- REWARD POPUP -->
@@ -1889,6 +2331,20 @@ if ('serviceWorker' in navigator) {
 
 </script>
 
+
+<!-- ══ BOTTOM NAVIGATION BAR ══ -->
+<nav id="bottom-nav" aria-label="Main Navigation">
+  <button class="bn-btn active" id="bn-home"     onclick="bnNav('home')"     aria-label="Home">
+    <span class="bn-icon">🏠</span><span class="bn-label">Home</span>
+  </button>
+  <button class="bn-btn"        id="bn-progress" onclick="bnNav('progress')" aria-label="My Progress">
+    <span class="bn-icon">📈</span><span class="bn-label">Progress</span>
+  </button>
+  <button class="bn-btn"        id="bn-designedby" onclick="bnNav('designedby')" aria-label="Designed By">
+    <span class="bn-icon">👨‍💻</span><span class="bn-label">About</span>
+  </button>
+</nav>
+
 </body>
 </html>
 
@@ -2600,4 +3056,371 @@ function showKKToast(msg) {
   const t = document.getElementById('toast');
   if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
 }
+</script>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   KOPPAL KIDS v8.0 — Navigation Redesign + Back Button + State
+════════════════════════════════════════════════════════════ */
+
+/* ── State ── */
+const LEARN_TABS = ['alphabet','words','sentences','evs','grammar','maths','story','rhymes','quiz'];
+let _currentMainTab   = 'home';   // home | progress | designedby | <learn tab>
+let _currentLearnTab  = 'alphabet';
+let _navHistory       = [];        // for back button
+let _historyPushed    = false;
+
+/* ════════════════════════════════════════════════════════════
+   BOTTOM NAV — only 3 buttons: home | progress | designedby
+════════════════════════════════════════════════════════════ */
+function bnNav(tab) {
+  if (tab === 'home')       goHome();
+  else if (tab === 'progress')  goProgress();
+  else if (tab === 'designedby') goDesignedBy();
+}
+
+function setActiveBnBtn(tab) {
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
+  const map = { home:'bn-home', progress:'bn-progress', designedby:'bn-designedby' };
+  const btnId = map[tab] || 'bn-home';
+  const btn = document.getElementById(btnId);
+  if (btn) btn.classList.add('active');
+}
+
+/* ════════════════════════════════════════════════════════════
+   THREE MAIN VIEWS
+════════════════════════════════════════════════════════════ */
+function goHome(fromBack) {
+  _currentMainTab = 'home';
+  saveKK('lastTab','home');
+  showSection('sec-home');
+  setActiveBnBtn('home');
+  renderHomeV8();
+  if (!fromBack) pushHistory({ tab:'home' });
+}
+
+function goProgress(fromBack) {
+  _currentMainTab = 'progress';
+  saveKK('lastTab','progress');
+  showSection('sec-progress');
+  setActiveBnBtn('progress');
+  renderProgressV8();
+  if (!fromBack) pushHistory({ tab:'progress' });
+}
+
+function goDesignedBy(fromBack) {
+  _currentMainTab = 'designedby';
+  saveKK('lastTab','designedby');
+  showSection('sec-designedby');
+  setActiveBnBtn('designedby');
+  if (!fromBack) pushHistory({ tab:'designedby' });
+}
+
+function goLearnTab(tab, fromBack) {
+  _currentMainTab  = 'learnhub';
+  _currentLearnTab = tab;
+  saveKK('lastTab', 'learnhub');
+  saveKK('lastLearnTab', tab);
+  showSection('sec-learnhub');
+  setActiveBnBtn('home');
+  renderLearnHub(tab);
+  if (!fromBack) pushHistory({ tab:'learnhub', learn: tab });
+}
+
+function goToChallenge() {
+  // Challenge lives inside learnhub
+  goLearnTab('challenge');
+}
+
+/* ════════════════════════════════════════════════════════════
+   LEARNHUB — the content host with horizontal tab strip
+════════════════════════════════════════════════════════════ */
+function renderLearnHub(activeTab) {
+  // Ensure learnhub section exists
+  let hub = document.getElementById('sec-learnhub');
+  if (!hub) {
+    hub = document.createElement('section');
+    hub.id = 'sec-learnhub';
+    hub.className = 'section';
+    hub.innerHTML = `
+      <div class="learn-tabs-strip" id="learn-tabs-strip"></div>
+      <div id="learn-hub-content"></div>`;
+    document.getElementById('main-content').appendChild(hub);
+  }
+
+  // All learning tabs in the strip
+  const ALL_TABS = [
+    {id:'alphabet', icon:'🔤', label:'Alphabet'},
+    {id:'words',    icon:'📖', label:'Words'},
+    {id:'sentences',icon:'💬', label:'Sentences'},
+    {id:'evs',      icon:'🌍', label:'EVS'},
+    {id:'grammar',  icon:'📝', label:'Grammar'},
+    {id:'maths',    icon:'🔢', label:'Maths'},
+    {id:'story',    icon:'📚', label:'Stories'},
+    {id:'rhymes',   icon:'🎵', label:'Rhymes'},
+    {id:'quiz',     icon:'🎯', label:'Quiz'},
+    {id:'challenge',icon:'⚡', label:'Challenge'},
+  ];
+
+  const strip = document.getElementById('learn-tabs-strip');
+  if (strip) {
+    strip.innerHTML = ALL_TABS.map(t =>
+      `<button class="learn-tab-pill${t.id===activeTab?' active':''}"
+               onclick="switchLearnTab('${t.id}')">${t.icon} ${t.label}</button>`
+    ).join('');
+  }
+
+  showSection('sec-learnhub');
+  loadLearnContent(activeTab);
+}
+
+function switchLearnTab(tab) {
+  _currentLearnTab = tab;
+  saveKK('lastLearnTab', tab);
+  pushHistory({ tab:'learnhub', learn: tab });
+
+  // Update pills
+  document.querySelectorAll('.learn-tab-pill').forEach(p => {
+    p.classList.toggle('active', p.textContent.includes(tab) ||
+      p.getAttribute('onclick') === `switchLearnTab('${tab}')`);
+  });
+  loadLearnContent(tab);
+}
+
+function loadLearnContent(tab) {
+  // Point learn-hub-content to the right existing section content
+  const hub = document.getElementById('learn-hub-content');
+  if (!hub) return;
+
+  // Detach all learn sections and re-attach the right one
+  const sectionMap = {
+    alphabet:  'sec-alphabet',
+    words:     'sec-words',
+    sentences: 'sec-sentences',
+    evs:       'sec-evs',
+    grammar:   'sec-grammar',
+    maths:     'sec-maths',
+    story:     'sec-story',
+    rhymes:    'sec-rhymes',
+    quiz:      'sec-quiz',
+    challenge: 'sec-challenge',
+  };
+
+  const targetId = sectionMap[tab];
+  const target   = document.getElementById(targetId);
+  if (!target) return;
+
+  // Move the inner content into hub (keep the section in DOM for reference)
+  hub.innerHTML = '';
+  // Clone and show the section's content
+  const clone = target.cloneNode(true);
+  clone.classList.add('active');
+  clone.style.display = 'block';
+  clone.removeAttribute('id'); // avoid duplicate IDs — we'll sync back
+  hub.appendChild(clone);
+
+  // Actually just show/hide sections instead — cleaner
+  hub.innerHTML = '';
+  // Hide all learn sections
+  Object.values(sectionMap).forEach(id => {
+    const s = document.getElementById(id);
+    if (s) { s.style.display = 'none'; s.classList.remove('active'); }
+  });
+  // Show the target
+  if (target) {
+    target.style.display = 'block';
+    target.classList.add('active');
+    hub.appendChild(target);
+  }
+
+  // Trigger existing render functions
+  const renderMap = {
+    alphabet:  () => { if(ALPHA_DATA) renderAlphaCats(); renderAlphaContent(alphaActiveCat||0); },
+    words:     () => { if(WORDS_DATA) { renderWordsCats(); renderWordCards(wordsActiveCat||0); } },
+    sentences: () => { if(SENTENCES_DATA) { renderSentCats(); renderSentences(sentActiveCat||0); } },
+    evs:       () => { if(EVS_DATA) { renderEVSCats(); renderEVSCards(evsActiveCat||0); } },
+    grammar:   () => { if(GRAM_DATA) { renderGramCats(); renderGramCards(gramActiveCat||0); } },
+    maths:     () => { if(MATH_DATA) { renderMathCats(); renderMaths(mathActiveCat||0); } },
+    story:     () => renderStories(),
+    rhymes:    () => renderRhymes(),
+    quiz:      () => { if(typeof startQuiz==='function' && !quizPool.length) startQuiz(); },
+    challenge: () => renderChallenge(),
+  };
+  if (renderMap[tab]) renderMap[tab]();
+}
+
+/* ════════════════════════════════════════════════════════════
+   OVERRIDE switchTab (used by home cards + challenge button)
+════════════════════════════════════════════════════════════ */
+// Override the existing switchTab completely
+const _v8OrigSwitch = typeof switchTab === 'function' ? switchTab : null;
+switchTab = function(tab) {
+  if (tab === 'home')        { goHome(); return; }
+  if (tab === 'progress')    { goProgress(); return; }
+  if (tab === 'designedby')  { goDesignedBy(); return; }
+  if (tab === 'challenge')   { goLearnTab('challenge'); return; }
+  goLearnTab(tab);
+};
+
+/* ════════════════════════════════════════════════════════════
+   SHOW SECTION HELPER
+════════════════════════════════════════════════════════════ */
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('active'); el.style.display = 'block'; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDESIGNED HOME renderHomeV8
+════════════════════════════════════════════════════════════ */
+function renderHomeV8() {
+  // Update greeting
+  const g = typeof getGreeting === 'function' ? getGreeting() : { text:'Hello!', sub:'Let\'s learn!', avatar:'🌟' };
+  const grEl = document.getElementById('hw-greeting');
+  if (grEl) grEl.textContent = g.text;
+
+  // Update stars + streak in banner
+  const st = parseInt(localStorage.getItem('kk_stars')||0);
+  const sk = typeof loadKK === 'function' ? loadKK('streak',0) : 0;
+  const hwS = document.getElementById('hw-stars');
+  const hwK = document.getElementById('hw-streak');
+  if (hwS) hwS.textContent = st;
+  if (hwK) hwK.textContent = sk;
+
+  // Render home grid
+  const HOME_CARDS = [
+    {id:'alphabet',  icon:'🔤', title:'Alphabet',   sub:'28 activities',        cls:'hc-alpha',  badge:''},
+    {id:'words',     icon:'📖', title:'Words',       sub:'120+ vocabulary',      cls:'hc-words',  badge:''},
+    {id:'sentences', icon:'💬', title:'Sentences',   sub:'32 sentences',         cls:'hc-words',  badge:''},
+    {id:'evs',       icon:'🌍', title:'EVS',         sub:'21 topics',            cls:'hc-evs',    badge:''},
+    {id:'grammar',   icon:'📝', title:'Grammar',     sub:'10 lessons',           cls:'hc-gram',   badge:''},
+    {id:'maths',     icon:'🔢', title:'Maths',       sub:'Numbers & shapes',     cls:'hc-math',   badge:''},
+    {id:'story',     icon:'📚', title:'Stories',     sub:'10 bilingual stories', cls:'hc-story',  badge:'NEW'},
+    {id:'rhymes',    icon:'🎵', title:'Rhymes',      sub:'15 songs',             cls:'hc-rhymes', badge:'NEW'},
+    {id:'quiz',      icon:'🎯', title:'Quiz',        sub:'Test yourself',        cls:'hc-quiz',   badge:''},
+    {id:'challenge', icon:'⚡', title:'Challenge',   sub:'Daily task',           cls:'hc-challenge',badge:''},
+  ];
+  const grid = document.getElementById('home-grid');
+  if (grid) {
+    grid.innerHTML = HOME_CARDS.map(c => `
+      <div class="home-card ${c.cls}" onclick="goLearnTab('${c.id}')">
+        ${c.badge?`<div class="home-card-badge">${c.badge}</div>`:''}
+        <div class="home-card-icon">${c.icon}</div>
+        <div class="home-card-title">${c.title}</div>
+        <div class="home-card-sub">${c.sub}</div>
+      </div>`).join('');
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDESIGNED PROGRESS renderProgressV8
+════════════════════════════════════════════════════════════ */
+function renderProgressV8() {
+  // Greeting
+  const g = typeof getGreeting === 'function' ? getGreeting() : { text:'Hello!', sub:'Keep going!' };
+  const gEl = document.getElementById('ptw-greeting');
+  const sEl = document.getElementById('ptw-sub');
+  const aEl = document.getElementById('ptw-avatar');
+  if (gEl) gEl.textContent = g.text;
+  if (sEl) sEl.textContent = g.sub;
+
+  // Daily challenge status
+  const chalDone = (typeof loadKK==='function') && loadKK('chall_today','') === (new Date().toISOString().slice(0,10));
+  const pdEl = document.getElementById('ptd-status');
+  if (pdEl) pdEl.textContent = chalDone ? '✅ Done!' : 'Start!';
+
+  // Progress bars
+  const stars  = parseInt(localStorage.getItem('kk_stars')||0);
+  const streak = (typeof loadKK==='function') ? loadKK('streak',0) : 0;
+  const earned = (typeof loadKK==='function') ? loadKK('trophies_earned',[]) : [];
+  const stories= (typeof loadKK==='function') ? loadKK('stories_read',0) : 0;
+  const barsEl = document.getElementById('prog-tab-bars');
+  if (barsEl) {
+    const items = [
+      {label:'⭐ Stars',    val:Math.min(stars,200), max:200, color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)'},
+      {label:'🔥 Streak',  val:streak,   max:7,   color:'linear-gradient(90deg,#f97316,#eab308)'},
+      {label:'🏆 Trophies',val:earned.length, max:(typeof TROPHIES!=='undefined'?TROPHIES.length:15), color:'linear-gradient(90deg,#f59e0b,#26de81)'},
+      {label:'📖 Stories', val:stories,  max:10,  color:'linear-gradient(90deg,#8b5cf6,#ec4899)'},
+    ];
+    barsEl.innerHTML = items.map(it => {
+      const pct = Math.round(it.val/it.max*100);
+      return `<div class="prog-row">
+        <span class="prog-label">${it.label}</span>
+        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
+        <span class="prog-val">${it.val}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Call existing renderProgress for stats+trophies
+  if (typeof renderProgress === 'function') renderProgress();
+}
+
+/* ════════════════════════════════════════════════════════════
+   HISTORY API — Android back button
+════════════════════════════════════════════════════════════ */
+function pushHistory(state) {
+  history.pushState(state, '', window.location.pathname + (state.tab==='home'?'':'#'+state.tab));
+}
+
+window.addEventListener('popstate', event => {
+  const state = event.state;
+  if (!state) {
+    // Went back past app entry — go home
+    goHome(true);
+    return;
+  }
+  const { tab, learn } = state;
+  if (tab === 'home')        goHome(true);
+  else if (tab === 'progress')   goProgress(true);
+  else if (tab === 'designedby') goDesignedBy(true);
+  else if (tab === 'learnhub')   goLearnTab(learn || 'alphabet', true);
+  else goHome(true);
+});
+
+/* ════════════════════════════════════════════════════════════
+   REMEMBER LAST TAB — restore on reload
+════════════════════════════════════════════════════════════ */
+function restoreLastTab() {
+  const last      = (typeof loadKK==='function') ? loadKK('lastTab','home') : 'home';
+  const lastLearn = (typeof loadKK==='function') ? loadKK('lastLearnTab','alphabet') : 'alphabet';
+  if (last === 'progress')    goProgress(true);
+  else if (last === 'designedby') goDesignedBy(true);
+  else if (last === 'learnhub')   goLearnTab(lastLearn, true);
+  else goHome(true);
+  // Push initial history entry so first popstate goes home
+  history.replaceState({ tab: last==='learnhub'?'learnhub':'home', learn: lastLearn }, '', window.location.pathname);
+}
+
+/* ════════════════════════════════════════════════════════════
+   OVERRIDE BOOT — call restoreLastTab after data loads
+════════════════════════════════════════════════════════════ */
+const _v8OrigBoot = typeof boot === 'function' ? boot : null;
+boot = async function() {
+  if (_v8OrigBoot) await _v8OrigBoot();
+  // Hide all sections initially
+  document.querySelectorAll('.section').forEach(s => { s.style.display='none'; s.classList.remove('active'); });
+  restoreLastTab();
+};
+
+/* Expose goToChallenge for progress tab button */
+window.goToChallenge = function() { goLearnTab('challenge'); };
+
+/* ════════════════════════════════════════════════════════════
+   ABOUT PAGE — mirror hw-stars update
+════════════════════════════════════════════════════════════ */
+// Sync hdr-badge stars to hw-stars on addStar
+const _v8OrigAddStar = typeof addStar === 'function' ? addStar : null;
+addStar = function(n) {
+  if (_v8OrigAddStar) _v8OrigAddStar(n);
+  const s = parseInt(localStorage.getItem('kk_stars')||0);
+  const hwS = document.getElementById('hw-stars');
+  if (hwS) hwS.textContent = s;
+};
+
+console.log('[v8] Navigation module loaded');
 </script>
