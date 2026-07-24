@@ -1,0 +1,146 @@
+{
+  "categories": [
+    {
+      "id": "animals-stories",
+      "icon": "🐾",
+      "label": {"en": "Animal Stories", "kn": "ಪ್ರಾಣಿ ಕಥೆಗಳು"},
+      "desc": "Fun stories about animals!",
+      "stories": [
+        {
+          "id": "lion-mouse", "icon": "🦁", "title": "The Brave Lion", "kn_title": "ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ", "level": "Easy",
+          "pages": [
+            {"en": "Once upon a time, there was a brave lion.", "kn": "ಒಮ್ಮೆ ಒಂದು ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ ಇತ್ತು.", "emoji": "🦁"},
+            {"en": "The lion lived in a big green forest.", "kn": "ಸಿಂಹ ದೊಡ್ಡ ಹಸಿರು ಕಾಡಿನಲ್ಲಿ ವಾಸಿಸುತ್ತಿತ್ತು.", "emoji": "🌳"},
+            {"en": "One day, a little mouse got stuck in a trap.", "kn": "ಒಂದು ದಿನ ಒಂದು ಚಿಕ್ಕ ಇಲಿ ಬಲೆಯಲ್ಲಿ ಸಿಲುಕಿತು.", "emoji": "🐭"},
+            {"en": "The brave lion saw the mouse and helped it.", "kn": "ಧೈರ್ಯಶಾಲಿ ಸಿಂಹ ಇಲಿಯನ್ನು ನೋಡಿ ಸಹಾಯ ಮಾಡಿತು.", "emoji": "🙌"},
+            {"en": "The mouse said: Thank you, dear lion!", "kn": "ಇಲಿ ಹೇಳಿತು: ಧನ್ಯವಾದ, ಪ್ರಿಯ ಸಿಂಹ!", "emoji": "😊"},
+            {"en": "They became the best of friends forever!", "kn": "ಅವರು ಶಾಶ್ವತ ಉತ್ತಮ ಮಿತ್ರರಾದರು!", "emoji": "🤝"},
+            {"en": "Lesson: Be kind — even the smallest friend can help you!", "kn": "ಪಾಠ: ದಯೆ ತೋರಿ — ಚಿಕ್ಕ ಮಿತ್ರರೂ ಸಹಾಯ ಮಾಡಬಲ್ಲರು!", "emoji": "❤️"}
+          ]
+        },
+        {
+          "id": "tortoise-hare", "icon": "🐢", "title": "Tortoise and Hare", "kn_title": "ಆಮೆ ಮತ್ತು ಮೊಲ", "level": "Medium",
+          "pages": [
+            {"en": "A hare and a tortoise decided to race.", "kn": "ಒಂದು ಮೊಲ ಮತ್ತು ಆಮೆ ಓಟದ ಸ್ಪರ್ಧೆ ನಡೆಸಲು ನಿರ್ಧರಿಸಿದವು.", "emoji": "🐇🐢"},
+            {"en": "The hare ran very fast and took a nap under a tree.", "kn": "ಮೊಲ ತುಂಬಾ ವೇಗವಾಗಿ ಓಡಿ ಮರದ ಕೆಳಗೆ ನಿದ್ದೆ ಮಾಡಿತು.", "emoji": "😴"},
+            {"en": "The tortoise walked slowly but never stopped.", "kn": "ಆಮೆ ನಿಧಾನವಾಗಿ ಆದರೆ ನಿಲ್ಲದೆ ನಡೆಯಿತು.", "emoji": "🐢"},
+            {"en": "The tortoise crossed the finish line first!", "kn": "ಆಮೆ ಮೊದಲು ಗೆರೆ ದಾಟಿತು!", "emoji": "🏁"},
+            {"en": "The hare woke up and saw he had lost!", "kn": "ಮೊಲ ಎದ್ದು ತಾನು ಸೋತಿದ್ದೇನೆ ಎಂದು ತಿಳಿಯಿತು!", "emoji": "😮"},
+            {"en": "Lesson: Slow and steady wins the race!", "kn": "ಪಾಠ: ನಿಧಾನ ಮತ್ತು ಸ್ಥಿರ ಓಟದಲ್ಲಿ ಗೆಲ್ಲುತ್ತದೆ!", "emoji": "🏆"}
+          ]
+        },
+        {
+          "id": "busy-bee", "icon": "🐝", "title": "The Busy Bee", "kn_title": "ಕಷ್ಟಪಡುವ ಜೇನ್ನೊಣ", "level": "Easy",
+          "pages": [
+            {"en": "A little bee woke up early every morning.", "kn": "ಒಂದು ಚಿಕ್ಕ ಜೇನ್ನೊಣ ಪ್ರತಿ ಬೆಳಿಗ್ಗೆ ಬೇಗ ಎದ್ದೇಳುತ್ತಿತ್ತು.", "emoji": "🐝"},
+            {"en": "It flew from flower to flower collecting nectar.", "kn": "ಅದು ಹೂವಿನಿಂದ ಹೂವಿಗೆ ಹಾರಿ ಮಕರಂದ ಸಂಗ್ರಹಿಸಿತು.", "emoji": "🌸"},
+            {"en": "It shared the honey with the whole hive.", "kn": "ಅದು ಇಡೀ ಗೂಡಿಗೆ ಜೇನು ಹಂಚಿಕೊಂಡಿತು.", "emoji": "🍯"},
+            {"en": "All the bees worked together happily.", "kn": "ಎಲ್ಲ ಜೇನ್ನೊಣಗಳು ಒಟ್ಟಾಗಿ ಸಂತೋಷದಿಂದ ಕೆಲಸ ಮಾಡಿದವು.", "emoji": "🤝"},
+            {"en": "Lesson: Work hard and share with others!", "kn": "ಪಾಠ: ಕಠಿಣ ಪರಿಶ್ರಮ ಮಾಡಿ ಮತ್ತು ಹಂಚಿಕೊಳ್ಳಿ!", "emoji": "⭐"}
+          ]
+        },
+        {
+          "id": "crow-fox", "icon": "🐦‍⬛", "title": "The Clever Crow", "kn_title": "ಚತುರ ಕಾಗೆ", "level": "Medium",
+          "pages": [
+            {"en": "A thirsty crow found a pot with a little water.", "kn": "ಒಂದು ಬಾಯಾರಿದ ಕಾಗೆ ಸ್ವಲ್ಪ ನೀರಿರುವ ಮಡಕೆ ಕಂಡಿತು.", "emoji": "🐦‍⬛"},
+            {"en": "The water was too low for the crow to reach.", "kn": "ನೀರು ತುಂಬಾ ಕೆಳಗಿತ್ತು, ಕಾಗೆ ಕುಡಿಯಲಾಗಲಿಲ್ಲ.", "emoji": "🏺"},
+            {"en": "The crow picked up small stones one by one.", "kn": "ಕಾಗೆ ಒಂದೊಂದಾಗಿ ಚಿಕ್ಕ ಕಲ್ಲುಗಳನ್ನು ಎತ್ತಿತು.", "emoji": "🪨"},
+            {"en": "It dropped the stones into the pot.", "kn": "ಅದು ಮಡಕೆಯಲ್ಲಿ ಕಲ್ಲುಗಳನ್ನು ಹಾಕಿತು.", "emoji": "💧"},
+            {"en": "The water rose up and the crow drank it!", "kn": "ನೀರು ಮೇಲೆ ಬಂತು ಮತ್ತು ಕಾಗೆ ಕುಡಿಯಿತು!", "emoji": "😃"},
+            {"en": "Lesson: Use your brain to solve problems!", "kn": "ಪಾಠ: ಸಮಸ್ಯೆ ಬಗೆಹರಿಸಲು ನಿಮ್ಮ ಬುದ್ಧಿ ಬಳಸಿ!", "emoji": "🧠"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature-stories",
+      "icon": "🌿",
+      "label": {"en": "Nature Stories", "kn": "ಪ್ರಕೃತಿ ಕಥೆಗಳು"},
+      "desc": "Stories about nature and plants!",
+      "stories": [
+        {
+          "id": "magic-seed", "icon": "🌱", "title": "The Magic Seed", "kn_title": "ಮಾಯಾ ಬೀಜ", "level": "Easy",
+          "pages": [
+            {"en": "Ramu found a tiny seed in the garden.", "kn": "ರಾಮು ತೋಟದಲ್ಲಿ ಒಂದು ಚಿಕ್ಕ ಬೀಜ ಕಂಡನು.", "emoji": "🌱"},
+            {"en": "He planted the seed in soft wet soil.", "kn": "ಅವನು ಆ ಬೀಜವನ್ನು ಮೃದು ತೇವ ಮಣ್ಣಿನಲ್ಲಿ ನೆಟ್ಟನು.", "emoji": "🪴"},
+            {"en": "He watered it and gave it sunshine every day.", "kn": "ಅವನು ಪ್ರತಿ ದಿನ ನೀರು ಮತ್ತು ಬೆಳಕು ಕೊಟ್ಟನು.", "emoji": "💧☀️"},
+            {"en": "Slowly a green shoot came out!", "kn": "ನಿಧಾನವಾಗಿ ಹಸಿರು ಚಿಗುರು ಹೊರ ಬಂತು!", "emoji": "🌿"},
+            {"en": "It grew into a big beautiful tree full of fruits!", "kn": "ಅದು ಹಣ್ಣಿನ ದೊಡ್ಡ ಸುಂದರ ಮರವಾಯಿತು!", "emoji": "🌳🍎"},
+            {"en": "Lesson: With love and care, small things grow big!", "kn": "ಪಾಠ: ಪ್ರೀತಿ ಮತ್ತು ಕಾಳಜಿಯಿಂದ ಚಿಕ್ಕ ವಿಷಯ ದೊಡ್ಡದಾಗುತ್ತದೆ!", "emoji": "❤️"}
+          ]
+        },
+        {
+          "id": "rain-adventure", "icon": "🌧️", "title": "Rain Adventure", "kn_title": "ಮಳೆಯ ಸಾಹಸ", "level": "Easy",
+          "pages": [
+            {"en": "Priya woke up and saw dark clouds outside.", "kn": "ಪ್ರಿಯ ಎದ್ದು ಹೊರಗೆ ಕಪ್ಪು ಮೋಡ ನೋಡಿದಳು.", "emoji": "☁️"},
+            {"en": "It started raining heavily!", "kn": "ಭಾರಿ ಮಳೆ ಪ್ರಾರಂಭವಾಯಿತು!", "emoji": "🌧️"},
+            {"en": "She took her red umbrella and went outside.", "kn": "ಅವಳು ಕೆಂಪು ಛತ್ರಿ ತೆಗೆದುಕೊಂಡು ಹೊರ ಹೋದಳು.", "emoji": "☔"},
+            {"en": "She jumped in big muddy puddles!", "kn": "ಅವಳು ದೊಡ್ಡ ಕೆಸರು ಗುಂಡಿಗಳಲ್ಲಿ ಜಿಗಿದಳು!", "emoji": "💦"},
+            {"en": "Then she saw a beautiful rainbow in the sky!", "kn": "ನಂತರ ಅವಳು ಆಕಾಶದಲ್ಲಿ ಸುಂದರ ಕಾಮನಬಿಲ್ಲು ನೋಡಿದಳು!", "emoji": "🌈"},
+            {"en": "What a wonderful rainy day it was!", "kn": "ಎಷ್ಟು ಸುಂದರ ಮಳೆಯ ದಿನ!", "emoji": "😃"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "values-stories",
+      "icon": "❤️",
+      "label": {"en": "Good Values", "kn": "ಒಳ್ಳೆಯ ಗುಣಗಳು"},
+      "desc": "Stories that teach good values!",
+      "stories": [
+        {
+          "id": "helpful-farmer", "icon": "👨‍🌾", "title": "The Helpful Farmer", "kn_title": "ಸಹಾಯಕ ರೈತ", "level": "Medium",
+          "pages": [
+            {"en": "Farmer Siddappa woke up at sunrise every day.", "kn": "ರೈತ ಸಿದ್ದಪ್ಪ ಪ್ರತಿದಿನ ಸೂರ್ಯೋದಯದಲ್ಲಿ ಎದ್ದೇಳುತ್ತಿದ್ದರು.", "emoji": "🌅"},
+            {"en": "He worked hard on his rice and wheat fields.", "kn": "ಅವರು ತಮ್ಮ ಭತ್ತ ಮತ್ತು ಗೋಧಿ ಹೊಲದಲ್ಲಿ ಕಷ್ಟಪಟ್ಟರು.", "emoji": "🌾"},
+            {"en": "His neighbour was sick and could not work.", "kn": "ಅವರ ನೆರೆಯವರು ಅನಾರೋಗ್ಯದಿಂದ ಕೆಲಸ ಮಾಡಲಾಗಲಿಲ್ಲ.", "emoji": "🤒"},
+            {"en": "Siddappa helped his neighbour's farm too.", "kn": "ಸಿದ್ದಪ್ಪ ನೆರೆಯವರ ಹೊಲದ ಕೆಲಸ ಕೂಡ ಮಾಡಿದರು.", "emoji": "🤝"},
+            {"en": "Together they had a wonderful harvest!", "kn": "ಒಟ್ಟಾಗಿ ಅವರು ಅದ್ಭುತ ಫಸಲು ಪಡೆದರು!", "emoji": "🎉"},
+            {"en": "Lesson: Help others and good things come back to you!", "kn": "ಪಾಠ: ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡಿ — ಒಳ್ಳೆಯದು ಮರಳುತ್ತದೆ!", "emoji": "❤️"}
+          ]
+        },
+        {
+          "id": "honest-boy", "icon": "👦", "title": "The Honest Boy", "kn_title": "ಪ್ರಾಮಾಣಿಕ ಹುಡುಗ", "level": "Easy",
+          "pages": [
+            {"en": "Arjun found a wallet on the road.", "kn": "ಅರ್ಜುನ ರಸ್ತೆಯಲ್ಲಿ ಒಂದು ಚೀಲ ಕಂಡನು.", "emoji": "👜"},
+            {"en": "It had a lot of money and an ID card inside.", "kn": "ಅದರಲ್ಲಿ ಬಹಳ ಹಣ ಮತ್ತು ಗುರುತಿನ ಚೀಟಿ ಇತ್ತು.", "emoji": "💰"},
+            {"en": "Arjun could have kept the money but did not.", "kn": "ಅರ್ಜುನ ಹಣ ಇಟ್ಟುಕೊಳ್ಳಬಹುದಿತ್ತು ಆದರೆ ಮಾಡಲಿಲ್ಲ.", "emoji": "🙅"},
+            {"en": "He went to the police station and gave it back.", "kn": "ಅವನು ಪೊಲೀಸ್ ಠಾಣೆಗೆ ಹೋಗಿ ಹಿಂದಿರುಗಿಸಿದನು.", "emoji": "👮"},
+            {"en": "The owner was very happy and thanked Arjun.", "kn": "ಮಾಲೀಕ ತುಂಬಾ ಸಂತೋಷಗೊಂಡು ಅರ್ಜುನನಿಗೆ ಧನ್ಯವಾದ ಹೇಳಿದರು.", "emoji": "😊"},
+            {"en": "Lesson: Honesty is the best policy!", "kn": "ಪಾಠ: ಪ್ರಾಮಾಣಿಕತೆಯೇ ಅತ್ಯುತ್ತಮ ನೀತಿ!", "emoji": "⭐"}
+          ]
+        },
+        {
+          "id": "sharing-tiffin", "icon": "🍱", "title": "Sharing the Tiffin", "kn_title": "ಊಟ ಹಂಚಿಕೊಳ್ಳುವುದು", "level": "Easy",
+          "pages": [
+            {"en": "Kavya brought a big tiffin box to school.", "kn": "ಕಾವ್ಯ ಶಾಲೆಗೆ ದೊಡ್ಡ ಊಟದ ಡಬ್ಬ ತಂದಳು.", "emoji": "🍱"},
+            {"en": "Her friend Meena had forgotten her lunch.", "kn": "ಅವಳ ಗೆಳತಿ ಮೀನಾ ಊಟ ತರಲು ಮರೆತಿದ್ದಳು.", "emoji": "😢"},
+            {"en": "Kavya said: Let us share my tiffin!", "kn": "ಕಾವ್ಯ ಹೇಳಿದಳು: ನಾವು ನನ್ನ ಊಟ ಹಂಚಿಕೊಳ್ಳೋಣ!", "emoji": "🤝"},
+            {"en": "They sat together and ate happily.", "kn": "ಅವರು ಒಟ್ಟಾಗಿ ಕೂತು ಸಂತೋಷದಿಂದ ತಿಂದರು.", "emoji": "😊"},
+            {"en": "Meena said: You are my best friend!", "kn": "ಮೀನಾ ಹೇಳಿದಳು: ನೀನು ನನ್ನ ಅತ್ಯುತ್ತಮ ಗೆಳತಿ!", "emoji": "❤️"},
+            {"en": "Lesson: Sharing makes friendship stronger!", "kn": "ಪಾಠ: ಹಂಚಿಕೊಳ್ಳುವುದು ಸ್ನೇಹವನ್ನು ಬಲಗೊಳಿಸುತ್ತದೆ!", "emoji": "🌟"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adventure-stories",
+      "icon": "🚀",
+      "label": {"en": "Adventure Stories", "kn": "ಸಾಹಸ ಕಥೆಗಳು"},
+      "desc": "Exciting adventure stories!",
+      "stories": [
+        {
+          "id": "lost-kite", "icon": "🪁", "title": "The Lost Kite", "kn_title": "ಕಳೆದ ಗಾಳಿಪಟ", "level": "Easy",
+          "pages": [
+            {"en": "Suresh flew his red kite on a windy day.", "kn": "ಸುರೇಶ ಗಾಳಿಯ ದಿನ ತನ್ನ ಕೆಂಪು ಗಾಳಿಪಟ ಹಾರಿಸಿದನು.", "emoji": "🪁"},
+            {"en": "Suddenly the string broke and the kite flew away!", "kn": "ಹಠಾತ್ ದಾರ ಕಿತ್ತು ಗಾಳಿಪಟ ಹಾರಿ ಹೋಯಿತು!", "emoji": "💨"},
+            {"en": "Suresh ran across fields and hills to find it.", "kn": "ಸುರೇಶ ಅದನ್ನು ಹುಡುಕಲು ಹೊಲ ಮತ್ತು ಗುಡ್ಡ ದಾಟಿ ಓಡಿದನು.", "emoji": "🏃"},
+            {"en": "He found the kite caught in a mango tree!", "kn": "ಅವನು ಮಾವಿನ ಮರದಲ್ಲಿ ಸಿಲುಕಿದ ಗಾಳಿಪಟ ಕಂಡನು!", "emoji": "🌳"},
+            {"en": "A kind farmer helped him get it down.", "kn": "ಒಬ್ಬ ದಯಾಳು ರೈತ ಅದನ್ನು ತೆಗೆಯಲು ಸಹಾಯ ಮಾಡಿದನು.", "emoji": "👨‍🌾"},
+            {"en": "Suresh thanked him and flew his kite again!", "kn": "ಸುರೇಶ ಅವರಿಗೆ ಧನ್ಯವಾದ ಹೇಳಿ ಮತ್ತೆ ಗಾಳಿಪಟ ಹಾರಿಸಿದನು!", "emoji": "😄"}
+          ]
+        }
+      ]
+    }
+  ]
+}

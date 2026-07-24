@@ -1,0 +1,199 @@
+{
+  "categories": [
+    {
+      "id": "alphabet-rhymes",
+      "icon": "🔤",
+      "label": {"en": "Alphabet Rhymes", "kn": "ಅಕ್ಷರ ಹಾಡುಗಳು"},
+      "desc": "Sing and learn the alphabet!",
+      "rhymes": [
+        {
+          "id": "a-for-apple", "icon": "🍎", "title": "A for Apple", "sub": "Alphabet Song",
+          "lines": [
+            {"text": "A for Apple, B for Ball,",           "kn": "A ಅಂದರೆ Apple, B ಅಂದರೆ Ball,"},
+            {"text": "C for Cat that runs down the hall,", "kn": "C ಅಂದರೆ Cat ಓಡುತ್ತದೆ,"},
+            {"text": "D for Dog and E for Egg,",           "kn": "D ಅಂದರೆ Dog, E ಅಂದರೆ Egg,"},
+            {"text": "F for Fish upon a peg!",             "kn": "F ಅಂದರೆ Fish!"},
+            {"text": "G for Goat and H for Hat,",          "kn": "G ಅಂದರೆ Goat, H ಅಂದರೆ Hat,"},
+            {"text": "I for Ink and J for that!",          "kn": "I ಅಂದರೆ Ink, J ಅಂದರೆ Jar!"},
+            {"text": "K for Kite and L for Lion,",         "kn": "K ಅಂದರೆ Kite, L ಅಂದರೆ Lion,"},
+            {"text": "M for Mango, bright and shining!",   "kn": "M ಅಂದರೆ Mango ಹೊಳೆಯುತ್ತದೆ!"}
+          ]
+        },
+        {
+          "id": "abcd-song", "icon": "🌟", "title": "ABCD Song", "sub": "Classic Alphabet",
+          "lines": [
+            {"text": "A B C D E F G,",                 "kn": "A B C D E F G,"},
+            {"text": "H I J K L M N O P,",             "kn": "H I J K L M N O P,"},
+            {"text": "Q R S, T U V,",                  "kn": "Q R S, T U V,"},
+            {"text": "W X, Y and Z!",                  "kn": "W X, Y ಮತ್ತು Z!"},
+            {"text": "Now I know my ABCs,",            "kn": "ಈಗ ನನಗೆ ABC ತಿಳಿದಿದೆ,"},
+            {"text": "Next time won't you sing with me?","kn": "ಮುಂದಿನ ಬಾರಿ ನನ್ನೊಂದಿಗೆ ಹಾಡುತ್ತೀಯಾ?"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nursery-rhymes",
+      "icon": "⭐",
+      "label": {"en": "Nursery Rhymes", "kn": "ನರ್ಸರಿ ಹಾಡುಗಳು"},
+      "desc": "Classic nursery rhymes for kids!",
+      "rhymes": [
+        {
+          "id": "twinkle", "icon": "⭐", "title": "Twinkle Twinkle", "sub": "Classic Nursery Rhyme",
+          "lines": [
+            {"text": "Twinkle, twinkle, little star,",         "kn": "ಮಿನುಗು ಮಿನುಗು ಚಿಕ್ಕ ನಕ್ಷತ್ರ,"},
+            {"text": "How I wonder what you are!",             "kn": "ನೀನೇನೆಂದು ಆಶ್ಚರ್ಯ ಪಡುತ್ತೇನೆ!"},
+            {"text": "Up above the world so high,",            "kn": "ಜಗತ್ತಿನ ಮೇಲೆ ಎತ್ತರದಲ್ಲಿ,"},
+            {"text": "Like a diamond in the sky.",             "kn": "ಆಕಾಶದಲ್ಲಿ ವಜ್ರದಂತೆ."},
+            {"text": "Twinkle, twinkle, little star,",         "kn": "ಮಿನುಗು ಮಿನುಗು ಚಿಕ್ಕ ನಕ್ಷತ್ರ,"},
+            {"text": "How I wonder what you are!",             "kn": "ನೀನೇನೆಂದು ಆಶ್ಚರ್ಯ ಪಡುತ್ತೇನೆ!"}
+          ]
+        },
+        {
+          "id": "baa-baa", "icon": "🐑", "title": "Baa Baa Black Sheep", "sub": "Classic Rhyme",
+          "lines": [
+            {"text": "Baa baa black sheep, have you any wool?",          "kn": "ಕಪ್ಪು ಕುರಿ, ನಿನ್ನ ಬಳಿ ಉಣ್ಣೆ ಇದೆಯೇ?"},
+            {"text": "Yes sir, yes sir, three bags full!",               "kn": "ಹೌದು ಸ್ವಾಮಿ, ಮೂರು ಚೀಲ ತುಂಬಾ!"},
+            {"text": "One for the master, one for the dame,",            "kn": "ಒಂದು ಒಡೆಯನಿಗೆ, ಒಂದು ಒಡತಿಗೆ,"},
+            {"text": "And one for the little boy who lives down the lane!","kn": "ಮತ್ತು ಒಂದು ಮಾರ್ಗದ ಬಾಲಕನಿಗೆ!"}
+          ]
+        },
+        {
+          "id": "jack-jill", "icon": "🪣", "title": "Jack and Jill", "sub": "Classic Rhyme",
+          "lines": [
+            {"text": "Jack and Jill went up the hill,",          "kn": "Jack ಮತ್ತು Jill ಗುಡ್ಡ ಹತ್ತಿದರು,"},
+            {"text": "To fetch a pail of water.",                "kn": "ನೀರಿನ ಬಕೆಟ್ ತರಲು."},
+            {"text": "Jack fell down and broke his crown,",       "kn": "Jack ಬಿದ್ದು ತಲೆ ಪೆಟ್ಟಾಯಿತು,"},
+            {"text": "And Jill came tumbling after!",            "kn": "ಮತ್ತು Jill ಕೂಡ ಉರುಳಿ ಬಿದ್ದಳು!"}
+          ]
+        },
+        {
+          "id": "humpty-dumpty", "icon": "🥚", "title": "Humpty Dumpty", "sub": "Classic Rhyme",
+          "lines": [
+            {"text": "Humpty Dumpty sat on a wall,",              "kn": "Humpty Dumpty ಗೋಡೆಯ ಮೇಲೆ ಕೂತ,"},
+            {"text": "Humpty Dumpty had a great fall!",          "kn": "Humpty Dumpty ದೊಡ್ಡ ಪಾತನಕ್ಕೆ ಬಿದ್ದ!"},
+            {"text": "All the king's horses and all the king's men,","kn": "ರಾಜನ ಎಲ್ಲ ಕುದುರೆ ಮತ್ತು ಸೈನಿಕರು,"},
+            {"text": "Couldn't put Humpty together again!",       "kn": "Humpty ಅನ್ನು ಮತ್ತೆ ಜೋಡಿಸಲಾಗಲಿಲ್ಲ!"}
+          ]
+        },
+        {
+          "id": "old-mcdonald", "icon": "🦆", "title": "Old MacDonald", "sub": "Animals Song",
+          "lines": [
+            {"text": "Old MacDonald had a farm, E-I-E-I-O!",      "kn": "Old MacDonald ಗೆ ಒಂದು ಫಾರ್ಮ್ ಇತ್ತು!"},
+            {"text": "And on his farm he had a cow, E-I-E-I-O!", "kn": "ಆ ಫಾರ್ಮ್‌ನಲ್ಲಿ ಹಸು ಇತ್ತು!"},
+            {"text": "With a moo moo here, moo moo there,",      "kn": "ಇಲ್ಲೂ ಅಂಬಾ ಅಲ್ಲೂ ಅಂಬಾ,"},
+            {"text": "Here a moo, there a moo, everywhere a moo!", "kn": "ಎಲ್ಲೆಡೆ ಅಂಬಾ ಅಂಬಾ!"},
+            {"text": "Old MacDonald had a farm, E-I-E-I-O!",      "kn": "Old MacDonald ಗೆ ಒಂದು ಫಾರ್ಮ್ ಇತ್ತು!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "action-rhymes",
+      "icon": "🤸",
+      "label": {"en": "Action Rhymes", "kn": "ಕ್ರಿಯೆಯ ಹಾಡುಗಳು"},
+      "desc": "Sing and do actions together!",
+      "rhymes": [
+        {
+          "id": "head-shoulders", "icon": "🎃", "title": "Head Shoulders Knees", "sub": "Body Parts Action Song",
+          "lines": [
+            {"text": "Head, shoulders, knees and toes, knees and toes!", "kn": "ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!"},
+            {"text": "Head, shoulders, knees and toes, knees and toes!", "kn": "ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!"},
+            {"text": "Eyes and ears and mouth and nose,",              "kn": "ಕಣ್ಣು ಕಿವಿ ಬಾಯಿ ಮತ್ತು ಮೂಗು,"},
+            {"text": "Head, shoulders, knees and toes, knees and toes!","kn": "ತಲೆ, ಹೆಗಲು, ಮೊಣಕಾಲು ಮತ್ತು ಕಾಲ ಬೆರಳು!"}
+          ]
+        },
+        {
+          "id": "wheels-bus", "icon": "🚌", "title": "Wheels on the Bus", "sub": "Transport Action Song",
+          "lines": [
+            {"text": "The wheels on the bus go round and round,", "kn": "ಬಸ್ಸಿನ ಚಕ್ರ ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ,"},
+            {"text": "Round and round, round and round!",         "kn": "ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ!"},
+            {"text": "The wheels on the bus go round and round,", "kn": "ಬಸ್ಸಿನ ಚಕ್ರ ಸುತ್ತು ಸುತ್ತು ತಿರುಗುತ್ತದೆ,"},
+            {"text": "All through the town!",                    "kn": "ಊರಿನ ತುಂಬ!"},
+            {"text": "The horn on the bus goes beep beep beep!", "kn": "ಬಸ್ಸಿನ ಕೊಂಬು ಬೀಪ್ ಬೀಪ್ ಬಿನ್ನಿಸುತ್ತದೆ!"},
+            {"text": "The driver on the bus says move on back!", "kn": "ಚಾಲಕ ಹಿಂದೆ ಹೋಗಿ ಎನ್ನುತ್ತಾನೆ!"}
+          ]
+        },
+        {
+          "id": "if-happy", "icon": "😊", "title": "If You're Happy", "sub": "Feelings Action Song",
+          "lines": [
+            {"text": "If you're happy and you know it, clap your hands!", "kn": "ನೀನು ಸಂತೋಷವಾಗಿದ್ದರೆ ಕೈ ತಟ್ಟು!"},
+            {"text": "If you're happy and you know it, clap your hands!", "kn": "ನೀನು ಸಂತೋಷವಾಗಿದ್ದರೆ ಕೈ ತಟ್ಟು!"},
+            {"text": "If you're happy and you know it,",               "kn": "ನೀನು ಸಂತೋಷವಾಗಿದ್ದರೆ,"},
+            {"text": "Then your face will surely show it,",            "kn": "ನಿನ್ನ ಮುಖ ತೋರಿಸುತ್ತದೆ,"},
+            {"text": "If you're happy and you know it, clap your hands!","kn": "ನೀನು ಸಂತೋಷವಾಗಿದ್ದರೆ ಕೈ ತಟ್ಟು!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nature-rhymes",
+      "icon": "🌿",
+      "label": {"en": "Nature Rhymes", "kn": "ಪ್ರಕೃತಿ ಹಾಡುಗಳು"},
+      "desc": "Songs about nature, sun, moon and rain!",
+      "rhymes": [
+        {
+          "id": "rainbow", "icon": "🌈", "title": "Rainbow Colors", "sub": "Colors Song",
+          "lines": [
+            {"text": "Red and yellow, pink and green,",     "kn": "ಕೆಂಪು ಹಳದಿ ಗುಲಾಬಿ ಹಸಿರು,"},
+            {"text": "Purple and orange and blue!",         "kn": "ನೇರಳೆ ಕಿತ್ತಳೆ ನೀಲಿ!"},
+            {"text": "I can sing a rainbow,",               "kn": "ನಾನು ಕಾಮನಬಿಲ್ಲು ಹಾಡಬಲ್ಲೆ,"},
+            {"text": "Sing a rainbow, sing a rainbow too!", "kn": "ಕಾಮನಬಿಲ್ಲು ಹಾಡಬಲ್ಲೆ!"},
+            {"text": "Listen with your eyes,",              "kn": "ನಿಮ್ಮ ಕಣ್ಣುಗಳಿಂದ ಕೇಳಿ,"},
+            {"text": "Listen with your ears too!",          "kn": "ನಿಮ್ಮ ಕಿವಿಗಳಿಂದಲೂ ಕೇಳಿ!"}
+          ]
+        },
+        {
+          "id": "good-morning-sun", "icon": "☀️", "title": "Good Morning Sun", "sub": "Morning Song",
+          "lines": [
+            {"text": "Good morning, Mr Sun!",            "kn": "ಶುಭ ಪ್ರಭಾತ, ಸೂರ್ಯ ದೇವ!"},
+            {"text": "You shine so bright and fun!",     "kn": "ನೀನು ತುಂಬಾ ಪ್ರಕಾಶಮಾನ!"},
+            {"text": "You wake the birds to sing,",      "kn": "ನೀನು ಪಕ್ಷಿಗಳನ್ನು ಎಬ್ಬಿಸಿ ಹಾಡಿಸುತ್ತೀಯ,"},
+            {"text": "And make the flowers bloom!",      "kn": "ಮತ್ತು ಹೂವುಗಳನ್ನು ಅರಳಿಸುತ್ತೀಯ!"},
+            {"text": "Good morning to this beautiful day,","kn": "ಈ ಸುಂದರ ದಿನಕ್ಕೆ ಶುಭ ಪ್ರಭಾತ,"},
+            {"text": "Hip hip hooray! Hip hip hooray!",   "kn": "ಜಯ ಜಯ! ಜಯ ಜಯ!"}
+          ]
+        },
+        {
+          "id": "rain-rain", "icon": "🌧️", "title": "Rain Rain Go Away", "sub": "Weather Song",
+          "lines": [
+            {"text": "Rain, rain, go away,",            "kn": "ಮಳೆ ಮಳೆ ದೂರ ಹೋಗು,"},
+            {"text": "Come again another day!",         "kn": "ಇನ್ನೊಂದು ದಿನ ಬಾ!"},
+            {"text": "Little children want to play,",   "kn": "ಚಿಕ್ಕ ಮಕ್ಕಳು ಆಡಲು ಬಯಸುತ್ತಾರೆ,"},
+            {"text": "Rain, rain, go away!",            "kn": "ಮಳೆ ಮಳೆ ದೂರ ಹೋಗು!"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "counting-rhymes",
+      "icon": "🔢",
+      "label": {"en": "Counting Rhymes", "kn": "ಎಣಿಕೆ ಹಾಡುಗಳು"},
+      "desc": "Rhymes that help you count!",
+      "rhymes": [
+        {
+          "id": "one-two-three", "icon": "1️⃣", "title": "One Two Three Four Five", "sub": "Counting Song",
+          "lines": [
+            {"text": "One, two, three, four, five,",         "kn": "ಒಂದು, ಎರಡು, ಮೂರು, ನಾಲ್ಕು, ಐದು,"},
+            {"text": "Once I caught a fish alive!",           "kn": "ಒಮ್ಮೆ ನಾನು ಜೀವಂತ ಮೀನು ಹಿಡಿದೆ!"},
+            {"text": "Six, seven, eight, nine, ten,",        "kn": "ಆರು, ಏಳು, ಎಂಟು, ಒಂಬತ್ತು, ಹತ್ತು,"},
+            {"text": "Then I let it go again!",              "kn": "ನಂತರ ನಾನು ಅದನ್ನು ಬಿಟ್ಟೆ!"},
+            {"text": "Why did you let it go?",               "kn": "ಯಾಕೆ ಬಿಟ್ಟೆ?"},
+            {"text": "Because it bit my finger so!",         "kn": "ಏಕೆಂದರೆ ಅದು ನನ್ನ ಬೆರಳು ಕಚ್ಚಿತು!"}
+          ]
+        },
+        {
+          "id": "ten-little", "icon": "🐤", "title": "Ten Little Fingers", "sub": "Number Song",
+          "lines": [
+            {"text": "I have ten little fingers,",           "kn": "ನನ್ನ ಬಳಿ ಹತ್ತು ಬೆರಳುಗಳಿವೆ,"},
+            {"text": "And they all belong to me!",           "kn": "ಅವು ಎಲ್ಲ ನನ್ನವು!"},
+            {"text": "I can make them do things,",           "kn": "ನಾನು ಅವುಗಳಿಂದ ಕೆಲಸ ಮಾಡಬಲ್ಲೆ,"},
+            {"text": "Would you like to see?",               "kn": "ನೋಡಲು ಇಷ್ಟವೇ?"},
+            {"text": "I can shut them up tight,",            "kn": "ನಾನು ಅವುಗಳನ್ನು ಮುಚ್ಚಬಲ್ಲೆ,"},
+            {"text": "Or open them wide!",                   "kn": "ಅಥವಾ ತೆರೆಯಬಲ್ಲೆ!"}
+          ]
+        }
+      ]
+    }
+  ]
+}
