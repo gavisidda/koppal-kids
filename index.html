@@ -39,7 +39,7 @@
 <style>
 /* ══ §1 ROOT ══ */
 :root{
-  --hdr-h:64px;
+  --hdr-h:70px;
   --primary:#6c3fc5;--pri2:#9d59f5;
   --accent:#f7b731;--pink:#ff6b9d;--green:#26de81;--sky:#45aaf2;
   --red:#ef4444;--orange:#f97316;--teal:#14b8a6;--indigo:#4f46e5;
@@ -54,17 +54,17 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 /* ══ §2 FIXED HEADER ══ */
 #app-header{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(135deg,var(--primary) 0%,var(--pri2) 60%,#c084fc 100%);box-shadow:0 4px 24px rgba(108,63,197,.5)}
 .hdr-hero{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 6px;gap:8px}
-.hdr-kid{width:64px;height:68px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
-.hdr-kid:hover{transform:scale(1.1) rotate(-5deg)}
-#img-kid2{transform:scaleX(-1)}
-#img-kid2:hover{transform:scaleX(-1) scale(1.1) rotate(5deg)}
-.hdr-kid-emoji{width:64px;height:68px;display:none;font-size:2.8rem;line-height:68px;text-align:center}
+.hdr-kid{width:38px;height:38px;object-fit:cover;border-radius:50%;border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.15);display:block;flex-shrink:0}
+
+#img-kid2{transform:none}
+
+.hdr-kid-emoji{width:38px;height:38px;display:none;font-size:1.4rem;line-height:38px;text-align:center;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);flex-shrink:0}
 .hdr-kid-emoji.show{display:block}
-#img-kid1,#img-kid2,#emo1,#emo2{display:none!important}
-.hdr-center{text-align:left;padding-bottom:0;flex:1}
+
+.hdr-center{text-align:center;padding-bottom:0;flex:1}
 .hdr-title{font-family:'Baloo 2',cursive;font-weight:900;color:#fff;font-size:.95rem;line-height:1.1}
 .hdr-sub{font-size:.6rem;color:rgba(255,255,255,.82);font-weight:600;margin-top:0;display:none}
-.hdr-badges{display:flex;justify-content:flex-start;gap:5px;margin-top:3px}
+.hdr-badges{display:flex;justify-content:center;gap:5px;margin-top:3px}
 .hdr-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.32);border-radius:50px;padding:2px 8px;color:#fff;font-size:.7rem;font-weight:800;white-space:nowrap}
 .hdr-badge.gold{background:rgba(247,183,49,.28);border-color:rgba(247,183,49,.6)}
 
@@ -402,8 +402,8 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:400px){
-  :root{--hdr-h:72px}
-  .hdr-kid,.hdr-kid-emoji{width:54px;height:58px}
+  
+  
   
   .hdr-title{font-size:.98rem}
   .cards-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
@@ -412,8 +412,8 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 @media(min-width:600px){
   .cards-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
   .alpha-grid{grid-template-columns:repeat(auto-fill,minmax(124px,1fr))}
-  .hdr-kid,.hdr-kid-emoji{width:72px;height:76px}
-  :root{--hdr-h:64px}
+  
+  
   
 }
 
@@ -609,9 +609,9 @@ body {
 /* ══════════════════════════════════════════
    HEADER — compact (no tab bar inside)
 ══════════════════════════════════════════ */
-:root { --hdr-h: 90px; }
-@media(max-width:400px)  { :root { --hdr-h: 84px; } }
-@media(min-width:600px)  { :root { --hdr-h: 96px; } }
+
+
+
 
 /* ══════════════════════════════════════════
    HOME WELCOME BANNER
@@ -2985,8 +2985,8 @@ let _historyPushed    = false;
    BOTTOM NAV — only 3 buttons: home | progress | designedby
 ════════════════════════════════════════════════════════════ */
 function bnNav(tab) {
-  if (tab === 'home')       goHome();
-  else if (tab === 'progress')  goProgress();
+  if (tab === 'home')        goLearnTab('alphabet');
+  else if (tab === 'progress')   goProgress();
   else if (tab === 'designedby') goDesignedBy();
 }
 
@@ -3247,17 +3247,18 @@ function pushHistory(state) {
 }
 
 window.addEventListener('popstate', () => {
-  // Back button always goes home — 2-step navigation
-  goHome(true);
+  // Back button: if on learnhub → home grid; else → alphabet
+  if (_currentMainTab === 'home') { goLearnTab('alphabet', true); }
+  else { goHome(true); }
 });
 
 /* ════════════════════════════════════════════════════════════
    REMEMBER LAST TAB — restore on reload
 ════════════════════════════════════════════════════════════ */
 function restoreLastTab() {
-  // Always open Home on app start / refresh
-  history.replaceState({tab:'home'}, '', window.location.pathname);
-  goHome(true);
+  // Default: open Alphabet on every fresh start/refresh
+  history.replaceState({tab:'learnhub',learn:'alphabet'}, '', window.location.pathname);
+  goLearnTab('alphabet', true);
 }
 
 /* ════════════════════════════════════════════════════════════
