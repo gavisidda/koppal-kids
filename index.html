@@ -555,50 +555,51 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   bottom: 0; left: 0; right: 0;
   z-index: 300;
   background: #fff;
-  border-top: 1.5px solid #e0d6f5;
+  border-top: 2px solid #e0d6f5;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 20px rgba(108,63,197,.12);
+  padding: 8px 0 max(10px, env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 24px rgba(108,63,197,.15);
+  min-height: 70px;
 }
 .bn-btn {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   background: none;
   border: none;
-  padding: 6px 4px;
+  padding: 8px 6px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform .15s;
-  border-radius: 12px;
-  margin: 0 4px;
+  transition: transform .15s, background .2s;
+  border-radius: 16px;
+  margin: 0 6px;
 }
 .bn-btn:active { transform: scale(.9); }
 .bn-icon {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   line-height: 1;
   transition: transform .2s;
 }
 .bn-label {
   font-family: 'Nunito', sans-serif;
-  font-size: .65rem;
+  font-size: .78rem;
   font-weight: 700;
   color: var(--muted);
   transition: color .2s;
 }
-.bn-btn.active .bn-icon  { transform: scale(1.15); }
-.bn-btn.active .bn-label { color: var(--primary); font-weight: 800; }
+.bn-btn.active .bn-icon  { transform: scale(1.18); }
+.bn-btn.active .bn-label { color: var(--primary); font-weight: 900; }
 .bn-btn.active {
   background: #f3eeff;
 }
 
 /* Adjust body padding — header + bottom nav */
 body {
-  padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important;
+  padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
 }
 
 /* ══════════════════════════════════════════
@@ -611,56 +612,7 @@ body {
 /* ══════════════════════════════════════════
    HOME WELCOME BANNER
 ══════════════════════════════════════════ */
-.home-welcome-banner {
-  display: grid;
-  grid-template-columns: 60px 1fr 60px;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--pri2));
-  border-radius: var(--radius);
-  padding: 12px 10px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 18px rgba(108,63,197,.35);
-}
-.hw-kid {
-  width: 60px; height: 64px;
-  object-fit: contain;
-  object-position: bottom;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
-}
-.hw-kid-flip { transform: scaleX(-1); }
-.hw-center   { text-align: center; }
-.hw-title {
-  font-family: 'Baloo 2', cursive;
-  font-size: 1rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.2;
-}
-.hw-sub {
-  font-size: .65rem;
-  color: rgba(255,255,255,.82);
-  font-weight: 600;
-  margin-top: 2px;
-}
-.hw-badges {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 5px;
-  flex-wrap: wrap;
-}
-.hw-badge {
-  background: rgba(255,255,255,.2);
-  border: 1.5px solid rgba(255,255,255,.35);
-  border-radius: 50px;
-  padding: 3px 10px;
-  color: #fff;
-  font-size: .7rem;
-  font-weight: 800;
-  white-space: nowrap;
-}
-.hw-badge.fire { background: rgba(249,115,22,.3); border-color: rgba(249,115,22,.6); }
+/* home-welcome-banner removed */
 
 .home-section-title {
   font-family: 'Baloo 2', cursive;
@@ -852,38 +804,7 @@ body {
   line-height: 1.6;
 }
 
-/* ══════════════════════════════════════════
-   LEARNING TABS SCROLL STRIP (inside home cards)
-══════════════════════════════════════════ */
-.learn-tabs-strip {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
-  gap: 7px;
-  padding: 2px 0 12px;
-  margin-bottom: 2px;
-}
-.learn-tabs-strip::-webkit-scrollbar { display: none; }
-.learn-tab-pill {
-  flex: 0 0 auto;
-  padding: 7px 16px;
-  border-radius: 50px;
-  border: 2.5px solid #e0d6f5;
-  background: #fff;
-  color: var(--muted);
-  font-size: .78rem;
-  font-weight: 700;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all .18s;
-  -webkit-tap-highlight-color: transparent;
-}
-.learn-tab-pill.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-  box-shadow: 0 3px 10px rgba(108,63,197,.28);
-}
+/* learn-tabs-strip CSS removed */
 
 /* ══════════════════════════════════════════
    SECTION TRANSITION
@@ -904,8 +825,8 @@ body {
   .about-app-stats { grid-template-columns: repeat(4,1fr); }
 }
 @media(max-width:360px) {
-  .bn-label { font-size: .58rem; }
-  .hw-title { font-size: .88rem; }
+  .bn-label { font-size: .72rem; }
+
 }
 
 </style>
@@ -997,18 +918,6 @@ body {
 
   <!-- ══ HOME DASHBOARD ══ -->
   <section id="sec-home" class="section active">
-    <div class="home-welcome-banner">
-      <img id="hw-kid1" src="images/kid1.png" class="hw-kid" onerror="this.style.display='none'">
-      <div class="hw-center">
-        <div class="hw-title" id="hw-greeting">Good Morning! 🌟</div>
-        <div class="hw-sub">ಇಂಗ್ಲಿಷ್ ಕಲಿಯೋಣ! Let's learn today!</div>
-        <div class="hw-badges">
-          <span class="hw-badge">⭐ <span id="hw-stars">0</span> Stars</span>
-          <span class="hw-badge fire">🔥 <span id="hw-streak">0</span> Streak</span>
-        </div>
-      </div>
-      <img id="hw-kid2" src="images/kid2.png" class="hw-kid hw-kid-flip" onerror="this.style.display='none'">
-    </div>
     <div class="home-section-title">📚 Choose What to Learn</div>
     <div class="home-grid" id="home-grid"></div>
   </section>
@@ -2345,8 +2254,6 @@ if ('serviceWorker' in navigator) {
   </button>
 </nav>
 
-</body>
-</html>
 
 <script>
 /* ══════════════════════════════════════════════════════════════
@@ -3143,31 +3050,8 @@ function renderLearnHub(activeTab) {
     hub.id = 'sec-learnhub';
     hub.className = 'section';
     hub.innerHTML = `
-      <div class="learn-tabs-strip" id="learn-tabs-strip"></div>
       <div id="learn-hub-content"></div>`;
     document.getElementById('main-content').appendChild(hub);
-  }
-
-  // All learning tabs in the strip
-  const ALL_TABS = [
-    {id:'alphabet', icon:'🔤', label:'Alphabet'},
-    {id:'words',    icon:'📖', label:'Words'},
-    {id:'sentences',icon:'💬', label:'Sentences'},
-    {id:'evs',      icon:'🌍', label:'EVS'},
-    {id:'grammar',  icon:'📝', label:'Grammar'},
-    {id:'maths',    icon:'🔢', label:'Maths'},
-    {id:'story',    icon:'📚', label:'Stories'},
-    {id:'rhymes',   icon:'🎵', label:'Rhymes'},
-    {id:'quiz',     icon:'🎯', label:'Quiz'},
-    {id:'challenge',icon:'⚡', label:'Challenge'},
-  ];
-
-  const strip = document.getElementById('learn-tabs-strip');
-  if (strip) {
-    strip.innerHTML = ALL_TABS.map(t =>
-      `<button class="learn-tab-pill${t.id===activeTab?' active':''}"
-               onclick="switchLearnTab('${t.id}')">${t.icon} ${t.label}</button>`
-    ).join('');
   }
 
   showSection('sec-learnhub');
@@ -3179,11 +3063,7 @@ function switchLearnTab(tab) {
   saveKK('lastLearnTab', tab);
   pushHistory({ tab:'learnhub', learn: tab });
 
-  // Update pills
-  document.querySelectorAll('.learn-tab-pill').forEach(p => {
-    p.classList.toggle('active', p.textContent.includes(tab) ||
-      p.getAttribute('onclick') === `switchLearnTab('${tab}')`);
-  });
+
   loadLearnContent(tab);
 }
 
@@ -3282,14 +3162,6 @@ function renderHomeV8() {
   const g = typeof getGreeting === 'function' ? getGreeting() : { text:'Hello!', sub:'Let\'s learn!', avatar:'🌟' };
   const grEl = document.getElementById('hw-greeting');
   if (grEl) grEl.textContent = g.text;
-
-  // Update stars + streak in banner
-  const st = parseInt(localStorage.getItem('kk_stars')||0);
-  const sk = typeof loadKK === 'function' ? loadKK('streak',0) : 0;
-  const hwS = document.getElementById('hw-stars');
-  const hwK = document.getElementById('hw-streak');
-  if (hwS) hwS.textContent = st;
-  if (hwK) hwK.textContent = sk;
 
   // Render home grid
   const HOME_CARDS = [
@@ -3417,10 +3289,53 @@ window.goToChallenge = function() { goLearnTab('challenge'); };
 const _v8OrigAddStar = typeof addStar === 'function' ? addStar : null;
 addStar = function(n) {
   if (_v8OrigAddStar) _v8OrigAddStar(n);
-  const s = parseInt(localStorage.getItem('kk_stars')||0);
-  const hwS = document.getElementById('hw-stars');
-  if (hwS) hwS.textContent = s;
+
 };
 
 console.log('[v8] Navigation module loaded');
+
+/* ════════════════════════════════════════════════════════════
+   SWIPE NAVIGATION — left/right swipe on subcategory pills
+   Left swipe  → next subcategory
+   Right swipe → previous subcategory  
+════════════════════════════════════════════════════════════ */
+function addSwipeToStrip(stripEl) {
+  if (!stripEl || stripEl.dataset.swipeAttached) return;
+  stripEl.dataset.swipeAttached = '1';
+  let tx = 0, ty = 0, tt = 0;
+  stripEl.addEventListener('touchstart', e => {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    tt = Date.now();
+  }, {passive:true});
+  stripEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) < 55 || Math.abs(dy) > 55 || Date.now()-tt > 380) return;
+    const pills = Array.from(stripEl.querySelectorAll('.cat-pill'));
+    if (pills.length < 2) return;
+    const cur  = pills.findIndex(p => p.classList.contains('active'));
+    if (cur < 0) return;
+    const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
+    if (next !== cur) {
+      pills[next].click();
+      pills[next].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    }
+  }, {passive:true});
+}
+
+/* Observe DOM for new .cat-scroll strips and attach swipe */
+new MutationObserver(muts => {
+  muts.forEach(m => m.addedNodes.forEach(node => {
+    if (!node.querySelectorAll) return;
+    node.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
+    if (node.classList && node.classList.contains('cat-scroll')) addSwipeToStrip(node);
+  }));
+}).observe(document.body, {childList:true, subtree:true});
+
+/* Attach to already-rendered strips */
+document.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
+
 </script>
+</body>
+</html>
