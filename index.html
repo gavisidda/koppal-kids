@@ -2985,7 +2985,7 @@ let _historyPushed    = false;
    BOTTOM NAV — only 3 buttons: home | progress | designedby
 ════════════════════════════════════════════════════════════ */
 function bnNav(tab) {
-  if (tab === 'home')        goLearnTab('alphabet');
+  if (tab === 'home')        goHome();
   else if (tab === 'progress')   goProgress();
   else if (tab === 'designedby') goDesignedBy();
 }
@@ -3004,6 +3004,13 @@ function setActiveBnBtn(tab) {
 function goHome(fromBack) {
   _currentMainTab = 'home';
   saveKK('lastTab','home');
+  /* Restore any displaced learn sections back to main-content */
+  const mc = document.getElementById('main-content');
+  ['sec-alphabet','sec-words','sec-sentences','sec-evs','sec-grammar',
+   'sec-maths','sec-story','sec-rhymes','sec-quiz','sec-challenge'].forEach(id => {
+    const s = document.getElementById(id);
+    if (s && s.parentElement !== mc) mc.appendChild(s);
+  });
   showSection('sec-home');
   setActiveBnBtn('home');
   renderHomeV8();
@@ -3072,63 +3079,61 @@ function switchLearnTab(tab) {
 }
 
 function loadLearnContent(tab) {
-  // Point learn-hub-content to the right existing section content
-  const hub = document.getElementById('learn-hub-content');
-  if (!hub) return;
+  /* ── All learn section IDs ── */
+  const LEARN_SECTIONS = ['sec-alphabet','sec-words','sec-sentences',
+    'sec-evs','sec-grammar','sec-maths','sec-story','sec-rhymes',
+    'sec-quiz','sec-challenge'];
 
-  // Detach all learn sections and re-attach the right one
   const sectionMap = {
-    alphabet:  'sec-alphabet',
-    words:     'sec-words',
-    sentences: 'sec-sentences',
-    evs:       'sec-evs',
-    grammar:   'sec-grammar',
-    maths:     'sec-maths',
-    story:     'sec-story',
-    rhymes:    'sec-rhymes',
-    quiz:      'sec-quiz',
-    challenge: 'sec-challenge',
+    alphabet:'sec-alphabet', words:'sec-words', sentences:'sec-sentences',
+    evs:'sec-evs', grammar:'sec-grammar', maths:'sec-maths',
+    story:'sec-story', rhymes:'sec-rhymes', quiz:'sec-quiz',
+    challenge:'sec-challenge',
   };
 
+  /* 1. Move ALL learn sections back to #main-content (if they were displaced) */
+  const mainContent = document.getElementById('main-content');
+  LEARN_SECTIONS.forEach(id => {
+    const s = document.getElementById(id);
+    if (s && s.parentElement !== mainContent) {
+      mainContent.appendChild(s);
+    }
+  });
+
+  /* 2. Hide every section */
+  document.querySelectorAll('.section').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+
+  /* 3. Show the learnhub wrapper (which has the learn-hub-content slot) */
+  const hub = document.getElementById('sec-learnhub');
+  if (hub) { hub.style.display = 'block'; hub.classList.add('active'); }
+
+  /* 4. Show the target learn section inside learn-hub-content */
   const targetId = sectionMap[tab];
   const target   = document.getElementById(targetId);
-  if (!target) return;
-
-  // Move the inner content into hub (keep the section in DOM for reference)
-  hub.innerHTML = '';
-  // Clone and show the section's content
-  const clone = target.cloneNode(true);
-  clone.classList.add('active');
-  clone.style.display = 'block';
-  clone.removeAttribute('id'); // avoid duplicate IDs — we'll sync back
-  hub.appendChild(clone);
-
-  // Actually just show/hide sections instead — cleaner
-  hub.innerHTML = '';
-  // Hide all learn sections
-  Object.values(sectionMap).forEach(id => {
-    const s = document.getElementById(id);
-    if (s) { s.style.display = 'none'; s.classList.remove('active'); }
-  });
-  // Show the target
-  if (target) {
+  const slot     = document.getElementById('learn-hub-content');
+  if (target && slot) {
+    /* Move section into the slot — but KEEP its original id intact */
+    slot.innerHTML = '';
+    slot.appendChild(target);
     target.style.display = 'block';
     target.classList.add('active');
-    hub.appendChild(target);
   }
 
-  // Trigger existing render functions
+  /* 5. Call the render function for this tab */
   const renderMap = {
-    alphabet:  () => { if(ALPHA_DATA) renderAlphaCats(); renderAlphaContent(alphaActiveCat||0); },
-    words:     () => { if(WORDS_DATA) { renderWordsCats(); renderWordCards(wordsActiveCat||0); } },
-    sentences: () => { if(SENTENCES_DATA) { renderSentCats(); renderSentences(sentActiveCat||0); } },
-    evs:       () => { if(EVS_DATA) { renderEVSCats(); renderEVSCards(evsActiveCat||0); } },
-    grammar:   () => { if(GRAM_DATA) { renderGramCats(); renderGramCards(gramActiveCat||0); } },
-    maths:     () => { if(MATH_DATA) { renderMathCats(); renderMaths(mathActiveCat||0); } },
-    story:     () => renderStories(),
-    rhymes:    () => renderRhymes(),
-    quiz:      () => { if(typeof startQuiz==='function' && !quizPool.length) startQuiz(); },
-    challenge: () => renderChallenge(),
+    alphabet:  () => { if(typeof renderAlphaCats==='function'){ renderAlphaCats(); renderAlphaContent(alphaActiveCat||0); } },
+    words:     () => { if(typeof renderWordsCats==='function' && WORDS_DATA){ renderWordsCats(); renderWordCards(wordsActiveCat||0); } },
+    sentences: () => { if(typeof renderSentCats==='function' && SENTENCES_DATA){ renderSentCats(); renderSentences(sentActiveCat||0); } },
+    evs:       () => { if(typeof renderEVSCats==='function' && EVS_DATA){ renderEVSCats(); renderEVSCards(evsActiveCat||0); } },
+    grammar:   () => { if(typeof renderGramCats==='function' && GRAM_DATA){ renderGramCats(); renderGramCards(gramActiveCat||0); } },
+    maths:     () => { if(typeof renderMathCats==='function' && MATH_DATA){ renderMathCats(); renderMaths(mathActiveCat||0); } },
+    story:     () => { if(typeof renderStories==='function') renderStories(); },
+    rhymes:    () => { if(typeof renderRhymes==='function') renderRhymes(); },
+    quiz:      () => { if(typeof startQuiz==='function' && (!quizPool||!quizPool.length)) startQuiz(); },
+    challenge: () => { if(typeof renderChallenge==='function') renderChallenge(); },
   };
   if (renderMap[tab]) renderMap[tab]();
 }
@@ -3247,18 +3252,17 @@ function pushHistory(state) {
 }
 
 window.addEventListener('popstate', () => {
-  // Back button: if on learnhub → home grid; else → alphabet
-  if (_currentMainTab === 'home') { goLearnTab('alphabet', true); }
-  else { goHome(true); }
+  // Back: any non-home screen → Home
+  goHome(true);
 });
 
 /* ════════════════════════════════════════════════════════════
    REMEMBER LAST TAB — restore on reload
 ════════════════════════════════════════════════════════════ */
 function restoreLastTab() {
-  // Default: open Alphabet on every fresh start/refresh
-  history.replaceState({tab:'learnhub',learn:'alphabet'}, '', window.location.pathname);
-  goLearnTab('alphabet', true);
+  // Always open Home on start/refresh
+  history.replaceState({tab:'home'}, '', window.location.pathname);
+  goHome(true);
 }
 
 /* ════════════════════════════════════════════════════════════
