@@ -833,6 +833,135 @@ body {
 
 }
 
+
+/* ══════════════════════════════════════════
+   5-TAB BOTTOM NAV (narrower labels)
+══════════════════════════════════════════ */
+#bottom-nav { min-height: 66px; }
+.bn-btn { padding: 6px 2px; margin: 0 2px; }
+.bn-icon { font-size: 1.6rem; }
+.bn-label { font-size: .68rem; }
+
+/* ══════════════════════════════════════════
+   PROFILE PAGE
+══════════════════════════════════════════ */
+.profile-no-user {
+  text-align: center;
+  padding: 20px 16px 0;
+}
+.profile-no-user .pnu-icon { font-size: 4rem; margin-bottom: 12px; }
+.profile-no-user h3 { font-family:'Baloo 2',cursive; font-size:1.2rem; color:var(--primary); font-weight:800; margin-bottom:6px; }
+.profile-no-user p  { font-size:.82rem; color:var(--muted); font-weight:600; margin-bottom:16px; line-height:1.5; }
+
+.profile-form-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+.profile-form-card h4 {
+  font-family:'Baloo 2',cursive;
+  font-size:.95rem; color:var(--primary); font-weight:800; margin-bottom:12px;
+}
+.pf-field { margin-bottom: 12px; }
+.pf-label { font-size:.78rem; font-weight:700; color:var(--muted); margin-bottom:4px; display:block; }
+.pf-input {
+  width:100%; padding:11px 14px; border:2.5px solid #e0d6f5; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:.92rem; font-weight:700; color:var(--text);
+  outline:none; transition:border-color .2s; background:#faf8ff;
+}
+.pf-input:focus { border-color:var(--primary); background:#fff; }
+.pf-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.pf-select {
+  width:100%; padding:11px 14px; border:2.5px solid #e0d6f5; border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:.88rem; font-weight:700; color:var(--text);
+  background:#faf8ff; outline:none; appearance:none;
+}
+.pf-select:focus { border-color:var(--primary); }
+.pf-save-btn {
+  width:100%; padding:13px; border:none; border-radius:50px;
+  background:linear-gradient(135deg,var(--primary),var(--pink));
+  color:#fff; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800;
+  box-shadow:0 4px 14px rgba(108,63,197,.3); transition:transform .15s;
+}
+.pf-save-btn:active { transform:scale(.97); }
+
+.profile-card {
+  background:linear-gradient(135deg,var(--primary),var(--pri2));
+  border-radius:var(--radius); padding:20px 18px; margin-bottom:12px;
+  text-align:center; box-shadow:0 6px 20px rgba(108,63,197,.35);
+}
+.pc-avatar {
+  width:72px; height:72px; border-radius:50%;
+  border:3.5px solid rgba(255,255,255,.5);
+  background:rgba(255,255,255,.2);
+  margin:0 auto 10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:2.4rem; font-weight:900;
+}
+.pc-name  { font-family:'Baloo 2',cursive; font-size:1.3rem; font-weight:900; color:#fff; }
+.pc-info  { font-size:.75rem; color:rgba(255,255,255,.82); font-weight:600; margin-top:3px; }
+.pc-stars { font-size:.88rem; color:rgba(255,255,255,.9); font-weight:800; margin-top:6px; }
+
+.profile-actions { display:flex; flex-direction:column; gap:10px; margin-bottom:12px; }
+.pf-action-btn {
+  padding:12px 16px; border-radius:14px; border:none; font-family:'Nunito',sans-serif;
+  font-size:.88rem; font-weight:800; cursor:pointer; text-align:left;
+  display:flex; align-items:center; gap:10px; transition:transform .15s;
+}
+.pf-action-btn:active { transform:scale(.97); }
+.pf-edit  { background:#f3eeff; color:var(--primary); }
+.pf-switch{ background:#fff7ed; color:var(--orange); }
+.pf-reset { background:#fef2f2; color:var(--red); }
+
+/* Switch user card */
+.switch-users-card {
+  background:var(--white); border-radius:var(--radius); padding:14px 16px;
+  box-shadow:var(--shadow); margin-bottom:12px;
+}
+.switch-users-card h4 { font-family:'Baloo 2',cursive; font-size:.9rem; color:var(--primary); font-weight:800; margin-bottom:10px; }
+.user-item {
+  display:flex; align-items:center; gap:10px; padding:10px 12px;
+  border-radius:12px; border:2.5px solid #e0d6f5; margin-bottom:8px;
+  cursor:pointer; transition:all .18s; background:#faf8ff;
+}
+.user-item:active,.user-item:hover { border-color:var(--primary); background:#f3eeff; }
+.user-item.active-user { border-color:var(--primary); background:#f3eeff; }
+.ui-avatar { width:36px; height:36px; border-radius:50%; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; color:#fff; flex-shrink:0; }
+.ui-name  { font-weight:800; font-size:.88rem; color:var(--text); }
+.ui-stats { font-size:.7rem; color:var(--muted); font-weight:600; margin-top:1px; }
+.ui-active-badge { margin-left:auto; font-size:.65rem; background:var(--primary); color:#fff; padding:3px 8px; border-radius:50px; font-weight:800; }
+.add-user-btn {
+  width:100%; padding:11px; border:2.5px dashed #e0d6f5; border-radius:12px;
+  background:transparent; color:var(--muted); font-family:'Nunito',sans-serif;
+  font-size:.85rem; font-weight:700; cursor:pointer; transition:all .18s;
+}
+.add-user-btn:hover { border-color:var(--primary); color:var(--primary); }
+
+/* confirm dialog */
+.confirm-overlay {
+  display:none; position:fixed; inset:0; background:rgba(44,29,78,.6);
+  z-index:600; align-items:center; justify-content:center; padding:20px;
+}
+.confirm-overlay.show { display:flex; }
+.confirm-box {
+  background:#fff; border-radius:22px; padding:24px 20px; max-width:300px; width:100%;
+  text-align:center; box-shadow:0 16px 48px rgba(0,0,0,.25);
+  animation:popIn .2s cubic-bezier(.34,1.56,.64,1);
+}
+.confirm-box h3 { font-family:'Baloo 2',cursive; font-size:1.1rem; color:var(--primary); margin-bottom:6px; }
+.confirm-box p  { font-size:.82rem; color:var(--muted); font-weight:600; margin-bottom:16px; }
+.confirm-btns { display:flex; gap:8px; }
+.confirm-yes { flex:1; padding:11px; border:none; border-radius:50px; background:var(--red); color:#fff; font-weight:800; font-size:.88rem; cursor:pointer; }
+.confirm-no  { flex:1; padding:11px; border:none; border-radius:50px; background:#e0d6f5; color:var(--primary); font-weight:800; font-size:.88rem; cursor:pointer; }
+
+/* ══ GAMES GRID ══ */
+.games-grid-label {
+  font-family:'Baloo 2',cursive; font-size:.88rem; color:var(--muted);
+  font-weight:700; margin:12px 0 8px; text-transform:uppercase; letter-spacing:.05em;
+}
+
 </style>
 </head>
 <body>
@@ -1051,6 +1180,29 @@ body {
       Assisted by <strong>Claude AI 🤖</strong> · Hosted on <strong>GitHub Pages</strong>
     </div>
   </section>
+  <!-- ══ LEARN HUB (All learning tabs go here) ══ -->
+  <!-- sec-learnhub already exists, keep as is -->
+
+  <!-- ══ GAMES HUB ══ -->
+  <section id="sec-games" class="section">
+    <div class="sec-head"><h2>🎮 Games</h2><p>Fun learning games!</p></div>
+    <div class="home-grid" id="games-grid"></div>
+  </section>
+
+  <!-- ══ REWARDS ══ -->
+  <section id="sec-rewards" class="section">
+    <div class="sec-head"><h2 style="color:#f59e0b">🏆 Rewards</h2><p>Your achievements &amp; trophies!</p></div>
+    <div class="stats-grid" id="rewards-stats-grid"></div>
+    <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
+    <div class="trophies-grid" id="rewards-trophies-grid"></div>
+  </section>
+
+  <!-- ══ PROFILE ══ -->
+  <section id="sec-profile" class="section">
+    <div class="sec-head"><h2>👤 Profile</h2><p>Your learning identity</p></div>
+    <div id="profile-content"></div>
+  </section>
+
 </main>
 
 
@@ -1079,6 +1231,18 @@ body {
     <button class="popup-speak" onclick="speakCurrent()">🔊 Hear It!</button>
   </div>
 </div>
+
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <h3 id="confirm-title">Are you sure?</h3>
+    <p id="confirm-msg">This action cannot be undone.</p>
+    <div class="confirm-btns">
+      <button class="confirm-yes" id="confirm-yes">Yes, do it</button>
+      <button class="confirm-no"  onclick="closeConfirm()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -2245,16 +2409,22 @@ if ('serviceWorker' in navigator) {
 </script>
 
 
-<!-- ══ BOTTOM NAVIGATION BAR ══ -->
+<!-- ══ BOTTOM NAVIGATION BAR — 5 TABS ══ -->
 <nav id="bottom-nav" aria-label="Main Navigation">
-  <button class="bn-btn active" id="bn-home"     onclick="bnNav('home')"     aria-label="Home">
+  <button class="bn-btn active" id="bn-home"    onclick="bnNav('home')"    aria-label="Home">
     <span class="bn-icon">🏠</span><span class="bn-label">Home</span>
   </button>
-  <button class="bn-btn"        id="bn-progress" onclick="bnNav('progress')" aria-label="My Progress">
-    <span class="bn-icon">📈</span><span class="bn-label">Progress</span>
+  <button class="bn-btn" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
+    <span class="bn-icon">📚</span><span class="bn-label">Learn</span>
   </button>
-  <button class="bn-btn"        id="bn-designedby" onclick="bnNav('designedby')" aria-label="Designed By">
-    <span class="bn-icon">👨‍💻</span><span class="bn-label">About</span>
+  <button class="bn-btn" id="bn-games"   onclick="bnNav('games')"   aria-label="Games">
+    <span class="bn-icon">🎮</span><span class="bn-label">Games</span>
+  </button>
+  <button class="bn-btn" id="bn-rewards" onclick="bnNav('rewards')" aria-label="Rewards">
+    <span class="bn-icon">🏆</span><span class="bn-label">Rewards</span>
+  </button>
+  <button class="bn-btn" id="bn-profile" onclick="bnNav('profile')" aria-label="Profile">
+    <span class="bn-icon">👤</span><span class="bn-label">Profile</span>
   </button>
 </nav>
 
@@ -2985,16 +3155,17 @@ let _historyPushed    = false;
    BOTTOM NAV — only 3 buttons: home | progress | designedby
 ════════════════════════════════════════════════════════════ */
 function bnNav(tab) {
-  if (tab === 'home')        goHome();
-  else if (tab === 'progress')   goProgress();
-  else if (tab === 'designedby') goDesignedBy();
+  if      (tab==='home')    goHome();
+  else if (tab==='learn')   goLearn();
+  else if (tab==='games')   goGames();
+  else if (tab==='rewards') goRewards();
+  else if (tab==='profile') goProfile();
 }
 
 function setActiveBnBtn(tab) {
   document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
-  const map = { home:'bn-home', progress:'bn-progress', designedby:'bn-designedby' };
-  const btnId = map[tab] || 'bn-home';
-  const btn = document.getElementById(btnId);
+  const map = {home:'bn-home',learn:'bn-learn',games:'bn-games',rewards:'bn-rewards',profile:'bn-profile'};
+  const btn = document.getElementById(map[tab]||'bn-home');
   if (btn) btn.classList.add('active');
 }
 
@@ -3034,13 +3205,49 @@ function goDesignedBy(fromBack) {
   if (!fromBack) pushHistory({ tab:'designedby' });
 }
 
+function goLearn(fromBack) {
+  _currentMainTab = 'learn';
+  saveKK('lastTab','learn');
+  showSection('sec-home');
+  setActiveBnBtn('learn');
+  renderHomeV8();
+  if (!fromBack) pushHistory({tab:'learn'});
+}
+
+function goGames(fromBack) {
+  _currentMainTab = 'games';
+  saveKK('lastTab','games');
+  showSection('sec-games');
+  setActiveBnBtn('games');
+  renderGamesHub();
+  if (!fromBack) pushHistory({tab:'games'});
+}
+
+function goRewards(fromBack) {
+  _currentMainTab = 'rewards';
+  saveKK('lastTab','rewards');
+  showSection('sec-rewards');
+  setActiveBnBtn('rewards');
+  renderRewardsPage();
+  if (!fromBack) pushHistory({tab:'rewards'});
+}
+
+function goProfile(fromBack) {
+  _currentMainTab = 'profile';
+  saveKK('lastTab','profile');
+  showSection('sec-profile');
+  setActiveBnBtn('profile');
+  renderProfilePage();
+  if (!fromBack) pushHistory({tab:'profile'});
+}
+
 function goLearnTab(tab, fromBack) {
   _currentMainTab  = 'learnhub';
   _currentLearnTab = tab;
   saveKK('lastTab', 'learnhub');
   saveKK('lastLearnTab', tab);
   showSection('sec-learnhub');
-  setActiveBnBtn('home');
+  setActiveBnBtn('learn');
   renderLearnHub(tab);
   if (!fromBack) pushHistory({ tab:'learnhub', learn: tab });
 }
@@ -3251,9 +3458,15 @@ function pushHistory(state) {
   }
 }
 
-window.addEventListener('popstate', () => {
-  // Back: any non-home screen → Home
-  goHome(true);
+window.addEventListener('popstate', event => {
+  const s = event.state;
+  if (!s || s.tab === 'home') { goHome(true); return; }
+  if (s.tab === 'learn')    goLearn(true);
+  else if (s.tab === 'games')   goGames(true);
+  else if (s.tab === 'rewards') goRewards(true);
+  else if (s.tab === 'profile') goProfile(true);
+  else if (s.tab === 'learnhub') goLearnTab(s.learn||'alphabet', true);
+  else goHome(true);
 });
 
 /* ════════════════════════════════════════════════════════════
@@ -3310,64 +3523,387 @@ function addSwipeToStrip(stripEl) {
     const dx = e.changedTouches[0].clientX - tx;
     const dy = e.changedTouches[0].clientY - ty;
     if (Math.abs(dx) < 55 || Math.abs(dy) > 55 || Date.now()-tt > 380) return;
-    swipeCategory(dx, stripEl);
+    const pills = Array.from(stripEl.querySelectorAll('.cat-pill'));
+    if (pills.length < 2) return;
+    const cur = pills.findIndex(p => p.classList.contains('active'));
+    if (cur < 0) return;
+    const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
+    if (next !== cur) {
+      pills[next].click();
+      pills[next].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    }
   }, {passive:true});
 }
 
-function swipeCategory(dx, contextEl) {
-  // Find the pills in the same section
-  const section = contextEl.closest('.section') || contextEl.closest('#learn-hub-content') || document.querySelector('.section.active');
-  const pills = Array.from((section || document).querySelectorAll('.cat-pill'));
-  if (pills.length < 2) return;
-  const cur  = pills.findIndex(p => p.classList.contains('active'));
-  if (cur < 0) return;
-  const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
-  if (next !== cur) {
-    pills[next].click();
-    pills[next].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+
+</script>
+<script>
+/* ══════════════════════════════════════════════════════════════
+   KOPPAL KIDS v9.0 — Games Hub, Rewards, Profile/Student System
+══════════════════════════════════════════════════════════════ */
+
+/* ── GAMES HUB ── */
+const GAME_CARDS = [
+  {id:'balloon',   icon:'🎈', title:'Balloon Blast',   sub:'Pop the right letter!',     learn:'alphabet'},
+  {id:'moving',    icon:'🌀', title:'Catch the Letter',sub:'Tap the moving letter!',     learn:'alphabet'},
+  {id:'puzzle',    icon:'🧩', title:'Word Puzzle',      sub:'Unscramble the word!',       learn:'alphabet'},
+  {id:'flipcard',  icon:'🃏', title:'Flip Cards',       sub:'Match letter to picture!',   learn:'alphabet'},
+  {id:'speedtap',  icon:'⚡', title:'Speed Tap',        sub:'Tap fast before time runs!', learn:'alphabet'},
+  {id:'bingo',     icon:'🎱', title:'Letter Bingo',     sub:'Get 5 in a row!',            learn:'alphabet'},
+  {id:'spinwheel', icon:'🎡', title:'Spin & Learn',     sub:'Spin the wheel!',            learn:'alphabet'},
+  {id:'quiz',      icon:'🎯', title:'Word Quiz',         sub:'Test your knowledge!',       learn:'quiz'},
+  {id:'match',     icon:'🎯', title:'Match Letters',    sub:'Capital ↔ Small',            learn:'alphabet'},
+  {id:'missing',   icon:'❓', title:'Missing Letters',  sub:'Fill the blank!',            learn:'alphabet'},
+  {id:'order',     icon:'📋', title:'Alphabet Order',   sub:'A to Z in sequence!',        learn:'alphabet'},
+  {id:'connect-caps',icon:'🔵',title:'Connect Dots A–Z','sub':'Draw A to Z!',             learn:'alphabet'},
+  {id:'flashcard-race',icon:'🏁',title:'Flashcard Race','sub':'Fastest learner wins!',    learn:'alphabet'},
+];
+
+function renderGamesHub() {
+  const grid = document.getElementById('games-grid');
+  if (!grid) return;
+  grid.innerHTML = GAME_CARDS.map(g => `
+    <div class="home-card hc-quiz" onclick="openGame('${g.learn}','${g.id}')">
+      <div class="home-card-icon">${g.icon}</div>
+      <div class="home-card-title">${g.title}</div>
+      <div class="home-card-sub">${g.sub}</div>
+    </div>`).join('');
+}
+
+function openGame(learnTab, gameId) {
+  // go to learn tab then switch to the specific game category
+  goLearnTab(learnTab, false);
+  setTimeout(() => {
+    // find the cat pill matching this game id and click it
+    const pills = document.querySelectorAll('.cat-pill');
+    pills.forEach(p => {
+      const txt = p.textContent.toLowerCase();
+      const map = {
+        balloon:'Balloon',moving:'Catch',puzzle:'Word Puzzle',flipcard:'Flip',
+        speedtap:'Speed',bingo:'Bingo',spinwheel:'Spin',match:'Match',
+        missing:'Missing',order:'Alphabet Order','connect-caps':'Connect Dots A',
+        'flashcard-race':'Flashcard'
+      };
+      if (map[gameId] && txt.includes(map[gameId].toLowerCase())) p.click();
+    });
+  }, 400);
+}
+
+/* ── REWARDS PAGE ── */
+function renderRewardsPage() {
+  const stars  = parseInt(localStorage.getItem('kk_stars')||0);
+  const streak = loadKK('streak',0);
+  const earned = loadKK('trophies_earned',[]);
+  const sg = document.getElementById('rewards-stats-grid');
+  if (sg) {
+    sg.innerHTML = [
+      {label:'⭐ Total Stars',    val:stars},
+      {label:'🔥 Day Streak',     val:streak},
+      {label:'🏅 Trophies',       val:earned.length+' / '+TROPHIES.length},
+      {label:'⚡ Challenges Done',val:loadKK('chall_count',0)},
+      {label:'📖 Stories Read',   val:loadKK('stories_read',0)},
+      {label:'🎵 Rhymes Sung',    val:loadKK('rhymes_sung',0)},
+    ].map(s=>`<div class="stat-card"><div class="stat-num">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join('');
+  }
+  const tg = document.getElementById('rewards-trophies-grid');
+  if (tg) {
+    tg.innerHTML = TROPHIES.map(t => {
+      const ok = earned.includes(t.id);
+      return `<div class="trophy-card ${ok?'earned':'locked'}">
+        <div class="tc-icon">${t.icon}</div>
+        <div class="tc-name">${t.name}</div>
+        <div class="tc-req">${ok?'✅ Earned':t.req}</div>
+      </div>`;
+    }).join('');
   }
 }
 
-/* Also attach swipe to the main content area of each active section
-   so swiping anywhere on the content changes category              */
-function addSwipeToContent(sectionEl) {
-  if (!sectionEl || sectionEl.dataset.contentSwipe) return;
-  sectionEl.dataset.contentSwipe = '1';
-  let tx = 0, ty = 0, tt = 0;
-  sectionEl.addEventListener('touchstart', e => {
-    // Skip if touch started on a card, button, canvas, or pill
-    if (e.target.closest('.cat-pill,.word-card,.alpha-card,.flip-card-outer,canvas,button,.match-tile,.order-tile,.pz-tile,.missing-opt,.quiz-opt,.speed-opt,.bingo-cell,.rhyme-line,.story-card,.home-card')) return;
-    tx = e.touches[0].clientX;
-    ty = e.touches[0].clientY;
-    tt = Date.now();
-  }, {passive:true});
-  sectionEl.addEventListener('touchend', e => {
-    if (!tx) return;
-    const dx = e.changedTouches[0].clientX - tx;
-    const dy = e.changedTouches[0].clientY - ty;
-    tx = 0;
-    if (Math.abs(dx) < 60 || Math.abs(dy) > 70 || Date.now()-tt > 450) return;
-    swipeCategory(dx, sectionEl);
-  }, {passive:true});
+/* ══════════════════════════════════════════════════════════════
+   STUDENT PROFILE SYSTEM
+   localStorage keys:
+     kk_students   = [{id,name,age,grade,avatar,stars,streak,...}]
+     kk_active_id  = id of current active student
+   All progress (stars, trophies, streak) is per-student.
+   Registration is optional — guest mode always available.
+══════════════════════════════════════════════════════════════ */
+
+const AVATARS = ['🧒','👦','👧','🧑','👨','👩','🐯','🦁','🐘','🦋','⭐','🌟'];
+
+function getStudents()    { return loadKK('students',[]); }
+function getActiveId()    { return loadKK('active_id', null); }
+function getActiveStudent() {
+  const id = getActiveId();
+  return getStudents().find(s => s.id === id) || null;
 }
 
-/* Observer attaches swipe to both strips and content areas */
-new MutationObserver(muts => {
-  muts.forEach(m => m.addedNodes.forEach(node => {
-    if (!node.querySelectorAll) return;
-    node.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
-    node.querySelectorAll('.section').forEach(addSwipeToContent);
-    if (node.classList) {
-      if (node.classList.contains('cat-scroll'))  addSwipeToStrip(node);
-      if (node.classList.contains('section'))      addSwipeToContent(node);
+function saveStudents(arr) { saveKK('students', arr); }
+
+function switchStudent(id) {
+  const students = getStudents();
+  const st = students.find(s => s.id === id);
+  if (!st) return;
+  // Save current student's progress before switching
+  saveCurrentProgress();
+  // Load new student's progress
+  saveKK('active_id', id);
+  localStorage.setItem('kk_stars',  st.stars  || 0);
+  saveKK('streak',    st.streak  || 0);
+  saveKK('last_day',  st.last_day || '');
+  saveKK('trophies_earned', st.trophies || []);
+  saveKK('chall_today',     st.chall_today || '');
+  saveKK('chall_count',     st.chall_count || 0);
+  saveKK('stories_read',    st.stories_read || 0);
+  saveKK('rhymes_sung',     st.rhymes_sung || 0);
+  // Update header star count
+  const sc = document.getElementById('star-count');
+  if (sc) sc.textContent = st.stars || 0;
+  showKKToast('👋 Welcome back, '+st.name+'!');
+  renderProfilePage();
+}
+
+function saveCurrentProgress() {
+  const id = getActiveId();
+  if (!id) return;
+  const students = getStudents();
+  const idx = students.findIndex(s => s.id === id);
+  if (idx < 0) return;
+  students[idx].stars       = parseInt(localStorage.getItem('kk_stars')||0);
+  students[idx].streak      = loadKK('streak',0);
+  students[idx].last_day    = loadKK('last_day','');
+  students[idx].trophies    = loadKK('trophies_earned',[]);
+  students[idx].chall_today = loadKK('chall_today','');
+  students[idx].chall_count = loadKK('chall_count',0);
+  students[idx].stories_read= loadKK('stories_read',0);
+  students[idx].rhymes_sung = loadKK('rhymes_sung',0);
+  saveStudents(students);
+}
+
+// Hook into addStar to auto-save progress
+const _v9OrigAddStar = typeof addStar === 'function' ? addStar : null;
+addStar = function(n) {
+  if (_v9OrigAddStar) _v9OrigAddStar(n);
+  saveCurrentProgress();
+};
+
+/* ── PROFILE PAGE RENDER ── */
+function renderProfilePage() {
+  const area = document.getElementById('profile-content');
+  if (!area) return;
+  const students = getStudents();
+  const active   = getActiveStudent();
+
+  if (!active && students.length === 0) {
+    // No students yet — show welcome + registration form
+    area.innerHTML = `
+      <div class="profile-no-user">
+        <div class="pnu-icon">👤</div>
+        <h3>Welcome to Koppal Kids!</h3>
+        <p>Register your name to save your stars, trophies and streak.<br>
+           <em>Registration is optional — you can skip it and learn as a guest.</em></p>
+      </div>
+      ${buildRegisterForm('', true)}
+      <div style="text-align:center;margin-top:8px">
+        <button onclick="goHome()" style="padding:10px 24px;border:2px solid #e0d6f5;border-radius:50px;background:transparent;color:var(--muted);font-weight:700;font-size:.85rem;cursor:pointer">
+          Skip — Learn as Guest
+        </button>
+      </div>`;
+  } else if (active) {
+    // Active student card + actions
+    const initials = active.name.trim().charAt(0).toUpperCase();
+    const stars    = parseInt(localStorage.getItem('kk_stars')||0);
+    const streak   = loadKK('streak',0);
+    const earned   = loadKK('trophies_earned',[]).length;
+    area.innerHTML = `
+      <div class="profile-card">
+        <div class="pc-avatar">${active.avatar||initials}</div>
+        <div class="pc-name">${active.name}</div>
+        <div class="pc-info">Grade ${active.grade||'—'} · Age ${active.age||'—'} · ${active.school||'Koppal'}</div>
+        <div class="pc-stars">⭐ ${stars} Stars &nbsp;🔥 ${streak} Streak &nbsp;🏅 ${earned} Trophies</div>
+      </div>
+
+      ${students.length > 1 ? buildSwitchCard(students, active.id) : ''}
+
+      <div class="profile-actions">
+        <button class="pf-action-btn pf-edit"   onclick="showEditForm()">✏️ Edit Profile</button>
+        <button class="pf-action-btn pf-switch"  onclick="showAddForm()">➕ Add Another Student</button>
+        <button class="pf-action-btn pf-reset"   onclick="confirmReset()">🗑️ Reset My Progress</button>
+      </div>
+
+      <div id="profile-extra-form"></div>`;
+  } else {
+    // Students exist but none active — show picker
+    area.innerHTML = `
+      <div class="sec-head" style="margin-bottom:12px">
+        <h2 style="font-size:1.1rem">Who is learning today?</h2>
+      </div>
+      ${buildSwitchCard(students, null)}
+      <div style="margin-top:8px">${buildRegisterForm('',false)}</div>`;
+  }
+}
+
+function buildSwitchCard(students, activeId) {
+  const items = students.map(s => `
+    <div class="user-item${s.id===activeId?' active-user':''}" onclick="switchStudent('${s.id}')">
+      <div class="ui-avatar">${s.avatar || s.name.charAt(0).toUpperCase()}</div>
+      <div>
+        <div class="ui-name">${s.name}</div>
+        <div class="ui-stats">Grade ${s.grade||'—'} · ⭐${s.stars||0} Stars</div>
+      </div>
+      ${s.id===activeId ? '<span class="ui-active-badge">Active</span>' : ''}
+    </div>`).join('');
+  return `<div class="switch-users-card">
+    <h4>👥 Students on this device</h4>
+    ${items}
+    <button class="add-user-btn" onclick="showAddForm()">➕ Add New Student</button>
+  </div>`;
+}
+
+function buildRegisterForm(prefill, isFirst) {
+  const p = prefill || {};
+  return `<div class="profile-form-card" id="reg-form-card">
+    <h4>${isFirst ? '📝 Register (Optional)' : '➕ Add New Student'}</h4>
+    <div class="pf-field">
+      <label class="pf-label">Full Name *</label>
+      <input class="pf-input" id="pf-name" type="text" placeholder="e.g. Ramu Patil" value="${p.name||''}" maxlength="40">
+    </div>
+    <div class="pf-row">
+      <div class="pf-field">
+        <label class="pf-label">Age</label>
+        <select class="pf-select" id="pf-age">
+          <option value="">Age</option>
+          ${[3,4,5,6,7,8,9,10,11,12].map(a=>`<option${p.age==a?' selected':''}>${a}</option>`).join('')}
+        </select>
+      </div>
+      <div class="pf-field">
+        <label class="pf-label">Grade / Class</label>
+        <select class="pf-select" id="pf-grade">
+          <option value="">Grade</option>
+          ${['LKG','UKG','1st','2nd','3rd','4th','5th'].map(g=>`<option${p.grade===g?' selected':''}>${g}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="pf-field">
+      <label class="pf-label">School Name (optional)</label>
+      <input class="pf-input" id="pf-school" type="text" placeholder="e.g. Govt HS Koppal" value="${p.school||''}" maxlength="60">
+    </div>
+    <div class="pf-field">
+      <label class="pf-label">Choose Avatar</label>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px" id="avatar-picker">
+        ${AVATARS.map(av=>`<div onclick="pickAvatar('${av}',this)" style="font-size:1.8rem;cursor:pointer;padding:6px;border-radius:10px;border:2.5px solid ${(p.avatar||AVATARS[0])===av?'var(--primary)':'#e0d6f5'};transition:all .15s">${av}</div>`).join('')}
+      </div>
+      <input type="hidden" id="pf-avatar" value="${p.avatar||AVATARS[0]}">
+    </div>
+    <button class="pf-save-btn" onclick="saveStudent()">💾 Save & Start Learning!</button>
+  </div>`;
+}
+
+function pickAvatar(av, el) {
+  document.getElementById('pf-avatar').value = av;
+  document.querySelectorAll('#avatar-picker div').forEach(d => d.style.borderColor='#e0d6f5');
+  el.style.borderColor = 'var(--primary)';
+}
+
+function saveStudent() {
+  const name   = (document.getElementById('pf-name')?.value||'').trim();
+  if (!name) { showKKToast('❗ Please enter a name'); return; }
+  const age    = document.getElementById('pf-age')?.value || '';
+  const grade  = document.getElementById('pf-grade')?.value || '';
+  const school = (document.getElementById('pf-school')?.value||'').trim();
+  const avatar = document.getElementById('pf-avatar')?.value || AVATARS[0];
+  const id     = document.getElementById('pf-student-id')?.value || 'st_'+Date.now();
+
+  const students = getStudents();
+  const existing = students.findIndex(s => s.id === id);
+  const entry = { id, name, age, grade, school, avatar,
+    stars: parseInt(localStorage.getItem('kk_stars')||0),
+    streak:0, trophies:[], chall_count:0, stories_read:0, rhymes_sung:0 };
+
+  if (existing >= 0) { students[existing] = {...students[existing], ...entry}; }
+  else               { students.push(entry); }
+  saveStudents(students);
+  switchStudent(id);
+  showKKToast('✅ Profile saved! Welcome, '+name+'!');
+}
+
+function showAddForm() {
+  const extra = document.getElementById('profile-extra-form');
+  if (extra) extra.innerHTML = buildRegisterForm('', false);
+  extra?.scrollIntoView({behavior:'smooth'});
+}
+
+function showEditForm() {
+  const active = getActiveStudent();
+  if (!active) return;
+  const extra = document.getElementById('profile-extra-form');
+  if (extra) {
+    extra.innerHTML = buildRegisterForm(active, false)
+      .replace('id="reg-form-card"','id="reg-form-card"')
+      .replace('<h4>➕ Add New Student</h4>','<h4>✏️ Edit Profile</h4>');
+    // inject hidden id field
+    const form = document.getElementById('reg-form-card');
+    if (form) {
+      const hid = document.createElement('input');
+      hid.type='hidden'; hid.id='pf-student-id'; hid.value=active.id;
+      form.appendChild(hid);
     }
-  }));
-}).observe(document.body, {childList:true, subtree:true});
+  }
+  extra?.scrollIntoView({behavior:'smooth'});
+}
 
-/* Attach to already-rendered elements */
-document.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
-document.querySelectorAll('.section').forEach(addSwipeToContent);
+function confirmReset() {
+  showConfirm(
+    '🗑️ Reset Progress?',
+    'This will clear all your stars, trophies and streak. This cannot be undone!',
+    () => {
+      const id = getActiveId();
+      const students = getStudents();
+      const idx = students.findIndex(s=>s.id===id);
+      if (idx>=0) {
+        students[idx].stars=0; students[idx].streak=0;
+        students[idx].trophies=[]; students[idx].chall_count=0;
+        students[idx].stories_read=0; students[idx].rhymes_sung=0;
+        saveStudents(students);
+      }
+      localStorage.setItem('kk_stars','0');
+      saveKK('streak',0); saveKK('trophies_earned',[]);
+      saveKK('chall_count',0); saveKK('stories_read',0); saveKK('rhymes_sung',0);
+      const sc = document.getElementById('star-count');
+      if (sc) sc.textContent = '0';
+      showKKToast('✅ Progress reset!');
+      renderProfilePage();
+    }
+  );
+}
 
+/* ── CONFIRM DIALOG ── */
+let _confirmCallback = null;
+function showConfirm(title, msg, cb) {
+  document.getElementById('confirm-title').textContent = title;
+  document.getElementById('confirm-msg').textContent   = msg;
+  _confirmCallback = cb;
+  document.getElementById('confirm-overlay').classList.add('show');
+  document.getElementById('confirm-yes').onclick = () => { closeConfirm(); if(_confirmCallback) _confirmCallback(); };
+}
+function closeConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('show');
+}
+
+/* ── On boot, show profile prompt if no students registered ── */
+const _v9OrigBoot2 = typeof boot === 'function' ? boot : null;
+boot = async function() {
+  if (_v9OrigBoot2) await _v9OrigBoot2();
+  // Sync active student's stars to display
+  const active = getActiveStudent();
+  if (active) {
+    localStorage.setItem('kk_stars', active.stars||0);
+    saveKK('streak', active.streak||0);
+    saveKK('trophies_earned', active.trophies||[]);
+    const sc = document.getElementById('star-count');
+    if (sc) sc.textContent = active.stars||0;
+  }
+};
+
+console.log('[v9] Profile & Games system loaded');
 </script>
 </body>
 </html>
