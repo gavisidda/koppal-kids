@@ -560,50 +560,48 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px 0 max(10px, env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 20px rgba(108,63,197,.4);
-  min-height: 70px;
+  /* Same vertical footprint as the top header (--hdr-h: 70px) */
+  height: 50px;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -4px 20px rgba(108,63,197,.45);
 }
 .bn-btn {
   flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 3px;
   background: none;
   border: none;
-  padding: 8px 6px;
+  padding: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform .15s, background .2s;
-  border-radius: 16px;
-  margin: 0 6px;
+  border-radius: 12px;
 }
 .bn-btn:active { transform: scale(.9); }
 .bn-icon {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   line-height: 1;
   transition: transform .2s;
-  opacity: .75;
+  opacity: .72;
 }
-.bn-btn.active .bn-icon { opacity: 1; }
+.bn-btn.active .bn-icon { opacity: 1; transform: scale(1.12); }
 .bn-label {
   font-family: 'Nunito', sans-serif;
-  font-size: .78rem;
+  font-size: .72rem;
   font-weight: 700;
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.72);
   transition: color .2s;
 }
-.bn-btn.active .bn-icon  { transform: scale(1.18); }
 .bn-btn.active .bn-label { color: #fff; font-weight: 900; }
-.bn-btn.active {
-  background: rgba(255,255,255,.22);
-  border-radius: 16px;
-}
+.bn-btn.active { background: rgba(255,255,255,.2); border-radius: 12px; }
 
 /* Adjust body padding — header + bottom nav */
 body {
-  padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
+  padding-bottom: calc(78px + env(safe-area-inset-bottom)) !important;
 }
 
 /* ══════════════════════════════════════════
@@ -829,7 +827,7 @@ body {
   .about-app-stats { grid-template-columns: repeat(4,1fr); }
 }
 @media(max-width:360px) {
-  .bn-label { font-size: .72rem; }
+
 
 }
 
@@ -1201,6 +1199,73 @@ body {
   <section id="sec-profile" class="section">
     <div class="sec-head"><h2>👤 Profile</h2><p>Your learning identity</p></div>
     <div id="profile-content"></div>
+  </section>
+
+  <!-- ══ ABOUT (Designer info + Student Profile) ══ -->
+  <section id="sec-about" class="section">
+    <div class="sec-head"><h2>👤 About</h2><p>Designer info &amp; your profile</p></div>
+
+    <!-- Student Profile Card -->
+    <div id="about-profile-slot"></div>
+
+    <!-- Designer Card -->
+    <div class="about-card" style="margin-top:4px">
+      <div class="about-avatar-wrap">
+        <div class="about-avatar">
+          <img src="images/profile.jpg" alt="Gavisiddappa HATTI"
+               onerror="this.style.display='none';document.getElementById('about-avatar-emoji').style.display='flex'">
+          <div id="about-avatar-emoji" class="about-avatar-fallback">👨‍💻</div>
+        </div>
+        <div class="about-verified">✓ Designer</div>
+      </div>
+      <h2 class="about-name">Gavisiddappa HATTI</h2>
+      <div class="about-role">IT Administrator · App Designer · Developer</div>
+      <div class="about-location">📍 Koppal, Karnataka, India</div>
+    </div>
+
+    <div class="about-bio-card">
+      <h3 class="about-section-title">👋 About</h3>
+      <p class="about-bio">I am an IT Administrator specialising in Active Directory and PowerShell automation.
+        I love building educational apps for children in my village and district.
+        <em>Koppal - Kids</em> was built with love for the children of Karnataka —
+        to make learning English fun, easy, and accessible even without internet.</p>
+    </div>
+
+    <div class="about-skills-card">
+      <h3 class="about-section-title">🛠️ Skills</h3>
+      <div class="about-skills">
+        <span class="skill-tag">Active Directory</span><span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">HTML &amp; CSS</span><span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PWA</span><span class="skill-tag">Firebase</span>
+        <span class="skill-tag">App Design</span><span class="skill-tag">Education Tech</span>
+        <span class="skill-tag">Kannada</span>
+      </div>
+    </div>
+
+    <div class="about-app-card">
+      <h3 class="about-section-title">📱 About This App</h3>
+      <div class="about-app-stats">
+        <div class="app-stat"><div class="app-stat-num">4</div><div class="app-stat-lbl">Tabs</div></div>
+        <div class="app-stat"><div class="app-stat-num">80+</div><div class="app-stat-lbl">Categories</div></div>
+        <div class="app-stat"><div class="app-stat-num">600+</div><div class="app-stat-lbl">Cards</div></div>
+        <div class="app-stat"><div class="app-stat-num">100%</div><div class="app-stat-lbl">Free</div></div>
+      </div>
+      <p class="about-bio" style="margin-top:10px">Built with ❤️ for village students of Karnataka.
+        Works completely offline. No ads. No cost. No internet needed.</p>
+    </div>
+
+    <div class="about-contact-card">
+      <h3 class="about-section-title">📞 Feedback &amp; Contact</h3>
+      <a href="https://wa.me/919740XXXXXX?text=Hello%20Gavisiddappa%2C%20feedback%20on%20Koppal%20Kids%3A"
+         class="about-whatsapp-btn" target="_blank">
+        <span>💬</span> Send WhatsApp Feedback
+      </a>
+    </div>
+
+    <div class="about-credit">
+      Built with ❤️ using <strong>HTML · CSS · JavaScript · PWA</strong><br>
+      Assisted by <strong>Claude AI 🤖</strong> · Hosted on <strong>GitHub Pages</strong>
+    </div>
   </section>
 
 </main>
@@ -2409,12 +2474,9 @@ if ('serviceWorker' in navigator) {
 </script>
 
 
-<!-- ══ BOTTOM NAVIGATION BAR — 5 TABS ══ -->
+<!-- ══ BOTTOM NAVIGATION BAR — 4 TABS ══ -->
 <nav id="bottom-nav" aria-label="Main Navigation">
-  <button class="bn-btn active" id="bn-home"    onclick="bnNav('home')"    aria-label="Home">
-    <span class="bn-icon">🏠</span><span class="bn-label">Home</span>
-  </button>
-  <button class="bn-btn" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
+  <button class="bn-btn active" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
     <span class="bn-icon">📚</span><span class="bn-label">Learn</span>
   </button>
   <button class="bn-btn" id="bn-games"   onclick="bnNav('games')"   aria-label="Games">
@@ -2423,8 +2485,8 @@ if ('serviceWorker' in navigator) {
   <button class="bn-btn" id="bn-rewards" onclick="bnNav('rewards')" aria-label="Rewards">
     <span class="bn-icon">🏆</span><span class="bn-label">Rewards</span>
   </button>
-  <button class="bn-btn" id="bn-profile" onclick="bnNav('profile')" aria-label="Profile">
-    <span class="bn-icon">👤</span><span class="bn-label">Profile</span>
+  <button class="bn-btn" id="bn-about"   onclick="bnNav('about')"   aria-label="About">
+    <span class="bn-icon">👤</span><span class="bn-label">About</span>
   </button>
 </nav>
 
@@ -2621,7 +2683,7 @@ function renderHome() {
 }
 
 function updateHomeIfVisible() {
-  if (document.getElementById('sec-home')?.classList.contains('active')) renderHome();
+  if (document.getElementById('sec-home')?.classList.contains('active')) renderHomeV8();
 }
 
 /* ─── STORIES ─── */
@@ -3129,8 +3191,7 @@ boot = async function() {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-home')?.classList.add('active');
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById('sec-home')?.classList.add('active');
-  renderHome();
+  /* default tab set by restoreLastTab → goLearn */
 };
 
 function showKKToast(msg) {
@@ -3155,17 +3216,18 @@ let _historyPushed    = false;
    BOTTOM NAV — only 3 buttons: home | progress | designedby
 ════════════════════════════════════════════════════════════ */
 function bnNav(tab) {
-  if      (tab==='home')    goHome();
-  else if (tab==='learn')   goLearn();
+  if      (tab==='learn')   goLearn();
   else if (tab==='games')   goGames();
   else if (tab==='rewards') goRewards();
-  else if (tab==='profile') goProfile();
+  else if (tab==='about')   goAbout();
+  else if (tab==='profile') goAbout(); // alias
 }
 
 function setActiveBnBtn(tab) {
   document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
-  const map = {home:'bn-home',learn:'bn-learn',games:'bn-games',rewards:'bn-rewards',profile:'bn-profile'};
-  const btn = document.getElementById(map[tab]||'bn-home');
+  const map = {learn:'bn-learn',games:'bn-games',rewards:'bn-rewards',
+               about:'bn-about',profile:'bn-about',designedby:'bn-about'};
+  const btn = document.getElementById(map[tab] || 'bn-learn');
   if (btn) btn.classList.add('active');
 }
 
@@ -3208,6 +3270,13 @@ function goDesignedBy(fromBack) {
 function goLearn(fromBack) {
   _currentMainTab = 'learn';
   saveKK('lastTab','learn');
+  /* Restore any displaced learn sections back to main-content */
+  const mc = document.getElementById('main-content');
+  ['sec-alphabet','sec-words','sec-sentences','sec-evs','sec-grammar',
+   'sec-maths','sec-story','sec-rhymes','sec-quiz','sec-challenge'].forEach(id=>{
+    const s=document.getElementById(id);
+    if(s && s.parentElement!==mc) mc.appendChild(s);
+  });
   showSection('sec-home');
   setActiveBnBtn('learn');
   renderHomeV8();
@@ -3232,13 +3301,15 @@ function goRewards(fromBack) {
   if (!fromBack) pushHistory({tab:'rewards'});
 }
 
-function goProfile(fromBack) {
-  _currentMainTab = 'profile';
-  saveKK('lastTab','profile');
-  showSection('sec-profile');
-  setActiveBnBtn('profile');
-  renderProfilePage();
-  if (!fromBack) pushHistory({tab:'profile'});
+function goProfile(fromBack) { goAbout(fromBack); }
+
+function goAbout(fromBack) {
+  _currentMainTab = 'about';
+  saveKK('lastTab','about');
+  showSection('sec-about');
+  setActiveBnBtn('about');
+  renderAboutPage();
+  if (!fromBack) pushHistory({tab:'about'});
 }
 
 function goLearnTab(tab, fromBack) {
@@ -3460,22 +3531,21 @@ function pushHistory(state) {
 
 window.addEventListener('popstate', event => {
   const s = event.state;
-  if (!s || s.tab === 'home') { goHome(true); return; }
-  if (s.tab === 'learn')    goLearn(true);
-  else if (s.tab === 'games')   goGames(true);
+  if (!s || s.tab === 'learn') { goLearn(true); return; }
+  if (s.tab === 'games')      goGames(true);
   else if (s.tab === 'rewards') goRewards(true);
-  else if (s.tab === 'profile') goProfile(true);
+  else if (s.tab === 'about')   goAbout(true);
   else if (s.tab === 'learnhub') goLearnTab(s.learn||'alphabet', true);
-  else goHome(true);
+  else goLearn(true);
 });
 
 /* ════════════════════════════════════════════════════════════
    REMEMBER LAST TAB — restore on reload
 ════════════════════════════════════════════════════════════ */
 function restoreLastTab() {
-  // Always open Home on start/refresh
-  history.replaceState({tab:'home'}, '', window.location.pathname);
-  goHome(true);
+  // Always open Learn (home grid) on start/refresh
+  history.replaceState({tab:'learn'}, '', window.location.pathname);
+  goLearn(true);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -3902,6 +3972,60 @@ boot = async function() {
     if (sc) sc.textContent = active.stars||0;
   }
 };
+
+
+/* ── renderAboutPage: student profile slot at top of About ── */
+function renderAboutPage() {
+  const slot = document.getElementById('about-profile-slot');
+  if (!slot) return;
+  const students = getStudents();
+  const active   = getActiveStudent();
+
+  if (!active && students.length === 0) {
+    // No student — show compact register prompt
+    slot.innerHTML = `
+      <div class="profile-form-card">
+        <h4>👤 Register (Optional)</h4>
+        <p style="font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:12px">
+          Save your stars &amp; trophies. Registration is optional.</p>
+        ${buildRegisterForm('', true)}
+        <button onclick="slot.innerHTML=\'\'" style="width:100%;padding:10px;border:2px solid #e0d6f5;border-radius:50px;background:transparent;color:var(--muted);font-weight:700;font-size:.82rem;cursor:pointer;margin-top:6px">
+          Skip — Learn as Guest
+        </button>
+      </div>`;
+  } else if (active) {
+    const stars  = parseInt(localStorage.getItem('kk_stars')||0);
+    const streak = loadKK('streak',0);
+    const earned = loadKK('trophies_earned',[]).length;
+    const initials = active.name.trim().charAt(0).toUpperCase();
+    slot.innerHTML = `
+      <div class="profile-card" style="margin-bottom:12px">
+        <div class="pc-avatar">${active.avatar||initials}</div>
+        <div class="pc-name">${active.name}</div>
+        <div class="pc-info">Grade ${active.grade||'—'} · Age ${active.age||'—'}</div>
+        <div class="pc-stars">⭐ ${stars} Stars &nbsp;🔥 ${streak} Streak &nbsp;🏅 ${earned} Trophies</div>
+      </div>
+      ${students.length > 1 ? buildSwitchCard(students, active.id) : ''}
+      <div class="profile-actions">
+        <button class="pf-action-btn pf-edit"   onclick="showEditForm()">✏️ Edit Profile</button>
+        <button class="pf-action-btn pf-switch"  onclick="showAddForm()">➕ Add Another Student</button>
+        <button class="pf-action-btn pf-reset"   onclick="confirmReset()">🗑️ Reset My Progress</button>
+      </div>
+      <div id="profile-extra-form"></div>`;
+  } else {
+    slot.innerHTML = `
+      <div class="switch-users-card" style="margin-bottom:12px">
+        <h4>👥 Who is learning today?</h4>
+        ${students.map(s=>`
+          <div class="user-item" onclick="switchStudent('${s.id}')">
+            <div class="ui-avatar">${s.avatar||s.name.charAt(0)}</div>
+            <div><div class="ui-name">${s.name}</div>
+            <div class="ui-stats">Grade ${s.grade||'—'} · ⭐${s.stars||0}</div></div>
+          </div>`).join('')}
+        <button class="add-user-btn" onclick="showAddForm()">➕ Add New Student</button>
+      </div>`;
+  }
+}
 
 console.log('[v9] Profile & Games system loaded');
 </script>
