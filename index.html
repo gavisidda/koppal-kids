@@ -68,6 +68,16 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .hdr-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.32);border-radius:50px;padding:2px 8px;color:#fff;font-size:.7rem;font-weight:800;white-space:nowrap}
 .hdr-badge.gold{background:rgba(247,183,49,.28);border-color:rgba(247,183,49,.6)}
 
+/* ══ TAB BAR ══ */
+.tab-bar{display:flex;overflow-x:auto;scrollbar-width:none;gap:5px;padding:5px 10px 8px}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:6px 13px;border:none;border-radius:50px;background:rgba(255,255,255,.18);color:rgba(255,255,255,.88);font-size:.78rem;font-weight:700;white-space:nowrap;transition:background .2s,color .2s,transform .15s}
+.tab-btn:active{transform:scale(.94)}
+.tab-btn.active{background:#fff;color:var(--primary);box-shadow:0 2px 10px rgba(0,0,0,.14)}
+.tab-btn.tab-evs.active{color:var(--evs)}
+.tab-btn.tab-gram.active{color:var(--gram)}
+.tab-btn.tab-math.active{color:var(--math)}
+
 /* ══ §3 CONTENT ══ */
 #main-content{max-width:960px;margin:0 auto;padding:14px 12px 80px}
 .section{display:none}.section.active{display:block}
@@ -388,6 +398,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .spinner{display:inline-block;width:32px;height:32px;border:4px solid #e0d6f5;border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:7px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.app-footer{text-align:center;padding:8px;font-size:.68rem;color:var(--muted);font-weight:600}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:400px){
@@ -424,12 +435,38 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .hc-story::before{background:linear-gradient(90deg,#8b5cf6,#ec4899)}
 .hc-rhymes::before{background:linear-gradient(90deg,#14b8a6,#3b82f6)}
 .hc-challenge::before{background:linear-gradient(90deg,#f7b731,#26de81)}
+.hc-progress::before{background:linear-gradient(90deg,#6c3fc5,#ff6b9d)}
 .home-card-icon{font-size:2.4rem;line-height:1}
 .home-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:var(--text)}
 .home-card-sub{font-size:.68rem;color:var(--muted);font-weight:600}
 .home-card-badge{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:50px}
 
+/* Welcome strip */
+.welcome-strip{background:linear-gradient(135deg,var(--primary),var(--pri2));border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.ws-text h3{font-family:'Baloo 2',cursive;font-size:1.1rem;color:#fff;font-weight:800}
+.ws-text p{font-size:.75rem;color:rgba(255,255,255,.82);font-weight:600;margin-top:2px}
+.ws-avatar{font-size:2.6rem;flex-shrink:0}
+
+/* Daily challenge strip */
+.daily-strip{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(245,158,11,.35);cursor:pointer;transition:transform .15s}
+.daily-strip:active{transform:scale(.98)}
+.ds-icon{font-size:2rem;flex-shrink:0}
+.ds-text h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:#fff;font-weight:800}
+.ds-text p{font-size:.72rem;color:rgba(255,255,255,.9);font-weight:600}
+.ds-badge{margin-left:auto;background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.5);border-radius:50px;padding:5px 11px;color:#fff;font-size:.75rem;font-weight:800;flex-shrink:0}
+
+/* Progress summary */
+.prog-strip{background:var(--white);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.prog-strip h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:var(--primary);font-weight:800;margin-bottom:10px}
+.prog-bars{display:flex;flex-direction:column;gap:8px}
+.prog-row{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700}
+.prog-label{width:72px;color:var(--muted);flex-shrink:0}
+.prog-bar-wrap{flex:1;height:9px;background:#f0eaff;border-radius:5px;overflow:hidden}
+.prog-bar-fill{height:100%;border-radius:5px;transition:width .8s ease;background:linear-gradient(90deg,var(--primary),var(--pink))}
+.prog-val{width:28px;text-align:right;color:var(--primary)}
+
 /* ── PROGRESS / TROPHY SECTION ── */
+.progress-section{}
 .trophies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-bottom:16px}
 .trophy-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 8px;text-align:center;transition:transform .18s;border:2.5px solid transparent}
 .trophy-card.earned{border-color:var(--accent);background:linear-gradient(135deg,#fffbeb,#fef3c7)}
@@ -443,6 +480,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .stat-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 12px;text-align:center}
 .stat-num{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:900;color:var(--primary)}
 .stat-label{font-size:.72rem;color:var(--muted);font-weight:700}
+.streak-fire{font-size:1.4rem}
 
 /* ── DAILY CHALLENGE ── */
 .challenge-card{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:14px;color:#fff;box-shadow:0 6px 24px rgba(245,158,11,.4)}
@@ -581,6 +619,20 @@ body {
   color: var(--primary);
   margin-bottom: 10px;
   padding-left: 2px;
+}
+
+/* ══════════════════════════════════════════
+   MY PROGRESS TAB — welcome/daily/progress cards
+══════════════════════════════════════════ */
+.prog-tab-welcome {
+  background: linear-gradient(135deg, var(--primary), var(--pri2));
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow);
 }
 
 /* ══════════════════════════════════════════
@@ -724,6 +776,9 @@ body {
   #bottom-nav { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 20px 20px 0 0; }
   .about-app-stats { grid-template-columns: repeat(4,1fr); }
 }
+@media(max-width:360px) {
+
+}
 
 /* ══════════════════════════════════════════
    5-TAB BOTTOM NAV (narrower labels)
@@ -846,6 +901,13 @@ body {
 .confirm-btns { display:flex; gap:8px; }
 .confirm-yes { flex:1; padding:11px; border:none; border-radius:50px; background:var(--red); color:#fff; font-weight:800; font-size:.88rem; cursor:pointer; }
 .confirm-no  { flex:1; padding:11px; border:none; border-radius:50px; background:#e0d6f5; color:var(--primary); font-weight:800; font-size:.88rem; cursor:pointer; }
+
+/* ══ GAMES GRID ══ */
+.games-grid-label {
+  font-family:'Baloo 2',cursive; font-size:.88rem; color:var(--muted);
+  font-weight:700; margin:12px 0 8px; text-transform:uppercase; letter-spacing:.05em;
+}
+
 </style>
 </head>
 <body>
@@ -1198,7 +1260,10 @@ let fcrScore=0, fcrStreak=0, fcrBest=parseInt(localStorage.getItem('kk_fcrbest')
 let fcrTimer=null, fcrAnswered=false;
 
 // connect dots
-let connectCurrentIdx=0, connectData=null;
+let connectCtx=null, connectCurrentIdx=0, connectData=null, connectUserPath=[];
+
+// maths quiz
+let mqQ=0, mqScore=0, mqAnswered=false;
 
 let currentPopupData=null, toastTimer;
 
@@ -2272,6 +2337,8 @@ function saveKK(key, val) { try { localStorage.setItem('kk_' + key, JSON.stringi
 function loadKK(key, def) { try { const v = localStorage.getItem('kk_' + key); return v ? JSON.parse(v) : def; } catch(e){ return def; } }
 
 /* ─── PROGRESS TRACKING ─── */
+const SUBJECTS = ['alphabet','words','sentences','evs','grammar','maths'];
+
 // Wrap addStar to also track
 const _origAddStar = addStar;
 addStar = function(n) {
@@ -2283,6 +2350,19 @@ addStar = function(n) {
 
 /* ─── STREAK TRACKING ─── */
 function getTodayStr() { return new Date().toISOString().slice(0,10); }
+function updateStreak() {
+  const today  = getTodayStr();
+  const last   = loadKK('last_day', '');
+  let streak   = loadKK('streak', 0);
+  const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+  const yStr = yesterday.toISOString().slice(0,10);
+  if (last === today) return streak;
+  if (last === yStr)  streak++;
+  else if (last !== today) streak = 1;
+  saveKK('streak', streak);
+  saveKK('last_day', today);
+  return streak;
+}
 
 /* ─── TROPHY DEFINITIONS ─── */
 const TROPHIES = [
@@ -2893,6 +2973,8 @@ function goRewards(fromBack) {
   if (!fromBack) pushHistory({tab:'rewards'});
 }
 
+function goProfile(fromBack) { goAbout(fromBack); }
+
 function goAbout(fromBack) {
   _currentMainTab = 'about';
   saveKK('lastTab','about');
@@ -2913,6 +2995,11 @@ function goLearnTab(tab, fromBack) {
   if (!fromBack) pushHistory({ tab:'learnhub', learn: tab });
 }
 
+function goToChallenge() {
+  // Challenge lives inside learnhub
+  goLearnTab('challenge');
+}
+
 /* ════════════════════════════════════════════════════════════
    LEARNHUB — the content host with horizontal tab strip
 ════════════════════════════════════════════════════════════ */
@@ -2930,6 +3017,15 @@ function renderLearnHub(activeTab) {
 
   showSection('sec-learnhub');
   loadLearnContent(activeTab);
+}
+
+function switchLearnTab(tab) {
+  _currentLearnTab = tab;
+  saveKK('lastLearnTab', tab);
+  pushHistory({ tab:'learnhub', learn: tab });
+
+
+  loadLearnContent(tab);
 }
 
 function loadLearnContent(tab) {
@@ -3090,6 +3186,37 @@ function restoreLastTab() {
 ;
 
 console.log('[v8] Navigation module loaded');
+
+/* ════════════════════════════════════════════════════════════
+   SWIPE NAVIGATION — left/right swipe on subcategory pills
+   Left swipe  → next subcategory
+   Right swipe → previous subcategory  
+════════════════════════════════════════════════════════════ */
+/* ── SWIPE on STRIP pills AND on content area ── */
+function addSwipeToStrip(stripEl) {
+  if (!stripEl || stripEl.dataset.swipeAttached) return;
+  stripEl.dataset.swipeAttached = '1';
+  let tx = 0, ty = 0, tt = 0;
+  stripEl.addEventListener('touchstart', e => {
+    tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
+    tt = Date.now();
+  }, {passive:true});
+  stripEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) < 55 || Math.abs(dy) > 55 || Date.now()-tt > 380) return;
+    const pills = Array.from(stripEl.querySelectorAll('.cat-pill'));
+    if (pills.length < 2) return;
+    const cur = pills.findIndex(p => p.classList.contains('active'));
+    if (cur < 0) return;
+    const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
+    if (next !== cur) {
+      pills[next].click();
+      pills[next].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    }
+  }, {passive:true});
+}
 
 /* ══════════════════════════════════════════════════════════════
    KOPPAL KIDS v9.0 — Games Hub, Rewards, Profile/Student System
