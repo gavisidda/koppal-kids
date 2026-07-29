@@ -39,7 +39,7 @@
 <style>
 /* ══ §1 ROOT ══ */
 :root{
-  --hdr-h:70px;
+  --hdr-h:152px;
   --primary:#6c3fc5;--pri2:#9d59f5;
   --accent:#f7b731;--pink:#ff6b9d;--green:#26de81;--sky:#45aaf2;
   --red:#ef4444;--orange:#f97316;--teal:#14b8a6;--indigo:#4f46e5;
@@ -53,19 +53,18 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 /* ══ §2 FIXED HEADER ══ */
 #app-header{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(135deg,var(--primary) 0%,var(--pri2) 60%,#c084fc 100%);box-shadow:0 4px 24px rgba(108,63,197,.5)}
-.hdr-hero{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 6px;gap:8px}
-.hdr-kid{width:38px;height:38px;object-fit:cover;border-radius:50%;border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.15);display:block;flex-shrink:0}
-
-#img-kid2{transform:none}
-
-.hdr-kid-emoji{width:38px;height:38px;display:none;font-size:1.4rem;line-height:38px;text-align:center;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);flex-shrink:0}
+.hdr-hero{display:grid;grid-template-columns:64px 1fr 64px;align-items:end;padding:4px 8px 0;gap:4px}
+.hdr-kid{width:64px;height:68px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));display:block;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.hdr-kid:hover{transform:scale(1.1) rotate(-5deg)}
+#img-kid2{transform:scaleX(-1)}
+#img-kid2:hover{transform:scaleX(-1) scale(1.1) rotate(5deg)}
+.hdr-kid-emoji{width:64px;height:68px;display:none;font-size:2.8rem;line-height:68px;text-align:center}
 .hdr-kid-emoji.show{display:block}
-
-.hdr-center{text-align:center;padding-bottom:0;flex:1}
-.hdr-title{font-family:'Baloo 2',cursive;font-weight:900;color:#fff;font-size:.95rem;line-height:1.1}
-.hdr-sub{font-size:.6rem;color:rgba(255,255,255,.82);font-weight:600;margin-top:0;display:none}
+.hdr-center{text-align:center;padding-bottom:4px}
+.hdr-title{font-family:'Baloo 2',cursive;font-weight:900;color:#fff;font-size:1.15rem;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hdr-sub{font-size:.63rem;color:rgba(255,255,255,.85);font-weight:700;margin-top:1px}
 .hdr-badges{display:flex;justify-content:center;gap:5px;margin-top:3px}
-.hdr-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.32);border-radius:50px;padding:2px 8px;color:#fff;font-size:.7rem;font-weight:800;white-space:nowrap}
+.hdr-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.32);border-radius:50px;padding:3px 9px;color:#fff;font-size:.74rem;font-weight:800;white-space:nowrap}
 .hdr-badge.gold{background:rgba(247,183,49,.28);border-color:rgba(247,183,49,.6)}
 
 /* ══ TAB BAR ══ */
@@ -402,9 +401,9 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:400px){
-  
-  
-  
+  :root{--hdr-h:162px}
+  .hdr-kid,.hdr-kid-emoji{width:54px;height:58px}
+  .hdr-hero{grid-template-columns:54px 1fr 54px}
   .hdr-title{font-size:.98rem}
   .cards-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
   .alpha-grid{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
@@ -412,9 +411,9 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 @media(min-width:600px){
   .cards-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr))}
   .alpha-grid{grid-template-columns:repeat(auto-fill,minmax(124px,1fr))}
-  
-  
-  
+  .hdr-kid,.hdr-kid-emoji{width:72px;height:76px}
+  :root{--hdr-h:148px}
+  .hdr-hero{grid-template-columns:72px 1fr 72px}
 }
 
 /* ══════════════════════════════════════════════
@@ -547,6 +546,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   .stats-grid{grid-template-columns:1fr 1fr}
 }
 
+
 /* ══════════════════════════════════════════
    BOTTOM NAV
 ══════════════════════════════════════════ */
@@ -554,58 +554,60 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 300;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--pri2) 60%, #c084fc 100%);
-  border-top: none;
+  background: #fff;
+  border-top: 2px solid #e0d6f5;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* Same vertical footprint as the top header (--hdr-h: 70px) */
-  height: 70px;
-  padding-bottom: env(safe-area-inset-bottom);
-  box-shadow: 0 -4px 20px rgba(108,63,197,.45);
+  padding: 8px 0 max(10px, env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 24px rgba(108,63,197,.15);
+  min-height: 70px;
 }
 .bn-btn {
   flex: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3px;
+  gap: 4px;
   background: none;
   border: none;
-  padding: 0;
+  padding: 8px 6px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform .15s, background .2s;
-  border-radius: 12px;
+  border-radius: 16px;
+  margin: 0 6px;
 }
 .bn-btn:active { transform: scale(.9); }
 .bn-icon {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   line-height: 1;
   transition: transform .2s;
-  opacity: .72;
 }
-.bn-btn.active .bn-icon { opacity: 1; transform: scale(1.12); }
 .bn-label {
   font-family: 'Nunito', sans-serif;
-  font-size: .72rem;
+  font-size: .78rem;
   font-weight: 700;
-  color: rgba(255,255,255,.72);
+  color: var(--muted);
   transition: color .2s;
 }
-.bn-btn.active .bn-label { color: #fff; font-weight: 900; }
-.bn-btn.active { background: rgba(255,255,255,.2); border-radius: 12px; }
+.bn-btn.active .bn-icon  { transform: scale(1.18); }
+.bn-btn.active .bn-label { color: var(--primary); font-weight: 900; }
+.bn-btn.active {
+  background: #f3eeff;
+}
 
 /* Adjust body padding — header + bottom nav */
 body {
-  padding-bottom: calc(78px + env(safe-area-inset-bottom)) !important;
+  padding-bottom: calc(88px + env(safe-area-inset-bottom)) !important;
 }
 
 /* ══════════════════════════════════════════
    HEADER — compact (no tab bar inside)
 ══════════════════════════════════════════ */
+:root { --hdr-h: 90px; }
+@media(max-width:400px)  { :root { --hdr-h: 84px; } }
+@media(min-width:600px)  { :root { --hdr-h: 96px; } }
 
 /* ══════════════════════════════════════════
    HOME WELCOME BANNER
@@ -633,6 +635,52 @@ body {
   align-items: center;
   gap: 12px;
   box-shadow: var(--shadow);
+}
+.ptw-avatar { font-size: 2.4rem; flex-shrink: 0; }
+.ptw-text h3 { font-family:'Baloo 2',cursive; font-size:1.05rem; color:#fff; font-weight:800; }
+.ptw-text p  { font-size:.72rem; color:rgba(255,255,255,.82); font-weight:600; margin-top:2px; }
+
+.prog-tab-daily {
+  background: linear-gradient(135deg,#f59e0b,#f97316);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 14px rgba(245,158,11,.3);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.prog-tab-daily:active { transform: scale(.98); }
+.ptd-icon  { font-size: 1.8rem; flex-shrink: 0; }
+.ptd-text h4 { font-family:'Baloo 2',cursive; font-size:.9rem; color:#fff; font-weight:800; }
+.ptd-text p  { font-size:.7rem; color:rgba(255,255,255,.9); font-weight:600; }
+.ptd-badge {
+  margin-left: auto;
+  background: rgba(255,255,255,.25);
+  border: 1.5px solid rgba(255,255,255,.5);
+  border-radius: 50px;
+  padding: 4px 12px;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.prog-tab-bars {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+.prog-tab-bars h4 {
+  font-family:'Baloo 2',cursive;
+  font-size:.95rem;
+  color:var(--primary);
+  font-weight:800;
+  margin-bottom:10px;
 }
 
 /* ══════════════════════════════════════════
@@ -777,135 +825,8 @@ body {
   .about-app-stats { grid-template-columns: repeat(4,1fr); }
 }
 @media(max-width:360px) {
+  .bn-label { font-size: .72rem; }
 
-}
-
-/* ══════════════════════════════════════════
-   5-TAB BOTTOM NAV (narrower labels)
-══════════════════════════════════════════ */
-#bottom-nav { min-height: 66px; }
-.bn-btn { padding: 6px 2px; margin: 0 2px; }
-.bn-icon { font-size: 1.6rem; }
-.bn-label { font-size: .68rem; }
-
-/* ══════════════════════════════════════════
-   PROFILE PAGE
-══════════════════════════════════════════ */
-.profile-no-user {
-  text-align: center;
-  padding: 20px 16px 0;
-}
-.profile-no-user .pnu-icon { font-size: 4rem; margin-bottom: 12px; }
-.profile-no-user h3 { font-family:'Baloo 2',cursive; font-size:1.2rem; color:var(--primary); font-weight:800; margin-bottom:6px; }
-.profile-no-user p  { font-size:.82rem; color:var(--muted); font-weight:600; margin-bottom:16px; line-height:1.5; }
-
-.profile-form-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 18px 16px;
-  box-shadow: var(--shadow);
-  margin-bottom: 12px;
-}
-.profile-form-card h4 {
-  font-family:'Baloo 2',cursive;
-  font-size:.95rem; color:var(--primary); font-weight:800; margin-bottom:12px;
-}
-.pf-field { margin-bottom: 12px; }
-.pf-label { font-size:.78rem; font-weight:700; color:var(--muted); margin-bottom:4px; display:block; }
-.pf-input {
-  width:100%; padding:11px 14px; border:2.5px solid #e0d6f5; border-radius:12px;
-  font-family:'Nunito',sans-serif; font-size:.92rem; font-weight:700; color:var(--text);
-  outline:none; transition:border-color .2s; background:#faf8ff;
-}
-.pf-input:focus { border-color:var(--primary); background:#fff; }
-.pf-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.pf-select {
-  width:100%; padding:11px 14px; border:2.5px solid #e0d6f5; border-radius:12px;
-  font-family:'Nunito',sans-serif; font-size:.88rem; font-weight:700; color:var(--text);
-  background:#faf8ff; outline:none; appearance:none;
-}
-.pf-select:focus { border-color:var(--primary); }
-.pf-save-btn {
-  width:100%; padding:13px; border:none; border-radius:50px;
-  background:linear-gradient(135deg,var(--primary),var(--pink));
-  color:#fff; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800;
-  box-shadow:0 4px 14px rgba(108,63,197,.3); transition:transform .15s;
-}
-.pf-save-btn:active { transform:scale(.97); }
-
-.profile-card {
-  background:linear-gradient(135deg,var(--primary),var(--pri2));
-  border-radius:var(--radius); padding:20px 18px; margin-bottom:12px;
-  text-align:center; box-shadow:0 6px 20px rgba(108,63,197,.35);
-}
-.pc-avatar {
-  width:72px; height:72px; border-radius:50%;
-  border:3.5px solid rgba(255,255,255,.5);
-  background:rgba(255,255,255,.2);
-  margin:0 auto 10px;
-  display:flex; align-items:center; justify-content:center;
-  font-size:2.4rem; font-weight:900;
-}
-.pc-name  { font-family:'Baloo 2',cursive; font-size:1.3rem; font-weight:900; color:#fff; }
-.pc-info  { font-size:.75rem; color:rgba(255,255,255,.82); font-weight:600; margin-top:3px; }
-.pc-stars { font-size:.88rem; color:rgba(255,255,255,.9); font-weight:800; margin-top:6px; }
-
-.profile-actions { display:flex; flex-direction:column; gap:10px; margin-bottom:12px; }
-.pf-action-btn {
-  padding:12px 16px; border-radius:14px; border:none; font-family:'Nunito',sans-serif;
-  font-size:.88rem; font-weight:800; cursor:pointer; text-align:left;
-  display:flex; align-items:center; gap:10px; transition:transform .15s;
-}
-.pf-action-btn:active { transform:scale(.97); }
-.pf-edit  { background:#f3eeff; color:var(--primary); }
-.pf-switch{ background:#fff7ed; color:var(--orange); }
-.pf-reset { background:#fef2f2; color:var(--red); }
-
-/* Switch user card */
-.switch-users-card {
-  background:var(--white); border-radius:var(--radius); padding:14px 16px;
-  box-shadow:var(--shadow); margin-bottom:12px;
-}
-.switch-users-card h4 { font-family:'Baloo 2',cursive; font-size:.9rem; color:var(--primary); font-weight:800; margin-bottom:10px; }
-.user-item {
-  display:flex; align-items:center; gap:10px; padding:10px 12px;
-  border-radius:12px; border:2.5px solid #e0d6f5; margin-bottom:8px;
-  cursor:pointer; transition:all .18s; background:#faf8ff;
-}
-.user-item:active,.user-item:hover { border-color:var(--primary); background:#f3eeff; }
-.user-item.active-user { border-color:var(--primary); background:#f3eeff; }
-.ui-avatar { width:36px; height:36px; border-radius:50%; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:800; color:#fff; flex-shrink:0; }
-.ui-name  { font-weight:800; font-size:.88rem; color:var(--text); }
-.ui-stats { font-size:.7rem; color:var(--muted); font-weight:600; margin-top:1px; }
-.ui-active-badge { margin-left:auto; font-size:.65rem; background:var(--primary); color:#fff; padding:3px 8px; border-radius:50px; font-weight:800; }
-.add-user-btn {
-  width:100%; padding:11px; border:2.5px dashed #e0d6f5; border-radius:12px;
-  background:transparent; color:var(--muted); font-family:'Nunito',sans-serif;
-  font-size:.85rem; font-weight:700; cursor:pointer; transition:all .18s;
-}
-.add-user-btn:hover { border-color:var(--primary); color:var(--primary); }
-
-/* confirm dialog */
-.confirm-overlay {
-  display:none; position:fixed; inset:0; background:rgba(44,29,78,.6);
-  z-index:600; align-items:center; justify-content:center; padding:20px;
-}
-.confirm-overlay.show { display:flex; }
-.confirm-box {
-  background:#fff; border-radius:22px; padding:24px 20px; max-width:300px; width:100%;
-  text-align:center; box-shadow:0 16px 48px rgba(0,0,0,.25);
-  animation:popIn .2s cubic-bezier(.34,1.56,.64,1);
-}
-.confirm-box h3 { font-family:'Baloo 2',cursive; font-size:1.1rem; color:var(--primary); margin-bottom:6px; }
-.confirm-box p  { font-size:.82rem; color:var(--muted); font-weight:600; margin-bottom:16px; }
-.confirm-btns { display:flex; gap:8px; }
-.confirm-yes { flex:1; padding:11px; border:none; border-radius:50px; background:var(--red); color:#fff; font-weight:800; font-size:.88rem; cursor:pointer; }
-.confirm-no  { flex:1; padding:11px; border:none; border-radius:50px; background:#e0d6f5; color:var(--primary); font-weight:800; font-size:.88rem; cursor:pointer; }
-
-/* ══ GAMES GRID ══ */
-.games-grid-label {
-  font-family:'Baloo 2',cursive; font-size:.88rem; color:var(--muted);
-  font-weight:700; margin:12px 0 8px; text-transform:uppercase; letter-spacing:.05em;
 }
 
 </style>
@@ -1013,38 +934,50 @@ body {
     <div id="rhymes-content"></div>
   </section>
 
+  <!-- ══ PROGRESS / TROPHIES ══ -->
+  <section id="sec-progress" class="section">
+    <div class="sec-head"><h2 style="color:#f59e0b">📈 My Progress</h2><p>Your learning journey!</p></div>
+
+    <!-- Welcome greeting (moved from home) -->
+    <div class="prog-tab-welcome">
+      <div class="ptw-avatar" id="ptw-avatar">🌟</div>
+      <div class="ptw-text">
+        <h3 id="ptw-greeting">Good day, Learner!</h3>
+        <p id="ptw-sub">Keep learning, keep growing! 🚀</p>
+      </div>
+    </div>
+
+    <!-- Daily challenge strip (moved from home) -->
+    <div class="prog-tab-daily" onclick="goToChallenge()">
+      <div class="ptd-icon">⚡</div>
+      <div class="ptd-text">
+        <h4>Daily Challenge</h4>
+        <p>Complete today's special activity!</p>
+      </div>
+      <div class="ptd-badge" id="ptd-status">Start!</div>
+    </div>
+
+    <!-- Progress bars (moved from home) -->
+    <div class="prog-tab-bars" id="prog-tab-bars-wrap">
+      <h4>📊 Your Progress</h4>
+      <div class="prog-bars" id="prog-tab-bars"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="stats-grid"></div>
+    <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
+    <div class="trophies-grid" id="trophies-grid"></div>
+  </section>
+
   <!-- ══ DAILY CHALLENGE ══ -->
   <section id="sec-challenge" class="section">
     <div class="sec-head"><h2 style="color:#f97316">⚡ Daily Challenge</h2><p>A new challenge every day!</p></div>
     <div id="challenge-content"></div>
   </section>
 
-  <!-- ══ LEARN HUB (All learning tabs go here) ══ -->
-  <!-- sec-learnhub already exists, keep as is -->
-
-  <!-- ══ GAMES HUB ══ -->
-  <section id="sec-games" class="section">
-    <div class="sec-head"><h2>🎮 Games</h2><p>Fun learning games!</p></div>
-    <div class="home-grid" id="games-grid"></div>
-  </section>
-
-  <!-- ══ REWARDS ══ -->
-  <section id="sec-rewards" class="section">
-    <div class="sec-head"><h2 style="color:#f59e0b">🏆 Rewards</h2><p>Your achievements &amp; trophies!</p></div>
-    <div class="stats-grid" id="rewards-stats-grid"></div>
-    <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
-    <div class="trophies-grid" id="rewards-trophies-grid"></div>
-  </section>
-
-  <!-- ══ ABOUT (Designer info + Student Profile) ══ -->
-  <section id="sec-about" class="section">
-    <div class="sec-head"><h2>👤 About</h2><p>Designer info &amp; your profile</p></div>
-
-    <!-- Student Profile Card -->
-    <div id="about-profile-slot"></div>
-
-    <!-- Designer Card -->
-    <div class="about-card" style="margin-top:4px">
+  <!-- ══ DESIGNED BY ══ -->
+  <section id="sec-designedby" class="section">
+    <div class="about-card">
       <div class="about-avatar-wrap">
         <div class="about-avatar">
           <img src="images/profile.jpg" alt="Gavisiddappa HATTI"
@@ -1060,19 +993,25 @@ body {
 
     <div class="about-bio-card">
       <h3 class="about-section-title">👋 About</h3>
-      <p class="about-bio">I am an IT Administrator specialising in Active Directory and PowerShell automation.
+      <p class="about-bio">
+        I am an IT Administrator working in Active Directory and PowerShell automation.
         I love building educational apps for children in my village and district.
         <em>Koppal - Kids</em> was built with love for the children of Karnataka —
-        to make learning English fun, easy, and accessible even without internet.</p>
+        to make learning English fun, easy, and accessible even without internet.
+      </p>
     </div>
 
     <div class="about-skills-card">
       <h3 class="about-section-title">🛠️ Skills</h3>
       <div class="about-skills">
-        <span class="skill-tag">Active Directory</span><span class="skill-tag">PowerShell</span>
-        <span class="skill-tag">HTML &amp; CSS</span><span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">PWA</span><span class="skill-tag">Firebase</span>
-        <span class="skill-tag">App Design</span><span class="skill-tag">Education Tech</span>
+        <span class="skill-tag">Active Directory</span>
+        <span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">HTML &amp; CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PWA</span>
+        <span class="skill-tag">Firebase</span>
+        <span class="skill-tag">App Design</span>
+        <span class="skill-tag">Education Tech</span>
         <span class="skill-tag">Kannada</span>
       </div>
     </div>
@@ -1080,21 +1019,27 @@ body {
     <div class="about-app-card">
       <h3 class="about-section-title">📱 About This App</h3>
       <div class="about-app-stats">
-        <div class="app-stat"><div class="app-stat-num">4</div><div class="app-stat-lbl">Tabs</div></div>
+        <div class="app-stat"><div class="app-stat-num">7</div><div class="app-stat-lbl">Tabs</div></div>
         <div class="app-stat"><div class="app-stat-num">80+</div><div class="app-stat-lbl">Categories</div></div>
         <div class="app-stat"><div class="app-stat-num">600+</div><div class="app-stat-lbl">Cards</div></div>
         <div class="app-stat"><div class="app-stat-num">100%</div><div class="app-stat-lbl">Free</div></div>
       </div>
-      <p class="about-bio" style="margin-top:10px">Built with ❤️ for village students of Karnataka.
-        Works completely offline. No ads. No cost. No internet needed.</p>
+      <p class="about-bio" style="margin-top:12px">
+        Built with ❤️ for village students of Karnataka.
+        Works completely offline after first install.
+        No ads. No cost. No internet needed.
+      </p>
     </div>
 
     <div class="about-contact-card">
       <h3 class="about-section-title">📞 Feedback &amp; Contact</h3>
-      <a href="https://wa.me/919740XXXXXX?text=Hello%20Gavisiddappa%2C%20feedback%20on%20Koppal%20Kids%3A"
+      <a href="https://wa.me/919XXXXXXXXX?text=Hello%20Gavisiddappa%2C%20feedback%20on%20Koppal%20Kids%20app%3A"
          class="about-whatsapp-btn" target="_blank">
         <span>💬</span> Send WhatsApp Feedback
       </a>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px;text-align:center">
+        Replace the phone number in index.html with your actual WhatsApp number.
+      </p>
     </div>
 
     <div class="about-credit">
@@ -1102,8 +1047,10 @@ body {
       Assisted by <strong>Claude AI 🤖</strong> · Hosted on <strong>GitHub Pages</strong>
     </div>
   </section>
-
 </main>
+
+
+
 
 <!-- REWARD POPUP -->
 <div class="reward-overlay" id="reward-overlay">
@@ -1128,92 +1075,7 @@ body {
     <button class="popup-speak" onclick="speakCurrent()">🔊 Hear It!</button>
   </div>
 </div>
-
-<div class="confirm-overlay" id="confirm-overlay">
-  <div class="confirm-box">
-    <h3 id="confirm-title">Are you sure?</h3>
-    <p id="confirm-msg">This action cannot be undone.</p>
-    <div class="confirm-btns">
-      <button class="confirm-yes" id="confirm-yes">Yes, do it</button>
-      <button class="confirm-no"  onclick="closeConfirm()">Cancel</button>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
-
-<!-- ═══════════════════════════════════════════════════
-     PWA INSTALL BANNER & SERVICE WORKER REGISTRATION
-═══════════════════════════════════════════════════ -->
-
-<!-- Install Banner (shown when browser fires beforeinstallprompt) -->
-<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;
-     background:linear-gradient(135deg,#6c3fc5,#9d59f5);color:#fff;
-     padding:14px 16px 18px;box-shadow:0 -4px 24px rgba(108,63,197,.5);
-     font-family:'Nunito',sans-serif;">
-  <div style="max-width:500px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-    <img src="icons/icon-72.png" style="width:48px;height:48px;border-radius:12px;flex-shrink:0"
-         onerror="this.style.display='none'">
-    <div style="flex:1;min-width:160px">
-      <div style="font-weight:800;font-size:.95rem">📲 Install Koppal Kids App!</div>
-      <div style="font-size:.75rem;opacity:.88;margin-top:2px">
-        Works offline · No internet needed · Free forever
-      </div>
-    </div>
-    <div style="display:flex;gap:8px;flex-shrink:0">
-      <button id="pwa-install-btn" onclick="installPWA()"
-        style="padding:10px 20px;border:none;border-radius:50px;
-               background:#fff;color:#6c3fc5;font-weight:800;font-size:.88rem;cursor:pointer">
-        📥 Install
-      </button>
-      <button onclick="document.getElementById('pwa-banner').style.display='none'"
-        style="padding:10px 14px;border:2px solid rgba(255,255,255,.4);border-radius:50px;
-               background:transparent;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer">
-        ✕
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Update Ready Banner -->
-<div id="pwa-update-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:700;
-     background:#10b981;color:#fff;padding:12px 16px;text-align:center;
-     font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
-     box-shadow:0 2px 12px rgba(16,185,129,.4)">
-  ✅ New version ready!
-  <button onclick="applyUpdate()"
-    style="margin-left:12px;padding:6px 16px;border:none;border-radius:50px;
-           background:#fff;color:#10b981;font-weight:800;cursor:pointer;font-size:.82rem">
-    Update Now 🔄
-  </button>
-  <button onclick="document.getElementById('pwa-update-banner').style.display='none'"
-    style="margin-left:6px;padding:6px 12px;border:2px solid rgba(255,255,255,.5);border-radius:50px;
-           background:transparent;color:#fff;font-weight:700;cursor:pointer;font-size:.82rem">✕</button>
-</div>
-
-<!-- Offline Indicator -->
-<div id="offline-bar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:650;
-     background:#f59e0b;color:#fff;padding:8px 16px;text-align:center;
-     font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem">
-  📴 You are offline — App is working from saved data
-</div>
-
-<!-- ══ BOTTOM NAVIGATION BAR — 4 TABS ══ -->
-<nav id="bottom-nav" aria-label="Main Navigation">
-  <button class="bn-btn active" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
-    <span class="bn-icon">📚</span><span class="bn-label">Learn</span>
-  </button>
-  <button class="bn-btn" id="bn-games"   onclick="bnNav('games')"   aria-label="Games">
-    <span class="bn-icon">🎮</span><span class="bn-label">Games</span>
-  </button>
-  <button class="bn-btn" id="bn-rewards" onclick="bnNav('rewards')" aria-label="Rewards">
-    <span class="bn-icon">🏆</span><span class="bn-label">Rewards</span>
-  </button>
-  <button class="bn-btn" id="bn-about"   onclick="bnNav('about')"   aria-label="About">
-    <span class="bn-icon">👤</span><span class="bn-label">About</span>
-  </button>
-</nav>
-
 
 <script>
 /* ═══════════════════════════════════════════════════
@@ -2197,8 +2059,65 @@ const MATH_FB={categories:[{id:'numbers',icon:'🔢',label:{en:'Numbers',kn:'ಸ
    §N  START
 ═══════════════════════════════════════════════════ */
 boot();
+</script>
 
+<!-- ═══════════════════════════════════════════════════
+     PWA INSTALL BANNER & SERVICE WORKER REGISTRATION
+═══════════════════════════════════════════════════ -->
 
+<!-- Install Banner (shown when browser fires beforeinstallprompt) -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;
+     background:linear-gradient(135deg,#6c3fc5,#9d59f5);color:#fff;
+     padding:14px 16px 18px;box-shadow:0 -4px 24px rgba(108,63,197,.5);
+     font-family:'Nunito',sans-serif;">
+  <div style="max-width:500px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <img src="icons/icon-72.png" style="width:48px;height:48px;border-radius:12px;flex-shrink:0"
+         onerror="this.style.display='none'">
+    <div style="flex:1;min-width:160px">
+      <div style="font-weight:800;font-size:.95rem">📲 Install Koppal Kids App!</div>
+      <div style="font-size:.75rem;opacity:.88;margin-top:2px">
+        Works offline · No internet needed · Free forever
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0">
+      <button id="pwa-install-btn" onclick="installPWA()"
+        style="padding:10px 20px;border:none;border-radius:50px;
+               background:#fff;color:#6c3fc5;font-weight:800;font-size:.88rem;cursor:pointer">
+        📥 Install
+      </button>
+      <button onclick="document.getElementById('pwa-banner').style.display='none'"
+        style="padding:10px 14px;border:2px solid rgba(255,255,255,.4);border-radius:50px;
+               background:transparent;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer">
+        ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Update Ready Banner -->
+<div id="pwa-update-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:700;
+     background:#10b981;color:#fff;padding:12px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
+     box-shadow:0 2px 12px rgba(16,185,129,.4)">
+  ✅ New version ready!
+  <button onclick="applyUpdate()"
+    style="margin-left:12px;padding:6px 16px;border:none;border-radius:50px;
+           background:#fff;color:#10b981;font-weight:800;cursor:pointer;font-size:.82rem">
+    Update Now 🔄
+  </button>
+  <button onclick="document.getElementById('pwa-update-banner').style.display='none'"
+    style="margin-left:6px;padding:6px 12px;border:2px solid rgba(255,255,255,.5);border-radius:50px;
+           background:transparent;color:#fff;font-weight:700;cursor:pointer;font-size:.82rem">✕</button>
+</div>
+
+<!-- Offline Indicator -->
+<div id="offline-bar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:650;
+     background:#f59e0b;color:#fff;padding:8px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem">
+  📴 You are offline — App is working from saved data
+</div>
+
+<script>
 /* ─── SERVICE WORKER REGISTRATION ─── */
 let swReg = null;
 let deferredPrompt = null;
@@ -2283,7 +2202,10 @@ window.addEventListener('offline', updateOnlineStatus);
 updateOnlineStatus(); /* check immediately on load */
 
 /* Helper — toast may not be defined yet if called very early */
-
+function showKKToast(msg) {
+  const t = document.getElementById('toast');
+  if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
+}
 
 /* ─── SW AUTO-UPDATE: listen for new SW taking control ─── */
 if ('serviceWorker' in navigator) {
@@ -2316,6 +2238,24 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+</script>
+
+
+<!-- ══ BOTTOM NAVIGATION BAR ══ -->
+<nav id="bottom-nav" aria-label="Main Navigation">
+  <button class="bn-btn active" id="bn-home"     onclick="bnNav('home')"     aria-label="Home">
+    <span class="bn-icon">🏠</span><span class="bn-label">Home</span>
+  </button>
+  <button class="bn-btn"        id="bn-progress" onclick="bnNav('progress')" aria-label="My Progress">
+    <span class="bn-icon">📈</span><span class="bn-label">Progress</span>
+  </button>
+  <button class="bn-btn"        id="bn-designedby" onclick="bnNav('designedby')" aria-label="Designed By">
+    <span class="bn-icon">👨‍💻</span><span class="bn-label">About</span>
+  </button>
+</nav>
+
+
+<script>
 /* ══════════════════════════════════════════════════════════════
    KOPPAL KIDS  v7.0 — ENHANCEMENT SCRIPT
    All new features injected here; existing functions unchanged.
@@ -2329,6 +2269,7 @@ switchTab = function(tab) {
   if (tab === 'home')      renderHome();
   if (tab === 'story')     renderStories();
   if (tab === 'rhymes')    renderRhymes();
+  if (tab === 'progress')  renderProgress();
   if (tab === 'challenge') renderChallenge();
 };
 
@@ -2338,7 +2279,11 @@ function loadKK(key, def) { try { const v = localStorage.getItem('kk_' + key); r
 
 /* ─── PROGRESS TRACKING ─── */
 const SUBJECTS = ['alphabet','words','sentences','evs','grammar','maths'];
-
+function trackVisit(tab) {
+  const v = loadKK('visits', {});
+  v[tab] = (v[tab] || 0) + 1;
+  saveKK('visits', v);
+}
 // Wrap addStar to also track
 const _origAddStar = addStar;
 addStar = function(n) {
@@ -2436,12 +2381,73 @@ function launchConfetti() {
   requestAnimationFrame(draw);
 }
 
+/* ─── HOME DASHBOARD ─── */
+const HOME_CARDS = [
+  { id:'alphabet',  icon:'🔤', title:'Alphabet',    sub:'28 fun activities',  cls:'hc-alpha',     badge:'' },
+  { id:'words',     icon:'📖', title:'Words',        sub:'120+ vocabulary',    cls:'hc-words',     badge:'' },
+  { id:'evs',       icon:'🌍', title:'EVS',          sub:'21 topics',          cls:'hc-evs',       badge:'' },
+  { id:'grammar',   icon:'📝', title:'Grammar',      sub:'10 lessons',         cls:'hc-gram',      badge:'' },
+  { id:'maths',     icon:'🔢', title:'Maths',        sub:'Numbers & shapes',   cls:'hc-math',      badge:'' },
+  { id:'quiz',      icon:'🎯', title:'Quiz',          sub:'Test your skills',   cls:'hc-quiz',      badge:'' },
+  { id:'story',     icon:'📚', title:'Stories',      sub:'10 bilingual stories',cls:'hc-story',     badge:'NEW' },
+  { id:'rhymes',    icon:'🎵', title:'Rhymes',       sub:'15 songs & rhymes',  cls:'hc-rhymes',    badge:'NEW' },
+  { id:'challenge', icon:'⚡', title:'Challenge',    sub:'Daily special task',  cls:'hc-challenge', badge:'NEW' },
+  { id:'progress',  icon:'🏆', title:'My Progress',  sub:'Trophies & badges',  cls:'hc-progress',  badge:'' },
+];
 
 function getGreeting() {
   const h = new Date().getHours();
   if (h < 12) return { text:'Good Morning!', sub:'Rise and shine — let\'s learn! ☀️', avatar:'🌅' };
   if (h < 17) return { text:'Good Afternoon!', sub:'Keep up the great work! 🌟', avatar:'☀️' };
   return { text:'Good Evening!', sub:'Great learning today! 🌙', avatar:'🌙' };
+}
+
+function renderHome() {
+  const g = getGreeting();
+  const el = id => document.getElementById(id);
+  if (el('ws-greeting')) el('ws-greeting').textContent = g.text;
+  if (el('ws-sub'))      el('ws-sub').textContent      = g.sub;
+  if (el('ws-avatar'))   el('ws-avatar').textContent   = g.avatar;
+
+  // Daily challenge status
+  const chalDone = loadKK('chall_today', '') === getTodayStr();
+  if (el('ds-status')) el('ds-status').textContent = chalDone ? '✅ Done!' : 'Start!';
+
+  // Progress bars
+  const progBar = el('home-prog-bars');
+  if (progBar) {
+    const stars = parseInt(localStorage.getItem('kk_stars')||0);
+    const cap = 200;
+    const items = [
+      { label:'⭐ Stars',   val: Math.min(stars, cap),    max: cap,    color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)' },
+      { label:'🔥 Streak',  val: loadKK('streak',0),       max: 7,      color:'linear-gradient(90deg,#f97316,#eab308)' },
+      { label:'🏆 Trophies',val: loadKK('trophies_earned',[]).length, max: TROPHIES.length, color:'linear-gradient(90deg,#f59e0b,#26de81)' },
+      { label:'📖 Stories', val: loadKK('stories_read',0), max: 6,      color:'linear-gradient(90deg,#8b5cf6,#ec4899)' },
+    ];
+    progBar.innerHTML = items.map(it => {
+      const pct = Math.round(it.val / it.max * 100);
+      return `<div class="prog-row">
+        <span class="prog-label">${it.label}</span>
+        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
+        <span class="prog-val">${it.val}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Cards grid
+  const grid = el('home-grid');
+  if (!grid) return;
+  grid.innerHTML = HOME_CARDS.map(c => `
+    <div class="home-card ${c.cls}" onclick="switchTab('${c.id}')">
+      ${c.badge ? `<div class="home-card-badge">${c.badge}</div>` : ''}
+      <div class="home-card-icon">${c.icon}</div>
+      <div class="home-card-title">${c.title}</div>
+      <div class="home-card-sub">${c.sub}</div>
+    </div>`).join('');
+}
+
+function updateHomeIfVisible() {
+  if (document.getElementById('sec-home')?.classList.contains('active')) renderHome();
 }
 
 /* ─── STORIES ─── */
@@ -2825,6 +2831,45 @@ function closeRhyme() {
   renderRhymes();
 }
 
+/* ─── PROGRESS PAGE ─── */
+function renderProgress() {
+  const stars   = parseInt(localStorage.getItem('kk_stars') || 0);
+  const streak  = loadKK('streak', 0);
+  const earned  = loadKK('trophies_earned', []);
+  const days    = loadKK('chall_count', 0);
+  const stories = loadKK('stories_read', 0);
+
+  // Stats
+  const sg = document.getElementById('stats-grid');
+  if (sg) {
+    sg.innerHTML = [
+      { label:'⭐ Total Stars',    val: stars },
+      { label:'🔥 Day Streak',     val: streak },
+      { label:'🏅 Trophies Earned',val: earned.length + ' / ' + TROPHIES.length },
+      { label:'⚡ Challenges Done',val: days },
+      { label:'📖 Stories Read',   val: stories },
+      { label:'🎵 Rhymes Sung',    val: loadKK('rhymes_sung',0) },
+    ].map(s => `
+      <div class="stat-card">
+        <div class="stat-num">${s.val}</div>
+        <div class="stat-label">${s.label}</div>
+      </div>`).join('');
+  }
+
+  // Trophies
+  const tg = document.getElementById('trophies-grid');
+  if (tg) {
+    tg.innerHTML = TROPHIES.map(t => {
+      const ok = earned.includes(t.id);
+      return `<div class="trophy-card ${ok?'earned':'locked'}">
+        <div class="tc-icon">${t.icon}</div>
+        <div class="tc-name">${t.name}</div>
+        <div class="tc-req">${ok?'✅ Earned':t.req}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
 /* ─── DAILY CHALLENGE ─── */
 const DAILY_CHALLENGES = [
   { icon:'🎯', title:'Quiz Champion',      desc:'Answer 5 Quiz questions correctly!',  action:'quiz',     target:5, key:'quiz_correct' },
@@ -2900,88 +2945,82 @@ function renderChallenge() {
     </div>`;
 }
 
-;
+/* ─── BOOT ENHANCEMENTS ─── */
+const _origBoot = boot;
+boot = async function() {
+  await _origBoot();
+  updateStreak();
+  checkTrophies();
+  // Switch to Home as default tab
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-home')?.classList.add('active');
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-home')?.classList.add('active');
+  renderHome();
+};
 
 function showKKToast(msg) {
   const t = document.getElementById('toast');
   if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
 }
+</script>
 
-
+<script>
 /* ════════════════════════════════════════════════════════════
    KOPPAL KIDS v8.0 — Navigation Redesign + Back Button + State
 ════════════════════════════════════════════════════════════ */
 
 /* ── State ── */
-let _currentMainTab = 'learn';
+const LEARN_TABS = ['alphabet','words','sentences','evs','grammar','maths','story','rhymes','quiz'];
+let _currentMainTab   = 'home';   // home | progress | designedby | <learn tab>
 let _currentLearnTab  = 'alphabet';
+let _navHistory       = [];        // for back button
+let _historyPushed    = false;
 
 /* ════════════════════════════════════════════════════════════
    BOTTOM NAV — only 3 buttons: home | progress | designedby
 ════════════════════════════════════════════════════════════ */
 function bnNav(tab) {
-  if      (tab==='learn')   goLearn();
-  else if (tab==='games')   goGames();
-  else if (tab==='rewards') goRewards();
-  else if (tab==='about')   goAbout();
-  else if (tab==='profile') goAbout(); // alias
+  if (tab === 'home')       goHome();
+  else if (tab === 'progress')  goProgress();
+  else if (tab === 'designedby') goDesignedBy();
 }
 
 function setActiveBnBtn(tab) {
   document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
-  const map = {learn:'bn-learn',games:'bn-games',rewards:'bn-rewards',
-               about:'bn-about',profile:'bn-about',designedby:'bn-about'};
-  const btn = document.getElementById(map[tab] || 'bn-learn');
+  const map = { home:'bn-home', progress:'bn-progress', designedby:'bn-designedby' };
+  const btnId = map[tab] || 'bn-home';
+  const btn = document.getElementById(btnId);
   if (btn) btn.classList.add('active');
 }
 
 /* ════════════════════════════════════════════════════════════
    THREE MAIN VIEWS
 ════════════════════════════════════════════════════════════ */
-
-function goLearn(fromBack) {
-  _currentMainTab = 'learn';
-  saveKK('lastTab','learn');
-  /* Restore any displaced learn sections back to main-content */
-  const mc = document.getElementById('main-content');
-  ['sec-alphabet','sec-words','sec-sentences','sec-evs','sec-grammar',
-   'sec-maths','sec-story','sec-rhymes','sec-quiz','sec-challenge'].forEach(id=>{
-    const s=document.getElementById(id);
-    if(s && s.parentElement!==mc) mc.appendChild(s);
-  });
+function goHome(fromBack) {
+  _currentMainTab = 'home';
+  saveKK('lastTab','home');
   showSection('sec-home');
-  setActiveBnBtn('learn');
+  setActiveBnBtn('home');
   renderHomeV8();
-  if (!fromBack) pushHistory({tab:'learn'});
+  if (!fromBack) pushHistory({ tab:'home' });
 }
 
-function goGames(fromBack) {
-  _currentMainTab = 'games';
-  saveKK('lastTab','games');
-  showSection('sec-games');
-  setActiveBnBtn('games');
-  renderGamesHub();
-  if (!fromBack) pushHistory({tab:'games'});
+function goProgress(fromBack) {
+  _currentMainTab = 'progress';
+  saveKK('lastTab','progress');
+  showSection('sec-progress');
+  setActiveBnBtn('progress');
+  renderProgressV8();
+  if (!fromBack) pushHistory({ tab:'progress' });
 }
 
-function goRewards(fromBack) {
-  _currentMainTab = 'rewards';
-  saveKK('lastTab','rewards');
-  showSection('sec-rewards');
-  setActiveBnBtn('rewards');
-  renderRewardsPage();
-  if (!fromBack) pushHistory({tab:'rewards'});
-}
-
-function goProfile(fromBack) { goAbout(fromBack); }
-
-function goAbout(fromBack) {
-  _currentMainTab = 'about';
-  saveKK('lastTab','about');
-  showSection('sec-about');
-  setActiveBnBtn('about');
-  renderAboutPage();
-  if (!fromBack) pushHistory({tab:'about'});
+function goDesignedBy(fromBack) {
+  _currentMainTab = 'designedby';
+  saveKK('lastTab','designedby');
+  showSection('sec-designedby');
+  setActiveBnBtn('designedby');
+  if (!fromBack) pushHistory({ tab:'designedby' });
 }
 
 function goLearnTab(tab, fromBack) {
@@ -2990,7 +3029,7 @@ function goLearnTab(tab, fromBack) {
   saveKK('lastTab', 'learnhub');
   saveKK('lastLearnTab', tab);
   showSection('sec-learnhub');
-  setActiveBnBtn('learn');
+  setActiveBnBtn('home');
   renderLearnHub(tab);
   if (!fromBack) pushHistory({ tab:'learnhub', learn: tab });
 }
@@ -3029,61 +3068,63 @@ function switchLearnTab(tab) {
 }
 
 function loadLearnContent(tab) {
-  /* ── All learn section IDs ── */
-  const LEARN_SECTIONS = ['sec-alphabet','sec-words','sec-sentences',
-    'sec-evs','sec-grammar','sec-maths','sec-story','sec-rhymes',
-    'sec-quiz','sec-challenge'];
+  // Point learn-hub-content to the right existing section content
+  const hub = document.getElementById('learn-hub-content');
+  if (!hub) return;
 
+  // Detach all learn sections and re-attach the right one
   const sectionMap = {
-    alphabet:'sec-alphabet', words:'sec-words', sentences:'sec-sentences',
-    evs:'sec-evs', grammar:'sec-grammar', maths:'sec-maths',
-    story:'sec-story', rhymes:'sec-rhymes', quiz:'sec-quiz',
-    challenge:'sec-challenge',
+    alphabet:  'sec-alphabet',
+    words:     'sec-words',
+    sentences: 'sec-sentences',
+    evs:       'sec-evs',
+    grammar:   'sec-grammar',
+    maths:     'sec-maths',
+    story:     'sec-story',
+    rhymes:    'sec-rhymes',
+    quiz:      'sec-quiz',
+    challenge: 'sec-challenge',
   };
 
-  /* 1. Move ALL learn sections back to #main-content (if they were displaced) */
-  const mainContent = document.getElementById('main-content');
-  LEARN_SECTIONS.forEach(id => {
-    const s = document.getElementById(id);
-    if (s && s.parentElement !== mainContent) {
-      mainContent.appendChild(s);
-    }
-  });
-
-  /* 2. Hide every section */
-  document.querySelectorAll('.section').forEach(s => {
-    s.style.display = 'none';
-    s.classList.remove('active');
-  });
-
-  /* 3. Show the learnhub wrapper (which has the learn-hub-content slot) */
-  const hub = document.getElementById('sec-learnhub');
-  if (hub) { hub.style.display = 'block'; hub.classList.add('active'); }
-
-  /* 4. Show the target learn section inside learn-hub-content */
   const targetId = sectionMap[tab];
   const target   = document.getElementById(targetId);
-  const slot     = document.getElementById('learn-hub-content');
-  if (target && slot) {
-    /* Move section into the slot — but KEEP its original id intact */
-    slot.innerHTML = '';
-    slot.appendChild(target);
+  if (!target) return;
+
+  // Move the inner content into hub (keep the section in DOM for reference)
+  hub.innerHTML = '';
+  // Clone and show the section's content
+  const clone = target.cloneNode(true);
+  clone.classList.add('active');
+  clone.style.display = 'block';
+  clone.removeAttribute('id'); // avoid duplicate IDs — we'll sync back
+  hub.appendChild(clone);
+
+  // Actually just show/hide sections instead — cleaner
+  hub.innerHTML = '';
+  // Hide all learn sections
+  Object.values(sectionMap).forEach(id => {
+    const s = document.getElementById(id);
+    if (s) { s.style.display = 'none'; s.classList.remove('active'); }
+  });
+  // Show the target
+  if (target) {
     target.style.display = 'block';
     target.classList.add('active');
+    hub.appendChild(target);
   }
 
-  /* 5. Call the render function for this tab */
+  // Trigger existing render functions
   const renderMap = {
-    alphabet:  () => { if(typeof renderAlphaCats==='function'){ renderAlphaCats(); renderAlphaContent(alphaActiveCat||0); } },
-    words:     () => { if(typeof renderWordsCats==='function' && WORDS_DATA){ renderWordsCats(); renderWordCards(wordsActiveCat||0); } },
-    sentences: () => { if(typeof renderSentCats==='function' && SENTENCES_DATA){ renderSentCats(); renderSentences(sentActiveCat||0); } },
-    evs:       () => { if(typeof renderEVSCats==='function' && EVS_DATA){ renderEVSCats(); renderEVSCards(evsActiveCat||0); } },
-    grammar:   () => { if(typeof renderGramCats==='function' && GRAM_DATA){ renderGramCats(); renderGramCards(gramActiveCat||0); } },
-    maths:     () => { if(typeof renderMathCats==='function' && MATH_DATA){ renderMathCats(); renderMaths(mathActiveCat||0); } },
-    story:     () => { if(typeof renderStories==='function') renderStories(); },
-    rhymes:    () => { if(typeof renderRhymes==='function') renderRhymes(); },
-    quiz:      () => { if(typeof startQuiz==='function' && (!quizPool||!quizPool.length)) startQuiz(); },
-    challenge: () => { if(typeof renderChallenge==='function') renderChallenge(); },
+    alphabet:  () => { if(ALPHA_DATA) renderAlphaCats(); renderAlphaContent(alphaActiveCat||0); },
+    words:     () => { if(WORDS_DATA) { renderWordsCats(); renderWordCards(wordsActiveCat||0); } },
+    sentences: () => { if(SENTENCES_DATA) { renderSentCats(); renderSentences(sentActiveCat||0); } },
+    evs:       () => { if(EVS_DATA) { renderEVSCats(); renderEVSCards(evsActiveCat||0); } },
+    grammar:   () => { if(GRAM_DATA) { renderGramCats(); renderGramCards(gramActiveCat||0); } },
+    maths:     () => { if(MATH_DATA) { renderMathCats(); renderMaths(mathActiveCat||0); } },
+    story:     () => renderStories(),
+    rhymes:    () => renderRhymes(),
+    quiz:      () => { if(typeof startQuiz==='function' && !quizPool.length) startQuiz(); },
+    challenge: () => renderChallenge(),
   };
   if (renderMap[tab]) renderMap[tab]();
 }
@@ -3091,7 +3132,15 @@ function loadLearnContent(tab) {
 /* ════════════════════════════════════════════════════════════
    OVERRIDE switchTab (used by home cards + challenge button)
 ════════════════════════════════════════════════════════════ */
-
+// Override the existing switchTab completely
+const _v8OrigSwitch = typeof switchTab === 'function' ? switchTab : null;
+switchTab = function(tab) {
+  if (tab === 'home')        { goHome(); return; }
+  if (tab === 'progress')    { goProgress(); return; }
+  if (tab === 'designedby')  { goDesignedBy(); return; }
+  if (tab === 'challenge')   { goLearnTab('challenge'); return; }
+  goLearnTab(tab);
+};
 
 /* ════════════════════════════════════════════════════════════
    SHOW SECTION HELPER
@@ -3140,50 +3189,108 @@ function renderHomeV8() {
 }
 
 /* ════════════════════════════════════════════════════════════
-   REDESIGNED PROGRESS renderRewardsPage
+   REDESIGNED PROGRESS renderProgressV8
 ════════════════════════════════════════════════════════════ */
+function renderProgressV8() {
+  // Greeting
+  const g = typeof getGreeting === 'function' ? getGreeting() : { text:'Hello!', sub:'Keep going!' };
+  const gEl = document.getElementById('ptw-greeting');
+  const sEl = document.getElementById('ptw-sub');
+  const aEl = document.getElementById('ptw-avatar');
+  if (gEl) gEl.textContent = g.text;
+  if (sEl) sEl.textContent = g.sub;
 
+  // Daily challenge status
+  const chalDone = (typeof loadKK==='function') && loadKK('chall_today','') === (new Date().toISOString().slice(0,10));
+  const pdEl = document.getElementById('ptd-status');
+  if (pdEl) pdEl.textContent = chalDone ? '✅ Done!' : 'Start!';
+
+  // Progress bars
+  const stars  = parseInt(localStorage.getItem('kk_stars')||0);
+  const streak = (typeof loadKK==='function') ? loadKK('streak',0) : 0;
+  const earned = (typeof loadKK==='function') ? loadKK('trophies_earned',[]) : [];
+  const stories= (typeof loadKK==='function') ? loadKK('stories_read',0) : 0;
+  const barsEl = document.getElementById('prog-tab-bars');
+  if (barsEl) {
+    const items = [
+      {label:'⭐ Stars',    val:Math.min(stars,200), max:200, color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)'},
+      {label:'🔥 Streak',  val:streak,   max:7,   color:'linear-gradient(90deg,#f97316,#eab308)'},
+      {label:'🏆 Trophies',val:earned.length, max:(typeof TROPHIES!=='undefined'?TROPHIES.length:15), color:'linear-gradient(90deg,#f59e0b,#26de81)'},
+      {label:'📖 Stories', val:stories,  max:10,  color:'linear-gradient(90deg,#8b5cf6,#ec4899)'},
+    ];
+    barsEl.innerHTML = items.map(it => {
+      const pct = Math.round(it.val/it.max*100);
+      return `<div class="prog-row">
+        <span class="prog-label">${it.label}</span>
+        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
+        <span class="prog-val">${it.val}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Call existing renderProgress for stats+trophies
+  if (typeof renderProgress === 'function') renderProgress();
+}
 
 /* ════════════════════════════════════════════════════════════
    HISTORY API — Android back button
 ════════════════════════════════════════════════════════════ */
 function pushHistory(state) {
-  // Simplified: only push when leaving home, so back always returns to home
-  if (state && state.tab !== 'home') {
-    history.pushState({tab:'home'}, '', window.location.pathname);
-  }
+  history.pushState(state, '', window.location.pathname + (state.tab==='home'?'':'#'+state.tab));
 }
 
 window.addEventListener('popstate', event => {
-  const s = event.state;
-  if (!s || s.tab === 'learn') { goLearn(true); return; }
-  if (s.tab === 'games')      goGames(true);
-  else if (s.tab === 'rewards') goRewards(true);
-  else if (s.tab === 'about')   goAbout(true);
-  else if (s.tab === 'learnhub') goLearnTab(s.learn||'alphabet', true);
-  else goLearn(true);
+  const state = event.state;
+  if (!state) {
+    // Went back past app entry — go home
+    goHome(true);
+    return;
+  }
+  const { tab, learn } = state;
+  if (tab === 'home')        goHome(true);
+  else if (tab === 'progress')   goProgress(true);
+  else if (tab === 'designedby') goDesignedBy(true);
+  else if (tab === 'learnhub')   goLearnTab(learn || 'alphabet', true);
+  else goHome(true);
 });
 
 /* ════════════════════════════════════════════════════════════
    REMEMBER LAST TAB — restore on reload
 ════════════════════════════════════════════════════════════ */
 function restoreLastTab() {
-  // Always open Learn (home grid) on start/refresh
-  history.replaceState({tab:'learn'}, '', window.location.pathname);
-  goLearn(true);
+  const last      = (typeof loadKK==='function') ? loadKK('lastTab','home') : 'home';
+  const lastLearn = (typeof loadKK==='function') ? loadKK('lastLearnTab','alphabet') : 'alphabet';
+  if (last === 'progress')    goProgress(true);
+  else if (last === 'designedby') goDesignedBy(true);
+  else if (last === 'learnhub')   goLearnTab(lastLearn, true);
+  else goHome(true);
+  // Push initial history entry so first popstate goes home
+  history.replaceState({ tab: last==='learnhub'?'learnhub':'home', learn: lastLearn }, '', window.location.pathname);
 }
 
 /* ════════════════════════════════════════════════════════════
    OVERRIDE BOOT — call restoreLastTab after data loads
 ════════════════════════════════════════════════════════════ */
-;
+const _v8OrigBoot = typeof boot === 'function' ? boot : null;
+boot = async function() {
+  if (_v8OrigBoot) await _v8OrigBoot();
+  // Hide all sections initially
+  document.querySelectorAll('.section').forEach(s => { s.style.display='none'; s.classList.remove('active'); });
+  restoreLastTab();
+};
 
+/* Expose goToChallenge for progress tab button */
+window.goToChallenge = function() { goLearnTab('challenge'); };
 
 /* ════════════════════════════════════════════════════════════
    ABOUT PAGE — mirror hw-stars update
 ════════════════════════════════════════════════════════════ */
 // Sync hdr-badge stars to hw-stars on addStar
-;
+const _v8OrigAddStar = typeof addStar === 'function' ? addStar : null;
+addStar = function(n) {
+  if (_v8OrigAddStar) _v8OrigAddStar(n);
+
+};
 
 console.log('[v8] Navigation module loaded');
 
@@ -3192,7 +3299,6 @@ console.log('[v8] Navigation module loaded');
    Left swipe  → next subcategory
    Right swipe → previous subcategory  
 ════════════════════════════════════════════════════════════ */
-/* ── SWIPE on STRIP pills AND on content area ── */
 function addSwipeToStrip(stripEl) {
   if (!stripEl || stripEl.dataset.swipeAttached) return;
   stripEl.dataset.swipeAttached = '1';
@@ -3208,7 +3314,7 @@ function addSwipeToStrip(stripEl) {
     if (Math.abs(dx) < 55 || Math.abs(dy) > 55 || Date.now()-tt > 380) return;
     const pills = Array.from(stripEl.querySelectorAll('.cat-pill'));
     if (pills.length < 2) return;
-    const cur = pills.findIndex(p => p.classList.contains('active'));
+    const cur  = pills.findIndex(p => p.classList.contains('active'));
     if (cur < 0) return;
     const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
     if (next !== cur) {
@@ -3218,410 +3324,18 @@ function addSwipeToStrip(stripEl) {
   }, {passive:true});
 }
 
-/* ══════════════════════════════════════════════════════════════
-   KOPPAL KIDS v9.0 — Games Hub, Rewards, Profile/Student System
-══════════════════════════════════════════════════════════════ */
+/* Observe DOM for new .cat-scroll strips and attach swipe */
+new MutationObserver(muts => {
+  muts.forEach(m => m.addedNodes.forEach(node => {
+    if (!node.querySelectorAll) return;
+    node.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
+    if (node.classList && node.classList.contains('cat-scroll')) addSwipeToStrip(node);
+  }));
+}).observe(document.body, {childList:true, subtree:true});
 
-/* ── GAMES HUB ── */
-const GAME_CARDS = [
-  {id:'balloon',   icon:'🎈', title:'Balloon Blast',   sub:'Pop the right letter!',     learn:'alphabet'},
-  {id:'moving',    icon:'🌀', title:'Catch the Letter',sub:'Tap the moving letter!',     learn:'alphabet'},
-  {id:'puzzle',    icon:'🧩', title:'Word Puzzle',      sub:'Unscramble the word!',       learn:'alphabet'},
-  {id:'flipcard',  icon:'🃏', title:'Flip Cards',       sub:'Match letter to picture!',   learn:'alphabet'},
-  {id:'speedtap',  icon:'⚡', title:'Speed Tap',        sub:'Tap fast before time runs!', learn:'alphabet'},
-  {id:'bingo',     icon:'🎱', title:'Letter Bingo',     sub:'Get 5 in a row!',            learn:'alphabet'},
-  {id:'spinwheel', icon:'🎡', title:'Spin & Learn',     sub:'Spin the wheel!',            learn:'alphabet'},
-  {id:'quiz',      icon:'🎯', title:'Word Quiz',         sub:'Test your knowledge!',       learn:'quiz'},
-  {id:'match',     icon:'🎯', title:'Match Letters',    sub:'Capital ↔ Small',            learn:'alphabet'},
-  {id:'missing',   icon:'❓', title:'Missing Letters',  sub:'Fill the blank!',            learn:'alphabet'},
-  {id:'order',     icon:'📋', title:'Alphabet Order',   sub:'A to Z in sequence!',        learn:'alphabet'},
-  {id:'connect-caps',icon:'🔵',title:'Connect Dots A–Z','sub':'Draw A to Z!',             learn:'alphabet'},
-  {id:'flashcard-race',icon:'🏁',title:'Flashcard Race','sub':'Fastest learner wins!',    learn:'alphabet'},
-];
+/* Attach to already-rendered strips */
+document.querySelectorAll('.cat-scroll').forEach(addSwipeToStrip);
 
-function renderGamesHub() {
-  const grid = document.getElementById('games-grid');
-  if (!grid) return;
-  grid.innerHTML = GAME_CARDS.map(g => `
-    <div class="home-card hc-quiz" onclick="openGame('${g.learn}','${g.id}')">
-      <div class="home-card-icon">${g.icon}</div>
-      <div class="home-card-title">${g.title}</div>
-      <div class="home-card-sub">${g.sub}</div>
-    </div>`).join('');
-}
-
-function openGame(learnTab, gameId) {
-  // go to learn tab then switch to the specific game category
-  goLearnTab(learnTab, false);
-  setTimeout(() => {
-    // find the cat pill matching this game id and click it
-    const pills = document.querySelectorAll('.cat-pill');
-    pills.forEach(p => {
-      const txt = p.textContent.toLowerCase();
-      const map = {
-        balloon:'Balloon',moving:'Catch',puzzle:'Word Puzzle',flipcard:'Flip',
-        speedtap:'Speed',bingo:'Bingo',spinwheel:'Spin',match:'Match',
-        missing:'Missing',order:'Alphabet Order','connect-caps':'Connect Dots A',
-        'flashcard-race':'Flashcard'
-      };
-      if (map[gameId] && txt.includes(map[gameId].toLowerCase())) p.click();
-    });
-  }, 400);
-}
-
-/* ── REWARDS PAGE ── */
-function renderRewardsPage() {
-  const stars  = parseInt(localStorage.getItem('kk_stars')||0);
-  const streak = loadKK('streak',0);
-  const earned = loadKK('trophies_earned',[]);
-  const sg = document.getElementById('rewards-stats-grid');
-  if (sg) {
-    sg.innerHTML = [
-      {label:'⭐ Total Stars',    val:stars},
-      {label:'🔥 Day Streak',     val:streak},
-      {label:'🏅 Trophies',       val:earned.length+' / '+TROPHIES.length},
-      {label:'⚡ Challenges Done',val:loadKK('chall_count',0)},
-      {label:'📖 Stories Read',   val:loadKK('stories_read',0)},
-      {label:'🎵 Rhymes Sung',    val:loadKK('rhymes_sung',0)},
-    ].map(s=>`<div class="stat-card"><div class="stat-num">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join('');
-  }
-  const tg = document.getElementById('rewards-trophies-grid');
-  if (tg) {
-    tg.innerHTML = TROPHIES.map(t => {
-      const ok = earned.includes(t.id);
-      return `<div class="trophy-card ${ok?'earned':'locked'}">
-        <div class="tc-icon">${t.icon}</div>
-        <div class="tc-name">${t.name}</div>
-        <div class="tc-req">${ok?'✅ Earned':t.req}</div>
-      </div>`;
-    }).join('');
-  }
-}
-
-/* ══════════════════════════════════════════════════════════════
-   STUDENT PROFILE SYSTEM
-   localStorage keys:
-     kk_students   = [{id,name,age,grade,avatar,stars,streak,...}]
-     kk_active_id  = id of current active student
-   All progress (stars, trophies, streak) is per-student.
-   Registration is optional — guest mode always available.
-══════════════════════════════════════════════════════════════ */
-
-const AVATARS = ['🧒','👦','👧','🧑','👨','👩','🐯','🦁','🐘','🦋','⭐','🌟'];
-
-function getStudents()    { return loadKK('students',[]); }
-function getActiveId()    { return loadKK('active_id', null); }
-function getActiveStudent() {
-  const id = getActiveId();
-  return getStudents().find(s => s.id === id) || null;
-}
-
-function saveStudents(arr) { saveKK('students', arr); }
-
-function switchStudent(id) {
-  const students = getStudents();
-  const st = students.find(s => s.id === id);
-  if (!st) return;
-  // Save current student's progress before switching
-  saveCurrentProgress();
-  // Load new student's progress
-  saveKK('active_id', id);
-  localStorage.setItem('kk_stars',  st.stars  || 0);
-  saveKK('streak',    st.streak  || 0);
-  saveKK('last_day',  st.last_day || '');
-  saveKK('trophies_earned', st.trophies || []);
-  saveKK('chall_today',     st.chall_today || '');
-  saveKK('chall_count',     st.chall_count || 0);
-  saveKK('stories_read',    st.stories_read || 0);
-  saveKK('rhymes_sung',     st.rhymes_sung || 0);
-  // Update header star count
-  const sc = document.getElementById('star-count');
-  if (sc) sc.textContent = st.stars || 0;
-  showKKToast('👋 Welcome back, '+st.name+'!');
-  renderProfilePage();
-}
-
-function saveCurrentProgress() {
-  const id = getActiveId();
-  if (!id) return;
-  const students = getStudents();
-  const idx = students.findIndex(s => s.id === id);
-  if (idx < 0) return;
-  students[idx].stars       = parseInt(localStorage.getItem('kk_stars')||0);
-  students[idx].streak      = loadKK('streak',0);
-  students[idx].last_day    = loadKK('last_day','');
-  students[idx].trophies    = loadKK('trophies_earned',[]);
-  students[idx].chall_today = loadKK('chall_today','');
-  students[idx].chall_count = loadKK('chall_count',0);
-  students[idx].stories_read= loadKK('stories_read',0);
-  students[idx].rhymes_sung = loadKK('rhymes_sung',0);
-  saveStudents(students);
-}
-
-// Hook into addStar to auto-save progress
-;
-
-/* ── PROFILE PAGE RENDER ── */
-function renderProfilePage() {
-  const area = document.getElementById('profile-content');
-  if (!area) return;
-  const students = getStudents();
-  const active   = getActiveStudent();
-
-  if (!active && students.length === 0) {
-    // No students yet — show welcome + registration form
-    area.innerHTML = `
-      <div class="profile-no-user">
-        <div class="pnu-icon">👤</div>
-        <h3>Welcome to Koppal Kids!</h3>
-        <p>Register your name to save your stars, trophies and streak.<br>
-           <em>Registration is optional — you can skip it and learn as a guest.</em></p>
-      </div>
-      ${buildRegisterForm('', true)}
-      <div style="text-align:center;margin-top:8px">
-        <button onclick="goHome()" style="padding:10px 24px;border:2px solid #e0d6f5;border-radius:50px;background:transparent;color:var(--muted);font-weight:700;font-size:.85rem;cursor:pointer">
-          Skip — Learn as Guest
-        </button>
-      </div>`;
-  } else if (active) {
-    // Active student card + actions
-    const initials = active.name.trim().charAt(0).toUpperCase();
-    const stars    = parseInt(localStorage.getItem('kk_stars')||0);
-    const streak   = loadKK('streak',0);
-    const earned   = loadKK('trophies_earned',[]).length;
-    area.innerHTML = `
-      <div class="profile-card">
-        <div class="pc-avatar">${active.avatar||initials}</div>
-        <div class="pc-name">${active.name}</div>
-        <div class="pc-info">Grade ${active.grade||'—'} · Age ${active.age||'—'} · ${active.school||'Koppal'}</div>
-        <div class="pc-stars">⭐ ${stars} Stars &nbsp;🔥 ${streak} Streak &nbsp;🏅 ${earned} Trophies</div>
-      </div>
-
-      ${students.length > 1 ? buildSwitchCard(students, active.id) : ''}
-
-      <div class="profile-actions">
-        <button class="pf-action-btn pf-edit"   onclick="showEditForm()">✏️ Edit Profile</button>
-        <button class="pf-action-btn pf-switch"  onclick="showAddForm()">➕ Add Another Student</button>
-        <button class="pf-action-btn pf-reset"   onclick="confirmReset()">🗑️ Reset My Progress</button>
-      </div>
-
-      <div id="profile-extra-form"></div>`;
-  } else {
-    // Students exist but none active — show picker
-    area.innerHTML = `
-      <div class="sec-head" style="margin-bottom:12px">
-        <h2 style="font-size:1.1rem">Who is learning today?</h2>
-      </div>
-      ${buildSwitchCard(students, null)}
-      <div style="margin-top:8px">${buildRegisterForm('',false)}</div>`;
-  }
-}
-
-function buildSwitchCard(students, activeId) {
-  const items = students.map(s => `
-    <div class="user-item${s.id===activeId?' active-user':''}" onclick="switchStudent('${s.id}')">
-      <div class="ui-avatar">${s.avatar || s.name.charAt(0).toUpperCase()}</div>
-      <div>
-        <div class="ui-name">${s.name}</div>
-        <div class="ui-stats">Grade ${s.grade||'—'} · ⭐${s.stars||0} Stars</div>
-      </div>
-      ${s.id===activeId ? '<span class="ui-active-badge">Active</span>' : ''}
-    </div>`).join('');
-  return `<div class="switch-users-card">
-    <h4>👥 Students on this device</h4>
-    ${items}
-    <button class="add-user-btn" onclick="showAddForm()">➕ Add New Student</button>
-  </div>`;
-}
-
-function buildRegisterForm(prefill, isFirst) {
-  const p = prefill || {};
-  return `<div class="profile-form-card" id="reg-form-card">
-    <h4>${isFirst ? '📝 Register (Optional)' : '➕ Add New Student'}</h4>
-    <div class="pf-field">
-      <label class="pf-label">Full Name *</label>
-      <input class="pf-input" id="pf-name" type="text" placeholder="e.g. Ramu Patil" value="${p.name||''}" maxlength="40">
-    </div>
-    <div class="pf-row">
-      <div class="pf-field">
-        <label class="pf-label">Age</label>
-        <select class="pf-select" id="pf-age">
-          <option value="">Age</option>
-          ${[3,4,5,6,7,8,9,10,11,12].map(a=>`<option${p.age==a?' selected':''}>${a}</option>`).join('')}
-        </select>
-      </div>
-      <div class="pf-field">
-        <label class="pf-label">Grade / Class</label>
-        <select class="pf-select" id="pf-grade">
-          <option value="">Grade</option>
-          ${['LKG','UKG','1st','2nd','3rd','4th','5th'].map(g=>`<option${p.grade===g?' selected':''}>${g}</option>`).join('')}
-        </select>
-      </div>
-    </div>
-    <div class="pf-field">
-      <label class="pf-label">School Name (optional)</label>
-      <input class="pf-input" id="pf-school" type="text" placeholder="e.g. Govt HS Koppal" value="${p.school||''}" maxlength="60">
-    </div>
-    <div class="pf-field">
-      <label class="pf-label">Choose Avatar</label>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px" id="avatar-picker">
-        ${AVATARS.map(av=>`<div onclick="pickAvatar('${av}',this)" style="font-size:1.8rem;cursor:pointer;padding:6px;border-radius:10px;border:2.5px solid ${(p.avatar||AVATARS[0])===av?'var(--primary)':'#e0d6f5'};transition:all .15s">${av}</div>`).join('')}
-      </div>
-      <input type="hidden" id="pf-avatar" value="${p.avatar||AVATARS[0]}">
-    </div>
-    <button class="pf-save-btn" onclick="saveStudent()">💾 Save & Start Learning!</button>
-  </div>`;
-}
-
-function pickAvatar(av, el) {
-  document.getElementById('pf-avatar').value = av;
-  document.querySelectorAll('#avatar-picker div').forEach(d => d.style.borderColor='#e0d6f5');
-  el.style.borderColor = 'var(--primary)';
-}
-
-function saveStudent() {
-  const name   = (document.getElementById('pf-name')?.value||'').trim();
-  if (!name) { showKKToast('❗ Please enter a name'); return; }
-  const age    = document.getElementById('pf-age')?.value || '';
-  const grade  = document.getElementById('pf-grade')?.value || '';
-  const school = (document.getElementById('pf-school')?.value||'').trim();
-  const avatar = document.getElementById('pf-avatar')?.value || AVATARS[0];
-  const id     = document.getElementById('pf-student-id')?.value || 'st_'+Date.now();
-
-  const students = getStudents();
-  const existing = students.findIndex(s => s.id === id);
-  const entry = { id, name, age, grade, school, avatar,
-    stars: parseInt(localStorage.getItem('kk_stars')||0),
-    streak:0, trophies:[], chall_count:0, stories_read:0, rhymes_sung:0 };
-
-  if (existing >= 0) { students[existing] = {...students[existing], ...entry}; }
-  else               { students.push(entry); }
-  saveStudents(students);
-  switchStudent(id);
-  showKKToast('✅ Profile saved! Welcome, '+name+'!');
-}
-
-function showAddForm() {
-  const extra = document.getElementById('profile-extra-form');
-  if (extra) extra.innerHTML = buildRegisterForm('', false);
-  extra?.scrollIntoView({behavior:'smooth'});
-}
-
-function showEditForm() {
-  const active = getActiveStudent();
-  if (!active) return;
-  const extra = document.getElementById('profile-extra-form');
-  if (extra) {
-    extra.innerHTML = buildRegisterForm(active, false)
-      .replace('id="reg-form-card"','id="reg-form-card"')
-      .replace('<h4>➕ Add New Student</h4>','<h4>✏️ Edit Profile</h4>');
-    // inject hidden id field
-    const form = document.getElementById('reg-form-card');
-    if (form) {
-      const hid = document.createElement('input');
-      hid.type='hidden'; hid.id='pf-student-id'; hid.value=active.id;
-      form.appendChild(hid);
-    }
-  }
-  extra?.scrollIntoView({behavior:'smooth'});
-}
-
-function confirmReset() {
-  showConfirm(
-    '🗑️ Reset Progress?',
-    'This will clear all your stars, trophies and streak. This cannot be undone!',
-    () => {
-      const id = getActiveId();
-      const students = getStudents();
-      const idx = students.findIndex(s=>s.id===id);
-      if (idx>=0) {
-        students[idx].stars=0; students[idx].streak=0;
-        students[idx].trophies=[]; students[idx].chall_count=0;
-        students[idx].stories_read=0; students[idx].rhymes_sung=0;
-        saveStudents(students);
-      }
-      localStorage.setItem('kk_stars','0');
-      saveKK('streak',0); saveKK('trophies_earned',[]);
-      saveKK('chall_count',0); saveKK('stories_read',0); saveKK('rhymes_sung',0);
-      const sc = document.getElementById('star-count');
-      if (sc) sc.textContent = '0';
-      showKKToast('✅ Progress reset!');
-      renderProfilePage();
-    }
-  );
-}
-
-/* ── CONFIRM DIALOG ── */
-let _confirmCallback = null;
-function showConfirm(title, msg, cb) {
-  document.getElementById('confirm-title').textContent = title;
-  document.getElementById('confirm-msg').textContent   = msg;
-  _confirmCallback = cb;
-  document.getElementById('confirm-overlay').classList.add('show');
-  document.getElementById('confirm-yes').onclick = () => { closeConfirm(); if(_confirmCallback) _confirmCallback(); };
-}
-function closeConfirm() {
-  document.getElementById('confirm-overlay').classList.remove('show');
-}
-
-/* ── On boot, show profile prompt if no students registered ── */
-;
-
-
-/* ── renderAboutPage: student profile slot at top of About ── */
-function renderAboutPage() {
-  const slot = document.getElementById('about-profile-slot');
-  if (!slot) return;
-  const students = getStudents();
-  const active   = getActiveStudent();
-
-  if (!active && students.length === 0) {
-    // No student — show compact register prompt
-    slot.innerHTML = `
-      <div class="profile-form-card">
-        <h4>👤 Register (Optional)</h4>
-        <p style="font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:12px">
-          Save your stars &amp; trophies. Registration is optional.</p>
-        ${buildRegisterForm('', true)}
-        <button onclick="slot.innerHTML=\'\'" style="width:100%;padding:10px;border:2px solid #e0d6f5;border-radius:50px;background:transparent;color:var(--muted);font-weight:700;font-size:.82rem;cursor:pointer;margin-top:6px">
-          Skip — Learn as Guest
-        </button>
-      </div>`;
-  } else if (active) {
-    const stars  = parseInt(localStorage.getItem('kk_stars')||0);
-    const streak = loadKK('streak',0);
-    const earned = loadKK('trophies_earned',[]).length;
-    const initials = active.name.trim().charAt(0).toUpperCase();
-    slot.innerHTML = `
-      <div class="profile-card" style="margin-bottom:12px">
-        <div class="pc-avatar">${active.avatar||initials}</div>
-        <div class="pc-name">${active.name}</div>
-        <div class="pc-info">Grade ${active.grade||'—'} · Age ${active.age||'—'}</div>
-        <div class="pc-stars">⭐ ${stars} Stars &nbsp;🔥 ${streak} Streak &nbsp;🏅 ${earned} Trophies</div>
-      </div>
-      ${students.length > 1 ? buildSwitchCard(students, active.id) : ''}
-      <div class="profile-actions">
-        <button class="pf-action-btn pf-edit"   onclick="showEditForm()">✏️ Edit Profile</button>
-        <button class="pf-action-btn pf-switch"  onclick="showAddForm()">➕ Add Another Student</button>
-        <button class="pf-action-btn pf-reset"   onclick="confirmReset()">🗑️ Reset My Progress</button>
-      </div>
-      <div id="profile-extra-form"></div>`;
-  } else {
-    slot.innerHTML = `
-      <div class="switch-users-card" style="margin-bottom:12px">
-        <h4>👥 Who is learning today?</h4>
-        ${students.map(s=>`
-          <div class="user-item" onclick="switchStudent('${s.id}')">
-            <div class="ui-avatar">${s.avatar||s.name.charAt(0)}</div>
-            <div><div class="ui-name">${s.name}</div>
-            <div class="ui-stats">Grade ${s.grade||'—'} · ⭐${s.stars||0}</div></div>
-          </div>`).join('')}
-        <button class="add-user-btn" onclick="showAddForm()">➕ Add New Student</button>
-      </div>`;
-  }
-}
-
-console.log('[v9] Profile & Games system loaded');
 </script>
 </body>
 </html>
