@@ -68,16 +68,6 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .hdr-badge{display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.32);border-radius:50px;padding:2px 8px;color:#fff;font-size:.7rem;font-weight:800;white-space:nowrap}
 .hdr-badge.gold{background:rgba(247,183,49,.28);border-color:rgba(247,183,49,.6)}
 
-/* ══ TAB BAR ══ */
-.tab-bar{display:flex;overflow-x:auto;scrollbar-width:none;gap:5px;padding:5px 10px 8px}
-.tab-bar::-webkit-scrollbar{display:none}
-.tab-btn{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:6px 13px;border:none;border-radius:50px;background:rgba(255,255,255,.18);color:rgba(255,255,255,.88);font-size:.78rem;font-weight:700;white-space:nowrap;transition:background .2s,color .2s,transform .15s}
-.tab-btn:active{transform:scale(.94)}
-.tab-btn.active{background:#fff;color:var(--primary);box-shadow:0 2px 10px rgba(0,0,0,.14)}
-.tab-btn.tab-evs.active{color:var(--evs)}
-.tab-btn.tab-gram.active{color:var(--gram)}
-.tab-btn.tab-math.active{color:var(--math)}
-
 /* ══ §3 CONTENT ══ */
 #main-content{max-width:960px;margin:0 auto;padding:14px 12px 80px}
 .section{display:none}.section.active{display:block}
@@ -398,7 +388,6 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .spinner{display:inline-block;width:32px;height:32px;border:4px solid #e0d6f5;border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:7px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.app-footer{text-align:center;padding:8px;font-size:.68rem;color:var(--muted);font-weight:600}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:400px){
@@ -435,38 +424,12 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .hc-story::before{background:linear-gradient(90deg,#8b5cf6,#ec4899)}
 .hc-rhymes::before{background:linear-gradient(90deg,#14b8a6,#3b82f6)}
 .hc-challenge::before{background:linear-gradient(90deg,#f7b731,#26de81)}
-.hc-progress::before{background:linear-gradient(90deg,#6c3fc5,#ff6b9d)}
 .home-card-icon{font-size:2.4rem;line-height:1}
 .home-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:var(--text)}
 .home-card-sub{font-size:.68rem;color:var(--muted);font-weight:600}
 .home-card-badge{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:50px}
 
-/* Welcome strip */
-.welcome-strip{background:linear-gradient(135deg,var(--primary),var(--pri2));border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
-.ws-text h3{font-family:'Baloo 2',cursive;font-size:1.1rem;color:#fff;font-weight:800}
-.ws-text p{font-size:.75rem;color:rgba(255,255,255,.82);font-weight:600;margin-top:2px}
-.ws-avatar{font-size:2.6rem;flex-shrink:0}
-
-/* Daily challenge strip */
-.daily-strip{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(245,158,11,.35);cursor:pointer;transition:transform .15s}
-.daily-strip:active{transform:scale(.98)}
-.ds-icon{font-size:2rem;flex-shrink:0}
-.ds-text h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:#fff;font-weight:800}
-.ds-text p{font-size:.72rem;color:rgba(255,255,255,.9);font-weight:600}
-.ds-badge{margin-left:auto;background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.5);border-radius:50px;padding:5px 11px;color:#fff;font-size:.75rem;font-weight:800;flex-shrink:0}
-
-/* Progress summary */
-.prog-strip{background:var(--white);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
-.prog-strip h4{font-family:'Baloo 2',cursive;font-size:.95rem;color:var(--primary);font-weight:800;margin-bottom:10px}
-.prog-bars{display:flex;flex-direction:column;gap:8px}
-.prog-row{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700}
-.prog-label{width:72px;color:var(--muted);flex-shrink:0}
-.prog-bar-wrap{flex:1;height:9px;background:#f0eaff;border-radius:5px;overflow:hidden}
-.prog-bar-fill{height:100%;border-radius:5px;transition:width .8s ease;background:linear-gradient(90deg,var(--primary),var(--pink))}
-.prog-val{width:28px;text-align:right;color:var(--primary)}
-
 /* ── PROGRESS / TROPHY SECTION ── */
-.progress-section{}
 .trophies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-bottom:16px}
 .trophy-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 8px;text-align:center;transition:transform .18s;border:2.5px solid transparent}
 .trophy-card.earned{border-color:var(--accent);background:linear-gradient(135deg,#fffbeb,#fef3c7)}
@@ -480,7 +443,6 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .stat-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 12px;text-align:center}
 .stat-num{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:900;color:var(--primary)}
 .stat-label{font-size:.72rem;color:var(--muted);font-weight:700}
-.streak-fire{font-size:1.4rem}
 
 /* ── DAILY CHALLENGE ── */
 .challenge-card{background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:22px;padding:22px 18px;text-align:center;margin-bottom:14px;color:#fff;box-shadow:0 6px 24px rgba(245,158,11,.4)}
@@ -547,7 +509,6 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   .stats-grid{grid-template-columns:1fr 1fr}
 }
 
-
 /* ══════════════════════════════════════════
    BOTTOM NAV
 ══════════════════════════════════════════ */
@@ -561,7 +522,7 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
   justify-content: space-around;
   align-items: center;
   /* Same vertical footprint as the top header (--hdr-h: 70px) */
-  height: 50px;
+  height: 70px;
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -4px 20px rgba(108,63,197,.45);
 }
@@ -608,9 +569,6 @@ body {
    HEADER — compact (no tab bar inside)
 ══════════════════════════════════════════ */
 
-
-
-
 /* ══════════════════════════════════════════
    HOME WELCOME BANNER
 ══════════════════════════════════════════ */
@@ -623,66 +581,6 @@ body {
   color: var(--primary);
   margin-bottom: 10px;
   padding-left: 2px;
-}
-
-/* ══════════════════════════════════════════
-   MY PROGRESS TAB — welcome/daily/progress cards
-══════════════════════════════════════════ */
-.prog-tab-welcome {
-  background: linear-gradient(135deg, var(--primary), var(--pri2));
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow);
-}
-.ptw-avatar { font-size: 2.4rem; flex-shrink: 0; }
-.ptw-text h3 { font-family:'Baloo 2',cursive; font-size:1.05rem; color:#fff; font-weight:800; }
-.ptw-text p  { font-size:.72rem; color:rgba(255,255,255,.82); font-weight:600; margin-top:2px; }
-
-.prog-tab-daily {
-  background: linear-gradient(135deg,#f59e0b,#f97316);
-  border-radius: var(--radius);
-  padding: 12px 16px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 14px rgba(245,158,11,.3);
-  cursor: pointer;
-  transition: transform .15s;
-}
-.prog-tab-daily:active { transform: scale(.98); }
-.ptd-icon  { font-size: 1.8rem; flex-shrink: 0; }
-.ptd-text h4 { font-family:'Baloo 2',cursive; font-size:.9rem; color:#fff; font-weight:800; }
-.ptd-text p  { font-size:.7rem; color:rgba(255,255,255,.9); font-weight:600; }
-.ptd-badge {
-  margin-left: auto;
-  background: rgba(255,255,255,.25);
-  border: 1.5px solid rgba(255,255,255,.5);
-  border-radius: 50px;
-  padding: 4px 12px;
-  color: #fff;
-  font-size: .72rem;
-  font-weight: 800;
-  flex-shrink: 0;
-}
-
-.prog-tab-bars {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 12px;
-  box-shadow: var(--shadow);
-}
-.prog-tab-bars h4 {
-  font-family:'Baloo 2',cursive;
-  font-size:.95rem;
-  color:var(--primary);
-  font-weight:800;
-  margin-bottom:10px;
 }
 
 /* ══════════════════════════════════════════
@@ -826,11 +724,6 @@ body {
   #bottom-nav { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 20px 20px 0 0; }
   .about-app-stats { grid-template-columns: repeat(4,1fr); }
 }
-@media(max-width:360px) {
-
-
-}
-
 
 /* ══════════════════════════════════════════
    5-TAB BOTTOM NAV (narrower labels)
@@ -953,13 +846,6 @@ body {
 .confirm-btns { display:flex; gap:8px; }
 .confirm-yes { flex:1; padding:11px; border:none; border-radius:50px; background:var(--red); color:#fff; font-weight:800; font-size:.88rem; cursor:pointer; }
 .confirm-no  { flex:1; padding:11px; border:none; border-radius:50px; background:#e0d6f5; color:var(--primary); font-weight:800; font-size:.88rem; cursor:pointer; }
-
-/* ══ GAMES GRID ══ */
-.games-grid-label {
-  font-family:'Baloo 2',cursive; font-size:.88rem; color:var(--muted);
-  font-weight:700; margin:12px 0 8px; text-transform:uppercase; letter-spacing:.05em;
-}
-
 </style>
 </head>
 <body>
@@ -1065,119 +951,12 @@ body {
     <div id="rhymes-content"></div>
   </section>
 
-  <!-- ══ PROGRESS / TROPHIES ══ -->
-  <section id="sec-progress" class="section">
-    <div class="sec-head"><h2 style="color:#f59e0b">📈 My Progress</h2><p>Your learning journey!</p></div>
-
-    <!-- Welcome greeting (moved from home) -->
-    <div class="prog-tab-welcome">
-      <div class="ptw-avatar" id="ptw-avatar">🌟</div>
-      <div class="ptw-text">
-        <h3 id="ptw-greeting">Good day, Learner!</h3>
-        <p id="ptw-sub">Keep learning, keep growing! 🚀</p>
-      </div>
-    </div>
-
-    <!-- Daily challenge strip (moved from home) -->
-    <div class="prog-tab-daily" onclick="goToChallenge()">
-      <div class="ptd-icon">⚡</div>
-      <div class="ptd-text">
-        <h4>Daily Challenge</h4>
-        <p>Complete today's special activity!</p>
-      </div>
-      <div class="ptd-badge" id="ptd-status">Start!</div>
-    </div>
-
-    <!-- Progress bars (moved from home) -->
-    <div class="prog-tab-bars" id="prog-tab-bars-wrap">
-      <h4>📊 Your Progress</h4>
-      <div class="prog-bars" id="prog-tab-bars"></div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats-grid" id="stats-grid"></div>
-    <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
-    <div class="trophies-grid" id="trophies-grid"></div>
-  </section>
-
   <!-- ══ DAILY CHALLENGE ══ -->
   <section id="sec-challenge" class="section">
     <div class="sec-head"><h2 style="color:#f97316">⚡ Daily Challenge</h2><p>A new challenge every day!</p></div>
     <div id="challenge-content"></div>
   </section>
 
-  <!-- ══ DESIGNED BY ══ -->
-  <section id="sec-designedby" class="section">
-    <div class="about-card">
-      <div class="about-avatar-wrap">
-        <div class="about-avatar">
-          <img src="images/profile.jpg" alt="Gavisiddappa HATTI"
-               onerror="this.style.display='none';document.getElementById('about-avatar-emoji').style.display='flex'">
-          <div id="about-avatar-emoji" class="about-avatar-fallback">👨‍💻</div>
-        </div>
-        <div class="about-verified">✓ Designer</div>
-      </div>
-      <h2 class="about-name">Gavisiddappa HATTI</h2>
-      <div class="about-role">IT Administrator · App Designer · Developer</div>
-      <div class="about-location">📍 Koppal, Karnataka, India</div>
-    </div>
-
-    <div class="about-bio-card">
-      <h3 class="about-section-title">👋 About</h3>
-      <p class="about-bio">
-        I am an IT Administrator working in Active Directory and PowerShell automation.
-        I love building educational apps for children in my village and district.
-        <em>Koppal - Kids</em> was built with love for the children of Karnataka —
-        to make learning English fun, easy, and accessible even without internet.
-      </p>
-    </div>
-
-    <div class="about-skills-card">
-      <h3 class="about-section-title">🛠️ Skills</h3>
-      <div class="about-skills">
-        <span class="skill-tag">Active Directory</span>
-        <span class="skill-tag">PowerShell</span>
-        <span class="skill-tag">HTML &amp; CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">PWA</span>
-        <span class="skill-tag">Firebase</span>
-        <span class="skill-tag">App Design</span>
-        <span class="skill-tag">Education Tech</span>
-        <span class="skill-tag">Kannada</span>
-      </div>
-    </div>
-
-    <div class="about-app-card">
-      <h3 class="about-section-title">📱 About This App</h3>
-      <div class="about-app-stats">
-        <div class="app-stat"><div class="app-stat-num">7</div><div class="app-stat-lbl">Tabs</div></div>
-        <div class="app-stat"><div class="app-stat-num">80+</div><div class="app-stat-lbl">Categories</div></div>
-        <div class="app-stat"><div class="app-stat-num">600+</div><div class="app-stat-lbl">Cards</div></div>
-        <div class="app-stat"><div class="app-stat-num">100%</div><div class="app-stat-lbl">Free</div></div>
-      </div>
-      <p class="about-bio" style="margin-top:12px">
-        Built with ❤️ for village students of Karnataka.
-        Works completely offline after first install.
-        No ads. No cost. No internet needed.
-      </p>
-    </div>
-
-    <div class="about-contact-card">
-      <h3 class="about-section-title">📞 Feedback &amp; Contact</h3>
-      <a href="https://wa.me/919XXXXXXXXX?text=Hello%20Gavisiddappa%2C%20feedback%20on%20Koppal%20Kids%20app%3A"
-         class="about-whatsapp-btn" target="_blank">
-        <span>💬</span> Send WhatsApp Feedback
-      </a>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px;text-align:center">
-        Replace the phone number in index.html with your actual WhatsApp number.
-      </p>
-    </div>
-
-    <div class="about-credit">
-      Built with ❤️ using <strong>HTML · CSS · JavaScript · PWA</strong><br>
-      Assisted by <strong>Claude AI 🤖</strong> · Hosted on <strong>GitHub Pages</strong>
-    </div>
-  </section>
   <!-- ══ LEARN HUB (All learning tabs go here) ══ -->
   <!-- sec-learnhub already exists, keep as is -->
 
@@ -1193,12 +972,6 @@ body {
     <div class="stats-grid" id="rewards-stats-grid"></div>
     <div class="sec-head" style="margin-top:4px"><h2 style="font-size:1.1rem;color:var(--primary)">🎖️ Trophies</h2></div>
     <div class="trophies-grid" id="rewards-trophies-grid"></div>
-  </section>
-
-  <!-- ══ PROFILE ══ -->
-  <section id="sec-profile" class="section">
-    <div class="sec-head"><h2>👤 Profile</h2><p>Your learning identity</p></div>
-    <div id="profile-content"></div>
   </section>
 
   <!-- ══ ABOUT (Designer info + Student Profile) ══ -->
@@ -1270,9 +1043,6 @@ body {
 
 </main>
 
-
-
-
 <!-- REWARD POPUP -->
 <div class="reward-overlay" id="reward-overlay">
   <div class="reward-box">
@@ -1309,6 +1079,79 @@ body {
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     PWA INSTALL BANNER & SERVICE WORKER REGISTRATION
+═══════════════════════════════════════════════════ -->
+
+<!-- Install Banner (shown when browser fires beforeinstallprompt) -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;
+     background:linear-gradient(135deg,#6c3fc5,#9d59f5);color:#fff;
+     padding:14px 16px 18px;box-shadow:0 -4px 24px rgba(108,63,197,.5);
+     font-family:'Nunito',sans-serif;">
+  <div style="max-width:500px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <img src="icons/icon-72.png" style="width:48px;height:48px;border-radius:12px;flex-shrink:0"
+         onerror="this.style.display='none'">
+    <div style="flex:1;min-width:160px">
+      <div style="font-weight:800;font-size:.95rem">📲 Install Koppal Kids App!</div>
+      <div style="font-size:.75rem;opacity:.88;margin-top:2px">
+        Works offline · No internet needed · Free forever
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-shrink:0">
+      <button id="pwa-install-btn" onclick="installPWA()"
+        style="padding:10px 20px;border:none;border-radius:50px;
+               background:#fff;color:#6c3fc5;font-weight:800;font-size:.88rem;cursor:pointer">
+        📥 Install
+      </button>
+      <button onclick="document.getElementById('pwa-banner').style.display='none'"
+        style="padding:10px 14px;border:2px solid rgba(255,255,255,.4);border-radius:50px;
+               background:transparent;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer">
+        ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Update Ready Banner -->
+<div id="pwa-update-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:700;
+     background:#10b981;color:#fff;padding:12px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
+     box-shadow:0 2px 12px rgba(16,185,129,.4)">
+  ✅ New version ready!
+  <button onclick="applyUpdate()"
+    style="margin-left:12px;padding:6px 16px;border:none;border-radius:50px;
+           background:#fff;color:#10b981;font-weight:800;cursor:pointer;font-size:.82rem">
+    Update Now 🔄
+  </button>
+  <button onclick="document.getElementById('pwa-update-banner').style.display='none'"
+    style="margin-left:6px;padding:6px 12px;border:2px solid rgba(255,255,255,.5);border-radius:50px;
+           background:transparent;color:#fff;font-weight:700;cursor:pointer;font-size:.82rem">✕</button>
+</div>
+
+<!-- Offline Indicator -->
+<div id="offline-bar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:650;
+     background:#f59e0b;color:#fff;padding:8px 16px;text-align:center;
+     font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem">
+  📴 You are offline — App is working from saved data
+</div>
+
+<!-- ══ BOTTOM NAVIGATION BAR — 4 TABS ══ -->
+<nav id="bottom-nav" aria-label="Main Navigation">
+  <button class="bn-btn active" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
+    <span class="bn-icon">📚</span><span class="bn-label">Learn</span>
+  </button>
+  <button class="bn-btn" id="bn-games"   onclick="bnNav('games')"   aria-label="Games">
+    <span class="bn-icon">🎮</span><span class="bn-label">Games</span>
+  </button>
+  <button class="bn-btn" id="bn-rewards" onclick="bnNav('rewards')" aria-label="Rewards">
+    <span class="bn-icon">🏆</span><span class="bn-label">Rewards</span>
+  </button>
+  <button class="bn-btn" id="bn-about"   onclick="bnNav('about')"   aria-label="About">
+    <span class="bn-icon">👤</span><span class="bn-label">About</span>
+  </button>
+</nav>
+
 
 <script>
 /* ═══════════════════════════════════════════════════
@@ -1355,10 +1198,7 @@ let fcrScore=0, fcrStreak=0, fcrBest=parseInt(localStorage.getItem('kk_fcrbest')
 let fcrTimer=null, fcrAnswered=false;
 
 // connect dots
-let connectCtx=null, connectCurrentIdx=0, connectData=null, connectUserPath=[];
-
-// maths quiz
-let mqQ=0, mqScore=0, mqAnswered=false;
+let connectCurrentIdx=0, connectData=null;
 
 let currentPopupData=null, toastTimer;
 
@@ -2292,65 +2132,8 @@ const MATH_FB={categories:[{id:'numbers',icon:'🔢',label:{en:'Numbers',kn:'ಸ
    §N  START
 ═══════════════════════════════════════════════════ */
 boot();
-</script>
 
-<!-- ═══════════════════════════════════════════════════
-     PWA INSTALL BANNER & SERVICE WORKER REGISTRATION
-═══════════════════════════════════════════════════ -->
 
-<!-- Install Banner (shown when browser fires beforeinstallprompt) -->
-<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;
-     background:linear-gradient(135deg,#6c3fc5,#9d59f5);color:#fff;
-     padding:14px 16px 18px;box-shadow:0 -4px 24px rgba(108,63,197,.5);
-     font-family:'Nunito',sans-serif;">
-  <div style="max-width:500px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-    <img src="icons/icon-72.png" style="width:48px;height:48px;border-radius:12px;flex-shrink:0"
-         onerror="this.style.display='none'">
-    <div style="flex:1;min-width:160px">
-      <div style="font-weight:800;font-size:.95rem">📲 Install Koppal Kids App!</div>
-      <div style="font-size:.75rem;opacity:.88;margin-top:2px">
-        Works offline · No internet needed · Free forever
-      </div>
-    </div>
-    <div style="display:flex;gap:8px;flex-shrink:0">
-      <button id="pwa-install-btn" onclick="installPWA()"
-        style="padding:10px 20px;border:none;border-radius:50px;
-               background:#fff;color:#6c3fc5;font-weight:800;font-size:.88rem;cursor:pointer">
-        📥 Install
-      </button>
-      <button onclick="document.getElementById('pwa-banner').style.display='none'"
-        style="padding:10px 14px;border:2px solid rgba(255,255,255,.4);border-radius:50px;
-               background:transparent;color:#fff;font-weight:700;font-size:.88rem;cursor:pointer">
-        ✕
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Update Ready Banner -->
-<div id="pwa-update-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:700;
-     background:#10b981;color:#fff;padding:12px 16px;text-align:center;
-     font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;
-     box-shadow:0 2px 12px rgba(16,185,129,.4)">
-  ✅ New version ready!
-  <button onclick="applyUpdate()"
-    style="margin-left:12px;padding:6px 16px;border:none;border-radius:50px;
-           background:#fff;color:#10b981;font-weight:800;cursor:pointer;font-size:.82rem">
-    Update Now 🔄
-  </button>
-  <button onclick="document.getElementById('pwa-update-banner').style.display='none'"
-    style="margin-left:6px;padding:6px 12px;border:2px solid rgba(255,255,255,.5);border-radius:50px;
-           background:transparent;color:#fff;font-weight:700;cursor:pointer;font-size:.82rem">✕</button>
-</div>
-
-<!-- Offline Indicator -->
-<div id="offline-bar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:650;
-     background:#f59e0b;color:#fff;padding:8px 16px;text-align:center;
-     font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem">
-  📴 You are offline — App is working from saved data
-</div>
-
-<script>
 /* ─── SERVICE WORKER REGISTRATION ─── */
 let swReg = null;
 let deferredPrompt = null;
@@ -2435,10 +2218,7 @@ window.addEventListener('offline', updateOnlineStatus);
 updateOnlineStatus(); /* check immediately on load */
 
 /* Helper — toast may not be defined yet if called very early */
-function showKKToast(msg) {
-  const t = document.getElementById('toast');
-  if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
-}
+
 
 /* ─── SW AUTO-UPDATE: listen for new SW taking control ─── */
 if ('serviceWorker' in navigator) {
@@ -2471,27 +2251,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-</script>
-
-
-<!-- ══ BOTTOM NAVIGATION BAR — 4 TABS ══ -->
-<nav id="bottom-nav" aria-label="Main Navigation">
-  <button class="bn-btn active" id="bn-learn"   onclick="bnNav('learn')"   aria-label="Learn">
-    <span class="bn-icon">📚</span><span class="bn-label">Learn</span>
-  </button>
-  <button class="bn-btn" id="bn-games"   onclick="bnNav('games')"   aria-label="Games">
-    <span class="bn-icon">🎮</span><span class="bn-label">Games</span>
-  </button>
-  <button class="bn-btn" id="bn-rewards" onclick="bnNav('rewards')" aria-label="Rewards">
-    <span class="bn-icon">🏆</span><span class="bn-label">Rewards</span>
-  </button>
-  <button class="bn-btn" id="bn-about"   onclick="bnNav('about')"   aria-label="About">
-    <span class="bn-icon">👤</span><span class="bn-label">About</span>
-  </button>
-</nav>
-
-
-<script>
 /* ══════════════════════════════════════════════════════════════
    KOPPAL KIDS  v7.0 — ENHANCEMENT SCRIPT
    All new features injected here; existing functions unchanged.
@@ -2505,7 +2264,6 @@ switchTab = function(tab) {
   if (tab === 'home')      renderHome();
   if (tab === 'story')     renderStories();
   if (tab === 'rhymes')    renderRhymes();
-  if (tab === 'progress')  renderProgress();
   if (tab === 'challenge') renderChallenge();
 };
 
@@ -2514,12 +2272,6 @@ function saveKK(key, val) { try { localStorage.setItem('kk_' + key, JSON.stringi
 function loadKK(key, def) { try { const v = localStorage.getItem('kk_' + key); return v ? JSON.parse(v) : def; } catch(e){ return def; } }
 
 /* ─── PROGRESS TRACKING ─── */
-const SUBJECTS = ['alphabet','words','sentences','evs','grammar','maths'];
-function trackVisit(tab) {
-  const v = loadKK('visits', {});
-  v[tab] = (v[tab] || 0) + 1;
-  saveKK('visits', v);
-}
 // Wrap addStar to also track
 const _origAddStar = addStar;
 addStar = function(n) {
@@ -2531,19 +2283,6 @@ addStar = function(n) {
 
 /* ─── STREAK TRACKING ─── */
 function getTodayStr() { return new Date().toISOString().slice(0,10); }
-function updateStreak() {
-  const today  = getTodayStr();
-  const last   = loadKK('last_day', '');
-  let streak   = loadKK('streak', 0);
-  const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
-  const yStr = yesterday.toISOString().slice(0,10);
-  if (last === today) return streak;
-  if (last === yStr)  streak++;
-  else if (last !== today) streak = 1;
-  saveKK('streak', streak);
-  saveKK('last_day', today);
-  return streak;
-}
 
 /* ─── TROPHY DEFINITIONS ─── */
 const TROPHIES = [
@@ -2617,73 +2356,12 @@ function launchConfetti() {
   requestAnimationFrame(draw);
 }
 
-/* ─── HOME DASHBOARD ─── */
-const HOME_CARDS = [
-  { id:'alphabet',  icon:'🔤', title:'Alphabet',    sub:'28 fun activities',  cls:'hc-alpha',     badge:'' },
-  { id:'words',     icon:'📖', title:'Words',        sub:'120+ vocabulary',    cls:'hc-words',     badge:'' },
-  { id:'evs',       icon:'🌍', title:'EVS',          sub:'21 topics',          cls:'hc-evs',       badge:'' },
-  { id:'grammar',   icon:'📝', title:'Grammar',      sub:'10 lessons',         cls:'hc-gram',      badge:'' },
-  { id:'maths',     icon:'🔢', title:'Maths',        sub:'Numbers & shapes',   cls:'hc-math',      badge:'' },
-  { id:'quiz',      icon:'🎯', title:'Quiz',          sub:'Test your skills',   cls:'hc-quiz',      badge:'' },
-  { id:'story',     icon:'📚', title:'Stories',      sub:'10 bilingual stories',cls:'hc-story',     badge:'NEW' },
-  { id:'rhymes',    icon:'🎵', title:'Rhymes',       sub:'15 songs & rhymes',  cls:'hc-rhymes',    badge:'NEW' },
-  { id:'challenge', icon:'⚡', title:'Challenge',    sub:'Daily special task',  cls:'hc-challenge', badge:'NEW' },
-  { id:'progress',  icon:'🏆', title:'My Progress',  sub:'Trophies & badges',  cls:'hc-progress',  badge:'' },
-];
 
 function getGreeting() {
   const h = new Date().getHours();
   if (h < 12) return { text:'Good Morning!', sub:'Rise and shine — let\'s learn! ☀️', avatar:'🌅' };
   if (h < 17) return { text:'Good Afternoon!', sub:'Keep up the great work! 🌟', avatar:'☀️' };
   return { text:'Good Evening!', sub:'Great learning today! 🌙', avatar:'🌙' };
-}
-
-function renderHome() {
-  const g = getGreeting();
-  const el = id => document.getElementById(id);
-  if (el('ws-greeting')) el('ws-greeting').textContent = g.text;
-  if (el('ws-sub'))      el('ws-sub').textContent      = g.sub;
-  if (el('ws-avatar'))   el('ws-avatar').textContent   = g.avatar;
-
-  // Daily challenge status
-  const chalDone = loadKK('chall_today', '') === getTodayStr();
-  if (el('ds-status')) el('ds-status').textContent = chalDone ? '✅ Done!' : 'Start!';
-
-  // Progress bars
-  const progBar = el('home-prog-bars');
-  if (progBar) {
-    const stars = parseInt(localStorage.getItem('kk_stars')||0);
-    const cap = 200;
-    const items = [
-      { label:'⭐ Stars',   val: Math.min(stars, cap),    max: cap,    color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)' },
-      { label:'🔥 Streak',  val: loadKK('streak',0),       max: 7,      color:'linear-gradient(90deg,#f97316,#eab308)' },
-      { label:'🏆 Trophies',val: loadKK('trophies_earned',[]).length, max: TROPHIES.length, color:'linear-gradient(90deg,#f59e0b,#26de81)' },
-      { label:'📖 Stories', val: loadKK('stories_read',0), max: 6,      color:'linear-gradient(90deg,#8b5cf6,#ec4899)' },
-    ];
-    progBar.innerHTML = items.map(it => {
-      const pct = Math.round(it.val / it.max * 100);
-      return `<div class="prog-row">
-        <span class="prog-label">${it.label}</span>
-        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
-        <span class="prog-val">${it.val}</span>
-      </div>`;
-    }).join('');
-  }
-
-  // Cards grid
-  const grid = el('home-grid');
-  if (!grid) return;
-  grid.innerHTML = HOME_CARDS.map(c => `
-    <div class="home-card ${c.cls}" onclick="switchTab('${c.id}')">
-      ${c.badge ? `<div class="home-card-badge">${c.badge}</div>` : ''}
-      <div class="home-card-icon">${c.icon}</div>
-      <div class="home-card-title">${c.title}</div>
-      <div class="home-card-sub">${c.sub}</div>
-    </div>`).join('');
-}
-
-function updateHomeIfVisible() {
-  if (document.getElementById('sec-home')?.classList.contains('active')) renderHomeV8();
 }
 
 /* ─── STORIES ─── */
@@ -3067,45 +2745,6 @@ function closeRhyme() {
   renderRhymes();
 }
 
-/* ─── PROGRESS PAGE ─── */
-function renderProgress() {
-  const stars   = parseInt(localStorage.getItem('kk_stars') || 0);
-  const streak  = loadKK('streak', 0);
-  const earned  = loadKK('trophies_earned', []);
-  const days    = loadKK('chall_count', 0);
-  const stories = loadKK('stories_read', 0);
-
-  // Stats
-  const sg = document.getElementById('stats-grid');
-  if (sg) {
-    sg.innerHTML = [
-      { label:'⭐ Total Stars',    val: stars },
-      { label:'🔥 Day Streak',     val: streak },
-      { label:'🏅 Trophies Earned',val: earned.length + ' / ' + TROPHIES.length },
-      { label:'⚡ Challenges Done',val: days },
-      { label:'📖 Stories Read',   val: stories },
-      { label:'🎵 Rhymes Sung',    val: loadKK('rhymes_sung',0) },
-    ].map(s => `
-      <div class="stat-card">
-        <div class="stat-num">${s.val}</div>
-        <div class="stat-label">${s.label}</div>
-      </div>`).join('');
-  }
-
-  // Trophies
-  const tg = document.getElementById('trophies-grid');
-  if (tg) {
-    tg.innerHTML = TROPHIES.map(t => {
-      const ok = earned.includes(t.id);
-      return `<div class="trophy-card ${ok?'earned':'locked'}">
-        <div class="tc-icon">${t.icon}</div>
-        <div class="tc-name">${t.name}</div>
-        <div class="tc-req">${ok?'✅ Earned':t.req}</div>
-      </div>`;
-    }).join('');
-  }
-}
-
 /* ─── DAILY CHALLENGE ─── */
 const DAILY_CHALLENGES = [
   { icon:'🎯', title:'Quiz Champion',      desc:'Answer 5 Quiz questions correctly!',  action:'quiz',     target:5, key:'quiz_correct' },
@@ -3181,36 +2820,21 @@ function renderChallenge() {
     </div>`;
 }
 
-/* ─── BOOT ENHANCEMENTS ─── */
-const _origBoot = boot;
-boot = async function() {
-  await _origBoot();
-  updateStreak();
-  checkTrophies();
-  // Switch to Home as default tab
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-home')?.classList.add('active');
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  /* default tab set by restoreLastTab → goLearn */
-};
+;
 
 function showKKToast(msg) {
   const t = document.getElementById('toast');
   if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3000); }
 }
-</script>
 
-<script>
+
 /* ════════════════════════════════════════════════════════════
    KOPPAL KIDS v8.0 — Navigation Redesign + Back Button + State
 ════════════════════════════════════════════════════════════ */
 
 /* ── State ── */
-const LEARN_TABS = ['alphabet','words','sentences','evs','grammar','maths','story','rhymes','quiz'];
-let _currentMainTab   = 'home';   // home | progress | designedby | <learn tab>
+let _currentMainTab = 'learn';
 let _currentLearnTab  = 'alphabet';
-let _navHistory       = [];        // for back button
-let _historyPushed    = false;
 
 /* ════════════════════════════════════════════════════════════
    BOTTOM NAV — only 3 buttons: home | progress | designedby
@@ -3234,38 +2858,6 @@ function setActiveBnBtn(tab) {
 /* ════════════════════════════════════════════════════════════
    THREE MAIN VIEWS
 ════════════════════════════════════════════════════════════ */
-function goHome(fromBack) {
-  _currentMainTab = 'home';
-  saveKK('lastTab','home');
-  /* Restore any displaced learn sections back to main-content */
-  const mc = document.getElementById('main-content');
-  ['sec-alphabet','sec-words','sec-sentences','sec-evs','sec-grammar',
-   'sec-maths','sec-story','sec-rhymes','sec-quiz','sec-challenge'].forEach(id => {
-    const s = document.getElementById(id);
-    if (s && s.parentElement !== mc) mc.appendChild(s);
-  });
-  showSection('sec-home');
-  setActiveBnBtn('home');
-  renderHomeV8();
-  if (!fromBack) pushHistory({ tab:'home' });
-}
-
-function goProgress(fromBack) {
-  _currentMainTab = 'progress';
-  saveKK('lastTab','progress');
-  showSection('sec-progress');
-  setActiveBnBtn('progress');
-  renderProgressV8();
-  if (!fromBack) pushHistory({ tab:'progress' });
-}
-
-function goDesignedBy(fromBack) {
-  _currentMainTab = 'designedby';
-  saveKK('lastTab','designedby');
-  showSection('sec-designedby');
-  setActiveBnBtn('designedby');
-  if (!fromBack) pushHistory({ tab:'designedby' });
-}
 
 function goLearn(fromBack) {
   _currentMainTab = 'learn';
@@ -3301,8 +2893,6 @@ function goRewards(fromBack) {
   if (!fromBack) pushHistory({tab:'rewards'});
 }
 
-function goProfile(fromBack) { goAbout(fromBack); }
-
 function goAbout(fromBack) {
   _currentMainTab = 'about';
   saveKK('lastTab','about');
@@ -3323,11 +2913,6 @@ function goLearnTab(tab, fromBack) {
   if (!fromBack) pushHistory({ tab:'learnhub', learn: tab });
 }
 
-function goToChallenge() {
-  // Challenge lives inside learnhub
-  goLearnTab('challenge');
-}
-
 /* ════════════════════════════════════════════════════════════
    LEARNHUB — the content host with horizontal tab strip
 ════════════════════════════════════════════════════════════ */
@@ -3345,15 +2930,6 @@ function renderLearnHub(activeTab) {
 
   showSection('sec-learnhub');
   loadLearnContent(activeTab);
-}
-
-function switchLearnTab(tab) {
-  _currentLearnTab = tab;
-  saveKK('lastLearnTab', tab);
-  pushHistory({ tab:'learnhub', learn: tab });
-
-
-  loadLearnContent(tab);
 }
 
 function loadLearnContent(tab) {
@@ -3419,15 +2995,7 @@ function loadLearnContent(tab) {
 /* ════════════════════════════════════════════════════════════
    OVERRIDE switchTab (used by home cards + challenge button)
 ════════════════════════════════════════════════════════════ */
-// Override the existing switchTab completely
-const _v8OrigSwitch = typeof switchTab === 'function' ? switchTab : null;
-switchTab = function(tab) {
-  if (tab === 'home')        { goHome(); return; }
-  if (tab === 'progress')    { goProgress(); return; }
-  if (tab === 'designedby')  { goDesignedBy(); return; }
-  if (tab === 'challenge')   { goLearnTab('challenge'); return; }
-  goLearnTab(tab);
-};
+
 
 /* ════════════════════════════════════════════════════════════
    SHOW SECTION HELPER
@@ -3476,48 +3044,9 @@ function renderHomeV8() {
 }
 
 /* ════════════════════════════════════════════════════════════
-   REDESIGNED PROGRESS renderProgressV8
+   REDESIGNED PROGRESS renderRewardsPage
 ════════════════════════════════════════════════════════════ */
-function renderProgressV8() {
-  // Greeting
-  const g = typeof getGreeting === 'function' ? getGreeting() : { text:'Hello!', sub:'Keep going!' };
-  const gEl = document.getElementById('ptw-greeting');
-  const sEl = document.getElementById('ptw-sub');
-  const aEl = document.getElementById('ptw-avatar');
-  if (gEl) gEl.textContent = g.text;
-  if (sEl) sEl.textContent = g.sub;
 
-  // Daily challenge status
-  const chalDone = (typeof loadKK==='function') && loadKK('chall_today','') === (new Date().toISOString().slice(0,10));
-  const pdEl = document.getElementById('ptd-status');
-  if (pdEl) pdEl.textContent = chalDone ? '✅ Done!' : 'Start!';
-
-  // Progress bars
-  const stars  = parseInt(localStorage.getItem('kk_stars')||0);
-  const streak = (typeof loadKK==='function') ? loadKK('streak',0) : 0;
-  const earned = (typeof loadKK==='function') ? loadKK('trophies_earned',[]) : [];
-  const stories= (typeof loadKK==='function') ? loadKK('stories_read',0) : 0;
-  const barsEl = document.getElementById('prog-tab-bars');
-  if (barsEl) {
-    const items = [
-      {label:'⭐ Stars',    val:Math.min(stars,200), max:200, color:'linear-gradient(90deg,#6c3fc5,#ff6b9d)'},
-      {label:'🔥 Streak',  val:streak,   max:7,   color:'linear-gradient(90deg,#f97316,#eab308)'},
-      {label:'🏆 Trophies',val:earned.length, max:(typeof TROPHIES!=='undefined'?TROPHIES.length:15), color:'linear-gradient(90deg,#f59e0b,#26de81)'},
-      {label:'📖 Stories', val:stories,  max:10,  color:'linear-gradient(90deg,#8b5cf6,#ec4899)'},
-    ];
-    barsEl.innerHTML = items.map(it => {
-      const pct = Math.round(it.val/it.max*100);
-      return `<div class="prog-row">
-        <span class="prog-label">${it.label}</span>
-        <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%;background:${it.color}"></div></div>
-        <span class="prog-val">${it.val}</span>
-      </div>`;
-    }).join('');
-  }
-
-  // Call existing renderProgress for stats+trophies
-  if (typeof renderProgress === 'function') renderProgress();
-}
 
 /* ════════════════════════════════════════════════════════════
    HISTORY API — Android back button
@@ -3551,63 +3080,17 @@ function restoreLastTab() {
 /* ════════════════════════════════════════════════════════════
    OVERRIDE BOOT — call restoreLastTab after data loads
 ════════════════════════════════════════════════════════════ */
-const _v8OrigBoot = typeof boot === 'function' ? boot : null;
-boot = async function() {
-  if (_v8OrigBoot) await _v8OrigBoot();
-  // Hide all sections initially
-  document.querySelectorAll('.section').forEach(s => { s.style.display='none'; s.classList.remove('active'); });
-  restoreLastTab();
-};
+;
 
-/* Expose goToChallenge for progress tab button */
-window.goToChallenge = function() { goLearnTab('challenge'); };
 
 /* ════════════════════════════════════════════════════════════
    ABOUT PAGE — mirror hw-stars update
 ════════════════════════════════════════════════════════════ */
 // Sync hdr-badge stars to hw-stars on addStar
-const _v8OrigAddStar = typeof addStar === 'function' ? addStar : null;
-addStar = function(n) {
-  if (_v8OrigAddStar) _v8OrigAddStar(n);
-
-};
+;
 
 console.log('[v8] Navigation module loaded');
 
-/* ════════════════════════════════════════════════════════════
-   SWIPE NAVIGATION — left/right swipe on subcategory pills
-   Left swipe  → next subcategory
-   Right swipe → previous subcategory  
-════════════════════════════════════════════════════════════ */
-/* ── SWIPE on STRIP pills AND on content area ── */
-function addSwipeToStrip(stripEl) {
-  if (!stripEl || stripEl.dataset.swipeAttached) return;
-  stripEl.dataset.swipeAttached = '1';
-  let tx = 0, ty = 0, tt = 0;
-  stripEl.addEventListener('touchstart', e => {
-    tx = e.touches[0].clientX;
-    ty = e.touches[0].clientY;
-    tt = Date.now();
-  }, {passive:true});
-  stripEl.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - tx;
-    const dy = e.changedTouches[0].clientY - ty;
-    if (Math.abs(dx) < 55 || Math.abs(dy) > 55 || Date.now()-tt > 380) return;
-    const pills = Array.from(stripEl.querySelectorAll('.cat-pill'));
-    if (pills.length < 2) return;
-    const cur = pills.findIndex(p => p.classList.contains('active'));
-    if (cur < 0) return;
-    const next = dx < 0 ? Math.min(cur+1, pills.length-1) : Math.max(cur-1, 0);
-    if (next !== cur) {
-      pills[next].click();
-      pills[next].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-    }
-  }, {passive:true});
-}
-
-
-</script>
-<script>
 /* ══════════════════════════════════════════════════════════════
    KOPPAL KIDS v9.0 — Games Hub, Rewards, Profile/Student System
 ══════════════════════════════════════════════════════════════ */
@@ -3749,11 +3232,7 @@ function saveCurrentProgress() {
 }
 
 // Hook into addStar to auto-save progress
-const _v9OrigAddStar = typeof addStar === 'function' ? addStar : null;
-addStar = function(n) {
-  if (_v9OrigAddStar) _v9OrigAddStar(n);
-  saveCurrentProgress();
-};
+;
 
 /* ── PROFILE PAGE RENDER ── */
 function renderProfilePage() {
@@ -3959,19 +3438,7 @@ function closeConfirm() {
 }
 
 /* ── On boot, show profile prompt if no students registered ── */
-const _v9OrigBoot2 = typeof boot === 'function' ? boot : null;
-boot = async function() {
-  if (_v9OrigBoot2) await _v9OrigBoot2();
-  // Sync active student's stars to display
-  const active = getActiveStudent();
-  if (active) {
-    localStorage.setItem('kk_stars', active.stars||0);
-    saveKK('streak', active.streak||0);
-    saveKK('trophies_earned', active.trophies||[]);
-    const sc = document.getElementById('star-count');
-    if (sc) sc.textContent = active.stars||0;
-  }
-};
+;
 
 
 /* ── renderAboutPage: student profile slot at top of About ── */
