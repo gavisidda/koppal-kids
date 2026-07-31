@@ -39,7 +39,7 @@
 <style>
 /* ══ §1 ROOT ══ */
 :root{
-  --hdr-h:70px;
+  --hdr-h:54px;
   --primary:#6c3fc5;--pri2:#9d59f5;
   --accent:#f7b731;--pink:#ff6b9d;--green:#26de81;--sky:#45aaf2;
   --red:#ef4444;--orange:#f97316;--teal:#14b8a6;--indigo:#4f46e5;
@@ -79,9 +79,9 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 .tab-btn.tab-math.active{color:var(--math)}
 
 /* ══ §3 CONTENT ══ */
-#main-content{max-width:960px;margin:0 auto;padding:14px 12px 80px}
+#main-content{max-width:960px;margin:0 auto;padding:6px 12px 80px}
 .section{display:none}.section.active{display:block}
-.sec-head{text-align:center;margin-bottom:12px}
+.sec-head{text-align:center;margin-bottom:6px}
 .sec-head h2{font-family:'Baloo 2',cursive;font-size:1.4rem;color:var(--primary);font-weight:800}
 .sec-head h2.evs-col{color:var(--evs)}.sec-head h2.gram-col{color:var(--gram)}.sec-head h2.math-col{color:var(--math)}
 .sec-head p{font-size:.78rem;color:var(--muted);margin-top:2px}
@@ -421,25 +421,31 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
    ENHANCEMENTS v7.0
 ══════════════════════════════════════════════ */
 
-/* ── HOME DASHBOARD ── */
+/* ── HOME DASHBOARD — full-color cards, shared by Learn (#home-grid)
+   and Games (#games-grid), both of which use .home-grid/.home-card ── */
 .home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-.home-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .2s,box-shadow .2s;border:2.5px solid transparent;position:relative;overflow:hidden;text-align:center}
-.home-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
-.home-card:active,.home-card:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,.15)}
-.hc-alpha::before{background:linear-gradient(90deg,#6c3fc5,#45aaf2)}
-.hc-words::before{background:linear-gradient(90deg,#f97316,#eab308)}
-.hc-evs::before{background:linear-gradient(90deg,#10b981,#14b8a6)}
-.hc-gram::before{background:linear-gradient(90deg,#f59e0b,#ef4444)}
-.hc-math::before{background:linear-gradient(90deg,#3b82f6,#8b5cf6)}
-.hc-quiz::before{background:linear-gradient(90deg,#ec4899,#f97316)}
-.hc-story::before{background:linear-gradient(90deg,#8b5cf6,#ec4899)}
-.hc-rhymes::before{background:linear-gradient(90deg,#14b8a6,#3b82f6)}
-.hc-challenge::before{background:linear-gradient(90deg,#f7b731,#26de81)}
-.hc-progress::before{background:linear-gradient(90deg,#6c3fc5,#ff6b9d)}
-.home-card-icon{font-size:2.4rem;line-height:1}
-.home-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:var(--text)}
-.home-card-sub{font-size:.68rem;color:var(--muted);font-weight:600}
-.home-card-badge{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:50px}
+.home-card{border-radius:var(--radius);box-shadow:0 6px 16px rgba(0,0,0,.16);padding:16px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .2s,box-shadow .2s;border:none;position:relative;overflow:hidden;text-align:center}
+.home-card:active,.home-card:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.home-card-icon{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:1.5rem;background:rgba(255,255,255,.25);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.home-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.15)}
+.home-card-sub{font-size:.68rem;color:rgba(255,255,255,.92);font-weight:600}
+.home-card-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.28);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:50px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+
+/* 13 vivid gradients — used across both the Learn category cards
+   and the Games cards so every tile gets its own distinct color */
+.col-1{background:linear-gradient(135deg,#7c3aed,#a855f7)}
+.col-2{background:linear-gradient(135deg,#22c55e,#16a34a)}
+.col-3{background:linear-gradient(135deg,#10b981,#059669)}
+.col-4{background:linear-gradient(135deg,#06b6d4,#0e7490)}
+.col-5{background:linear-gradient(135deg,#ec4899,#db2777)}
+.col-6{background:linear-gradient(135deg,#6366f1,#4f46e5)}
+.col-7{background:linear-gradient(135deg,#f97316,#ea580c)}
+.col-8{background:linear-gradient(135deg,#a855f7,#9333ea)}
+.col-9{background:linear-gradient(135deg,#f43f5e,#e11d48)}
+.col-10{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.col-11{background:linear-gradient(135deg,#38bdf8,#0284c7)}
+.col-12{background:linear-gradient(135deg,#84cc16,#4d7c0f)}
+.col-13{background:linear-gradient(135deg,#64748b,#334155)}
 
 /* Welcome strip */
 .welcome-strip{background:linear-gradient(135deg,var(--primary),var(--pri2));border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
@@ -542,7 +548,6 @@ button{font-family:'Nunito',sans-serif;cursor:pointer;-webkit-tap-highlight-colo
 #confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:750;display:none}
 
 @media(max-width:400px){
-  .home-grid{grid-template-columns:1fr 1fr}
   .home-card-icon{font-size:2rem}
   .stats-grid{grid-template-columns:1fr 1fr}
 }
@@ -618,11 +623,40 @@ body {
 
 .home-section-title {
   font-family: 'Baloo 2', cursive;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--primary);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   padding-left: 2px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+}
+.marquee-track {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 1.3em;
+}
+.marquee-text {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(90deg,#6c3fc5,#ff6b9d,#45aaf2,#6c3fc5);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: marqueeRTL 9s linear infinite, shineText 4s linear infinite;
+}
+@keyframes marqueeRTL {
+  0%   { left: 100%; }
+  100% { left: -100%; }
+}
+@keyframes shineText {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 /* ══════════════════════════════════════════
@@ -1049,7 +1083,7 @@ body {
 
   <!-- ══ HOME DASHBOARD ══ -->
   <section id="sec-home" class="section active">
-    <div class="home-section-title">📚 Choose What to Learn</div>
+    <div class="home-section-title"><div class="marquee-track"><span class="marquee-text">📚 Choose What to Learn</span></div></div>
     <div class="home-grid" id="home-grid"></div>
   </section>
 
@@ -2290,8 +2324,15 @@ const MATH_FB={categories:[{id:'numbers',icon:'🔢',label:{en:'Numbers',kn:'ಸ
 
 /* ═══════════════════════════════════════════════════
    §N  START
+   NOTE: boot() is intentionally NOT called here. Later script
+   blocks below layer additional behaviour onto `boot`
+   (loading student data, restoring the last tab, rendering the
+   Learn grid, etc.) by reassigning the `boot` variable. Calling
+   boot() here would run only this earliest, incomplete version.
+   The real call happens once, at the very end of the file,
+   after every override has been applied.
 ═══════════════════════════════════════════════════ */
-boot();
+
 </script>
 
 <!-- ═══════════════════════════════════════════════════
@@ -3452,16 +3493,16 @@ function renderHomeV8() {
 
   // Render home grid
   const HOME_CARDS = [
-    {id:'alphabet',  icon:'🔤', title:'Alphabet',   sub:'28 activities',        cls:'hc-alpha',  badge:''},
-    {id:'words',     icon:'📖', title:'Words',       sub:'120+ vocabulary',      cls:'hc-words',  badge:''},
-    {id:'sentences', icon:'💬', title:'Sentences',   sub:'32 sentences',         cls:'hc-words',  badge:''},
-    {id:'evs',       icon:'🌍', title:'EVS',         sub:'21 topics',            cls:'hc-evs',    badge:''},
-    {id:'grammar',   icon:'📝', title:'Grammar',     sub:'10 lessons',           cls:'hc-gram',   badge:''},
-    {id:'maths',     icon:'🔢', title:'Maths',       sub:'Numbers & shapes',     cls:'hc-math',   badge:''},
-    {id:'story',     icon:'📚', title:'Stories',     sub:'10 bilingual stories', cls:'hc-story',  badge:'NEW'},
-    {id:'rhymes',    icon:'🎵', title:'Rhymes',      sub:'15 songs',             cls:'hc-rhymes', badge:'NEW'},
-    {id:'quiz',      icon:'🎯', title:'Quiz',        sub:'Test yourself',        cls:'hc-quiz',   badge:''},
-    {id:'challenge', icon:'⚡', title:'Challenge',   sub:'Daily task',           cls:'hc-challenge',badge:''},
+    {id:'alphabet',  icon:'🔤', title:'Alphabet',   sub:'28 activities',        cls:'col-1',  badge:''},
+    {id:'words',     icon:'📖', title:'Words',       sub:'120+ words',           cls:'col-2',  badge:''},
+    {id:'sentences', icon:'💬', title:'Sentences',   sub:'32 sentences',         cls:'col-3',  badge:''},
+    {id:'evs',       icon:'🌍', title:'EVS',         sub:'21 topics',            cls:'col-4',  badge:''},
+    {id:'grammar',   icon:'📝', title:'Grammar',     sub:'10 lessons',           cls:'col-5',  badge:''},
+    {id:'maths',     icon:'🔢', title:'Maths',       sub:'Numbers & shapes',     cls:'col-6',  badge:''},
+    {id:'story',     icon:'📚', title:'Stories',     sub:'10 stories',           cls:'col-8',  badge:'NEW'},
+    {id:'rhymes',    icon:'🎵', title:'Rhymes',      sub:'15 songs',             cls:'col-9',  badge:'NEW'},
+    {id:'quiz',      icon:'🎯', title:'Quiz',        sub:'Test yourself',        cls:'col-7',  badge:''},
+    {id:'challenge', icon:'⚡', title:'Challenge',   sub:'Daily task',           cls:'col-10', badge:''},
   ];
   const grid = document.getElementById('home-grid');
   if (grid) {
@@ -3614,26 +3655,26 @@ function addSwipeToStrip(stripEl) {
 
 /* ── GAMES HUB ── */
 const GAME_CARDS = [
-  {id:'balloon',   icon:'🎈', title:'Balloon Blast',   sub:'Pop the right letter!',     learn:'alphabet'},
-  {id:'moving',    icon:'🌀', title:'Catch the Letter',sub:'Tap the moving letter!',     learn:'alphabet'},
-  {id:'puzzle',    icon:'🧩', title:'Word Puzzle',      sub:'Unscramble the word!',       learn:'alphabet'},
-  {id:'flipcard',  icon:'🃏', title:'Flip Cards',       sub:'Match letter to picture!',   learn:'alphabet'},
-  {id:'speedtap',  icon:'⚡', title:'Speed Tap',        sub:'Tap fast before time runs!', learn:'alphabet'},
-  {id:'bingo',     icon:'🎱', title:'Letter Bingo',     sub:'Get 5 in a row!',            learn:'alphabet'},
-  {id:'spinwheel', icon:'🎡', title:'Spin & Learn',     sub:'Spin the wheel!',            learn:'alphabet'},
-  {id:'quiz',      icon:'🎯', title:'Word Quiz',         sub:'Test your knowledge!',       learn:'quiz'},
-  {id:'match',     icon:'🎯', title:'Match Letters',    sub:'Capital ↔ Small',            learn:'alphabet'},
-  {id:'missing',   icon:'❓', title:'Missing Letters',  sub:'Fill the blank!',            learn:'alphabet'},
-  {id:'order',     icon:'📋', title:'Alphabet Order',   sub:'A to Z in sequence!',        learn:'alphabet'},
-  {id:'connect-caps',icon:'🔵',title:'Connect Dots A–Z','sub':'Draw A to Z!',             learn:'alphabet'},
-  {id:'flashcard-race',icon:'🏁',title:'Flashcard Race','sub':'Fastest learner wins!',    learn:'alphabet'},
+  {id:'balloon',   icon:'🎈', title:'Balloon Blast',   sub:'Pop the right letter!',     learn:'alphabet', col:'col-1'},
+  {id:'moving',    icon:'🌀', title:'Catch the Letter',sub:'Tap the moving letter!',     learn:'alphabet', col:'col-2'},
+  {id:'puzzle',    icon:'🧩', title:'Word Puzzle',      sub:'Unscramble the word!',       learn:'alphabet', col:'col-3'},
+  {id:'flipcard',  icon:'🃏', title:'Flip Cards',       sub:'Match letter to picture!',   learn:'alphabet', col:'col-4'},
+  {id:'speedtap',  icon:'⚡', title:'Speed Tap',        sub:'Tap fast before time runs!', learn:'alphabet', col:'col-5'},
+  {id:'bingo',     icon:'🎱', title:'Letter Bingo',     sub:'Get 5 in a row!',            learn:'alphabet', col:'col-6'},
+  {id:'spinwheel', icon:'🎡', title:'Spin & Learn',     sub:'Spin the wheel!',            learn:'alphabet', col:'col-7'},
+  {id:'quiz',      icon:'🎯', title:'Word Quiz',         sub:'Test your knowledge!',       learn:'quiz',      col:'col-8'},
+  {id:'match',     icon:'🎯', title:'Match Letters',    sub:'Capital ↔ Small',            learn:'alphabet', col:'col-9'},
+  {id:'missing',   icon:'❓', title:'Missing Letters',  sub:'Fill the blank!',            learn:'alphabet', col:'col-10'},
+  {id:'order',     icon:'📋', title:'Alphabet Order',   sub:'A to Z in sequence!',        learn:'alphabet', col:'col-11'},
+  {id:'connect-caps',icon:'🔵',title:'Connect Dots A–Z','sub':'Draw A to Z!',             learn:'alphabet', col:'col-12'},
+  {id:'flashcard-race',icon:'🏁',title:'Flashcard Race','sub':'Fastest learner wins!',    learn:'alphabet', col:'col-13'},
 ];
 
 function renderGamesHub() {
   const grid = document.getElementById('games-grid');
   if (!grid) return;
   grid.innerHTML = GAME_CARDS.map(g => `
-    <div class="home-card hc-quiz" onclick="openGame('${g.learn}','${g.id}')">
+    <div class="home-card ${g.col}" onclick="openGame('${g.learn}','${g.id}')">
       <div class="home-card-icon">${g.icon}</div>
       <div class="home-card-title">${g.title}</div>
       <div class="home-card-sub">${g.sub}</div>
@@ -4027,7 +4068,25 @@ function renderAboutPage() {
   }
 }
 
+/* ── Keep --hdr-h in sync with the header's real height ──
+   The header's height can vary slightly by device/font size, so a
+   hardcoded guess either overlaps content or leaves a dead gap.
+   This measures it precisely instead. ── */
+function syncHeaderHeight() {
+  const hdr = document.getElementById('app-header');
+  if (hdr) document.documentElement.style.setProperty('--hdr-h', hdr.offsetHeight + 'px');
+}
+window.addEventListener('resize', syncHeaderHeight);
+
 console.log('[v9] Profile & Games system loaded');
+
+/* ── Actual app start — runs the fully-composed boot chain
+   (original boot + v7/v8/v9 overrides), so the Learn grid,
+   last-tab restore, and student sync all happen on first load. ── */
+syncHeaderHeight();
+boot();
+syncHeaderHeight();
+
 </script>
 </body>
 </html>
